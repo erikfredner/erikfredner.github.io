@@ -1,1 +1,1 @@
-# setting up static personal site
+# static site
