@@ -67,6 +67,14 @@ Santa Barbara, CA
 <br>
 May 27, 2016
 <br><br>
+Standing Underneath: Melville, Confidence, Testimony
+<br>
+Berkeley-Stanford Conference
+<br>
+Berkeley, CA
+<br>
+April 15, 2016
+<br><br>
 Fallible and Unreliable Narration in The Sound and The Fury
 <br>
 Lecture in _Narrative & Narrative Theory_
