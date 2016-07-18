@@ -23,7 +23,7 @@ Undergraduate Teacher Education Program
 # Oxford University
 Visiting Student, English
 <br>
-2010-2011
+2010—2011
 <br><br>
 
 # Harvard University
@@ -108,27 +108,3 @@ Lecture in _Literary History III_
 Stanford, CA
 <br>
 May 7, 2015
-<br><br>
-“From the High Scaffold”
-<br>
-Glass, Garden (UVA)
-<br>
-Charlottesville, VA
-<br>
-March, 2012
-<br><br>
-“Another Castle: The Stolen Princess Narrative in Medieval Literature and Videogames”
-<br>
-Literature & Linguistics Colloquium, Gordon College
-<br>
-Wenham, MA
-<br>
-March, 2012
-<br><br>
-“Another Castle: The Stolen Princess Narrative in Medieval Literature and Videogames”
-<br>
-Sententiae
-<br>
-Cambridge, MA
-<br>
-March, 2012
