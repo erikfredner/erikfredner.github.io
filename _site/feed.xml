@@ -5,8 +5,8 @@
     <description></description>
     <link>http://erikfredner.com/</link>
     <atom:link href="http://erikfredner.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Jul 2016 09:09:25 -0700</pubDate>
-    <lastBuildDate>Wed, 20 Jul 2016 09:09:25 -0700</lastBuildDate>
+    <pubDate>Wed, 20 Jul 2016 09:30:11 -0700</pubDate>
+    <lastBuildDate>Wed, 20 Jul 2016 09:30:11 -0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -76,43 +76,53 @@ td
 	font-weight:700;
 	font-family:&quot;Helvetica Neue&quot;;
 	mso-generic-font-family:auto;
-	mso-font-charset:0;}
+	mso-font-charset:0;
+	text-align:left;}
 .xl66
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-family:&quot;Helvetica Neue&quot;;
 	mso-generic-font-family:auto;
-	mso-font-charset:0;}
+	mso-font-charset:0;
+	text-align:left;}
 .xl67
 	{mso-style-parent:style0;
 	color:black;
 	font-family:&quot;Helvetica Neue&quot;;
 	mso-generic-font-family:auto;
-	mso-font-charset:0;}
+	mso-font-charset:0;
+	text-align:left;}
 .xl68
+	{mso-style-parent:style0;
+	text-align:left;}
+.xl69
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-weight:700;
 	font-family:&quot;Helvetica Neue&quot;;
 	mso-generic-font-family:auto;
 	mso-font-charset:0;
+	text-align:left;
 	white-space:normal;}
-.xl69
+.xl70
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-family:&quot;Helvetica Neue&quot;;
 	mso-generic-font-family:auto;
 	mso-font-charset:0;
+	text-align:left;
 	white-space:normal;}
-.xl70
+.xl71
 	{mso-style-parent:style0;
 	color:black;
 	font-family:&quot;Helvetica Neue&quot;;
 	mso-generic-font-family:auto;
 	mso-font-charset:0;
+	text-align:left;
 	white-space:normal;}
-.xl71
+.xl72
 	{mso-style-parent:style0;
+	text-align:left;
 	white-space:normal;}
 --&gt;
 &lt;/style&gt;
@@ -122,537 +132,785 @@ td
 
 &lt;body link=&quot;#0563C1&quot; vlink=&quot;#954F72&quot;&gt;
 
-&lt;table border=0 cellpadding=0 cellspacing=0 width=946 style=&#39;border-collapse:
- collapse;table-layout:fixed;width:709pt&#39;&gt;
- &lt;col width=107 style=&#39;mso-width-source:userset;mso-width-alt:2925;width:80pt&#39;&gt;
- &lt;col class=xl71 width=615 style=&#39;mso-width-source:userset;mso-width-alt:16859;
- width:461pt&#39;&gt;
- &lt;col width=177 style=&#39;mso-width-source:userset;mso-width-alt:4864;width:133pt&#39;&gt;
- &lt;col width=47 style=&#39;mso-width-source:userset;mso-width-alt:1280;width:35pt&#39;&gt;
+&lt;table border=0 cellpadding=0 cellspacing=0 width=708 style=&#39;border-collapse:
+ collapse;table-layout:fixed;width:531pt&#39;&gt;
+ &lt;col class=xl72 width=467 style=&#39;mso-width-source:userset;mso-width-alt:12800;
+ width:350pt&#39;&gt;
+ &lt;col class=xl68 width=177 style=&#39;mso-width-source:userset;mso-width-alt:4864;
+ width:133pt&#39;&gt;
+ &lt;col class=xl68 width=64 style=&#39;mso-width-source:userset;mso-width-alt:1755;
+ width:48pt&#39;&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl65 width=107 style=&#39;height:16.0pt;width:80pt&#39;&gt;Genre /
-  Type&lt;/td&gt;
-  &lt;td class=xl68 width=615 style=&#39;width:461pt&#39;&gt;Title&lt;/td&gt;
-  &lt;td class=xl65 width=177 style=&#39;width:133pt&#39;&gt;Author&lt;/td&gt;
-  &lt;td class=xl65 width=47 style=&#39;width:35pt&#39;&gt;Year&lt;/td&gt;
+  &lt;td height=21 class=xl69 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:700;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  border-top:.5pt solid black;border-right:none;border-bottom:.5pt solid black;
+  border-left:none&#39;&gt;Title&lt;/td&gt;
+  &lt;td class=xl65 width=177 style=&#39;width:133pt;font-size:12.0pt;color:windowtext;
+  font-weight:700;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:&quot;Helvetica Neue&quot;;border-top:.5pt solid black;border-right:
+  none;border-bottom:.5pt solid black;border-left:none&#39;&gt;Author&lt;/td&gt;
+  &lt;td class=xl65 width=64 style=&#39;width:48pt;font-size:12.0pt;color:windowtext;
+  font-weight:700;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:&quot;Helvetica Neue&quot;;border-top:.5pt solid black;border-right:
+  none;border-bottom:.5pt solid black;border-left:none&#39;&gt;Year&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Biography&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;The Autobiography of Benjamin
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;The Autobiography of Benjamin
   Franklin&lt;/td&gt;
-  &lt;td class=xl66&gt;Benjamin Franklin&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1791&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Benjamin
+  Franklin&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1791&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;The Narrative of Arthur Gordon
-  Pym of Nantucket&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;The
+  Narrative of Arthur Gordon Pym of Nantucket&lt;/td&gt;
   &lt;td class=xl66&gt;Edgar Allan Poe&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1838&lt;/td&gt;
+  &lt;td class=xl66&gt;1838&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V1 Introduction&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V1 Introduction&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;V1
+  Social Condition of the Anglo-Americans&lt;/td&gt;
   &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V1 Social Condition of the
-  Anglo-Americans&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V1 How It Can Be Strictly Said
+ &lt;tr height=43 style=&#39;height:32.0pt&#39;&gt;
+  &lt;td height=43 class=xl70 width=467 style=&#39;height:32.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V1 How It Can Be Strictly Said
   that the People Govern in the United States&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=43 style=&#39;height:32.0pt&#39;&gt;
-  &lt;td height=43 class=xl66 style=&#39;height:32.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V1 What are the real advantages
-  which American society derives from a democratic government&lt;/td&gt;
+  &lt;td height=43 class=xl70 width=467 style=&#39;height:32.0pt;width:350pt&#39;&gt;V1 What
+  are the real advantages which American society derives from a democratic
+  government&lt;/td&gt;
   &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V1 Tyranny of the majority&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V1 Tyranny of the majority&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V1 Causes which mitigate the
-  tyranny of the majority&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;V1
+  Causes which mitigate the tyranny of the majority&lt;/td&gt;
   &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=43 style=&#39;height:32.0pt&#39;&gt;
-  &lt;td height=43 class=xl66 style=&#39;height:32.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V1 The present and probable
+  &lt;td height=43 class=xl70 width=467 style=&#39;height:32.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V1 The present and probable
   future condition of the three races that inhabit the territory of the United
   States&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 Philosophical method of the
-  Americans&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;V2
+  Philosophical method of the Americans&lt;/td&gt;
   &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
- &lt;tr height=43 style=&#39;height:32.0pt&#39;&gt;
-  &lt;td height=43 class=xl66 style=&#39;height:32.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 The example of the Americans
+ &lt;tr height=64 style=&#39;height:48.0pt&#39;&gt;
+  &lt;td height=64 class=xl70 width=467 style=&#39;height:48.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V2 The example of the Americans
   does not prove that a democratic people can have no aptitude and no taste for
   science, literature, or art&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 Why the Americans are more
-  addicted to practical than theoretical science&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 Literary characteristics of
-  democratic times&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 The trade of literature&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 How American democracy has
-  modified the English language&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 Of some sources of poetry
-  among democratic nations&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 Influence of democracy on the
-  feelings of Americans&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 How democracy affects the
-  relations among masters and servants&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 Education of young women in
-  the United States&lt;/td&gt;
-  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=43 style=&#39;height:32.0pt&#39;&gt;
-  &lt;td height=43 class=xl66 style=&#39;height:32.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;V2 General survey of the subject
-  of the influence of democratic ideas and feelings on political society&lt;/td&gt;
+  &lt;td height=43 class=xl70 width=467 style=&#39;height:32.0pt;width:350pt&#39;&gt;V2 Why
+  the Americans are more addicted to practical than theoretical science&lt;/td&gt;
   &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1840&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Short Story&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Murders in the Rue Morgue&lt;/td&gt;
-  &lt;td class=xl66&gt;Edgar Allan Poe&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1841&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V2 Literary characteristics of
+  democratic times&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Self-Reliance&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;V2 The
+  trade of literature&lt;/td&gt;
+  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=43 style=&#39;height:32.0pt&#39;&gt;
+  &lt;td height=43 class=xl70 width=467 style=&#39;height:32.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V2 How American democracy has
+  modified the English language&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;V2 Of
+  some sources of poetry among democratic nations&lt;/td&gt;
+  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V2 Influence of democracy on the
+  feelings of Americans&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=43 style=&#39;height:32.0pt&#39;&gt;
+  &lt;td height=43 class=xl70 width=467 style=&#39;height:32.0pt;width:350pt&#39;&gt;V2 How
+  democracy affects the relations among masters and servants&lt;/td&gt;
+  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;V2 Education of young women in
+  the United States&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Alexis
+  de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1840&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=43 style=&#39;height:32.0pt&#39;&gt;
+  &lt;td height=43 class=xl70 width=467 style=&#39;height:32.0pt;width:350pt&#39;&gt;V2
+  General survey of the subject of the influence of democratic ideas and
+  feelings on political society&lt;/td&gt;
+  &lt;td class=xl66&gt;Alexis de Tocqueville&lt;/td&gt;
+  &lt;td class=xl67&gt;1840&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Murders in the Rue Morgue&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Edgar
+  Allan Poe&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1841&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Self-Reliance&lt;/td&gt;
   &lt;td class=xl66&gt;Ralph Waldo Emerson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1841&lt;/td&gt;
+  &lt;td class=xl67&gt;1841&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Experience&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Experience&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Ralph
+  Waldo Emerson&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1844&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Nominalist
+  and Realist&lt;/td&gt;
   &lt;td class=xl66&gt;Ralph Waldo Emerson&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1844&lt;/td&gt;
+  &lt;td class=xl66&gt;1844&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Nominalist and Realist&lt;/td&gt;
-  &lt;td class=xl66&gt;Ralph Waldo Emerson&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1844&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Woman in the Nineteenth Century
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Woman in the Nineteenth Century
   (Norton selections)&lt;/td&gt;
-  &lt;td class=xl66&gt;Margaret Fuller&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1845&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Margaret
+  Fuller&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1845&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Short Story&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Man of the Crowd&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Man of
+  the Crowd&lt;/td&gt;
   &lt;td class=xl66&gt;Edgar Allan Poe&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1850&lt;/td&gt;
+  &lt;td class=xl66&gt;1850&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;The Uses of Great Men (from
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;The Uses of Great Men (from
   &amp;quot;Representative Men&amp;quot;)&lt;/td&gt;
-  &lt;td class=xl66&gt;Ralph Waldo Emerson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1850&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Ralph
+  Waldo Emerson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1850&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Biography&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Narrative of Sojourner Truth: A
-  Northern Slave&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Narrative
+  of Sojourner Truth: A Northern Slave&lt;/td&gt;
   &lt;td class=xl66&gt;Sojourner Truth&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1850&lt;/td&gt;
+  &lt;td class=xl66&gt;1850&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;The House of the Seven Gables&lt;/td&gt;
-  &lt;td class=xl66&gt;Nathaniel Hawthorne&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1851&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;The House of the Seven Gables&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Nathaniel
+  Hawthorne&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1851&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Uncle Tom&#39;s Cabin&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Uncle
+  Tom&#39;s Cabin&lt;/td&gt;
   &lt;td class=xl66&gt;Harriet Beecher Stowe&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1852&lt;/td&gt;
+  &lt;td class=xl67&gt;1852&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;The Blithedale Romance&lt;/td&gt;
-  &lt;td class=xl66&gt;Nathaniel Hawthorne&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1852&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;The Blithedale Romance&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Nathaniel
+  Hawthorne&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1852&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Short Story&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Bartleby, The Scrivener: A Story
-  of Wall-Street&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Bartleby,
+  The Scrivener: A Story of Wall-Street&lt;/td&gt;
   &lt;td class=xl66&gt;Herman Melville&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1853&lt;/td&gt;
+  &lt;td class=xl66&gt;1853&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;Clotel: Or, the President&#39;s
-  Daughter&lt;/td&gt;
-  &lt;td class=xl67&gt;William Wells Brown&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1853&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;Clotel: Or, the President&#39;s Daughter&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;William
+  Wells Brown&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1853&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;Speech on Kansas-Nebraska Act&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Speech
+  on Kansas-Nebraska Act&lt;/td&gt;
   &lt;td class=xl67&gt;Abraham Lincoln&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1854&lt;/td&gt;
+  &lt;td class=xl67&gt;1854&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Ruth Hall&lt;/td&gt;
-  &lt;td class=xl66&gt;Fanny Fern&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1854&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Ruth Hall&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Fanny
+  Fern&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1854&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Walden&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Walden&lt;/td&gt;
   &lt;td class=xl66&gt;Henry David Thoreau&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1854&lt;/td&gt;
+  &lt;td class=xl66&gt;1854&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Biography&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;My Bondage and My Freedom&lt;/td&gt;
-  &lt;td class=xl66&gt;Frederick Douglass&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1855&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;My Bondage and My Freedom&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Frederick
+  Douglass&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1855&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;&amp;quot;House Divided&amp;quot; Speech&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;&amp;quot;House
+  Divided&amp;quot; Speech&lt;/td&gt;
   &lt;td class=xl67&gt;Abraham Lincoln&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1858&lt;/td&gt;
+  &lt;td class=xl67&gt;1858&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;First Douglas Debate&lt;/td&gt;
-  &lt;td class=xl67&gt;Abraham Lincoln&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1858&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;First Douglas Debate&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Abraham
+  Lincoln&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1858&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;On Liberty&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;On
+  Liberty&lt;/td&gt;
   &lt;td class=xl67&gt;J.S. Mill&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1859&lt;/td&gt;
+  &lt;td class=xl67&gt;1859&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;202 (185) (&quot; &#39;Faith&#39; is a fine
-  invention&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;202 (185) (Ò ÔFaithÕ is a fine inventionÓ)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1861&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;225
+  (199) (&amp;quot;IÕm &#39;wife&#39; - IÕve finished that - &amp;quot;)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1861&lt;/td&gt;
+  &lt;td class=xl67&gt;1861&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;225 (199) (&amp;quot;I&#39;m &#39;wife&#39; -
-  I&#39;ve finished that - &amp;quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;259 (287) (ÒA Clock stopped -Ó)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1861&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;260
+  (288) (ÒIÕm Nobody! Who are you?Ó)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1861&lt;/td&gt;
+  &lt;td class=xl67&gt;1861&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;259 (287) (&quot;A Clock stopped -&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1861&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;269 (249) (ÒWild nights - Wild nights!Ó)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1861&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;260 (288) (&quot;I&#39;m Nobody! Who are
-  you?&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1861&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;269 (249) (&quot;Wild nights - Wild
-  nights!&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1861&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Biography&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Incidents in the Life of a Slave
-  Girl&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Incidents
+  in the Life of a Slave Girl&lt;/td&gt;
   &lt;td class=xl66&gt;Harriet Jacobs&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1861&lt;/td&gt;
+  &lt;td class=xl66&gt;1861&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Walking&lt;/td&gt;
-  &lt;td class=xl66&gt;Henry David Thoreau&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1861&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Walking&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Henry
+  David Thoreau&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1861&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Short Story&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Life in the Iron Mills&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Life in
+  the Iron Mills&lt;/td&gt;
   &lt;td class=xl66&gt;Rebecca Harding Davis&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1861&lt;/td&gt;
+  &lt;td class=xl67&gt;1861&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;The Morgesons&lt;/td&gt;
-  &lt;td class=xl66&gt;Elizabeth Stoddard&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1862&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;The Morgesons&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Elizabeth
+  Stoddard&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1862&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;314 (254) (&quot; &#39;Hope&#39; is the thing
-  with feathers -&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;314
+  (254) (Ò ÔHopeÕ is the thing with feathers -Ó)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td class=xl67&gt;1862&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;320 (258) (&quot;There&#39;s a certain
-  Slant of light&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;320 (258) (ÒThereÕs a certain Slant of lightÓ)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1862&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;340
+  (280) (ÒI felt a Funeral, in my BrainÓ)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td class=xl67&gt;1862&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;340 (280) (&quot;I felt a Funeral, in
-  my Brain&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;372 (341) (&amp;quot;After great pain, a formal feeling
+  comes - &amp;quot;)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1862&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;383
+  (585) (ÒI like to see it lap the Miles -Ó)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td class=xl67&gt;1862&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;372 (341) (&amp;quot;After great
-  pain, a formal feeling comes - &amp;quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;409 (303) (ÒThe Soul selects her own Society -Ó)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1862&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;411
+  (528) (ÒMine - by the Right of the White Election!Ó)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td class=xl67&gt;1862&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;383 (585) (&quot;I like to see it lap
-  the Miles -&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;445 (613) (ÒThey shut me up in Prose -Ó)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1862&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;446
+  (448) (&amp;quot;This was a Poet - It is That&amp;quot;)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td class=xl67&gt;1862&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;409 (303) (&quot;The Soul selects her
-  own Society -&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;466 (657) (&amp;quot;I dwell in Possibility - &amp;quot;)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1862&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;479
+  (712) (ÒBecause I could not stop for Death -Ó)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td class=xl67&gt;1862&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;411 (528) (&quot;Mine - by the Right
-  of the White Election!&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;533 (569) (ÒI reckon - When I count at all -Ó)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1863&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;591
+  (465) (ÒI heard a Fly buzz - when I died -Ó)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td class=xl67&gt;1863&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;445 (613) (&quot;They shut me up in
-  Prose -&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;620 (435) (ÒMuch Madness is divinest Sense -Ó)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1863&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;764
+  (754) (ÒMy Life had stood - a Loaded Gun -Ó)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td class=xl67&gt;1863&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;446 (448) (&amp;quot;This was a Poet
-  - It is That&amp;quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;1096 (986) (ÒA narrow Fellow in the GrassÓ)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1865&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;466 (657) (&amp;quot;I dwell in
-  Possibility - &amp;quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;479 (712) (&quot;Because I could not
-  stop for Death -&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1862&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;533 (569) (&quot;I reckon - When I
-  count at all -&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1863&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;591 (465) (&quot;I heard a Fly buzz -
-  when I died -&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1863&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;620 (435) (&quot;Much Madness is
-  divinest Sense -&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1863&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;764 (754) (&quot;My Life had stood -
-  a Loaded Gun -&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1863&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;1096 (986) (&quot;A narrow Fellow in
-  the Grass&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1865&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;Miss Ravenel&#39;s Conversion from
-  Secession to Loyalty&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Miss
+  Ravenel&#39;s Conversion from Secession to Loyalty&lt;/td&gt;
   &lt;td class=xl67&gt;John W. de Forest&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1867&lt;/td&gt;
+  &lt;td class=xl67&gt;1867&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Little Women&lt;/td&gt;
-  &lt;td class=xl66&gt;Louisa May Alcott&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1868&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Little Women&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Louisa
+  May Alcott&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1868&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Essay&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;The Subjection of Women&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;The
+  Subjection of Women&lt;/td&gt;
   &lt;td class=xl67&gt;J.S. Mill&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1869&lt;/td&gt;
+  &lt;td class=xl67&gt;1869&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;1263 (1129) (&quot;Tell all the Truth
-  but tell it slant -&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1872&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;1263 (1129) (ÒTell all the Truth but tell it slant
+  -Ó)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1872&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Short Story&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;An Autumn Holiday&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;An
+  Autumn Holiday&lt;/td&gt;
   &lt;td class=xl66&gt;Sarah Orne Jewett&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1880&lt;/td&gt;
+  &lt;td class=xl66&gt;1880&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Introduction to A Century of
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Introduction to A Century of
   Dishonor&lt;/td&gt;
-  &lt;td class=xl66&gt;Helen Hunt Jackson&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1881&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Helen
+  Hunt Jackson&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1881&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;1577 (1545) (&quot;The Bible is an
-  antique Volume -&quot;)&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;1577
+  (1545) (ÒThe Bible is an antique Volume -Ó)&lt;/td&gt;
   &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1882&lt;/td&gt;
+  &lt;td class=xl67&gt;1882&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;The Adventures of Huckleberry
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;The Adventures of Huckleberry
   Finn&lt;/td&gt;
-  &lt;td class=xl66&gt;Mark Twain&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1884&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Mark
+  Twain&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1884&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;The Rise of Silas Lapham&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;The Rise
+  of Silas Lapham&lt;/td&gt;
   &lt;td class=xl66&gt;William Dean Howells&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1885&lt;/td&gt;
+  &lt;td class=xl66&gt;1885&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl67 style=&#39;height:16.0pt&#39;&gt;Poetry&lt;/td&gt;
-  &lt;td class=xl70 width=615 style=&#39;width:461pt&#39;&gt;1788 (1763) (&quot;Fame is a bee&quot;)&lt;/td&gt;
-  &lt;td class=xl67&gt;Emily Dickinson&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1886&lt;/td&gt;
+  &lt;td height=21 class=xl71 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:black;font-weight:400;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;
+  mso-pattern:#D9D9D9 none&#39;&gt;1788 (1763) (ÒFame is a beeÓ)&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Emily
+  Dickinson&lt;/td&gt;
+  &lt;td class=xl67 style=&#39;font-size:12.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1886&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;Looking Backward, 2000—1887&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;Looking
+  Backward, 2000Ñ1887&lt;/td&gt;
   &lt;td class=xl66&gt;Edward Bellamy&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1888&lt;/td&gt;
+  &lt;td class=xl66&gt;1888&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;History&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;How the Other Half Lives&lt;/td&gt;
-  &lt;td class=xl66&gt;Jacob Riis&lt;/td&gt;
-  &lt;td class=xl66 align=right&gt;1890&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt;
+  font-size:12.0pt;color:windowtext;font-weight:400;text-decoration:none;
+  text-underline-style:none;text-line-through:none;font-family:&quot;Helvetica Neue&quot;;
+  background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;How the Other Half Lives&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;Jacob
+  Riis&lt;/td&gt;
+  &lt;td class=xl66 style=&#39;font-size:12.0pt;color:windowtext;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:&quot;Helvetica Neue&quot;;background:#D9D9D9;mso-pattern:#D9D9D9 none&#39;&gt;1890&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr height=21 style=&#39;height:16.0pt&#39;&gt;
-  &lt;td height=21 class=xl66 style=&#39;height:16.0pt&#39;&gt;Novel&lt;/td&gt;
-  &lt;td class=xl69 width=615 style=&#39;width:461pt&#39;&gt;A Hazard of New Fortunes&lt;/td&gt;
+  &lt;td height=21 class=xl70 width=467 style=&#39;height:16.0pt;width:350pt&#39;&gt;A Hazard
+  of New Fortunes&lt;/td&gt;
   &lt;td class=xl66&gt;William Dean Howells&lt;/td&gt;
-  &lt;td class=xl67 align=right&gt;1890&lt;/td&gt;
+  &lt;td class=xl67&gt;1890&lt;/td&gt;
  &lt;/tr&gt;
 &lt;/table&gt;
 
