@@ -6,7 +6,7 @@ permalink: /cv/
 -------------------------------------------------
 <br>
 
-## Education
+## **Education**
 
 # Stanford University
 PhD Candidate, English
@@ -38,7 +38,7 @@ Magna Cum Laude
 
 <br>
 
-## Teaching
+## **Teaching**
 
 # Stanford University
 Teaching Assistant
@@ -58,7 +58,7 @@ Instructors: Paula Moya & J.D. Porter
 
 <br>
 
-## Presentations
+## **Presentations**
 Reading Norton Anthologies: Canons & “Careers”
 <br>
 SyncDH
