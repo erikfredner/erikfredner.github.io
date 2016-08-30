@@ -6,27 +6,27 @@ permalink: /cv/
 -------------------------------------------------
 <br>
 
-## **Education**
+# **Education**
 
-# Stanford University
+## Stanford University
 PhD Candidate, English
 <br>
 2014—Present
 <br><br>
 
-# Harvard Graduate School of Education
+## Harvard Graduate School of Education
 Undergraduate Teacher Education Program
 <br>
 2011—2012
 <br><br>
 
-# Oxford University
+## Oxford University
 Visiting Student, English
 <br>
 2010—2011
 <br><br>
 
-# Harvard University
+## Harvard University
 A.B., English
 <br>
 Magna Cum Laude
@@ -38,9 +38,9 @@ Magna Cum Laude
 
 <br>
 
-## **Teaching**
+# **Teaching**
 
-# Stanford University
+## Stanford University
 Teaching Assistant
 <br>
 2015—Present
@@ -58,7 +58,7 @@ Instructors: Paula Moya & J.D. Porter
 
 <br>
 
-## **Presentations**
+# **Presentations**
 Reading Norton Anthologies: Canons & “Careers”
 <br>
 SyncDH
