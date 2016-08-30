@@ -1,18 +1,31 @@
-# Welcome to Jekyll!
+# Permalinks
+permalink:           pretty
+
+# Setup
+title:              Erik Fredner 
+url:                http://erikfredner.com 
+paginate:           1
+baseurl:             ""
+
+# Assets
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
 
-# Site settings
-title: Erik Fredner
-email: fredner@stanford.edu
-description: > # this means to ignore newlines until "baseurl:"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://erikfredner.com" # the base hostname & protocol for your site
-twitter_username: erikfredner
-github_username:  erikfredner
+# About/contact
+author:
+  name:             Erik Fredner 
+  url:               https://twitter.com/erikfredner
+  email:             fredner@stanford.edu
 
-# Build settings
-markdown: kramdown
+# Custom vars
+pages_list:
+        About: '/about'
+        CV: '/cv'
+
+# Gems
+gems:
+  - jekyll-paginate
+  - jekyll-gist
