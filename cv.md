@@ -4,9 +4,9 @@ title: CV
 permalink: /cv/
 ---
 -------------------------------------------------
-<br>
-
 # **Education**
+
+<br>
 
 ## Stanford University
 PhD Candidate, English
@@ -36,9 +36,9 @@ Magna Cum Laude
 
 -------------------------------------------------
 
-<br>
-
 # **Teaching**
+
+<br>
 
 ## Stanford University
 Teaching Assistant
@@ -56,9 +56,8 @@ Instructors: Paula Moya & J.D. Porter
 
 -------------------------------------------------
 
-<br>
-
 # **Presentations**
+<br>
 Reading Norton Anthologies: Canons & “Careers”
 <br>
 SyncDH
