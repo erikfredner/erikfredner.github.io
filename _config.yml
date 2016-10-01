@@ -1,11 +1,12 @@
 # Permalinks
-permalink:           pretty
+permalink:           /blog/:title
 
 # Setup
 title:              Erik Fredner 
 url:                http://erikfredner.com 
-paginate:           1
 baseurl:             ""
+paginate: 1
+paginate_path: "blog/page/:num/"
 
 # Assets
 #
@@ -24,6 +25,7 @@ author:
 pages_list:
         About: '/about'
         CV: '/cv'
+        Blog: '/blog'
 
 # Gems
 gems:
