@@ -13,7 +13,7 @@ permalink: /cv/
 PhD Candidate, English
 <br>
 2014—Present
-<br><br>
+<br>
 
 ## Harvard Graduate School of Education
 Undergraduate Teacher Education Program
@@ -109,5 +109,9 @@ Stanford, CA
 <br>
 May 7, 2015
 
-#### Last updated
+<br>
+<br>
+<br>
+ 
+##### Last updated
 October 18, 2016
