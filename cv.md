@@ -108,3 +108,6 @@ Lecture in _Literary History III_
 Stanford, CA
 <br>
 May 7, 2015
+
+#### Last updated
+October 18, 2016
