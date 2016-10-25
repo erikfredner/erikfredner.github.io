@@ -24,6 +24,7 @@ author:
 # Custom vars
 pages_list:
         About: '/about'
+        Contact: '/contact'
         CV: '/cv'
         Blog: '/blog'
 
