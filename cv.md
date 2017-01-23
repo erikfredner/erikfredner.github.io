@@ -59,6 +59,14 @@ Instructors: Paula Moya & J.D. Porter
 
 # **Presentations**
 <br>
+Reading the Norton Anthologies: Databases, Canons, and “Careers”
+<br>
+Stanford Literary Lab
+<br>
+Stanford, CA
+<br>
+November 30, 2016
+<br><br>
 Reading Norton Anthologies: Canons & “Careers”
 <br>
 SyncDH
