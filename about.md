@@ -3,7 +3,7 @@ layout: page
 title: 
 permalink: /about/
 ---
-I'm a Ph.D. candidate in the English department at Stanford, where I work on American literature, sometimes using the digital humanities.
+I'm a Ph.D. candidate in the English department at Stanford, where I work on American literature. Some of what I do depends upon digital humanities methods.
 
 I’m also the Coordinator of the [Literary Lab](http://litlab.stanford.edu).
 
