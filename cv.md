@@ -10,13 +10,13 @@ permalink: /cv/
 <br>
 
 ## Stanford University
-PhD Candidate, English
+PhD Candidate, English Department
 <br>
 2014—Present
 <br><br>
 
 ## Harvard Graduate School of Education
-Undergraduate Teacher Education Program
+Teacher Education Program
 <br>
 2011—2012
 <br><br>
@@ -28,9 +28,9 @@ Visiting Student, English
 <br><br>
 
 ## Harvard University
-A.B., English
+A.B., English and American Literature
 <br>
-Magna Cum Laude
+_Magna Cum Laude_
 <br>
 2008—2012
 <br><br>
