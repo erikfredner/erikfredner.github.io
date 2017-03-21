@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Orals Reading"
+title:  "Oral Exam Reading"
 date:   2017-01-16 09:45:57 -0700
 categories:
 ---

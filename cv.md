@@ -4,30 +4,31 @@ title: CV
 permalink: /cv/
 ---
 -------------------------------------------------
-
-# **Education**
-
 <br>
-
-## Stanford University
+# Education
+**Stanford University**
+<br>
 PhD Candidate, English Department
 <br>
 2014—Present
-<br><br>
+<br>
 
-## Harvard Graduate School of Education
+**Harvard Graduate School of Education**
+<br>
 Teacher Education Program
 <br>
 2011—2012
-<br><br>
+<br>
 
-## Oxford University
+**Oxford University**
+<br>
 Visiting Student, English
 <br>
 2010—2011
-<br><br>
+<br>
 
-## Harvard University
+**Harvard University**
+<br>
 A.B., English and American Literature
 <br>
 _Magna Cum Laude_
@@ -36,12 +37,10 @@ _Magna Cum Laude_
 <br><br>
 
 -------------------------------------------------
-
-# **Teaching**
-
 <br>
-
-## Stanford University
+# Teaching
+**Stanford University**
+<br>
 Teaching Assistant
 <br>
 2015—Present
@@ -61,9 +60,8 @@ Stanford English Department
 June 6, 2016
 
 -------------------------------------------------
-
-# **Presentations**
 <br>
+# Presentations
 How many novels have been published in English? An Attempt
 <br>
 Stanford Literary Lab
@@ -155,9 +153,8 @@ October 24, 2014
 
 
 -------------------------------------------------
-
-# **Research Collaborator**
 <br>
+# Research Collaborator
 Suspense: Language, Narrative, Affect
 <br>
 Stanford Literary Lab
@@ -179,11 +176,8 @@ Stanford Literary Lab
 
 
 -------------------------------------------------
-
-# **Academic Service**
-
 <br>
-<br>
+# Academic Service
 Coordinator, Stanford Literary Lab
 <br>
 2014 to present
@@ -240,7 +234,9 @@ Stanford, CA
 April 2017
 <br><br>
 
-# **Academic Affiliations**
+-------------------------------------------------
+<br>
+# Academic Affiliations
 
 Alliance of Digital Humanities Organizations
 <br><br>
@@ -248,22 +244,9 @@ C19: The Society of Nineteenth-Century Americanists
 <br><br>
 Modern Language Association
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
+
+-------------------------------------------------
 <br>
-<br>
-<br>
-##### Last updated
-February 8, 2017
+# Last updated
+March 21, 2017

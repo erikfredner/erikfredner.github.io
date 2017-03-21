@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 
+title: Contact
 permalink: /contact/
 ---
 [Email](mailto:fredner@stanford.edu)
