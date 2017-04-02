@@ -9,4 +9,4 @@ permalink: /contact/
 
 [Twitter](https://twitter.com/erikfredner)
 
-[PGP](https://keybase.io/erikfredner)
+[Keybase](https://keybase.io/erikfredner)

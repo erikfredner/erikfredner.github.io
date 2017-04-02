@@ -23,7 +23,7 @@ github_username:  erikfredner
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-athena
 gems:
   - jekyll-feed
 exclude:

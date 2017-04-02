@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How many novels have been published in English? (An Attempt)"
+title:  "How many novels have been published in English?"
 date:   2017-03-30 09:45:57 -0700
 categories:
 ---
