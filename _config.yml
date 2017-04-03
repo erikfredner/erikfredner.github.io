@@ -17,13 +17,13 @@ title: Erik Fredner
 email: fredner@stanford.edu
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://www.erikfredner.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: erikfredner
 github_username:  erikfredner
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-athena
 gems:
   - jekyll-feed
 exclude:
