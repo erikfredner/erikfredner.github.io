@@ -251,5 +251,13 @@ Modern Language Association
 
 -------------------------------------------------
 <br>
+# Academic Awards
+
+2017-18 Pigott Scholars Program Fellowship
+
+<br>
+
+-------------------------------------------------
+<br>
 # Last updated
-March 21, 2017
+April 7, 2017
