@@ -28,4 +28,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # bundle athena theme; not yet compatible with gh-pages
 # gem "jekyll-athena"
-#gem "github-pages", group: :jekyll_plugins
+gem 'github-pages', group: :jekyll_plugins
