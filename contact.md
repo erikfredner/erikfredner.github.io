@@ -8,5 +8,3 @@ permalink: /contact/
 [GitHub](https://github.com/erikfredner)
 
 [Twitter](https://twitter.com/erikfredner)
-
-[Keybase](https://keybase.io/erikfredner)
