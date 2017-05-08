@@ -38,6 +38,13 @@ _Magna Cum Laude_
 
 -------------------------------------------------
 <br>
+# Publications
+Algee-Hewitt, Mark; Fredner, Erik; Walser, Hannah. "The Novel as Data."
+*The Cambridge Companion to the Novel*. Ed. Bulson, Eric. *Forthcoming*.
+<br><br>
+
+-------------------------------------------------
+<br>
 # Teaching
 **Stanford University**
 <br>
