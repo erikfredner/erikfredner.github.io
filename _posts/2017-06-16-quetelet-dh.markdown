@@ -5,7 +5,7 @@ date:   2017-06-16
 categories:
 ---
 
-From *A Treatise on Man and the Development of His Faculties*:
+From *A Treatise on Man and the Development of His Faculties* (1835):
 
 > Should we not laugh at the pretension of a geometrician, who seriously
 > maintained that he had calculated that the genuis of Homer is to that
