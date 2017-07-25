@@ -43,6 +43,12 @@ Algee-Hewitt, Mark; Fredner, Erik; Walser, Hannah. "The Novel as Data."
 *The Cambridge Companion to the Novel*. Ed. Bulson, Eric. *Forthcoming*.
 <br><br>
 
+McClure, David; Algee-Hewitt, Mark; Douris, Steele; Fredner, Erik;
+Walser, Hannah. "Organizing corpora at the Stanford Literary Lab:
+Balancing simplicity and flexibility in metadata management."
+*Proceedings of the Workshop on Challenges in the Management of Large
+Corpora and Big Data and Natural Language Processing*. pp. 25-29. 2017.
+
 -------------------------------------------------
 <br>
 # Teaching
@@ -267,4 +273,4 @@ Modern Language Association
 -------------------------------------------------
 <br>
 # Last updated
-April 7, 2017
+July 25, 2017
