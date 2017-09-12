@@ -1,0 +1,93 @@
+---
+layout: post
+title:  "Average Synonyms"
+date:   2017-09-12
+categories:
+---
+
+The protagonist of my dissertation is the concept of the "average
+person," most frequently cast as the "average man" in postbellum
+literature.
+Something decidedly nineteenth century about this concept-character is the
+particularity of the average—-they are not "normal," "ordinary,"
+"everyday," etc. but resolutely quantitative. There's much to be said about the prevalence of and
+preference for this idea in the period I'm studying, but for the moment I want to list out the range of terms that hover around
+this allegory of centrality.
+
+# average, adj.
+
+1. Estimated by average; i.e. by equally distributing the aggregate inequalities of a series among all the individuals of which the series is composed.
+
+1776   A. Smith Inq. Wealth of Nations I. i. xi. 212   A sixth part of the gross produce may be reckoned the average rent of the tin mines of Cornwal.
+
+2. Equal to what would be the result of taking an average; medium, ordinary; of the usual or prevalent standard.
+
+1857   J. Ruskin Polit. Econ. Art ii. 89   A modern drawing of average merit.
+
+1859   J. S. Mill On Liberty 119   The honour and glory of the average man is, that he is capable of following that initiative.
+
+3. average Joe  n. orig. U.S. the (or an) ordinary man; = Everyman n.; cf. Joe n.2 5.
+
+1940   Oakland (Calif.) Tribune 11 Apr. d27/2   Frankly, were I an average Joe Fight Fan rather than an alleged sports scribe who gets into ring shows free, I'd pick the amateurs over the pros next week.
+
+2004   Western Mail (Cardiff) (Nexis) 15 May 14   Spare a thought for the rest of us ‘average Joes’ who are confronted daily with gleaming images of the Beckhams and Pitts of this world and can't help coming away feeling distinctly second best.
+
+# ordinary, adj. and adv.
+
+2.  a. Belonging to the regular or usual order or course of things; having a place in a fixed or regulated sequence; occurring in the course of regular custom or practice; normal; customary; usual.
+
+4. Chiefly of a person: not distinguished by rank or position; of low social position; relating to, or characteristic of, the common people; common, vulgar; unrefined, low, coarse. In later use derogatory. Now U.S. regional and Caribbean.
+
+5.  a. Of the usual kind; such as is usually experienced; not singular or exceptional. Often in depreciatory use: not above, or somewhat below, the usual level of quality; commonplace, mundane; (of a person) undistinguished in appearance, plain.
+
+1755   Johnson Dict. Eng. Lang.   Ordinary..Ugly; not handsome: as she is an ordinary woman.
+
+6. †a. Of common occurrence; frequent; abundant. Obs.
+
+b. Of people: typical of the population or a particular group; average; without exceptional experience, knowledge, etc.; normal.
+
+1807   Wordsworth Resolution & Independence in Poems I. 95   Choice word, and measured phrase; above the reach Of ordinary men.
+
+# standard, n. and adj.
+
+1. b. In many phrases used with pregnant sense, the standard being taken as typifying the army or its leaders; e.g. to raise one's standard, take up arms; under the standard of, serving in the army of; so to join the standard of; and the like.
+
+2. a. The authorized exemplar of a unit of measure or weight; e.g. a measuring rod of unit length; a vessel of unit capacity, or a mass of metal of unit weight, preserved in the custody of public officers as a permanent evidence of the legally prescribed magnitude of the unit.
+
+11. b. (Originally, †standard of commerce.) A commodity, the value of which is treated as invariable, in order that it may serve as a measure of value for all other commodities.
+
+12. a. A definite level of excellence, attainment, wealth, or the like, or a definite degree of any quality, viewed as a prescribed object of endeavour or as the measure of what is adequate for some purpose.
+
+ b. Of a book, an author: That has a permanent rank as an authority, or as an exemplar of excellence.
+
+1742   Pope New Dunciad 119   Let Standard-Authors thus, like Trophies borne, Appear more glorious as more hack'd and torn.
+
+1922   J. Joyce Ulysses iii. xvi. [Eumaeus] 598   You know the standard works on the subject.
+
+# typical, adj.
+
+1. Of the nature of, or serving as, a type or emblem; pertaining or relating to a type or types; symbolical, emblematic.
+
+1860   E. B. Pusey Minor Prophets 601   In the daily sacrifice..the lamb..was typical of the precious blood-shedding of the Lamb without spot upon the Cross.
+
+2. a. Having the qualities of a type or specimen; serving as a representative specimen of a class or kind.
+
+1881   J. A. Froude Short Stud. (1883) IV. ii. vi. 249   Horace is a typical Roman of the intellectual sort.
+
+4. Of or pertaining to printers' type; typographical. Now rare or Obs.
+
+1822   Blackwood's Edinb. Mag. 11 7   Should you ever descend from your correctorship of typical errata.
+
+# regular, adj., n., and adv.
+
+1. a. Of a person or group: subject to, or bound by, a religious rule; belonging to a religious or monastic order. Frequently opposed to secular.
+
+2. a. Characterized by evenness, order, or harmony in physical form, structure, or organization; arranged in or constituting a constant or definite pattern.
+
+1863   ‘G. Eliot’ Romola I. x. 172   The conjuror..showed his small regular teeth in an impish..grin.
+
+3. a. Characterized by the presence or operation of a definite rule or set of rules; marked or distinguished by evenness, order, or harmony in character or operation; steady or uniform in action, procedure, or occurrence.
+
+   e. Chiefly of a person (esp. a long-standing client or customer): doing the same thing or going to the same place frequently or habitually. Cf. sense B. 8a.
+
+1841   Dickens Barnaby Rudge xi. 296   The regular Maypole customers..each..in..his allotted seat in the chimney corner.
