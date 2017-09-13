@@ -54,6 +54,10 @@ Corpora and Big Data and Natural Language Processing*. pp. 25-29. 2017.
 # Teaching
 **Stanford University**
 <br>
+Instructor, Writing Intensive Seminar in English
+Average Americans
+Winter 2017-18
+<br>
 Teaching Assistant
 <br>
 2015—Present
@@ -81,13 +85,17 @@ June 6, 2016
 <br>
 Reading the Norton Anthologies
 <br>
-DH2017 Montréal
+DH2017
+<br>
+Montréal, Canada
 <br>
 August 10, 2017
 <br><br>
 How many novels have been published in English? An Attempt
 <br>
 Stanford Literary Lab
+<br>
+Stanford, CA
 <br>
 February 4, 2017
 <br><br>
