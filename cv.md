@@ -55,7 +55,9 @@ Corpora and Big Data and Natural Language Processing*. pp. 25-29. 2017.
 **Stanford University**
 <br>
 Instructor, Writing Intensive Seminar in English
+<br>
 Average Americans
+<br>
 Winter 2017-18
 <br><br>
 Teaching Assistant
