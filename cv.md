@@ -52,27 +52,34 @@ Corpora and Big Data and Natural Language Processing*. pp. 25-29. 2017.
 -------------------------------------------------
 <br>
 # Teaching
+<br>
 **Stanford University**
 <br>
-Instructor, Writing Intensive Seminar in English
 <br>
-Average Americans
-<br>
-Winter 2017-18
+*As Instructor*
 <br><br>
-Teaching Assistant
+Writing Intensive Seminar in English
 <br>
-2015—Present
+"Average Americans"
+<br>
+2017-18
+<br><br>
+*As Teaching Assistant*
+<br>
 
-_Literary History III (1850—1950)_
+Literary History III (1850—1950)
 <br>
 Instructor: Franco Moretti
+<br>
+2014-15
 <br><br>
-_Narrative & Narrative Theory_
+Narrative & Narrative Theory
 <br>
 Instructors: Paula Moya & J.D. Porter
+<br>
+2015-16
 <br><br>
-Awarded Excellence in Teaching Prize
+Excellence in Teaching Prize
 <br>
 Stanford English Department
 <br>
@@ -85,6 +92,38 @@ June 6, 2016
 <br>
 # Presentations
 <br>
+"Security" in *Foreign Affairs*
+<br>
+Stanford Literary Lab
+<br>
+Stanford, CA
+<br>
+December 6, 2017
+<br><br>
+Microgenres
+<br>
+Stanford Literary Lab
+<br>
+Stanford, CA
+<br>
+November 15, 2017
+<br><br>
+Distant Reading with the *Oxford English Dictionary*
+<br>
+Stanford Literary Lab
+<br>
+Stanford, CA
+<br>
+November 8, 2017
+<br><br>
+Existential and Romantic Suspense
+<br>
+Stanford Literary Lab
+<br>
+Stanford, CA
+<br>
+October 18, 2017
+<br><br>
 Reading the Norton Anthologies
 <br>
 DH2017
@@ -143,13 +182,19 @@ October 12, 2015
 <br><br>
 Virality
 <br>
+DH2015
+<br>
+Sydney, Australia
+<br>
+July 3, 2015
+<br><br>
 Suspense… Language, Narrative, Affect
 <br>
 DH2015
 <br>
 Sydney, Australia
 <br>
-July 3, 2015
+July 2, 2015
 <br><br>
 Current Projects of the Literary Lab
 <br>
@@ -194,17 +239,23 @@ Stanford Literary Lab
 <br>
 2014 to present
 <br><br>
-"Security" Between the World Wars
+"Security" in *Foreign Affairs*
 <br>
 Stanford Literary Lab
 <br>
 2015 to present
 <br><br>
-Reading Norton Anthologies: Canons and "Careers"
+Reading the Norton Anthologies: Canons and Careers
 <br>
 Stanford Literary Lab
 <br>
 2016 to present
+<br><br>
+Microgenres
+<br>
+Stanford Literary Lab
+<br>
+2017 to present
 <br><br>
 
 
