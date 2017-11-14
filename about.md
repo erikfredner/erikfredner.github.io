@@ -5,6 +5,8 @@ permalink: /about/
 ---
 I'm a Ph.D. candidate in the English department at Stanford, where I work on American literature, sometimes using digital humanities methods.
 
-I’m also the Coordinator of the [Literary Lab](http://litlab.stanford.edu).
+My dissertation is about the history of the use and abuse of statistics in the literature of the postbellum period, particularly the concept of the "average American."
 
-You can find more about my background on my [CV](/cv), and this [blog](/) reflects on current work.
+I’m also the Coordinator of the [Literary Lab](https://litlab.stanford.edu).
+
+You can find more about my background on my [CV](/cv). This [blog](/) reflects on current work.

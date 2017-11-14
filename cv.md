@@ -79,6 +79,12 @@ Instructors: Paula Moya & J.D. Porter
 <br>
 2015-16
 <br><br>
+Graduate Pedagogy Workshop
+<br>
+Instructor: Paula Moya
+<br>
+2017-18
+<br><br>
 Excellence in Teaching Prize
 <br>
 Stanford English Department
@@ -100,6 +106,14 @@ Stanford, CA
 <br>
 December 6, 2017
 <br><br>
+The Type of the Average
+<br>
+Working Group on the Novel
+<br>
+Stanford, CA
+<br>
+September 30, 2017
+<br><br>
 Microgenres
 <br>
 Stanford Literary Lab
@@ -107,6 +121,14 @@ Stanford Literary Lab
 Stanford, CA
 <br>
 November 15, 2017
+<br><br>
+Average, American: Reformism and the Statistical Imagination in *Jason Edwards*
+<br>
+Consortium on the Novel
+<br>
+Stanford, CA
+<br>
+November 10, 2017
 <br><br>
 Distant Reading with the *Oxford English Dictionary*
 <br>
@@ -341,4 +363,4 @@ Modern Language Association
 -------------------------------------------------
 <br>
 # Last updated
-July 25, 2017
+November 13, 2017
