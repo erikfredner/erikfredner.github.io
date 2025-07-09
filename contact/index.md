@@ -1,6 +1,7 @@
 ---
 title: "Contact"
 date: 2022-03-14
+nav_order: 2
 ---
 
 [erik.fredner@oregonstate.edu](mailto:erik.fredner@oregonstate.edu)

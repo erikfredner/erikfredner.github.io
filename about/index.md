@@ -1,6 +1,7 @@
 ---
 title: "About"
 date: 2018-06-22
+nav_order: 1
 ---
 
 Starting in autumn 2025, Erik Fredner is Assistant Professor of Digital Humanities and Literature at Oregon State University. His work has been published in _[PMLA](https://doi.org/10.1632/S0030812923001189)_, _[Nineteenth-Century Literature](https://doi.org/10.1525/ncl.2021.76.3.354)_, _[The Cambridge Companion to the Novel](https://doi.org/10.1017/9781316659694.013)_, _[The Nathaniel Hawthorne Review](https://doi.org/10.5325/nathhawtrevi.48.1.0082)_, and elsewhere.

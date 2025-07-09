@@ -1,5 +1,6 @@
 ---
 title: "Teaching"
+nav_order: 5
 date: 2021-01-21
 ---
 
