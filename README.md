@@ -1,3 +1,5 @@
-# erikfredner.github.io
+# 🚧UNDER CONSTRUCTION🚧 erikfredner.github.io
 
-This repository currently contains a partial copy of my site, <https://fredner.org>
+I am in the process of migrating my site from WordPress to GitHub Pages.
+
+Please go to <https://fredner.org> for updates.
