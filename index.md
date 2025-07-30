@@ -8,4 +8,4 @@ Starting in autumn 2025, Erik Fredner is Assistant Professor of Digital Humaniti
 
 Erik studies US literature and culture using computational methods. His first book project shows how US literature over the long nineteenth century began to think statistically. He collaborates on computational literary studies projects with the [Stanford Literary Lab](https://litlab.stanford.edu) and [the University of Pennsylvania Price Lab for Digital Humanities](https://pricelab.sas.upenn.edu).
 
-[![Erik's headshot](images/headshot_m.png)](https://fredner.org/wp-content/uploads/2025/01/headshot_m.png)
+[![Erik's headshot](images/headshot_m.png)]
