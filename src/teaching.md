@@ -2,24 +2,24 @@
 title: "Teaching"
 ---
 
-Courses are ordered reverse chronologically.
+*Courses are ordered reverse chronologically.*
 
 #### Advanced Data Science
 
 - [University of Richmond](https://datascience.richmond.edu/academics/courses.html)
-- [Syllabus](https://github.com/erikfredner/dsst389-2024/blob/main/syllabus.md)
+- [Syllabus](389-syllabus.html)
 - [Repository](https://github.com/erikfredner/dsst389-2024/)
 
 #### Introduction to Data Science
 
 - [University of Richmond](https://datascience.richmond.edu/academics/courses.html)
-- [Syllabus](https://github.com/erikfredner/dsst289-2024/blob/main/syllabus.pdf)
+- [Syllabus](289-syllabus.html)
 - [Repository](https://github.com/erikfredner/dsst289-2024)
 
 #### Text Classification with LLMs
 
 - [Text Analysis Pedagogy Institute](https://constellate.org/tap-institute)
-- [Syllabus](https://github.com/erikfredner/tap-2024/blob/main/README.md)
+- [Syllabus](tapi-syllabus.html)
 - [Repository](https://github.com/erikfredner/tap-2024?tab=readme-ov-file)
 
 #### Punching Up: US Satire

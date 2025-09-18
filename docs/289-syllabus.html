@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+  <title>Introduction to Data Science</title>
+  <style>
+    body {
+      width: min(100% - 2rem, 60ch);
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html"><strong>Erik Fredner</strong></a></li>
+      </ul>
+      <ul>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1 class="page-title">Introduction to Data Science</h1>
+    <h2 id="land-acknowledgment">Land Acknowledgment</h2>
+    <p>This class at the University of Richmond respectfully
+    acknowledges the traditional custodians of the land we are on today,
+    the Powhatan people, and pays respect to their elders past, present,
+    and emerging.</p>
+    <p>To learn more about the land on which the University of Richmond
+    exists, I recommend students read the report <a
+    href="https://www.richmond.edu/burying-ground/index.html">“Knowledge
+    of This Cannot Be Hidden” by Shelby M. Driskill and Dr. Lauranett L.
+    Lee</a>, which discusses both the University’s geographic connection
+    to the Powhatan people, as well as the presence of a burying ground
+    for enslaved laborers on campus.</p>
+    <h2 id="accessibility">Accessibility</h2>
+    <p>I strive to make this course accessible. If you encounter
+    barriers to accessibility, please let me know as soon as
+    possible.</p>
+    <h2 id="course-description">Course Description</h2>
+    <p>Topics will include techniques for collecting, organizing,
+    analyzing, modeling, and presenting data. Applications to a variety
+    of fields will be emphasized. Includes an extensive introduction to
+    statistical programming. (See <a
+    href="https://catalog.richmond.edu/courses/DSST289">course
+    catalog</a>.)</p>
+    <h2 id="learning-goals">Learning Goals</h2>
+    <p>By the end of this course, students will be able to…</p>
+    <ul>
+    <li>Collect, manipulate, visualize, and explore data.</li>
+    <li>Describe best practices for structuring tabular data.</li>
+    <li>Articulate relationships between a data set and analyses
+    thereof.</li>
+    <li>Use programming language documentation and cookbooks to solve
+    problems.</li>
+    <li>Understand key aspects of the <a
+    href="https://www.r-project.org">R programming language</a> and the
+    <a href="https://www.tidyverse.org"><code>tidyverse</code></a>.</li>
+    <li>Use the <a
+    href="https://posit.co/products/open-source/rstudio/">RStudio</a>
+    integrated development environment.</li>
+    </ul>
+    <h2 id="prerequisites">Prerequisites</h2>
+    <ul>
+    <li>This course neither requires nor expects any prior experience
+    with computer programming.</li>
+    <li>While we discuss some statistical concepts, students only need
+    experience with algebra.</li>
+    </ul>
+    <h2 id="structure">Structure</h2>
+    <p>This course has three units, each of which focuses on an aspect
+    of data science:</p>
+    <table>
+    <thead>
+    <tr>
+    <th style="text-align: left;">Unit</th>
+    <th>Aspect</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">1</td>
+    <td>Visualization</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">2</td>
+    <td>Collection &amp; Manipulation</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">3</td>
+    <td>Application</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2 id="materials">Materials</h2>
+    <ul>
+    <li>Please bring a computer, pencil, and something to write on to
+    each class.</li>
+    <li>Class materials can be found on the course Blackboard site.</li>
+    <li>You will submit assignments via Blackboard.</li>
+    </ul>
+    <h2 id="inclusivity">Inclusivity</h2>
+    <p>I expect you to…</p>
+    <ul>
+    <li>Treat your classmates with respect.</li>
+    <li>Support each other in your learning.</li>
+    <li>Be patient.</li>
+    </ul>
+    <p>If we spend time reviewing material that you already know,
+    remember that it may be the first time some of your peers are
+    learning this information. Students come to this class with
+    different levels of knowledge. And everyone learns best in different
+    ways.</p>
+    <h2 id="help">Help</h2>
+    <ul>
+    <li>We should have a lot of time during class to answer questions
+    about course material.
+    <ul>
+    <li>I will also encourage you to collaborate with peers during class
+    time.</li>
+    </ul></li>
+    <li>I encourage you to study with your classmates, though I expect
+    all work that you submit to be your own.</li>
+    <li>Come to office hours or schedule a meeting for any questions or
+    personal concerns that cannot be addressed in class.
+    <ul>
+    <li>To schedule, email me with your availability at least one day
+    before you’d like to meet.</li>
+    </ul></li>
+    <li>Note that I generally do not answer conceptual questions about
+    homework before they are due.
+    <ul>
+    <li>Homework is graded on timely completion and effort, <em>not</em>
+    accuracy.</li>
+    </ul></li>
+    </ul>
+    <h2 id="grades">Grades</h2>
+    <p>The tables below show the weights of each assignment and the
+    associated ranges. I do not offer extra credit. I round fractional
+    grades.</p>
+    <table>
+    <thead>
+    <tr>
+    <th>Assignment</th>
+    <th>Percentage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Participation</td>
+    <td>10%</td>
+    </tr>
+    <tr>
+    <td>Homework</td>
+    <td>10%</td>
+    </tr>
+    <tr>
+    <td>Exam 1</td>
+    <td>20%</td>
+    </tr>
+    <tr>
+    <td>Exam 2</td>
+    <td>20%</td>
+    </tr>
+    <tr>
+    <td>Exam 3</td>
+    <td>20%</td>
+    </tr>
+    <tr>
+    <td>Final Project</td>
+    <td>20%</td>
+    </tr>
+    </tbody>
+    </table>
+    <table>
+    <thead>
+    <tr>
+    <th>Letter Grade</th>
+    <th style="text-align: left;">Range</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>A</td>
+    <td style="text-align: left;">93-100</td>
+    </tr>
+    <tr>
+    <td>A-</td>
+    <td style="text-align: left;">90-92</td>
+    </tr>
+    <tr>
+    <td>B+</td>
+    <td style="text-align: left;">87-89</td>
+    </tr>
+    <tr>
+    <td>B</td>
+    <td style="text-align: left;">83-86</td>
+    </tr>
+    <tr>
+    <td>B-</td>
+    <td style="text-align: left;">80-82</td>
+    </tr>
+    <tr>
+    <td>C+</td>
+    <td style="text-align: left;">77-79</td>
+    </tr>
+    <tr>
+    <td>C</td>
+    <td style="text-align: left;">73-76</td>
+    </tr>
+    <tr>
+    <td>C-</td>
+    <td style="text-align: left;">70-72</td>
+    </tr>
+    <tr>
+    <td>D+</td>
+    <td style="text-align: left;">67-69</td>
+    </tr>
+    <tr>
+    <td>D</td>
+    <td style="text-align: left;">63-66</td>
+    </tr>
+    <tr>
+    <td>D-</td>
+    <td style="text-align: left;">60-62</td>
+    </tr>
+    <tr>
+    <td>F</td>
+    <td style="text-align: left;">0-59</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2 id="schedule">Schedule</h2>
+    <ul>
+    <li>The schedule below outlines the major topics of the course.</li>
+    <li>I reserve the right to change the syllabus as needed
+    <ul>
+    <li>I will inform you of any changes as far in advance as
+    possible.</li>
+    </ul></li>
+    <li><strong>Bold</strong> items are worth a large percentage of your
+    grade.</li>
+    </ul>
+    <table>
+    <thead>
+    <tr>
+    <th>Bb No.</th>
+    <th>Date</th>
+    <th>Topic</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>00</td>
+    <td>08-26</td>
+    <td>Introduction</td>
+    </tr>
+    <tr>
+    <td>01</td>
+    <td>08-28</td>
+    <td>Tabular data</td>
+    </tr>
+    <tr>
+    <td>02</td>
+    <td>09-02</td>
+    <td>Grammar of graphics</td>
+    </tr>
+    <tr>
+    <td>03</td>
+    <td>09-04</td>
+    <td>Aesthetics and scales</td>
+    </tr>
+    <tr>
+    <td>04</td>
+    <td>09-09</td>
+    <td>Organizing data</td>
+    </tr>
+    <tr>
+    <td>05</td>
+    <td>09-11</td>
+    <td>Summarizing data</td>
+    </tr>
+    <tr>
+    <td>06</td>
+    <td>09-16</td>
+    <td>Creating features</td>
+    </tr>
+    <tr>
+    <td>–</td>
+    <td>09-18</td>
+    <td><strong>Exam 1</strong></td>
+    </tr>
+    <tr>
+    <td>07</td>
+    <td>09-23</td>
+    <td>Creating data</td>
+    </tr>
+    <tr>
+    <td>08</td>
+    <td>09-25</td>
+    <td>Data feminism</td>
+    </tr>
+    <tr>
+    <td>09</td>
+    <td>09-30</td>
+    <td>Table joins</td>
+    </tr>
+    <tr>
+    <td>10</td>
+    <td>10-02</td>
+    <td>Table pivots</td>
+    </tr>
+    <tr>
+    <td>11</td>
+    <td>10-07</td>
+    <td>Review 1</td>
+    </tr>
+    <tr>
+    <td>–</td>
+    <td>10-09</td>
+    <td><em>No class</em></td>
+    </tr>
+    <tr>
+    <td>12</td>
+    <td>10-16</td>
+    <td>Review 2</td>
+    </tr>
+    <tr>
+    <td>13</td>
+    <td>10-21</td>
+    <td>Tidy models</td>
+    </tr>
+    <tr>
+    <td>14</td>
+    <td>10-23</td>
+    <td>Exam 2 review</td>
+    </tr>
+    <tr>
+    <td>–</td>
+    <td>10-28</td>
+    <td><strong>Exam 2</strong></td>
+    </tr>
+    <tr>
+    <td>15</td>
+    <td>10-30</td>
+    <td>Project assignments</td>
+    </tr>
+    <tr>
+    <td>16</td>
+    <td>11-04</td>
+    <td>Dates and times</td>
+    </tr>
+    <tr>
+    <td>17</td>
+    <td>11-06</td>
+    <td>Spatial data</td>
+    </tr>
+    <tr>
+    <td>18</td>
+    <td>11-11</td>
+    <td>Spatial joins</td>
+    </tr>
+    <tr>
+    <td>19</td>
+    <td>11-13</td>
+    <td>Time zones</td>
+    </tr>
+    <tr>
+    <td>–</td>
+    <td>11-18</td>
+    <td><strong>Exam 3</strong></td>
+    </tr>
+    <tr>
+    <td>–</td>
+    <td>11-20</td>
+    <td>Workshop 1</td>
+    </tr>
+    <tr>
+    <td>–</td>
+    <td>11-25</td>
+    <td>Workshop 2</td>
+    </tr>
+    <tr>
+    <td>–</td>
+    <td>12-02</td>
+    <td>Workshop 3</td>
+    </tr>
+    <tr>
+    <td>–</td>
+    <td>12-04</td>
+    <td><strong>Final projects</strong></td>
+    </tr>
+    </tbody>
+    </table>
+    <h2 id="assignments">Assignments</h2>
+    <p>Late assignments are penalized one letter grade (i.e., -10
+    points) per day.</p>
+    <h3 id="homework">Homework</h3>
+    <p>Most class meetings will have a reading posted on our website. A
+    few questions are included at the end of each reading. These must be
+    completed before class. Please bring the written responses with you
+    to class. You will upload completed questions to the course
+    website.</p>
+    <p>You will be given an opportunity to begin working on homework
+    during class. Your homework grade will be based on the proportion of
+    assignments that you complete on time. If you put in a good-faith
+    effort on the homework, it will be marked complete.</p>
+    <h3 id="participation">Participation</h3>
+    <ul>
+    <li>After a brief lecture reviewing material from the reading, you
+    will work on practice notebooks during class in small groups.</li>
+    <li>Everyone may have up to two unexcused absences.
+    <ul>
+    <li>Additional unexcused absences will harm your participation
+    grade.</li>
+    </ul></li>
+    <li>You may email me to request an excused absence.
+    <ul>
+    <li>Your request will be approved if it is for illness,
+    hospitalization, death in the family, important religious holidays,
+    or university activities (e.g., field trips, University-sponsored
+    athletic events).</li>
+    <li>You do <em>not</em> need to provide details if request an
+    absence for one of the reasons above.
+    <ul>
+    <li>Simply say, “I’m sick.” You don’t need to tell me, e.g., “I have
+    strep throat.”</li>
+    </ul></li>
+    </ul></li>
+    <li>Students who receive excused absences may submit homework
+    late.</li>
+    <li>Please request an excused absence before missing class if
+    possible.
+    <ul>
+    <li>If you request an excused absence <em>after</em> missing class,
+    you must do so as soon as possible.</li>
+    </ul></li>
+    <li>If you cannot attend a scheduled exam or the final project
+    presentation, please let me know as far in advance as possible.</li>
+    </ul>
+    <h3 id="exams">Exams</h3>
+    <p>Each of the three exams has two halves: a take-home open-book
+    part and an in-class closed-book part.</p>
+    <p>The take-home will be distributed in advance of the in-class
+    exam. Answers to the take-home should be submitted by the beginning
+    of the in-class exam. A list of topics for the in-class exam will be
+    posted on the course website.</p>
+    <h3 id="final-project">Final Project</h3>
+    <p>The final project will be due during the last week of class. The
+    project will ask you to find or create a new data set, and apply
+    techniques learned throughout the class to analyze it. The project
+    will take the form of a digital poster session and a one-page
+    reflection. Detailed instructions will be provided later in the
+    course.</p>
+    <h2 id="honor">Honor</h2>
+    <p>This course is taught in accordance with the University of
+    Richmond Honor Code, which can be accessed via <a
+    href="https://studentdevelopment.richmond.edu/student-handbook/honor/">The
+    Honor Councils website</a>. You are encouraged to collaborate on
+    homework, but each student must contribute work to the group. On
+    exams, cheating includes, but is not limited to, viewing another’s
+    work with or without their consent, or duplicating any portion of
+    it. If you are found to have violated the Honor Code, you fail this
+    course. If you ever have any questions about whether an action would
+    be an honor violation, please ask.</p>
+    <h3 id="generative-artificial-intelligence">Generative Artificial
+    Intelligence</h3>
+    <p>Generative artificial intelligence (GenAI) programs, especially
+    large language models (LLMs), can be useful tools for coding.
+    However, over reliance on LLMs or other resources where you can copy
+    answers to programming problems directly (e.g., StackOverflow) will
+    impede your learning.</p>
+    <p>Moreover, LLMs sometimes answer questions incorrectly and/or
+    using different methodologies than those we study in class. When
+    LLMs make stuff up (e.g., libraries that don’t exist), this is
+    referred to as <a
+    href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)">“hallucination.”</a>
+    In order to be an effective user of these technologies, it is
+    crucial for you to recognize when that happens and how to
+    respond.</p>
+    <h3 id="prohibited-uses-of-genai">Prohibited uses of GenAI</h3>
+    <ol type="1">
+    <li>Submitting any model output, in part or in whole, as your own
+    work. This includes code and writing.</li>
+    <li>Uploading any data used in this course (e.g., <code>.csv</code>
+    files) to multimodal GenAI tools like ChatGPT.</li>
+    <li>Using GenAI tools on the take-home portion of exams.</li>
+    </ol>
+    <p>Any of the above uses would be treated as violations of the honor
+    code.</p>
+    <h3 id="permitted-uses-of-genai">Permitted uses of GenAI</h3>
+    <p>If you get stuck on a homework problem, I ask you to try these
+    things in this order:</p>
+    <ol type="1">
+    <li>Review the course notes.</li>
+    <li>Talk to your classmates.</li>
+    <li>Search for credible information online.</li>
+    <li>After trying all of the above, talk to the <a
+    href="https://chatgpt.com/g/g-eChIzwMNp-ur-intro-to-data-science-gpt">Custom
+    GPT</a> generated for this class.</li>
+    <li>If you use information from the Custom GPT, you must
+    <strong>cite</strong> your interactions with it.</li>
+    </ol>
+    <ul>
+    <li><a
+    href="https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq">This
+    page</a> explains how to share a link to a ChatGPT interaction.</li>
+    <li>An adequate citation would be: “I got <a
+    href="https://chatgpt.com/share/2a4be40e-7b25-418d-b350-966a1915ac52">this
+    help</a> from the Custom GPT to solve this problem.”</li>
+    </ul>
+    <h2 id="communication">Communication</h2>
+    <ul>
+    <li>I respond to email within 1 to 2 business days.
+    <ul>
+    <li>Do not expect responses over the weekend.</li>
+    </ul></li>
+    <li>If you have not received a response after 2 business days, feel
+    free to write me again.</li>
+    <li>For the most prompt response, schedule your email to arrive
+    early in the morning (e.g., 7 or 8 AM).
+    <ul>
+    <li><a href="https://support.google.com/mail/answer/9214606">Gmail
+    instructions</a></li>
+    <li><a
+    href="https://support.microsoft.com/en-us/office/delay-or-schedule-sending-email-messages-in-outlook-026af69f-c287-490a-a72f-6c65793744ba">Outlook
+    instructions</a></li>
+    </ul></li>
+    </ul>
+    <h2 id="resources">Resources</h2>
+    <p>The University of Richmond has many resources on campus that may
+    help you succeed.</p>
+    <h3 id="weinstein-learning-center">Weinstein Learning Center</h3>
+    <p>The Weinstein Learning Center is your go-to destination for
+    academic support. Our services are tailored to help you achieve your
+    academic goals throughout your time at University of Richmond. To
+    learn more and view service schedules and appointment times, visit
+    <a href="https://wlc.richmond.edu"
+    class="uri">https://wlc.richmond.edu</a>. Available services
+    include:<br />
+    </p>
+    <p><strong>Academic Skills Coaching</strong></p>
+    <p>Meet with a professional staff member who will collaborate with
+    you to assess and develop your academic and life skills (e.g.,
+    critical reading and thinking, information conceptualization,
+    concentration, test preparation, time management, stress management,
+    and more).<br />
+    </p>
+    <p><strong>Content Tutoring</strong></p>
+    <p>Peer consultants offer assistance in specific courses and subject
+    areas. They are available for appointments (in-person and virtual)
+    and drop-in sessions. See schedules at <a
+    href="https://wlc.richmond.edu"
+    class="uri">https://wlc.richmond.edu</a> for supported courses and
+    drop-in times.<br />
+    </p>
+    <p><strong>English Language Learning</strong></p>
+    <p>Attend one-on-one or group consultations, workshops, and other
+    services focused on English, academic, and/or intercultural
+    skills.<br />
+    </p>
+    <p><strong>Quantitative and Programming Resources</strong></p>
+    <p>Peer consultants and professional staff offer workshops or
+    one-on-one appointments to build quantitative and programming skills
+    and provide statistical assistance for research projects.<br />
+    </p>
+    <p><strong>Speech and Communication</strong></p>
+    <p>Prepare and practice for academic presentations, speaking
+    engagements, and other occasions of public expression. Peer
+    consultants offer recording, playback, and coaching for both
+    individual and group presentations. Students can expect
+    recommendations regarding clarity, organization, style, and
+    delivery.<br />
+    </p>
+    <p><strong>Technology Learning</strong></p>
+    <p>Visit our student lab dedicated to supporting digital media
+    projects. Services include camera checkout, video/audio recording
+    assistance, use of virtual reality equipment, poster printing, 3D
+    printing and modeling, and consultation services on a variety of
+    software.<br />
+    </p>
+    <p><strong>Writing</strong></p>
+    <p>Assists student writers at all levels of experience, across all
+    majors. Meet with peer consultants who can offer feedback on written
+    work and suggest pre-writing, drafting, and revision strategies.</p>
+    <h3 id="boatwright-library">Boatwright Library</h3>
+    <p>Students may consult librarians to assist with their research,
+    which may be especially useful for the final project. Use the <a
+    href="https://library.richmond.edu/help/ask/">Ask a Librarian</a>
+    service to reach librarians by email, phone, chat, text, or in
+    person.</p>
+    <h3 id="counseling-and-psychological-services">Counseling and
+    Psychological Services</h3>
+    <p>Mental health is crucial for academic success. <a
+    href="https://caps.richmond.edu">Counseling and Psychological
+    Services</a> at the University of Richmond supports student success
+    and enhances student well-being by providing comprehensive clinical
+    services to currently enrolled, full-time, degree-seeking
+    students.</p>
+    <h2 id="acknowledgments">Acknowledgments</h2>
+    <p>The course builds on previous iterations of the course taught by
+    <a href="https://math.richmond.edu/faculty/tarnold2/">Taylor
+    Arnold</a> and <a
+    href="https://math.richmond.edu/faculty/lorr2/">Lilla Orr</a>.</p>
+    <h2 id="recommended-reading">Recommended Reading</h2>
+    <ul>
+    <li><span class="citation"
+    data-cites="arnoldHumanitiesDataExploring2015">Taylor Arnold and
+    Lauren Tilton<a href="#fn1" class="footnote-ref" id="fnref1"
+    role="doc-noteref"><sup>1</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="brucePracticalStatisticsData2020">Peter C. Bruce, Andrew
+    Bruce, and Peter Gedeck<a href="#fn2" class="footnote-ref"
+    id="fnref2" role="doc-noteref"><sup>2</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="jockersTextAnalysisStudents2020">Matthew Lee Jockers and
+    Rosamond Thalken<a href="#fn3" class="footnote-ref" id="fnref3"
+    role="doc-noteref"><sup>3</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="kuhnTidyModelingFramework2022">Max Kuhn and Julia
+    Silge<a href="#fn4" class="footnote-ref" id="fnref4"
+    role="doc-noteref"><sup>4</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="silgeTextMiningTidy2017">Julia Silge and David
+    Robinson<a href="#fn5" class="footnote-ref" id="fnref5"
+    role="doc-noteref"><sup>5</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="wickhamDataScienceImport2023">Hadley Wickham, Mine
+    Çetinkaya-Rundel, and Garrett Grolemund<a href="#fn6"
+    class="footnote-ref" id="fnref6"
+    role="doc-noteref"><sup>6</sup></a></span></li>
+    </ul>
+    <section id="footnotes" class="footnotes footnotes-end-of-document"
+    role="doc-endnotes">
+    <hr />
+    <ol>
+    <li id="fn1"><p><em>Humanities <span>Data</span> in <span>R</span>:
+    <span>Exploring Networks</span>, <span>Geospatial Data</span>,
+    <span>Images</span>, and <span>Text</span></em>, 1st ed. 2015,
+    Quantitative <span>Methods</span> in the <span>Humanities</span> and
+    <span>Social Sciences</span> (Springer International Publishing :
+    Imprint: Springer, 2015), <a
+    href="https://doi.org/10.1007/978-3-319-20702-5">https://doi.org/10.1007/978-3-319-20702-5</a>.<a
+    href="#fnref1" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn2"><p><em>Practical Statistics for Data Scientists: 50+
+    Essential Concepts Using <span>R</span> and
+    <span>Python</span></em>, Second edition (O’Reilly Media, Inc,
+    2020).<a href="#fnref2" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn3"><p><em>Text Analysis with <span>R</span>: For Students
+    of Literature</em>, 2nd edition, Quantitative Methods in the
+    Humanities and Social Sciences (Springer, 2020).<a href="#fnref3"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn4"><p><em>Tidy Modeling with <span>R</span>: A Framework
+    for Modeling in the Tidyverse</em> (O’Reilly Media, 2022).<a
+    href="#fnref4" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn5"><p><em>Text Mining with <span>R</span>: A Tidy
+    Approach</em>, First edition (O’Reilly, 2017).<a href="#fnref5"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn6"><p><em>R for Data Science: Import, Tidy, Transform,
+    Visualize, and Model Data</em>, Second edition (O’Reilly, 2023).<a
+    href="#fnref6" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    </ol>
+    </section>
+  </main>
+</body>
+
+</html>

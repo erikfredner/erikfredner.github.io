@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+  <title></title>
+  <style>
+    body {
+      width: min(100% - 2rem, 60ch);
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html"><strong>Erik Fredner</strong></a></li>
+      </ul>
+      <ul>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    
+    <h1 id="text-classification-with-llms">Text Classification with
+    LLMs</h1>
+    <h2 id="description">Description</h2>
+    <p>In this course, you will learn the basics of using a large
+    language model (specifically, ChatGPT) for text classification.
+    Using the ChatGPT application programming interface (API), we will
+    explore how LLMs can assist humans (and humanists) with various text
+    classification tasks (e.g., binary, labeling, applying confidence
+    intervals to judgments, etc.). We will get to know the API, create
+    validation data, engineer prompts, and automate API calls for large
+    data sets.</p>
+    <h2 id="course-content">Course Content</h2>
+    <p>Each numbered notebook corresponds with one 90-minute class
+    session.</p>
+    <p>Sessions presume that participants are already familiar with <a
+    href="https://www.python.org">Python</a>, <a
+    href="https://jupyter.org">Jupyter Notebooks</a>, and <a
+    href="https://pandas.pydata.org"><code>pandas</code></a>.</p>
+    <h2 id="lesson-1">Lesson 1</h2>
+    <h3 id="why-classify-texts">Why classify texts?</h3>
+    <ul>
+    <li>What is text classification?</li>
+    <li>Why is text classification useful?</li>
+    <li>LLMs: The good, the bad, and the ugly</li>
+    </ul>
+    <h3 id="technical-introduction">Technical introduction</h3>
+    <ul>
+    <li>Overview of LLMs in general</li>
+    <li>Distinction between ChatGPT on the website and the API</li>
+    <li>Overview of APIs generally and ChatGPT’s API specifically</li>
+    <li>Overview of JSON and
+    <code>response_format={ "type": "json_object" }</code></li>
+    </ul>
+    <h3 id="api-costs">API Costs</h3>
+    <ul>
+    <li>How to calculate the cost of a job</li>
+    <li><a
+    href="https://help.openai.com/en/articles/7039783-how-can-i-access-the-chatgpt-api">How
+    to get an API key</a></li>
+    <li><a href="https://openai.com/api/pricing/">Pricing</a> by model,
+    input, and output</li>
+    <li><a
+    href="https://platform.openai.com/docs/guides/batch/batch-api">Batch
+    API</a> reduces costs by <strong>50%</strong></li>
+    </ul>
+    <h2 id="lesson-2">Lesson 2</h2>
+    <h3 id="review-lesson-1">Review Lesson 1</h3>
+    <ul>
+    <li>Why classify texts?</li>
+    <li>LLMs: The good, the bad, and the ugly</li>
+    <li>Advantages of the API: automation, hidden options, structured
+    output</li>
+    </ul>
+    <h3 id="texts-to-classify">Texts to classify</h3>
+    <ul>
+    <li>Sample data: 500 random <em>Jeopardy!</em> questions somebody
+    scraped from <a href="https://j-archive.com">J!-Archive</a> and <a
+    href="https://github.com/amwagner19/jarchive-clues">posted on
+    GitHub</a></li>
+    </ul>
+    <h3 id="overview-of-text-classification-types">Overview of text
+    classification types</h3>
+    <ul>
+    <li>binary, multi-class, multi-label, hierarchical, ordinal</li>
+    </ul>
+    <h3 id="evaluating-llm-classifications">Evaluating LLM
+    classifications</h3>
+    <ul>
+    <li>How well can the LLM approximate human classification?</li>
+    <li>Gold-standard data</li>
+    <li><a
+    href="https://en.wikipedia.org/wiki/Inter-rater_reliability">Inter-rater
+    reliability</a></li>
+    <li>Measuring Human-LLM agreement</li>
+    <li>Precision, recall, and F-score</li>
+    </ul>
+    <h3 id="quantifying-model-uncertainty">Quantifying model
+    uncertainty</h3>
+    <ul>
+    <li>Outputting confidence intervals via JSON</li>
+    <li>Using <code>logprobs</code> to output classification token
+    probabilities</li>
+    </ul>
+    <h2 id="lesson-3">Lesson 3</h2>
+    <h3 id="prompt-engineering">Prompt engineering</h3>
+    <ul>
+    <li>Systematically testing prompts to find the those that perform
+    best</li>
+    <li>How to measure performance</li>
+    <li>Beware: garbage in, garbage out (GIGO)</li>
+    <li>Prompt engineering techniques</li>
+    </ul>
+    <h3
+    id="systematically-testing-classification-prompts">Systematically
+    testing classification prompts</h3>
+    <ul>
+    <li>Generate sample data</li>
+    <li>Iterate through questions</li>
+    <li>Get classifications in JSON</li>
+    <li>Check low confidence classification results</li>
+    <li>Test multiple prompts systematically</li>
+    </ul>
+    <h3 id="what-can-we-do-with-classifications-once-we-have-them">What
+    can we do with classifications once we have them?</h3>
+    <ul>
+    <li>Study the classified texts</li>
+    <li>Use the classification results as evidence to describe the
+    larger body of texts of which they are a part</li>
+    <li>Use that subset of data to extract additional data</li>
+    <li>Perform additional classification or labeling steps (e.g.,
+    sub-classifications)</li>
+    <li>Extract data (e.g., authors and texts from questions about
+    literature)</li>
+    </ul>
+  </main>
+</body>
+
+</html>

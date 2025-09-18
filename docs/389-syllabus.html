@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+  <title>Advanced Data Science</title>
+  <style>
+    body {
+      width: min(100% - 2rem, 60ch);
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html"><strong>Erik Fredner</strong></a></li>
+      </ul>
+      <ul>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1 class="page-title">Advanced Data Science</h1>
+    <h2 id="land-acknowledgment">Land Acknowledgment</h2>
+    <p>This class at the University of Richmond respectfully
+    acknowledges the traditional custodians of the land we are on today,
+    the Powhatan people, and pays respect to their elders past, present,
+    and emerging.</p>
+    <p>To learn more about the land on which the University of Richmond
+    exists, I recommend students read the report <a
+    href="https://www.richmond.edu/burying-ground/index.html">“Knowledge
+    of This Cannot Be Hidden” by Shelby M. Driskill and Dr. Lauranett L.
+    Lee</a>, which discusses both the University’s geographic connection
+    to the Powhatan people, as well as the presence of a burying ground
+    for enslaved laborers on campus.</p>
+    <h2 id="accessibility">Accessibility</h2>
+    <p>I strive to make this course accessible. If you encounter
+    barriers to accessibility, please let me know as soon as
+    possible.</p>
+    <h2 id="description">Description</h2>
+    <p>This course introduces advanced approaches to the analysis of
+    data. It emphasizes what Hadley Wickham calls the <a
+    href="https://r4ds.hadley.nz/whole-game">“whole game”</a> of data
+    science: creating, importing, tidying, transforming, visualizing,
+    and communicating about data. We will focus on data about and
+    derived from texts in this class.</p>
+    <p>See the <a
+    href="https://datascience.richmond.edu/academics/courses.html">course
+    catalog</a>.</p>
+    <h2 id="learning-goals">Learning Goals</h2>
+    <p>By the end of this course, students will be able to…</p>
+    <ul>
+    <li>Collect, manipulate, tidy, visualize, and explore data using
+    basic and advanced techniques.</li>
+    <li>Identify specific challenges and opportunities of working with
+    data derived from texts.</li>
+    <li>Understand key aspects of the <a
+    href="https://www.r-project.org">R programming language</a> and the
+    <a href="https://www.tidyverse.org"><code>tidyverse</code></a>.</li>
+    <li>Use the <a
+    href="https://posit.co/products/open-source/rstudio/">RStudio</a>
+    integrated development environment.</li>
+    <li>Use <a href="https://quarto.org/">Quarto</a> to create
+    high-quality research documents and websites.</li>
+    <li>Use programming language documentation, cookbooks, and large
+    language models to solve programming problems.</li>
+    </ul>
+    <h2 id="materials">Materials</h2>
+    <ul>
+    <li>Class materials will be posted on Blackboard throughout the
+    semester.</li>
+    <li>Please bring a computer, pencil, and paper to each class.</li>
+    </ul>
+    <h2 id="inclusivity">Inclusivity</h2>
+    <p>I expect you to…</p>
+    <ul>
+    <li>Treat your classmates with respect.</li>
+    <li>Be patient.</li>
+    <li>Support each other in your learning.</li>
+    </ul>
+    <h2 id="help">Help</h2>
+    <ul>
+    <li>I reserve class time to answer questions and help with problem
+    sets.</li>
+    <li>I encourage you to work on problem sets and study with your
+    classmates during and outside of class.</li>
+    <li>Come to office hours.</li>
+    </ul>
+    <h2 id="grades">Grades</h2>
+    <table>
+    <thead>
+    <tr>
+    <th>Assignment</th>
+    <th>Percentage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Participation</td>
+    <td>10%</td>
+    </tr>
+    <tr>
+    <td>Code Interview</td>
+    <td>10%</td>
+    </tr>
+    <tr>
+    <td>Group Projects</td>
+    <td>60%</td>
+    </tr>
+    <tr>
+    <td>Final Project</td>
+    <td>20%</td>
+    </tr>
+    </tbody>
+    </table>
+    <table>
+    <thead>
+    <tr>
+    <th>Letter Grade</th>
+    <th>Range</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>A</td>
+    <td>93-100</td>
+    </tr>
+    <tr>
+    <td>A-</td>
+    <td>90-92</td>
+    </tr>
+    <tr>
+    <td>B+</td>
+    <td>87-89</td>
+    </tr>
+    <tr>
+    <td>B</td>
+    <td>83-86</td>
+    </tr>
+    <tr>
+    <td>B-</td>
+    <td>80-82</td>
+    </tr>
+    <tr>
+    <td>C+</td>
+    <td>77-79</td>
+    </tr>
+    <tr>
+    <td>C</td>
+    <td>73-76</td>
+    </tr>
+    <tr>
+    <td>C-</td>
+    <td>70-72</td>
+    </tr>
+    <tr>
+    <td>D+</td>
+    <td>67-69</td>
+    </tr>
+    <tr>
+    <td>D</td>
+    <td>63-66</td>
+    </tr>
+    <tr>
+    <td>D-</td>
+    <td>60-62</td>
+    </tr>
+    <tr>
+    <td>F</td>
+    <td>0-59</td>
+    </tr>
+    </tbody>
+    </table>
+    <ul>
+    <li>I round fractional grades.</li>
+    <li>I reserve the right to curve grades.</li>
+    </ul>
+    <h3 id="participation">Participation</h3>
+    <ul>
+    <li>Participation includes preparation, attendance, and effective
+    use of class time.</li>
+    <li>Everyone gets three unexcused absences.
+    <ul>
+    <li>Additional unexcused absences will harm your participation
+    grade.</li>
+    </ul></li>
+    <li>Email me before the class you will miss to request an excused
+    absence.</li>
+    </ul>
+    <h3 id="code-interview">Code Interview</h3>
+    <p>Near the end of the semester, you will complete a code interview.
+    I will ask you to explain your approach and solutions to a few
+    randomly selected problems from the notebooks assigned throughout
+    the semester.</p>
+    <p>If you do not complete the notebooks, you cannot succeed on the
+    code interview.</p>
+    <h3 id="group-projects">Group Projects</h3>
+    <ul>
+    <li>Groups of two to three students will be randomly assigned for
+    each project.</li>
+    <li>In addition to submitting the project, group members will
+    complete self and peer evaluations.</li>
+    <li>Generally, groups with mutually positive peer evaluations will
+    share a grade.
+    <ul>
+    <li>If a group member receives a negative peer evaluation, they may
+    receive a lower grade than the rest of the group.</li>
+    </ul></li>
+    <li>I want groups to share work <strong>equitably</strong>.</li>
+    </ul>
+    <h3 id="final-project">Final Project</h3>
+    <p>Unlike earlier projects in the semester, final projects are
+    individual. Your final project will result in a
+    <strong>formal</strong> report including original code, data
+    visualizations, explanatory and interpretive writing, and proper
+    citations.</p>
+    <h3 id="late-work">Late work</h3>
+    <ul>
+    <li>Late work is penalized one letter grade (i.e., -10 points) per
+    day.</li>
+    <li>If you need an extension on an assignment, it never hurts to
+    ask!
+    <ul>
+    <li>I will be much more likely to grant extensions requested well in
+    advance.</li>
+    <li>If you request an extension within 24 hours of a deadline, it
+    will not be approved except in exceptional circumstances.</li>
+    </ul></li>
+    </ul>
+    <h2 id="honor">Honor</h2>
+    <p>This course is taught in accordance with the University of
+    Richmond Honor Code, which can be accessed via <a
+    href="https://studentdevelopment.richmond.edu/student-handbook/honor/">The
+    Honor Councils website</a>.</p>
+    <p>If you are found to have violated the Honor Code, you will fail
+    this course.</p>
+    <p>If you ever have any questions about whether an action would be
+    an honor violation, re-read the syllabus. If it is still unclear,
+    please ask me.</p>
+    <h3 id="generative-artificial-intelligence">Generative Artificial
+    Intelligence</h3>
+    <p>Generative artificial intelligence (GenAI) programs, especially
+    large language models (LLMs), are useful tools for coding. However,
+    overreliance on GenAI impedes learning.</p>
+    <p>Moreover, LLMs often answer questions incorrectly or
+    incompletely. In order to be an effective user of these
+    technologies, it is crucial for you to be able to recognize when
+    that happens, and how to respond.</p>
+    <h3 id="prohibited-uses-of-genai">Prohibited Uses of GenAI</h3>
+    <ul>
+    <li>Submitting model output, in part or in whole, as if it were your
+    original work. This includes code or writing.</li>
+    <li>Uploading any data used in this course (e.g., <code>.csv</code>
+    files) to multimodal GenAI tools like ChatGPT.</li>
+    </ul>
+    <h3 id="permitted-uses-of-genai">Permitted Uses of GenAI</h3>
+    <p>I ask you to do these things in this order when you can’t figure
+    something out:</p>
+    <ol type="1">
+    <li>Review the course notes.</li>
+    <li>Talk to your classmates.</li>
+    <li>Search for credible information online (e.g.,
+    StackOverflow).</li>
+    <li>Talk to the <a
+    href="https://chatgpt.com/g/g-6783c8a8603c8191862f677689207682-dsst389-gpt">Custom
+    GPT</a> I created for this class.</li>
+    <li>If you use information from the Custom GPT,
+    <strong>cite</strong> your interactions with it.</li>
+    </ol>
+    <p><a
+    href="https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq">This
+    page</a> explains how to share a link to a ChatGPT interaction.</p>
+    <h2 id="schedule">Schedule</h2>
+    <p>The schedule outlines major topics to be covered in the course. I
+    reserve the right to change the schedule as the semester progresses.
+    If I do change the schedule, I will inform you as far in advance as
+    possible.</p>
+    <table>
+    <thead>
+    <tr>
+    <th style="text-align: left;">Meeting</th>
+    <th style="text-align: left;">Date</th>
+    <th style="text-align: left;">Topic</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: left;">1</td>
+    <td style="text-align: left;">01-13</td>
+    <td style="text-align: left;">Introduction</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">2</td>
+    <td style="text-align: left;">01-15</td>
+    <td style="text-align: left;">Quarto and Markdown</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"></td>
+    <td style="text-align: left;">01-22</td>
+    <td style="text-align: left;"><strong>NO CLASS</strong></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">3</td>
+    <td style="text-align: left;">01-27</td>
+    <td style="text-align: left;"><code>tidyverse</code> review</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">4</td>
+    <td style="text-align: left;">01-29</td>
+    <td style="text-align: left;">Tidy texts</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">5</td>
+    <td style="text-align: left;">02-03</td>
+    <td style="text-align: left;">Sampling and corpora</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">6</td>
+    <td style="text-align: left;">02-05</td>
+    <td style="text-align: left;">Relative frequencies</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">7</td>
+    <td style="text-align: left;">02-10</td>
+    <td style="text-align: left;">Review</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">8</td>
+    <td style="text-align: left;">02-12</td>
+    <td style="text-align: left;"><strong>Group Project 1
+    workshop</strong></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">9</td>
+    <td style="text-align: left;">02-17</td>
+    <td style="text-align: left;">Sentiment analysis</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">10</td>
+    <td style="text-align: left;">02-19</td>
+    <td style="text-align: left;">tf-idf</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">11</td>
+    <td style="text-align: left;">02-24</td>
+    <td style="text-align: left;">K-nearest neighbors</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">12</td>
+    <td style="text-align: left;">02-26</td>
+    <td style="text-align: left;">Text classification</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">13</td>
+    <td style="text-align: left;">03-03</td>
+    <td style="text-align: left;"><strong>Group Project 2
+    workshop</strong></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">14</td>
+    <td style="text-align: left;">03-05</td>
+    <td style="text-align: left;">Elastic nets</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"></td>
+    <td style="text-align: left;">03-10</td>
+    <td style="text-align: left;"><em>Spring Break</em></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;"></td>
+    <td style="text-align: left;">03-12</td>
+    <td style="text-align: left;"><em>Spring Break</em></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">15</td>
+    <td style="text-align: left;">03-17</td>
+    <td style="text-align: left;">Gradient boosted trees</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">16</td>
+    <td style="text-align: left;">03-19</td>
+    <td style="text-align: left;">Logistic regression</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">17</td>
+    <td style="text-align: left;">03-24</td>
+    <td style="text-align: left;">Word embeddings</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">18</td>
+    <td style="text-align: left;">03-26</td>
+    <td style="text-align: left;">Modeling text data</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">19</td>
+    <td style="text-align: left;">03-31</td>
+    <td style="text-align: left;">Text classification</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">20</td>
+    <td style="text-align: left;">04-02</td>
+    <td style="text-align: left;">Topic modeling</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">21</td>
+    <td style="text-align: left;">04-07</td>
+    <td style="text-align: left;">Review</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">22</td>
+    <td style="text-align: left;">04-09</td>
+    <td style="text-align: left;"><strong>Group Project 3
+    workshop</strong></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">23</td>
+    <td style="text-align: left;">04-14</td>
+    <td style="text-align: left;"><strong>Code Interviews</strong></td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">24</td>
+    <td style="text-align: left;">04-16</td>
+    <td style="text-align: left;">Workshop</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">25</td>
+    <td style="text-align: left;">04-21</td>
+    <td style="text-align: left;">Workshop</td>
+    </tr>
+    <tr>
+    <td style="text-align: left;">26</td>
+    <td style="text-align: left;">04-23</td>
+    <td style="text-align: left;"><strong>Final Project
+    presentations</strong></td>
+    </tr>
+    </tbody>
+    </table>
+    <h2 id="communication">Communication</h2>
+    <ul>
+    <li>I respond to email within 2 business days.
+    <ul>
+    <li>If you have not received a response after 2 business days,
+    please write me again.</li>
+    </ul></li>
+    <li>I recommend scheduling your emails to arrive early in the
+    morning (e.g., 7 AM).
+    <ul>
+    <li><a href="https://support.google.com/mail/answer/9214606">Gmail
+    instructions</a></li>
+    <li><a
+    href="https://support.microsoft.com/en-us/office/delay-or-schedule-sending-email-messages-in-outlook-026af69f-c287-490a-a72f-6c65793744ba">Outlook
+    instructions</a></li>
+    </ul></li>
+    </ul>
+    <h2 id="wellness">Wellness</h2>
+    <h3 id="health">Health</h3>
+    <ul>
+    <li>Please do not come to class if you are sick.</li>
+    <li>If you are recovering from an illness, are no longer infectious,
+    and are well enough to attend class, please be courteous and wear a
+    mask.</li>
+    </ul>
+    <h3 id="counseling-and-psychological-services">Counseling and
+    Psychological Services</h3>
+    <p>Mental health is crucial for academic success. <a
+    href="https://caps.richmond.edu">Counseling and Psychological
+    Services</a> at the University of Richmond supports student success
+    and enhances student well-being by providing comprehensive clinical
+    services to currently enrolled, full-time, degree-seeking
+    students.</p>
+    <h3 id="title-ix">Title IX</h3>
+    <p>The University of Richmond and its faculty are committed to
+    ensuring a safe and supportive learning environment. If you disclose
+    to me or another mandatory reporter an incident of sexual misconduct
+    (including sexual harassment or sexual violence), I am obligated by
+    law to share that information with the University’s Title IX
+    Coordinator. For more information on our sexual misconduct policy,
+    how to report, and confidential resources available to you, please
+    visit the University’s <a
+    href="https://prevent.richmond.edu/title-ix/get-help/index.html">Title
+    IX help page</a>.</p>
+    <h3 id="religious-observance">Religious Observance</h3>
+    <p>Any student may be excused from class or other assignments
+    because of religious observance. I will make reasonable
+    accommodations when students’ religious practices conflict with
+    their academic responsibilities. If you will miss an academic
+    obligation because of religious observance, you are responsible for
+    contacting me within the first two weeks of the semester. You are
+    also responsible for completing missed work in a timely manner.</p>
+    <p>For more information, see the University’s <a
+    href="https://registrar.richmond.edu/planning/calendar/religious-observance.html">religious
+    observance policy</a>.</p>
+    <h2 id="resources">Resources</h2>
+    <p>The University of Richmond has many resources on campus that may
+    help you succeed.</p>
+    <h3 id="disability-services">Disability Services</h3>
+    <p>The University of Richmond’s office of Disability Services
+    strives to ensure that students with disabilities and/or temporary
+    conditions (i.e., concussions &amp; injuries) are provided
+    opportunity for full participation and equal access. Students who
+    are experiencing a barrier to access due to a disability and/or
+    temporary condition are encouraged to apply for accommodations by
+    visiting: <a
+    href="https://disability.richmond.edu">disability.richmond.edu</a>.
+    Disability Services can be reached at <a
+    href="mailto:disability@richmond.edu"
+    class="email">disability@richmond.edu</a> or 804-662-5001.</p>
+    <p>Once accommodations have been approved, students must 1) Submit
+    their Disability Accommodation Notice (DAN) to each of their
+    professors via the Disability Services Student Portal available at
+    this link: <a
+    href="https://sl.richmond.edu/be">sl.richmond.edu/be</a>. and 2)
+    Request a meeting with each professor to create an accommodation
+    implementation plan. It is important to complete these steps as soon
+    as possible because accommodations are never retroactive, and
+    professors are permitted a reasonable amount of time for
+    implementation. Disability Services is available to assist, as
+    needed.</p>
+    <h3 id="weinstein-learning-center">Weinstein Learning Center</h3>
+    <p>The Weinstein Learning Center is your go-to destination for
+    academic support. Their services are tailored to help you achieve
+    your academic goals throughout your time at University of Richmond.
+    To learn more and view service schedules and appointment times,
+    visit <a href="https://wlc.richmond.edu"
+    class="uri">https://wlc.richmond.edu</a>. Available services
+    include:</p>
+    <h4 id="academic-skills-coaching">Academic Skills Coaching</h4>
+    <p>Meet with a professional staff member who will collaborate with
+    you to assess and develop your academic and life skills (e.g.,
+    critical reading and thinking, information conceptualization,
+    concentration, test preparation, time management, stress management,
+    and more).</p>
+    <h4 id="content-tutoring">Content Tutoring</h4>
+    <p>Peer consultants offer assistance in specific courses and subject
+    areas. They are available for appointments (in-person and virtual)
+    and drop-in sessions. See schedules at <a
+    href="https://wlc.richmond.edu"
+    class="uri">https://wlc.richmond.edu</a> for supported courses and
+    drop-in times.</p>
+    <h4 id="english-language-learning">English Language Learning</h4>
+    <p>Attend one-on-one or group consultations, workshops, and other
+    services focused on English, academic, and/or intercultural
+    skills.</p>
+    <h4 id="quantitative-and-programming-resources">Quantitative and
+    Programming Resources</h4>
+    <p>Peer consultants and professional staff offer workshops or
+    one-on-one appointments to build quantitative and programming skills
+    and provide statistical assistance for research projects.</p>
+    <h4 id="speech-and-communication">Speech and Communication</h4>
+    <p>Prepare and practice for academic presentations, speaking
+    engagements, and other occasions of public expression. Peer
+    consultants offer recording, playback, and coaching for both
+    individual and group presentations. Students can expect
+    recommendations regarding clarity, organization, style, and
+    delivery.</p>
+    <h4 id="technology-learning">Technology Learning</h4>
+    <p>Visit our student lab dedicated to supporting digital media
+    projects. Services include camera checkout, video/audio recording
+    assistance, use of virtual reality equipment, poster printing, 3D
+    printing and modeling, and consultation services on a variety of
+    software.</p>
+    <h4 id="writing">Writing</h4>
+    <p>Assists student writers at all levels of experience, across all
+    majors. Meet with peer consultants who can offer feedback on written
+    work and suggest pre-writing, drafting, and revision strategies.</p>
+    <h3 id="boatwright-library">Boatwright Library</h3>
+    <p>Students may consult librarians to assist with their research,
+    which may be especially useful for the final project. Use the <a
+    href="https://library.richmond.edu/help/ask/">Ask a Librarian</a>
+    service to reach librarians by email, phone, chat, text, or in
+    person.</p>
+    <h2 id="acknowledgments">Acknowledgments</h2>
+    <p>The course builds on previous iterations of DSST389 taught by <a
+    href="https://math.richmond.edu/faculty/lorr2/">Lilla Orr</a> and <a
+    href="https://math.richmond.edu/faculty/tarnold2/">Taylor
+    Arnold</a>.</p>
+    <h2 id="recommended-reading">Recommended Reading</h2>
+    <ul>
+    <li><span class="citation"
+    data-cites="arnoldHumanitiesDataExploring2024">Taylor Arnold and
+    Lauren Tilton<a href="#fn1" class="footnote-ref" id="fnref1"
+    role="doc-noteref"><sup>1</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="brucePracticalStatisticsData2020">Peter C. Bruce, Andrew
+    Bruce, and Peter Gedeck<a href="#fn2" class="footnote-ref"
+    id="fnref2" role="doc-noteref"><sup>2</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="healyDataVisualizationPractical2019">Kieran Joseph
+    Healy<a href="#fn3" class="footnote-ref" id="fnref3"
+    role="doc-noteref"><sup>3</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="ismayStatisticalInferenceData2025">Chester Ismay<a
+    href="#fn4" class="footnote-ref" id="fnref4"
+    role="doc-noteref"><sup>4</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="jamesIntroductionStatisticalLearning2021">Gareth James,
+    Daniela Witten, Trevor Hastie, and Robert Tibshirani<a href="#fn5"
+    class="footnote-ref" id="fnref5"
+    role="doc-noteref"><sup>5</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="jockersTextAnalysisStudents2020">Matthew Lee Jockers and
+    Rosamond Thalken<a href="#fn6" class="footnote-ref" id="fnref6"
+    role="doc-noteref"><sup>6</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="kuhnTidyModelingFramework2022">Max Kuhn and Julia
+    Silge<a href="#fn7" class="footnote-ref" id="fnref7"
+    role="doc-noteref"><sup>7</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="silgeTextMiningTidy2017">Julia Silge and David
+    Robinson<a href="#fn8" class="footnote-ref" id="fnref8"
+    role="doc-noteref"><sup>8</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="tufteVisualDisplayQuantitative2001">Edward R. Tufte<a
+    href="#fn9" class="footnote-ref" id="fnref9"
+    role="doc-noteref"><sup>9</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="wickhamDataScienceImport2023">Hadley Wickham, Mine
+    Çetinkaya-Rundel, and Garrett Grolemund<a href="#fn10"
+    class="footnote-ref" id="fnref10"
+    role="doc-noteref"><sup>10</sup></a></span></li>
+    <li><span class="citation"
+    data-cites="wickhamPackagesOrganizeTest2023">Hadley Wickham and
+    Jennifer Bryan<a href="#fn11" class="footnote-ref" id="fnref11"
+    role="doc-noteref"><sup>11</sup></a></span></li>
+    </ul>
+    <section id="footnotes" class="footnotes footnotes-end-of-document"
+    role="doc-endnotes">
+    <hr />
+    <ol>
+    <li id="fn1"><p><em>Humanities <span>Data</span> in <span>R</span>:
+    <span>Exploring Networks</span>, <span>Geospatial Data</span>,
+    <span>Images</span>, and <span>Text</span></em>, 2nd ed. 2024,
+    Quantitative <span>Methods</span> in the <span>Humanities</span> and
+    <span>Social Sciences</span> (Springer International Publishing,
+    2024), <a
+    href="https://doi.org/10.1007/978-3-031-62566-4">https://doi.org/10.1007/978-3-031-62566-4</a>.<a
+    href="#fnref1" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn2"><p><em>Practical Statistics for Data Scientists: 50+
+    Essential Concepts Using <span>R</span> and
+    <span>Python</span></em>, Second edition (O’Reilly Media, Inc,
+    2020).<a href="#fnref2" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn3"><p><em>Data Visualization: A Practical
+    Introduction</em> (Princeton University Press, 2019).<a
+    href="#fnref3" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn4"><p><em>Statistical Inference via Data Science: A Modern
+    Dive into <span>R</span> and the Tidyverse</em>, Second edition (CRC
+    Press, 2025).<a href="#fnref4" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn5"><p><em>An <span>Introduction</span> to
+    <span>Statistical Learning</span>: With <span>Applications</span> in
+    <span>R</span></em>, Springer <span>Texts</span> in
+    <span>Statistics</span> (Springer US, 2021), <a
+    href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.<a
+    href="#fnref5" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn6"><p><em>Text Analysis with <span>R</span>: For Students
+    of Literature</em>, 2nd edition, Quantitative Methods in the
+    Humanities and Social Sciences (Springer, 2020).<a href="#fnref6"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn7"><p><em>Tidy Modeling with <span>R</span>: A Framework
+    for Modeling in the Tidyverse</em> (O’Reilly Media, 2022).<a
+    href="#fnref7" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn8"><p><em>Text Mining with <span>R</span>: A Tidy
+    Approach</em>, First edition (O’Reilly, 2017).<a href="#fnref8"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn9"><p><em>The Visual Display of Quantitative
+    Information</em>, 2nd ed (Graphics Press, 2001).<a href="#fnref9"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn10"><p><em>R for Data Science: Import, Tidy, Transform,
+    Visualize, and Model Data</em>, Second edition (O’Reilly, 2023).<a
+    href="#fnref10" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn11"><p><em>R Packages: Organize, Test, Document, and Share
+    Your Code</em>, Second edition (O’Reilly, 2023).<a href="#fnref11"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    </ol>
+    </section>
+  </main>
+</body>
+
+</html>
