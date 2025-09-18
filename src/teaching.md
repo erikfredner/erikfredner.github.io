@@ -40,7 +40,7 @@ Courses are ordered reverse chronologically.
 #### World Humanities 101
 
 - [The City College of New York](https://worldhum.commons.gc.cuny.edu)
-- [Syllabus](/files/whum_syllabus.pdf)
+- [Syllabus](whum-syllabus.html)
 
 #### Average Americans
 
