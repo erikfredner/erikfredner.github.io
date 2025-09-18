@@ -2,7 +2,7 @@
 title: "Teaching"
 ---
 
-*Courses are ordered reverse chronologically.*
+Courses are ordered reverse chronologically.
 
 #### Advanced Data Science
 
