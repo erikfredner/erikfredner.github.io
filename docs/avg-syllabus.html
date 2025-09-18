@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+  <title>Writing Intensive Seminar in English</title>
+  <style>
+    body {
+      width: min(100%, 60ch);
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center
+    }
+
+    nav a {
+      text-decoration: none
+    }
+
+    .brand a {
+      font-size: 1.1rem;
+      font-weight: 600
+    }
+
+    main {
+      max-width: 60ch;
+      margin-inline: auto
+    }
+
+    footer {
+      margin-top: 2rem
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Main">
+      <ul>
+        <li class="brand"><a href="index.html">Erik Fredner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1 class="page-title">Writing Intensive Seminar in English</h1>
+    <h2 id="averaging-americans">“Averaging Americans”</h2>
+    <h3 id="description">Description</h3>
+    <p>Perennially invoked by politicians and pundits, declared “divine”
+    by Walt Whitman, the “average American” has been one of the United
+    States’ most important fictional characters for well over a century.
+    But do averages tell us anything about the individuals from whom
+    they are derived? And who benefits when we use the “average
+    American” as a way of saying who represents the U.S.? The logic of
+    the average resonates with American self-concepts of democracy,
+    equality, and scientific rationalism, yet the same data can be used
+    to suppress difference and dissent. How does the novel propagate and
+    problematize this idea of the representative individual? In this
+    class, we explore these tensions between the individual and the
+    social by reading two novels—Sinclair Lewis’s <em>Babbitt</em> and
+    Richard Wright’s <em>Native Son</em>—in conversation with two
+    literary critical approaches: Marxist literary theory and the
+    digital humanities methods associated with Stanford’s Literary Lab.
+    The course includes an introduction to the programming language R
+    for text analysis. As we move between close and distant scales of
+    reading, we will ask how numbers and texts attempt to represent
+    American personhood. (No prior experience with statistics,
+    programming, Marxist theory, or the digital humanities is
+    required.)</p>
+    <h3 id="texts">Texts</h3>
+    <p>Contact me if you need financial assistance to buy course
+    materials.</p>
+    <ul>
+    <li><em>Babbitt</em><span class="citation"
+    data-cites="lewisBabbitt2010"><a href="#fn1" class="footnote-ref"
+    id="fnref1" role="doc-noteref"><sup>1</sup></a></span></li>
+    <li><em>Native Son</em><span class="citation"
+    data-cites="wrightNativeSon1998"><a href="#fn2" class="footnote-ref"
+    id="fnref2" role="doc-noteref"><sup>2</sup></a></span></li>
+    </ul>
+    <p>All other texts will be provided to you digitally.</p>
+    <h3 id="goals">Goals</h3>
+    <p>Students will be able to:</p>
+    <ul>
+    <li>Develop a research project through a process of presentation,
+    revision, and writing.</li>
+    <li>Describe distant reading and apply several of its conceptual and
+    methodological interventions to their own research.</li>
+    <li>Describe historical, social, and aesthetic concepts associated
+    with Marxist thought.</li>
+    <li>Apply central ideas and methods of Marxist thought to literary
+    critical work.</li>
+    <li>Consider intersections of class and race in American literary
+    history.</li>
+    <li>Discuss the relay between power and the statistical
+    imagination.</li>
+    </ul>
+    <h3 id="calendar">Calendar</h3>
+    <p>We meet for two 110 minute class sessions per week. Read the
+    following for each class:</p>
+    <table>
+    <colgroup>
+    <col style="width: 31%" />
+    <col style="width: 68%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th>Date</th>
+    <th>Reading / Activity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Jan. 09</td>
+    <td>“For a Ruthless Criticism of Everything Existing” (Marx)</td>
+    </tr>
+    <tr>
+    <td>Jan. 11</td>
+    <td><em>Marxism and Literary Criticism</em> (Eagleton)</td>
+    </tr>
+    <tr>
+    <td>Jan. 16</td>
+    <td>“Operationalizing” (Moretti)<br>“The Novel as Data”
+    (Algee-Hewitt et al.)</td>
+    </tr>
+    <tr>
+    <td>Jan. 18</td>
+    <td><em>Representation</em> (Hall, selections)<br>In class:
+    Introduction to R.</td>
+    </tr>
+    <tr>
+    <td>Jan. 23</td>
+    <td><em>Babbitt</em> (Lewis, 1–85, through Ch. VII)</td>
+    </tr>
+    <tr>
+    <td>Jan. 25</td>
+    <td><em>Babbitt</em> (86–147, through Ch. XIII)<br><em>Theory of the
+    Leisure Class</em> (Veblen, selections)</td>
+    </tr>
+    <tr>
+    <td>Jan. 30</td>
+    <td>Assignment one lab</td>
+    </tr>
+    <tr>
+    <td>Feb. 01</td>
+    <td><em>Babbitt</em> (148–242, through Ch. XXIV)<br><em>The
+    Protestant Ethic and the Spirit of Capitalism</em> (Weber,
+    selections)</td>
+    </tr>
+    <tr>
+    <td>Feb. 06</td>
+    <td>Assignment one presentation. Assignment one due.</td>
+    </tr>
+    <tr>
+    <td>Feb. 08</td>
+    <td><em>Babbitt</em> (243–329, through end)<br><em>Marxism and
+    Literature</em> (Williams, selections)</td>
+    </tr>
+    <tr>
+    <td>Feb. 13</td>
+    <td>Assignment two lab</td>
+    </tr>
+    <tr>
+    <td>Feb. 15</td>
+    <td><em>Native Son</em> (Wright, 1–94, through Book One)</td>
+    </tr>
+    <tr>
+    <td>Feb. 20</td>
+    <td><em>Native Son</em> (95–184, about halfway through Book
+    Two)<br><em>The Signifying Monkey</em> (Gates, selections)</td>
+    </tr>
+    <tr>
+    <td>Feb. 22</td>
+    <td>Assignment two presentation. Assignment two due.</td>
+    </tr>
+    <tr>
+    <td>Feb. 27</td>
+    <td><em>Native Son</em> (185–270, through Book
+    Two)<br><em>Racecraft</em> (Fields and Fields, selections)</td>
+    </tr>
+    <tr>
+    <td>Mar. 01</td>
+    <td><em>Native Son</em> (273–340, about halfway through Book
+    Three)<br>“I Tried to be a Communist” (Wright)<br>“How Bigger Was
+    Born” (Wright, 431–463 in <em>Native Son</em>)</td>
+    </tr>
+    <tr>
+    <td>Mar. 06</td>
+    <td>Assignment three lab</td>
+    </tr>
+    <tr>
+    <td>Mar. 08</td>
+    <td><em>Native Son</em> (340–430, through Book
+    Three)<br>“Everybody’s Protest Novel” (Baldwin)<br>“FEAR.”
+    (Lamar)</td>
+    </tr>
+    <tr>
+    <td>Mar. 13</td>
+    <td>Working lab</td>
+    </tr>
+    <tr>
+    <td>Mar. 15</td>
+    <td>Assignment three presentation</td>
+    </tr>
+    <tr>
+    <td>Mar. 23</td>
+    <td>Assignment three due</td>
+    </tr>
+    </tbody>
+    </table>
+    <h3 id="assignments">Assignments</h3>
+    <p>Collaboration is a distinctive feature of digital humanities
+    research. In that spirit, students will present their work in class
+    <strong>before and after</strong> each assignment comes due. During
+    the first meeting (referred to as a “lab”), students share their
+    initial ideas, arguments, and evidence, then receive questions and
+    feedback from the group. This is as much about the quality of the
+    ideas you bring to the room as it is your ability to help others
+    develop their own. During the second meeting (referred to as a
+    “presentation”), students present their work in a more formal
+    setting. We discuss matters relating to evidence, argumentation, and
+    writing.</p>
+    <p>This structure mimics the work of the Literary Lab, where lab
+    members develop, present, and discuss their work with collaborators
+    and guests, often presenting the same project many times as it
+    develops.</p>
+    <blockquote>
+    <p><strong><span class="smallcaps">Assignment one:</span></strong>
+    Select an excerpt from <em>Babbitt</em> and explore its relation to
+    one of the themes the novel engages (700 words, not including the
+    text of the excerpt). Then, reflect on the representativeness of the
+    passage in relation to the novel or theme. Describe the concept of
+    representativeness used in the analysis (300 words).</p>
+    <p><strong><span class="smallcaps">Assignment two:</span></strong>
+    Select any concept within the realm of this course. Then, explicate
+    it by (1) describing its ideal type and (2) identifying a
+    manifestation of the concept in either novel on the syllabus, noting
+    the ways in which its appearance accords with or breaks from its
+    ideal type (700 words).<br />
+    Then, students will discuss whether their concept could be
+    operationalized, and, if so, venture how it might be done (300
+    words). Assignment two may be revised and integrated into the final
+    paper.</p>
+    <p><strong><span class="smallcaps">Assignment three:</span></strong>
+    Students will make use of a concept from this class (preferably but
+    not necessarily the one from assignment two) in order to study a
+    novel and/or a corpus of novels from the postbellum period in a
+    research paper. Students will read distantly using a corpus of
+    American fiction in order to provide at least one piece of evidence
+    for their argument.<br />
+    The distant reading component of this paper can be major or minor. A
+    paper with a major distant reading component might operationalize a
+    concept and analyze the results of the experiment. A paper with a
+    minor distant reading component might use one graph as evidence in
+    their argument (4,000 words). Neither is favored over the
+    other.<br />
+    If a student’s project requires a more complex study than the time
+    of the quarter allows, students can supplement the distant reading
+    component of the final paper with a study design proposal. (1,000
+    additional words, including question, hypothesis, description of
+    corpus and method, and the relationship between the question and the
+    argument of the final paper.)</p>
+    <p><strong><span class="smallcaps">At some point during the
+    quarter:</span></strong> Students attend one meeting of the Literary
+    Lab. Students will be provided with the schedule of events near the
+    start of the quarter. (If a student’s academic schedule prevents
+    them from attending, accommodations will be made.)</p>
+    </blockquote>
+    <h3 id="course-policies">Course Policies</h3>
+    <p><strong>Grading</strong></p>
+    <table>
+    <thead>
+    <tr>
+    <th>Component</th>
+    <th>Weight</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Attendance</td>
+    <td>10%</td>
+    </tr>
+    <tr>
+    <td>Labs &amp; presentations</td>
+    <td>20%</td>
+    </tr>
+    <tr>
+    <td>Assignment one</td>
+    <td>10%</td>
+    </tr>
+    <tr>
+    <td>Assignment two</td>
+    <td>10%</td>
+    </tr>
+    <tr>
+    <td>Assignment three</td>
+    <td>50%</td>
+    </tr>
+    </tbody>
+    </table>
+    <table>
+    <thead>
+    <tr>
+    <th>Grade</th>
+    <th>Range</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>A+</td>
+    <td>97.0–100</td>
+    </tr>
+    <tr>
+    <td>A</td>
+    <td>93.0–96.9</td>
+    </tr>
+    <tr>
+    <td>A-</td>
+    <td>90.0–92.9</td>
+    </tr>
+    <tr>
+    <td>B+</td>
+    <td>87.0–89.9</td>
+    </tr>
+    <tr>
+    <td>B</td>
+    <td>83.0–86.9</td>
+    </tr>
+    <tr>
+    <td>B-</td>
+    <td>80.0–82.9</td>
+    </tr>
+    <tr>
+    <td>C+</td>
+    <td>77.0–79.9</td>
+    </tr>
+    <tr>
+    <td>C</td>
+    <td>73.0–76.9</td>
+    </tr>
+    <tr>
+    <td>C-</td>
+    <td>70.0–72.9</td>
+    </tr>
+    <tr>
+    <td>D+</td>
+    <td>67.0–69.9</td>
+    </tr>
+    <tr>
+    <td>D</td>
+    <td>60.0–66.9</td>
+    </tr>
+    <tr>
+    <td>F</td>
+    <td>0.0–59.9</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>Assignments one and two are due before midnight on assignment
+    presentation days.</p>
+    <p>Assignment three is due before midnight on March 23.</p>
+    <p>Presentations cannot be made up. (But they can be exempted with
+    prior approval.)</p>
+    <p>Submitting work late without prior approval carries a -10% per
+    day penalty.</p>
+    <p><strong>Other</strong></p>
+    <p>I plan to meet with everyone individually at least once during
+    the quarter.</p>
+    <p>If you want to discuss work in progress, send me your text at
+    least three days before we meet.</p>
+    <p>If you know you will be absent on certain day(s) of the quarter,
+    let me know ASAP.</p>
+    <p>If you do not have a laptop that you can bring to class, let me
+    know ASAP.</p>
+    <h2 id="other-information-resources">Other Information &amp;
+    Resources</h2>
+    <p><strong>WISE</strong></p>
+    <p>Although each WISE (Writing Intensive Seminar in English) is
+    unique, all WISE classes share fundamental learning goals that
+    fulfill both the WIM (Writing in the Major) requirement for English
+    majors and the university’s Aesthetic and Interpretive Inquiry (AII)
+    Way. In all WISE classes, students will explore and analyze literary
+    texts (and in some cases other cultural objects), along with
+    critical or theoretical pieces selected to support students’
+    investigations of primary readings and to offer models of inquiry
+    and writing in the field of literary study. Students will also
+    advance their own analytical, research, and writing skills through a
+    structured series of assignments that includes: at least one
+    assignment developing close reading skills; at least one assignment
+    engaging critical or theoretical writings; and a final essay,
+    developed in stages, that investigates primary texts, and that draws
+    in relevant critical or historical sources, to produce a
+    synthesized, original argument.</p>
+    <p><strong>Honor Code</strong></p>
+    <p>The Honor Code is the university's statement on academic
+    integrity, written by students in 1921. It articulates university
+    expectations of students and faculty in establishing and maintaining
+    the highest standards in academic work. The Honor Code is an
+    undertaking of the students, individually and collectively:</p>
+    <ol type="1">
+    <li><p>that they will not give or receive aid in examinations; that
+    they will not give or receive unpermitted aid in class work, in the
+    preparation of reports, or in any other work that is to be used by
+    the instructor as the basis of grading;</p></li>
+    <li><p>that they will do their share and take an active part in
+    seeing to it that others as well as themselves uphold the spirit and
+    letter of the Honor Code.</p></li>
+    <li><p>The faculty on its part manifests its confidence in the honor
+    of its students by refraining from proctoring examinations and from
+    taking unusual and unreasonable precautions to prevent the forms of
+    dishonesty mentioned above. The faculty will also avoid, as far as
+    practicable, academic procedures that create temptations to violate
+    the Honor Code.</p></li>
+    <li><p>While the faculty alone has the right and obligation to set
+    academic requirements, the students and faculty will work together
+    to establish optimal conditions for honorable academic
+    work.</p></li>
+    </ol>
+    <p>The fundamental standard is also a key part of fostering a
+    discussion environment built on trust and creativity:</p>
+    <ol type="1">
+    <li><p>Students are expected to respect and uphold the rights and
+    dignity of others regardless of race, color, national or ethnic
+    origin, sex, age, disability, religion, sexual orientation, gender
+    identity, or socio-economic status.</p></li>
+    <li><p>Students are expected to uphold the integrity of the
+    university as a community of scholars in which free speech is
+    available to all and intellectual honesty is demanded of
+    all.</p></li>
+    </ol>
+    <p><strong>Students with Documented Disabilities</strong></p>
+    <p>Students who may need an academic accommodation based on the
+    impact of a disability must initiate the request with the Office of
+    Accessible Education (OAE). Professional staff will evaluate the
+    request with required documentation, recommend reasonable
+    accommodations, and prepare an Accommodation Letter for faculty
+    dated in the current quarter in which the request is being made.
+    Students should contact the OAE as soon as possible since timely
+    notice is needed to coordinate accommodations. OAE can be reached at
+    563 Salvatierra Walk; 650-723-1066; and/or <a
+    href="http://studentaffairs.stanford.edu/oae"
+    class="uri">http://studentaffairs.stanford.edu/oae</a></p>
+    <p><strong>Hume Center for Speaking and Writing</strong></p>
+    <p><a
+    href="https://sites.stanford.edu/undergrad/tutoring-support/hume-center"
+    class="uri">https://sites.stanford.edu/undergrad/tutoring-support/hume-center</a></p>
+    <p><strong>Office of Sexual Assault &amp; Relationship Abuse
+    Education &amp; Response (SARA)</strong></p>
+    <p><a href="https://sara.stanford.edu"
+    class="uri">https://sara.stanford.edu</a></p>
+    <p><strong>Counseling and Psychological Services</strong>
+    <strong>(CAPS)</strong></p>
+    <p><a
+    href="https://vaden.stanford.edu/caps-and-wellness/counseling-and-psychological-services-caps"
+    class="uri">https://vaden.stanford.edu/caps-and-wellness/counseling-and-psychological-services-caps</a></p>
+    <p><strong>The Bridge Peer Counseling</strong></p>
+    <p><a
+    href="https://haas.stanford.edu/students/cardinal-commitment/bridge"
+    class="uri">https://haas.stanford.edu/students/cardinal-commitment/bridge</a></p>
+    <p><strong>English for Foreign Students</strong></p>
+    <p><a
+    href="https://language.stanford.edu/programs/efs/languages/english-foreign-students"
+    class="uri">https://language.stanford.edu/programs/efs/languages/english-foreign-students</a></p>
+    <p><strong>Academic Skills Coaching</strong></p>
+    <p><a
+    href="http://learningconnection.stanford.edu/academic-skills-coaching"
+    class="uri">http://learningconnection.stanford.edu/academic-skills-coaching</a></p>
+    <p><strong>Undergraduate Advising</strong></p>
+    <p><a href="https://undergrad.stanford.edu/advising"
+    class="uri">https://undergrad.stanford.edu/advising</a></p>
+    <p><strong>Community Center Resources</strong></p>
+    <p><a
+    href="https://undergrad.stanford.edu/tutoring-support/community-center-resources"
+    class="uri">https://undergrad.stanford.edu/tutoring-support/community-center-resources</a></p>
+    <section id="footnotes" class="footnotes footnotes-end-of-document"
+    role="doc-endnotes">
+    <hr />
+    <ol>
+    <li id="fn1"><p>Sinclair Lewis, <em>Babbitt</em>, Oxford World’s
+    Classics (Oxford University Press, 2010).<a href="#fnref1"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn2"><p>Richard Wright, <em>Native Son</em>, 1st Perennial
+    Classics ed (Perennial Classics, 1998).<a href="#fnref2"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    </ol>
+    </section>
+  </main>
+</body>
+
+</html>

@@ -45,4 +45,4 @@ Courses are ordered reverse chronologically.
 #### Average Americans
 
 - [Stanford University](https://explorecourses.stanford.edu/search?q=fredner&view=catalog&page=0&filter-coursestatus-Active=on&collapse=&academicYear=20172018)
-- [Syllabus](/files/wise_syllabus.pdf)
+- [Syllabus](avg-syllabus.html)
