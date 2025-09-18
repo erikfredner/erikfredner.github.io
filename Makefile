@@ -1,6 +1,6 @@
 PANDOC := pandoc
 SRC_DIR := src
-OUT_DIR := public
+OUT_DIR := docs
 TEMPLATE := templates/base.html
 BIBLIOGRAPHY := references.bib
 CSL := chicago-notes.csl
