@@ -30,12 +30,12 @@ Courses are ordered reverse chronologically.
 #### From Language to Data
 
 - [University of Virginia](https://gened.as.virginia.edu/egmt-1520-language-data)
-- [Syllabus](/files/language_to_data.pdf)
+- [Syllabus](l2d-syllabus.html)
 
 #### Literary Text Mining
 
 - [Stanford University](https://explorecourses.stanford.edu/search?view=catalog&filter-coursestatus-Active=off&page=0&catalog=&academicYear=&q=literary+text+mining&collapse=)
-- [Syllabus](/files/ltm_syllabus.pdf)
+- [Syllabus](ltm-syllabus.html)
 
 #### World Humanities 101
 

@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+  <title>From Language to Data</title>
+  <style>
+    body {
+      width: min(100%, 60ch);
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center
+    }
+
+    nav a {
+      text-decoration: none
+    }
+
+    .brand a {
+      font-size: 1.1rem;
+      font-weight: 600
+    }
+
+    main {
+      max-width: 60ch;
+      margin-inline: auto
+    }
+
+    footer {
+      margin-top: 2rem
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Main">
+      <ul>
+        <li class="brand"><a href="index.html">Erik Fredner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1 class="page-title">From Language to Data</h1>
+    <h2 id="land-acknowledgment">Land Acknowledgment</h2>
+    <p>This class at the University of Virginia respectfully
+    acknowledges the custodians of the land we are on today, the Monacan
+    Nation, and pay our respect to their elders past, present and
+    emerging. To learn more about UVA’s past and present connections to
+    the Monacan Nation, I recommend <a
+    href="https://eocr.virginia.edu/monacan">this website</a> from the
+    Office for Equal Opportunity and Civil Rights. To learn more about
+    the Monacan people, <a
+    href="https://www.monacannation.com/our-history.html">read their
+    history</a>.</p>
+    <h2 id="empirical-and-scientific-engagement-description">“Empirical
+    and Scientific Engagement” description</h2>
+    <p>This course, one of four “Engagements” courses you’ll take as a
+    first-year student, focuses on what we can learn from examining the
+    ways in which facts and evidence are identified, collected,
+    analyzed, and interpreted. Both within and beyond the university,
+    you will encounter claims about the natural and social worlds and be
+    confronted with situations that require you to evaluate and make
+    decisions based on evidence. Empirical methods are a crucial
+    component to addressing and answering such a broad range of
+    essential questions. We will explore how questions and hypotheses
+    are formulated and evaluated.</p>
+    <h2 id="from-language-to-data-description">“From Language to Data”
+    description</h2>
+    <p>Targeted advertisements make people think that their phones are
+    listening to them. Getting an ad for something you were just talking
+    or thinking about feels uncanny. But your phone does not need to
+    listen to you to effectively target you. Targeted advertising fuels
+    the internet. And the successful transformation of language into
+    data fuels targeted advertising.</p>
+    <p>In this course, we study how and why people transform language
+    into data. What do we gain? What do we lose? We consider several
+    types of texts—including speech, digital communications, and
+    published texts—and many ways they get turned into data.</p>
+    <p>This course not only engages questions from academic fields like
+    digital humanities and computational linguistics, but also practical
+    questions of everyday life in the twenty-first century, from
+    communicating with our friends to researching new topics.</p>
+    <h2 id="goals">Goals</h2>
+    <p>By the end of this course, students will be able to…</p>
+    <ul>
+    <li><p>Identify and articulate insights from challenging
+    readings</p></li>
+    <li><p>Describe empirical evidence that can be derived from
+    English-language texts</p></li>
+    <li><p>Articulate strengths and weaknesses of empirical approaches
+    to language</p></li>
+    <li><p>Evaluate what we can know with respect to the digital
+    cultural record</p></li>
+    </ul>
+    <h2 id="syllabus">Syllabus</h2>
+    <p>The official course syllabus is the version of this document
+    currently available on our course site.</p>
+    <h2 id="calendar">Calendar</h2>
+    <table style="width:96%;">
+    <colgroup>
+    <col style="width: 11%" />
+    <col style="width: 11%" />
+    <col style="width: 26%" />
+    <col style="width: 27%" />
+    <col style="width: 20%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th><em>Date</em></th>
+    <th><em>Mtg.</em></th>
+    <th><em>Guiding question</em></th>
+    <th><em>Readings</em></th>
+    <th><em>Assignment due</em></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Mar 15</td>
+    <td>1</td>
+    <td>Why transform language into data?</td>
+    <td>-</td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Mar 20</td>
+    <td>2</td>
+    <td>Why not transform language into data?</td>
+    <td><p>Chun<a href="#fn1" class="footnote-ref" id="fnref1"
+    role="doc-noteref"><sup>1</sup></a></p>
+    <p>Zuboff<a href="#fn2" class="footnote-ref" id="fnref2"
+    role="doc-noteref"><sup>2</sup></a></p>
+    <p>Haugen (22:00-33:50)<a href="#fn3" class="footnote-ref"
+    id="fnref3" role="doc-noteref"><sup>3</sup></a></p></td>
+    <td>My data</td>
+    </tr>
+    <tr>
+    <td>Mar 22</td>
+    <td>3</td>
+    <td>What is (big) data?</td>
+    <td><p>Drucker<a href="#fn4" class="footnote-ref" id="fnref4"
+    role="doc-noteref"><sup>4</sup></a></p>
+    <p>D’Ignazio and Klein<a href="#fn5" class="footnote-ref"
+    id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+    <p>Borges<a href="#fn6" class="footnote-ref" id="fnref6"
+    role="doc-noteref"><sup>6</sup></a></p></td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Mar 27</td>
+    <td>4</td>
+    <td>What is metadata?</td>
+    <td><p>Pomerantz<a href="#fn7" class="footnote-ref" id="fnref7"
+    role="doc-noteref"><sup>7</sup></a></p>
+    <p>Krause<a href="#fn8" class="footnote-ref" id="fnref8"
+    role="doc-noteref"><sup>8</sup></a></p>
+    <p>Irani<a href="#fn9" class="footnote-ref" id="fnref9"
+    role="doc-noteref"><sup>9</sup></a></p>
+    <p>Perrigo<a href="#fn10" class="footnote-ref" id="fnref10"
+    role="doc-noteref"><sup>10</sup></a></p></td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Mar 29</td>
+    <td>5</td>
+    <td>CLASS CANCELLED</td>
+    <td>-</td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Apr 3</td>
+    <td>6</td>
+    <td>What is a corpus?</td>
+    <td><p>Algee-Hewitt and McGurl<a href="#fn11" class="footnote-ref"
+    id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
+    <p>Risam<a href="#fn12" class="footnote-ref" id="fnref12"
+    role="doc-noteref"><sup>12</sup></a></p></td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Apr 5</td>
+    <td>7</td>
+    <td>How have people transformed language into data?</td>
+    <td><p>Holmes and Kardos<a href="#fn13" class="footnote-ref"
+    id="fnref13" role="doc-noteref"><sup>13</sup></a></p>
+    <p>Mendenhall<a href="#fn14" class="footnote-ref" id="fnref14"
+    role="doc-noteref"><sup>14</sup></a></p>
+    <p>Weizenbaum<a href="#fn15" class="footnote-ref" id="fnref15"
+    role="doc-noteref"><sup>15</sup></a></p></td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Apr 10</td>
+    <td>8</td>
+    <td>What can counting types and tokens teach us?</td>
+    <td><p>Archer<a href="#fn16" class="footnote-ref" id="fnref16"
+    role="doc-noteref"><sup>16</sup></a></p>
+    <p>Le et al.<a href="#fn17" class="footnote-ref" id="fnref17"
+    role="doc-noteref"><sup>17</sup></a></p>
+    <p>Bailey<a href="#fn18" class="footnote-ref" id="fnref18"
+    role="doc-noteref"><sup>18</sup></a></p></td>
+    <td>My corpus</td>
+    </tr>
+    <tr>
+    <td>Apr 12</td>
+    <td>9</td>
+    <td>What can counting (with) metadata teach us?</td>
+    <td><p>Porter<a href="#fn19" class="footnote-ref" id="fnref19"
+    role="doc-noteref"><sup>19</sup></a></p>
+    <p>Johnson<a href="#fn20" class="footnote-ref" id="fnref20"
+    role="doc-noteref"><sup>20</sup></a></p>
+    <p>Anderson and Daniels<a href="#fn21" class="footnote-ref"
+    id="fnref21" role="doc-noteref"><sup>21</sup></a></p></td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Apr 17</td>
+    <td>10</td>
+    <td>How should we think about change over time?</td>
+    <td><p>Heuser and Le Khac<a href="#fn22" class="footnote-ref"
+    id="fnref22" role="doc-noteref"><sup>22</sup></a></p>
+    <p>Underwood et al.<a href="#fn23" class="footnote-ref" id="fnref23"
+    role="doc-noteref"><sup>23</sup></a></p></td>
+    <td>My proposal</td>
+    </tr>
+    <tr>
+    <td>Apr 19</td>
+    <td>11</td>
+    <td>What is a topic model?</td>
+    <td><p>Blei<a href="#fn24" class="footnote-ref" id="fnref24"
+    role="doc-noteref"><sup>24</sup></a></p>
+    <p>Lucy et al.<a href="#fn25" class="footnote-ref" id="fnref25"
+    role="doc-noteref"><sup>25</sup></a></p></td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Apr 24</td>
+    <td>12</td>
+    <td>What are word embeddings?</td>
+    <td><p>Smith<a href="#fn26" class="footnote-ref" id="fnref26"
+    role="doc-noteref"><sup>26</sup></a></p>
+    <p>Gavin<a href="#fn27" class="footnote-ref" id="fnref27"
+    role="doc-noteref"><sup>27</sup></a></p></td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>Apr 26</td>
+    <td>13</td>
+    <td>Final project preparation in class</td>
+    <td>-</td>
+    <td>-</td>
+    </tr>
+    <tr>
+    <td>May 1</td>
+    <td>14</td>
+    <td>Final project presentations</td>
+    <td>-</td>
+    <td>Final presentations</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2 id="health">Health</h2>
+    <p>If you are sick and need to miss class, email me. Students who
+    miss class due to illness will receive excused absences and
+    alternative assignments.</p>
+    <h2 id="grading">Grading</h2>
+    <p>This class uses contract grading. Contract grading aspires to be
+    more transparent and equitable than traditional grading. It should
+    motivate you to focus on the course material instead of worrying
+    about whether you have a 92.4% or a 92.6%.</p>
+    <p>Here is how it works. You will tell me what grade you intend to
+    earn. Then, you will sign a contract stating that you will
+    satisfactorily complete a specific amount of work that will earn you
+    that grade. You can contract for an A, B, or C. If you do not
+    satisfactorily complete enough work to fulfill the terms of your
+    contract, you may still receive a D or F.</p>
+    <p>Read the contract for a full explanation.</p>
+    <ul>
+    <li><p>If you have obligations that require you to miss specific
+    classes (e.g. away games), please let me know about them as far in
+    advance as possible.</p></li>
+    <li><p>Students requesting an extension due to <em>foreseeable</em>
+    circumstances must email me 48 hours prior to the deadline.</p>
+    <ul>
+    <li>For example, food poisoning is not foreseeable. A midterm for
+    another class is foreseeable.</li>
+    </ul></li>
+    </ul>
+    <h2 id="email">Email</h2>
+    <p>I reply to emails within two business days. If it has been more
+    than two business days, please write me again.</p>
+    <h2 id="office-hours">Office Hours</h2>
+    <p>I will schedule office hours in person or virtually at a mutually
+    convenient time.</p>
+    <h2 id="engagements-experience">Engagements Experience</h2>
+    <p>As a student at the University of Virginia, you are part of an
+    exciting and robust intellectual community. The goal of the
+    Engagement Experience (EE) is to make you feel welcomed into this
+    community, where you’ll discover new ideas and meet fascinating
+    people. The EE is part of the Engagements program, existing
+    alongside the Engagement course you are currently taking.</p>
+    <p>The EE must be satisfactorily completed for <em>every</em>
+    contract. There are three components this spring:</p>
+    <ol type="1">
+    <li><p>Attend the Spring '23 Engagements Experience Lecture</p></li>
+    <li><p>Complete an Academic Advising Activity</p></li>
+    <li><p>Complete an Engaging Grounds experience</p></li>
+    </ol>
+    <h3 id="component-1-engagements-experience-lecture">Component 1:
+    Engagements Experience Lecture</h3>
+    <p>Attend—either virtually, or in person—ONE Engagements lecture
+    each quarter. This spring, the second event is Eze Amos’ talk about
+    the series of photographs he took on August 11-12, 2017 of the Unite
+    the Right and counter-protests. <strong>The talk will be held on
+    April 11<sup>th</sup> at 7 pm in the Paramount Theater in downtown
+    Charlottesville.</strong> For those of you who are unable to attend
+    in person, the talk will be recorded and you must watch that
+    recording.</p>
+    <p>If you attend in person, you MUST plan to stay the entire time.
+    This is a chance to practice scholarly expectations, which include
+    hearing all of a talk and the Q&amp;A.</p>
+    <h3 id="component-2-academic-advising-activity">Component 2:
+    Academic Advising Activity</h3>
+    <p>As you approach the culmination of your first year at UVA, you
+    will have made significant progress towards the completion of the
+    Engagements Pathway requirements. You will have taken a course in
+    each Engagements pillar and made headway into completing your
+    Literacy and Disciplines Requirements. The EE will help keep you on
+    track by asking you to complete one academic advising activity
+    during each quarter. These activities will help prepare you for
+    coursework in the following semester.</p>
+    <p>Meet with your academic advisor</p>
+    <p>In advance of registering for classes for the Fall 2023 semester,
+    you must attend your scheduled faculty advising meeting. <strong>If
+    you have not received a message from your advisor about scheduling
+    these meetings by March 27<sup>th</sup>, reach out to them to
+    schedule something.</strong></p>
+    <h3 id="component-3-engaging-grounds">Component 3: Engaging
+    Grounds</h3>
+    <p>Each quarter you will participate in one Engaging
+    Grounds experience. You may choose which experience to complete from
+    the curated list of Engaging Grounds experiences below. Note that
+    many options may be completed at your convenience, but Scholar
+    Speaks (on-Grounds lectures or presentations) have a set date and
+    time. See the <a
+    href="https://gened.as.virginia.edu/engagements-experience">calendar</a>
+    on the Engagements Experience website for Scholar Speak
+    Opportunities.</p>
+    <p>The list will be updated regularly throughout the semester. While
+    you have many options for completing this requirement, don't wait
+    until the last second as these opportunities are finite.</p>
+    <p>Engaging Grounds</p>
+    <p>The College Fellows have curated the following list of Engaging
+    Grounds experiences as a representation of the myriad of wonderful
+    opportunities you have as students at UVA. While we hope that you
+    will participate in each before graduation, you should select and
+    complete one for each Engagements quarter.</p>
+    <ul>
+    <li><p>Scholar Speak – At UVA, faculty (both at UVA and invited from
+    other universities) offer seminars, colloquia, and other forms of
+    disseminating their original research on a regular basis. Select and
+    attend a lecture or presentation from the calendar of events on the
+    Engagements Experience Website, <a
+    href="https://gened.as.virginia.edu/engagements-experience"
+    class="uri">https://gened.as.virginia.edu/engagements-experience</a>.</p></li>
+    <li><p><a
+    href="https://vpdiversity.virginia.edu/sites/vpdiversity.virginia.edu/files/42425%20uva%20slavery%20walking%20tour%20map_revised%20July%202018.pdf">Enslaved
+    African Americans at UVA Self-Guided Tour</a> - After downloading
+    the <a
+    href="https://www.library.virginia.edu/map/walking-tours">"Walking
+    Tours of Grounds" app</a>, complete this tour.</p></li>
+    <li><p>A visit to McCormick Observatory where you participate in one
+    of their <a
+    href="https://astronomy.as.virginia.edu/public-outreach/observatory-public-night-program">“Public
+    Night” programs</a> or attend an event there hosted by the
+    Department of Astronomy.</p></li>
+    <li><p>A visit to the piece of the Berlin Wall by Alderman Library
+    after reading <a
+    href="https://news.virginia.edu/content/end-berlin-wall-no-simple-barrier-led-change-and-tumult">this</a> UVA
+    Today article. Reflect on what it means to transport this piece to
+    another national context and a public university, in
+    particular.</p></li>
+    <li><p>A visit to the former site of the George Rogers Clark
+    monument. Read <a
+    href="https://news.virginia.edu/content/uva-and-history-race-george-rogers-clark-statue-and-native-americans">this</a> UVA
+    Today about the statue’s history and <a
+    href="https://diy.rootsaction.org/petitions/remove-monument-to-genocide-that-welcomes-people-to-uva">this
+    call for its removal</a>. What is this space like now?</p></li>
+    <li><p>A visit to special collections where you will tour one of the
+    exhibits and view one item from their collection in the reading
+    room.</p></li>
+    <li><p>A visit to the UVA gardens after exploring <a
+    href="https://juel.iath.virginia.edu/visualizations">these
+    visualizations</a> about UVA at the time of its founding.</p></li>
+    <li><p>A visit to the Rotunda <em>and</em>one of the Rotunda
+    tours.</p></li>
+    <li><p>A visit to the Fralin Museum where you view at least one of
+    their special, rotating exhibits, <em>and</em>at least one of the
+    exhibits that are part of the permanent collection.</p></li>
+    </ul>
+    <h3 id="submitting-the-ee">Submitting the EE</h3>
+    <p>Attest that you have completed all elements of the Engagements
+    Experience by writing “On my honor, I have completed all components
+    of the EE” under the Canvas assignment by May 2<sup>nd</sup>.</p>
+    <h2 id="notice-of-non-discrimination">Notice of
+    Non-Discrimination</h2>
+    <p>The University of Virginia does not discriminate on the basis of
+    age, color, disability, gender identity or expression, marital
+    status, military status (which includes active duty service members,
+    reserve service members, and dependents), national or ethnic origin,
+    political affiliation, pregnancy (including childbirth and related
+    conditions), race, religion, sex, sexual orientation, veteran
+    status, and family medical or genetic information, in its programs
+    and activities as required by Title IX of the Education Amendments
+    of 1972, Americans with Disabilities Act of 1990, as amended,
+    Section 504 of the Rehabilitation Act of 1973, Titles VI and VII of
+    the Civil Rights Act of 1964, Age Discrimination Act of 1975,
+    Governor’s Executive Order Number One (2018), and other applicable
+    statutes and University policies. UVA prohibits sexual and
+    gender-based harassment, including sexual assault, and other forms
+    of interpersonal violence.</p>
+    <h2 id="reporting-discriminatory-conduct">Reporting Discriminatory
+    Conduct</h2>
+    <p>Per UVA policy <a
+    href="https://uvapolicy.virginia.edu/policy/HRM-040">HRM-040</a>, I
+    am a Responsible Employee. If you mention prohibited conduct to me,
+    I am required to report it. Prohibited conduct includes, but is not
+    limited to, sexual and gender-based harassment and violence, bias
+    and discrimination/harassment, hazing, interference with speech
+    rights, threats or acts of violence. If you wish to report
+    prohibited conduct online, use UVA’s <a
+    href="https://justreportit.virginia.edu/">Just Report It</a>.</p>
+    <h2 id="accommodations">Accommodations</h2>
+    <p>In accordance with the ADA, as amended, and Section 504 of the
+    Rehabilitation Act, the University of Virginia offers an array of
+    individualized accommodations and services to qualified students
+    with disabilities. Accommodations are determined using an
+    interactive process between the student and Student Disability
+    Access Center staff. Contact the <a
+    href="https://www.studenthealth.virginia.edu/sdac">Student
+    Disability Access Center</a> with questions.</p>
+    <h2 id="religious-accommodations">Religious Accommodations</h2>
+    <p>Students who wish to request academic accommodation for a
+    religious observance should submit their request to me by email as
+    far in advance as possible. If you have questions or concerns about
+    your request, you can contact the University’s Office for Equal
+    Opportunity and Civil Rights at <a
+    href="mailto:UVAEOCR@virginia.edu"
+    class="email">UVAEOCR@virginia.edu</a> or 434-924-3200.
+    Accommodations do not relieve you of the responsibility for
+    completion of any part of the coursework you miss as the result of a
+    religious observance. More information about religious
+    accommodations is available <a
+    href="https://eocr.virginia.edu/religious-accommodations">here</a>,
+    and frequently asked questions are <a
+    href="https://eocr.virginia.edu/student-religious-accommodations">here</a>.</p>
+    <h2 id="campus-resources">Campus Resources</h2>
+    <ul>
+    <li><p>If you are struggling with mental health, UVA <a
+    href="https://www.studenthealth.virginia.edu/caps">Counseling and
+    Psychological Services</a> can help. The <a
+    href="https://www.studenthealth.virginia.edu/timelycare">TimelyCare
+    app</a>—available to UVA students who have paid comprehensive health
+    fees with their tuition—also provides mental health
+    support.</p></li>
+    <li><p><a
+    href="https://writingrhetoric.as.virginia.edu/welcome-writing-center">The
+    UVA Writing Center</a> will advise you on any stage of
+    writing.</p></li>
+    <li><p>If you are struggling to manage money, a <a
+    href="https://sfs.virginia.edu/resources-personal-finance/peer-financial-counseling">Peer
+    Financial Counselor</a> can help.</p></li>
+    <li><p>UVA helps <a
+    href="https://odos.virginia.edu/food-insecurity">students
+    experiencing food insecurity</a> get free nutritious food.</p></li>
+    <li><p>Charlottesville’s <a href="https://saracville.org/">Sexual
+    Assault Resource Agency</a> responds to sexual and/or gender-based
+    violence: 434-977-7273</p></li>
+    <li><p>Students who wish to improve their English may be interested
+    in the <a
+    href="https://internationalcenter.virginia.edu/english-language-programs">Sundberg
+    International Center’s programming</a>.</p></li>
+    <li><p>Students who wish to improve study skills like time
+    management may benefit from <a
+    href="https://college.as.virginia.edu/acad_achievement_class">UVA’s
+    resources for Academic Success</a>.</p></li>
+    </ul>
+    <h2 id="acknowledgments">Acknowledgments</h2>
+    <p>This syllabus has benefitted from syllabi by Mark Algee-Hewitt,
+    David Bamman, Andrew Goldstone, Ryan Heuser, Lauren Klein, Laura
+    McGrath, David Mimno, Dan Sinykin, Ted Underwood, and Melanie
+    Walsh.</p>
+    <section id="footnotes" class="footnotes footnotes-end-of-document"
+    role="doc-endnotes">
+    <hr />
+    <ol>
+    <li id="fn1"><p>Wendy Hui Kyong Chun, <em>Discriminating Data:
+    Correlation, Neighborhoods, and the New Politics of Recognition</em>
+    (Cambridge, Massachusetts: The MIT Press, 2021).<a href="#fnref1"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn2"><p>Shoshana Zuboff, “You Are the Object of a Secret
+    Extraction Operation,” <em>The New York Times</em>, November 12,
+    2021, sec. Opinion, <a
+    href="https://www.nytimes.com/2021/11/12/opinion/facebook-privacy.html"
+    class="uri">https://www.nytimes.com/2021/11/12/opinion/facebook-privacy.html</a>.<a
+    href="#fnref2" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn3"><p><em>The Facebook Files: What Next? Panel 1: The
+    Activists</em>, 2021, <a
+    href="https://www.youtube.com/watch?v=YUubanGIZc0"
+    class="uri">https://www.youtube.com/watch?v=YUubanGIZc0</a>.<a
+    href="#fnref3" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn4"><p>Johanna Drucker, <em>Visualization and
+    Interpretation: Humanistic Approaches to Display</em> (Cambridge,
+    Massachusetts: The MIT Press, 2020), 43–57.<a href="#fnref4"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn5"><p>Lauren F. Klein and Catherine D’Ignazio, “Numbers
+    Don’t Speak For Themselves,” in <em>Data Feminism</em> (Cambridge,
+    Massachusetts: The MIT Press, 2020).<a href="#fnref5"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn6"><p>Jorge Luis Borges, “The Library of Babel,” in
+    <em>Collected Fictions</em>, trans. Andrew Hurley, Penguin Classics
+    Deluxe Edition (New York, NY: Penguin Books, 1998).<a href="#fnref6"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn7"><p>Jeffrey Pomerantz, <em>Metadata</em>, The MIT Press
+    Essential Knowledge Series (Cambridge, Massachusetts ; London,
+    England: The MIT Press, 2015).<a href="#fnref7"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn8"><p>Heather Krause, “Data Biographies: Getting to Know
+    Your Data,” Global Investigative Journalism Network, March 27, 2017,
+    <a
+    href="https://gijn.org/2017/03/27/data-biographies-getting-to-know-your-data/"
+    class="uri">https://gijn.org/2017/03/27/data-biographies-getting-to-know-your-data/</a>.<a
+    href="#fnref8" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn9"><p>Lilly Irani, “Justice for Data Janitors,” in
+    <em>Think in Public: A Public Books Reader</em>, ed. Sharon Marcus
+    and Caitlin Zaloom, Public Books Series (New York: Columbia
+    University Press, 2019), 23–39.<a href="#fnref9"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn10"><p>Billy Perrigo et al., “Inside Facebook’s African
+    Sweat Shop,” <em>TIME Magazine</em> 199, no. 7/8 (February 28,
+    2022): 32–39.<a href="#fnref10" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn11"><p>Mark Algee-Hewitt and Mark McGurl, “Between Canon
+    and Corpus: Six Perspectives on 20th-Century Novels,” <em>Stanford
+    Literary Lab Pamphlets</em>, no. 8 (January 2015), <a
+    href="https://litlab.stanford.edu/LiteraryLabPamphlet8.pdf"
+    class="uri">https://litlab.stanford.edu/LiteraryLabPamphlet8.pdf</a>.<a
+    href="#fnref11" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn12"><p>Roopika Risam, <em>New Digital Worlds: Postcolonial
+    Digital Humanities in Theory, Praxis, and Pedagogy</em>
+    (Northwestern University Press, 2018).<a href="#fnref12"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn13"><p>David I. Holmes and Judit Kardos, “Who Was the
+    Author? An Introduction to Stylometry,” <em>Chance</em> 16, no. 2
+    (2003): 5–8.<a href="#fnref13" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn14"><p>Thomas Corwin Mendenhall, “The Characteristic
+    Curves of Composition,” <em>Science</em> 9, no. 214 (1887):
+    237–49.<a href="#fnref14" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn15"><p>Joseph Weizenbaum, “ELIZA—a Computer Program for
+    the Study of Natural Language Communication between Man and
+    Machine,” <em>Communications of the ACM</em> 9, no. 1 (1966):
+    36–45.<a href="#fnref15" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn16"><p>Dawn Archer, <em>What’s in a Word-List?
+    Investigating Word Frequency and Keyword Extraction</em> (Ashgate,
+    2012).<a href="#fnref16" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn17"><p>Xuan Le et al., “Longitudinal Detection of Dementia
+    through Lexical and Syntactic Changes in Writing: A Case Study of
+    Three British Novelists,” <em>Literary and Linguistic Computing</em>
+    26, no. 4 (2011): 435–61.<a href="#fnref17" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn18"><p>Moya Bailey, <em>Misogynoir Transformed: Black
+    Women’s Digital Resistance</em>, Intersections : Transdisciplinary
+    Perspectives on Genders and Sexualities (New York: New York
+    University Press, 2021).<a href="#fnref18" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn19"><p>J.D. Porter, “Popularity/Prestige,” <em>Pamphlets
+    of the Stanford Literary Lab</em> 17 (September 2018), <a
+    href="https://litlab.stanford.edu/LiteraryLabPamphlet17.pdf"
+    class="uri">https://litlab.stanford.edu/LiteraryLabPamphlet17.pdf</a>.<a
+    href="#fnref19" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn20"><p>Timothy R. Johnson, Ryan C. Black, and Justin
+    Wedeking, “Pardon the Interruption: An Empirical Analysis of Supreme
+    Court Justices’ Behavior During Oral Arguments,” <em>Loy. L.
+    Rev.</em> 55 (2009): 331.<a href="#fnref20" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn21"><p>Hanah Anderson and Matt Daniels, “Film Dialogue
+    from 2,000 Screenplays, Broken Down by Gender and Age,” The Pudding,
+    accessed February 4, 2022, <a
+    href="https://pudding.cool/2017/03/film-dialogue/index.html"
+    class="uri">https://pudding.cool/2017/03/film-dialogue/index.html</a>.<a
+    href="#fnref21" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn22"><p>Ryan Heuser and Long Le-Khac, “A Quantitative
+    Literary History of 2,958 Nineteenth-Century British Novels: The
+    Semantic Cohort Method,” <em>Pamphlets of the Stanford Literary
+    Lab</em>, no. 4 (May 2012), <a
+    href="https://litlab.stanford.edu/LiteraryLabPamphlet4.pdf"
+    class="uri">https://litlab.stanford.edu/LiteraryLabPamphlet4.pdf</a>.<a
+    href="#fnref22" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn23"><p>Ted Underwood, David Bamman, and Sabrina Lee, “The
+    Transformation of Gender in English-Language Fiction,” 2018.<a
+    href="#fnref23" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn24"><p>David M. Blei, “Probabilistic Topic Models,”
+    <em>Communications of the ACM</em> 55, no. 4 (April 1, 2012): 77, <a
+    href="https://doi.org/10.1145/2133806.2133826"
+    class="uri">https://doi.org/10.1145/2133806.2133826</a>.<a
+    href="#fnref24" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn25"><p>Li Lucy et al., “Content Analysis of Textbooks via
+    Natural Language Processing: Findings on Gender, Race, and Ethnicity
+    in Texas U.S. History Textbooks,” <em>AERA Open</em> 6, no. 3 (July
+    2020): 233285842094031, <a
+    href="https://doi.org/10.1177/2332858420940312"
+    class="uri">https://doi.org/10.1177/2332858420940312</a>.<a
+    href="#fnref25" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn26"><p>Noah A. Smith, “Contextual Word Representations:
+    Putting Words into Computers,” <em>Communications of the ACM</em>
+    63, no. 6 (May 21, 2020): 66–74, <a
+    href="https://doi.org/10.1145/3347145"
+    class="uri">https://doi.org/10.1145/3347145</a>.<a href="#fnref26"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn27"><p>Michael Gavin, “Vector Semantics, William Empson,
+    and the Study of Ambiguity,” <em>Critical Inquiry</em> 44, no. 4
+    (2018): 641–73.<a href="#fnref27" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    </ol>
+    </section>
+  </main>
+</body>
+
+</html>
