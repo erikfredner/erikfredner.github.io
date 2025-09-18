@@ -1,4 +1,7 @@
-# Text Classification with LLMs
+---
+title: Text Classification with LLMs
+toc: true
+---
 
 ## Description
 

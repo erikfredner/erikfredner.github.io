@@ -1,5 +1,6 @@
 ---
 title: Advanced Data Science
+toc: true
 ---
 
 ## Land Acknowledgment

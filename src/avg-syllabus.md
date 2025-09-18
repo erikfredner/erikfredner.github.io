@@ -1,5 +1,6 @@
 ---
 title: Writing Intensive Seminar in English
+toc: true
 ---
 
 ## "Averaging Americans"

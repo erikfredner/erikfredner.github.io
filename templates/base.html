@@ -32,6 +32,10 @@
   </header>
   <main>
     $if(title)$<h1 class="page-title">$title$</h1>$endif$
+    $if(toc)$
+    <h2>Contents</h2>
+    $table-of-contents$
+    $endif$
     $body$
   </main>
 </body>

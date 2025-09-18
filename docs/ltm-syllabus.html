@@ -32,594 +32,645 @@
   </header>
   <main>
     <h1 class="page-title">Literary Text Mining</h1>
-    <h2 id="description">Description</h2>
-    <p>Computational methods have made it possible to analyze literature
-    in new ways and at new scales. This course trains students in
-    theories and methods of computational literary studies. It requires
-    no background in computer programming or literary criticism. We
-    begin with fundamentals of the Python programming language before
-    moving on to computational analyses of literary texts. Our analyses
-    will be informed by critical readings. While programming
-    distinguishes this course from many other humanities classes, this
-    course is fundamentally about literature, and what we can learn
-    about it at the new scales afforded by computation.</p>
-    <h2 id="objectives">Objectives</h2>
-    <p>Students will be able to:</p>
+        <h2>Contents</h2>
     <ul>
-    <li>Plan and justify a program of computational literary
-    analysis.</li>
-    <li>Create a corpus and metadata to study a research question.</li>
-    <li>Use all basic elements of Python proficiently.</li>
-    <li>Use several data science and text mining packages.</li>
-    <li>Visualize data.</li>
-    <li>Integrate data analysis into literary criticism.</li>
-    </ul>
-    <h2 id="technology">Technology</h2>
-    <p>All students will need a laptop running macOS, Linux, or Windows
-    that they can bring to class. (MacOS is preferred.) Chromebooks and
-    iPads will not work for this course. If you need access to an
-    appropriate laptop, please let me know ASAP.</p>
-    <h2 id="readings">Readings</h2>
-    <p>All readings for this course will be posted on Canvas. Please
-    note that many readings will be excerpted. If you need paper copies,
-    please let me know ASAP.</p>
-    <h2 id="calendar">Calendar</h2>
-    <p>I give abbreviated titles for some readings in the calendar. Full
-    citations are available in the bibliography at the end of the
-    syllabus.</p>
-    <table>
-    <colgroup>
-    <col style="width: 9%" />
-    <col style="width: 90%" />
-    </colgroup>
-    <thead>
-    <tr>
-    <th>Date</th>
-    <th>Reading</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>Sep 23</td>
-    <td>Kirschenbaum, “What is ‘digital humanities’?”<span
-    class="citation"
-    data-cites="kirschenbaumWhatDigitalHumanities2012"><a href="#fn1"
-    class="footnote-ref" id="fnref1"
-    role="doc-noteref"><sup>1</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Sep 25</td>
-    <td>Liu, “The Meaning of the Digital Humanities”<span
-    class="citation" data-cites="liuMeaningDigitalHumanities2013"><a
-    href="#fn2" class="footnote-ref" id="fnref2"
-    role="doc-noteref"><sup>2</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Sep 30</td>
-    <td>Algee-Hewitt and McGurl, “Between Canon and Corpus”<span
-    class="citation" data-cites="algee-hewittCanonCorpusSix2015"><a
-    href="#fn3" class="footnote-ref" id="fnref3"
-    role="doc-noteref"><sup>3</sup></a></span><br>Porter, “Popularity
-    and Prestige”<span class="citation"
-    data-cites="porterPopularityPrestige2018"><a href="#fn4"
-    class="footnote-ref" id="fnref4"
-    role="doc-noteref"><sup>4</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Oct 2</td>
-    <td>Burrows, <em>Computation into Criticism</em><span
-    class="citation"
-    data-cites="burrowsComputationCriticismStudy1987"><a href="#fn5"
-    class="footnote-ref" id="fnref5"
-    role="doc-noteref"><sup>5</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Oct 7</td>
-    <td>Piper, <em>Enumerations</em><span class="citation"
-    data-cites="piperEnumerationsDataLiterary2018a"><a href="#fn6"
-    class="footnote-ref" id="fnref6"
-    role="doc-noteref"><sup>6</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Oct 9</td>
-    <td>Arnold and Tilton, “Role of Statistics in DH”<span
-    class="citation" data-cites="arnoldNewDataRole2019"><a href="#fn7"
-    class="footnote-ref" id="fnref7"
-    role="doc-noteref"><sup>7</sup></a></span></td>
-    </tr>
-    <tr>
-    <td><em>Oct 14</em></td>
-    <td><em>No class</em></td>
-    </tr>
-    <tr>
-    <td>Oct 16</td>
-    <td>Ramsay, “An Algorithmic Criticism”<span class="citation"
-    data-cites="ramsayReadingMachinesAlgorithmic2011"><a href="#fn8"
-    class="footnote-ref" id="fnref8"
-    role="doc-noteref"><sup>8</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Oct 21</td>
-    <td>Bode, “Equivalence of ‘Close’ and ‘Distant’”<span
-    class="citation" data-cites="bodeEquivalenceCloseDistant2017a"><a
-    href="#fn9" class="footnote-ref" id="fnref9"
-    role="doc-noteref"><sup>9</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Oct 23</td>
-    <td>Guldi, “Critical Search”<span class="citation"
-    data-cites="guldiCriticalSearchProcedure2018"><a href="#fn10"
-    class="footnote-ref" id="fnref10"
-    role="doc-noteref"><sup>10</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Oct 28</td>
-    <td>Mandell, “Gender and Cultural Analytics”<span class="citation"
-    data-cites="mandellGenderCulturalAnalytics2019"><a href="#fn11"
-    class="footnote-ref" id="fnref11"
-    role="doc-noteref"><sup>11</sup></a></span><br>Underwood et al, “The
-    Transformation of Gender”<span class="citation"
-    data-cites="underwoodTransformationGenderEnglishLanguage2018"><a
-    href="#fn12" class="footnote-ref" id="fnref12"
-    role="doc-noteref"><sup>12</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Oct 30</td>
-    <td>Heuser and Le-Khac, “A Quantitative Literary History”<span
-    class="citation"
-    data-cites="heuserQuantitativeLiteraryHistory2012"><a href="#fn13"
-    class="footnote-ref" id="fnref13"
-    role="doc-noteref"><sup>13</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Nov 4</td>
-    <td>Fields, <em>Racecraft</em> (GIGO)<span class="citation"
-    data-cites="fieldsRacecraftSoulInequality2012"><a href="#fn14"
-    class="footnote-ref" id="fnref14"
-    role="doc-noteref"><sup>14</sup></a></span><br>McPherson, “Why are
-    the digital humanities so white?”<span class="citation"
-    data-cites="mcphersonWhyAreDigital2012"><a href="#fn15"
-    class="footnote-ref" id="fnref15"
-    role="doc-noteref"><sup>15</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Nov 6</td>
-    <td>Ruberg et al., “Toward a Queer Digital Humanities”<span
-    class="citation" data-cites="rubergQueerDigitalHumanities2018"><a
-    href="#fn16" class="footnote-ref" id="fnref16"
-    role="doc-noteref"><sup>16</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Nov 11</td>
-    <td>Risam, “The Stakes of Postcolonial Digital Humanities”<span
-    class="citation" data-cites="risamNewDigitalWorlds2019"><a
-    href="#fn17" class="footnote-ref" id="fnref17"
-    role="doc-noteref"><sup>17</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Nov 13</td>
-    <td>English, “Now, Not Now”<span class="citation"
-    data-cites="englishNowNotNow2016"><a href="#fn18"
-    class="footnote-ref" id="fnref18"
-    role="doc-noteref"><sup>18</sup></a></span><br>Blei, “Probabilistic
-    Topic Models”<span class="citation"
-    data-cites="bleiProbabilisticTopicModels2012"><a href="#fn19"
-    class="footnote-ref" id="fnref19"
-    role="doc-noteref"><sup>19</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Nov 18</td>
-    <td>Underwood, <em>Distant Horizons</em><span class="citation"
-    data-cites="underwoodDistantHorizonsDigital2019"><a href="#fn20"
-    class="footnote-ref" id="fnref20"
-    role="doc-noteref"><sup>20</sup></a></span></td>
-    </tr>
-    <tr>
-    <td>Nov 20</td>
-    <td>D’Ignazio and Klein, “Feminist Data Visualization”<span
-    class="citation" data-cites="dignazioDataFeminism2020"><a
-    href="#fn21" class="footnote-ref" id="fnref21"
-    role="doc-noteref"><sup>21</sup></a></span><br>Clement, “Text
-    Analysis”<span class="citation"
-    data-cites="clementTextAnalysisData2013"><a href="#fn22"
-    class="footnote-ref" id="fnref22"
-    role="doc-noteref"><sup>22</sup></a></span><br>Drucker, “Graphical
-    Display”<span class="citation"
-    data-cites="druckerHumanitiesApproachesGraphical2011"><a
-    href="#fn23" class="footnote-ref" id="fnref23"
-    role="doc-noteref"><sup>23</sup></a></span></td>
-    </tr>
-    <tr>
-    <td><em>Nov 25</em></td>
-    <td><em>Recess</em></td>
-    </tr>
-    <tr>
-    <td><em>Nov 27</em></td>
-    <td><em>Recess</em></td>
-    </tr>
-    <tr>
-    <td>Dec 2</td>
-    <td>Presentations</td>
-    </tr>
-    <tr>
-    <td>Dec 4</td>
-    <td>Presentations</td>
-    </tr>
-    <tr>
-    <td><em>Dec 13</em></td>
-    <td><em>Final paper due</em></td>
-    </tr>
-    </tbody>
-    </table>
-    <h2 id="literary-lab-meetings">Literary Lab meetings</h2>
-    <p>Students are encouraged to attend meetings of the Stanford
-    Literary Lab, a research group that focuses on computational text
-    analysis: <a href="https://litlab.stanford.edu/"
-    class="uri">https://litlab.stanford.edu/</a></p>
-    <h2 id="grading">Grading</h2>
-    <p>I round grades to the nearest integer.</p>
-    <table>
-    <thead>
-    <tr>
-    <th>Letter</th>
-    <th>Range</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>A</td>
-    <td>93 or more</td>
-    </tr>
-    <tr>
-    <td>A-</td>
-    <td>90-92</td>
-    </tr>
-    <tr>
-    <td>B+</td>
-    <td>87-89</td>
-    </tr>
-    <tr>
-    <td>B</td>
-    <td>83-86</td>
-    </tr>
-    <tr>
-    <td>B-</td>
-    <td>80-82</td>
-    </tr>
-    <tr>
-    <td>C+</td>
-    <td>77-79</td>
-    </tr>
-    <tr>
-    <td>C</td>
-    <td>73-76</td>
-    </tr>
-    <tr>
-    <td>C-</td>
-    <td>70-72</td>
-    </tr>
-    <tr>
-    <td>D+</td>
-    <td>67-69</td>
-    </tr>
-    <tr>
-    <td>D</td>
-    <td>60-66</td>
-    </tr>
-    <tr>
-    <td>F</td>
-    <td>59 or less</td>
-    </tr>
-    </tbody>
-    </table>
-    <h2 id="evaluation">Evaluation</h2>
-    <table>
-    <colgroup>
-    <col style="width: 23%" />
-    <col style="width: 14%" />
-    <col style="width: 61%" />
-    </colgroup>
-    <thead>
-    <tr>
-    <th>Item</th>
-    <th>Percentage</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>Homework</td>
-    <td>40%</td>
-    <td>Weekly assignments that apply material from class.</td>
-    </tr>
-    <tr>
-    <td>Participation</td>
-    <td>20%</td>
-    <td>Attendance, discussion, and lab work.</td>
-    </tr>
-    <tr>
-    <td>Presentation</td>
-    <td>10%</td>
-    <td>One in-class presentation of original research.</td>
-    </tr>
-    <tr>
-    <td>Final Essay</td>
-    <td>30%</td>
-    <td>Uses evidence from computational analysis to advance a literary
-    critical argument.</td>
-    </tr>
-    </tbody>
-    </table>
-    <p>Homework will include programming practice, new problems, and
-    written reflections on readings or results.</p>
-    <p>Attendance is crucial in this course since computational methods
-    build on each other. If you must miss a class, I expect you to cover
-    the material you missed during office hours, or with classmates.</p>
-    <p>Further details on the presentation and final essay will be
-    circulated later in the quarter.</p>
-    <h2 id="miscellaneous-items">Miscellaneous Items</h2>
-    <h3 id="accommodations">Accommodations</h3>
+    <li><a href="#description" id="toc-description">Description</a></li>
+    <li><a href="#objectives" id="toc-objectives">Objectives</a></li>
+    <li><a href="#technology" id="toc-technology">Technology</a></li>
+    <li><a href="#readings" id="toc-readings">Readings</a></li>
+    <li><a href="#calendar" id="toc-calendar">Calendar</a></li>
+    <li><a href="#literary-lab-meetings"
+    id="toc-literary-lab-meetings">Literary Lab meetings</a></li>
+    <li><a href="#grading" id="toc-grading">Grading</a></li>
+    <li><a href="#evaluation" id="toc-evaluation">Evaluation</a></li>
+    <li><a href="#miscellaneous-items"
+    id="toc-miscellaneous-items">Miscellaneous Items</a>
     <ul>
-    <li>Please let me know about any accommodations you require
-    ASAP.</li>
-    <li>Contact the Office of Accessible Education if you need an
-    updated letter.</li>
-    </ul>
-    <h3 id="absences">Absences</h3>
+    <li><a href="#accommodations"
+    id="toc-accommodations">Accommodations</a></li>
+    <li><a href="#absences" id="toc-absences">Absences</a></li>
+    <li><a href="#email" id="toc-email">Email</a></li>
+    <li><a href="#office-hours" id="toc-office-hours">Office
+    hours</a></li>
+    <li><a href="#late-work" id="toc-late-work">Late work</a></li>
+    <li><a href="#other" id="toc-other">Other</a></li>
+    </ul></li>
+    <li><a href="#appendix" id="toc-appendix">Appendix</a>
     <ul>
-    <li>Students are allowed one unexcused absence.</li>
-    <li>Email me at least 24 hours prior to class to secure an excused
-    absence.</li>
-    <li>If you know you will be absent on specific days this quarter
-    (e.g. away games), please let me know as far in advance as
-    possible.</li>
+    <li><a href="#honor-code" id="toc-honor-code">Honor Code</a></li>
+    <li><a href="#students-with-documented-disabilities"
+    id="toc-students-with-documented-disabilities">Students with
+    Documented Disabilities</a></li>
+    <li><a href="#campus-resources" id="toc-campus-resources">Campus
+    Resources</a></li>
+    <li><a href="#acknowledgments"
+    id="toc-acknowledgments">Acknowledgments</a></li>
+    </ul></li>
     </ul>
-    <h3 id="email">Email</h3>
-    <ul>
-    <li>I usually reply to email within a day. If you have not heard
-    from me after that time, please write again.</li>
-    </ul>
-    <h3 id="office-hours">Office hours</h3>
-    <ul>
-    <li>If you cannot make my regular office hours, I would be happy to
-    schedule a meeting at another time that works for both of us.</li>
-    <li>To discuss writing in progress, I ask that you send me your text
-    two days before we meet.</li>
-    </ul>
-    <h3 id="late-work">Late work</h3>
-    <ul>
-    <li>I apply a -10% penalty for each day that passes after the
-    original deadline to late work.</li>
-    <li>I do not accept work that is more than four days late.</li>
-    <li>(Yes, weekends count.)</li>
-    </ul>
-    <h3 id="other">Other</h3>
-    <ul>
-    <li>Take advantage of the Hume Center for Writing and Speaking while
-    drafting and revising your final essay.</li>
-    <li>If you get stuck on a programming problem, I encourage you to
-    reach out to your classmates to solve it together.</li>
-    <li>Mental and physical health are essential for you to do your best
-    work. If you are feeling unwell at any point during the quarter,
-    please talk to me.</li>
-    </ul>
-    <h2 id="appendix">Appendix</h2>
-    <h3 id="honor-code">Honor Code</h3>
-    <p>The Honor Code is an undertaking of the students, individually
-    and collectively:</p>
-    <ol type="a">
-    <li><p>that they will not give or receive aid in examinations; that
-    they will not give or receive unpermitted aid in class work, in the
-    preparation of reports, or in any other work that is to be used by
-    the instructor as the basis of grading;</p></li>
-    <li><p>that they will do their share and take an active part in
-    seeing to it that others as well as themselves uphold the spirit and
-    letter of the Honor Code.</p></li>
-    </ol>
-    <p>The faculty on its part manifests its confidence in the honor of
-    its students by refraining from proctoring examinations and from
-    taking unusual and unreasonable precautions to prevent the forms of
-    dishonesty mentioned above. The faculty will also avoid, as far as
-    practicable, academic procedures that create temptations to violate
-    the Honor Code.</p>
-    <p>While the faculty alone has the right and obligation to set
-    academic requirements, the students and faculty will work together
-    to establish optimal conditions for honorable academic work.</p>
-    <h4 id="fundamental-standard">Fundamental Standard</h4>
-    <p>Students are expected to show both within and without the
-    University such respect for order, morality, personal honor, and the
-    rights of others as is demanded of good citizens. Failure to do this
-    will be sufficient cause for removal from the University.</p>
-    <h3 id="students-with-documented-disabilities">Students with
-    Documented Disabilities</h3>
-    <p>Students who may need an academic accommodation based on the
-    impact of a disability must initiate the request with the Office of
-    Accessible Education (OAE). Professional staff will evaluate the
-    request with required documentation, recommend reasonable
-    accommodations, and prepare an Accommodation Letter for faculty
-    dated in the current quarter in which the request is being made.
-    Students should contact the OAE as soon as possible since timely
-    notice is needed to coordinate accommodations.</p>
-    <p>The Office of Accessible Education<br />
-    563 Salvatierra Walk<br />
-    650-723-1066<br />
-    <a href="https://studentaffairs.stanford.edu/oae"
-    class="uri">https://studentaffairs.stanford.edu/oae</a></p>
-    <h3 id="campus-resources">Campus Resources</h3>
-    <p>Hume Center for Speaking and Writing<br />
-    <a
-    href="https://sites.stanford.edu/undergrad/tutoring-support/hume-center"
-    class="uri">https://sites.stanford.edu/undergrad/tutoring-support/hume-center</a></p>
-    <p>Office of Sexual Assault &amp; Relationship Abuse Education &amp;
-    Response (SARA)<br />
-    <a href="https://sara.stanford.edu"
-    class="uri">https://sara.stanford.edu</a></p>
-    <p>Counseling and Psychological Services (CAPS)<br />
-    <a href="https://vaden.stanford.edu/caps"
-    class="uri">https://vaden.stanford.edu/caps</a></p>
-    <p>The Bridge Peer Counseling<br />
-    <a
-    href="https://haas.stanford.edu/students/cardinal-commitment/bridge"
-    class="uri">https://haas.stanford.edu/students/cardinal-commitment/bridge</a></p>
-    <p>English for Foreign Students<br />
-    <a
-    href="https://language.stanford.edu/programs/efs/languages/english-foreign-students"
-    class="uri">https://language.stanford.edu/programs/efs/languages/english-foreign-students</a></p>
-    <p>Academic Skills Coaching<br />
-    <a
-    href="http://learningconnection.stanford.edu/academic-skills-coaching"
-    class="uri">http://learningconnection.stanford.edu/academic-skills-coaching</a></p>
-    <p>Undergraduate Advising<br />
-    <a href="https://undergrad.stanford.edu/advising"
-    class="uri">https://undergrad.stanford.edu/advising</a></p>
-    <p>Community Center Resources<br />
-    <a
-    href="https://undergrad.stanford.edu/tutoring-support/community-center-resources"
-    class="uri">https://undergrad.stanford.edu/tutoring-support/community-center-resources</a></p>
-    <h3 id="acknowledgments">Acknowledgments</h3>
-    <p>This syllabus extends past iterations of this course taught by
-    Mark Algee-Hewitt and Ryan Heuser. It has also benefitted, directly
-    and indirectly, from syllabi by David Bamman, Andrew Goldstone,
-    Laura McGrath, and J.D. Porter.</p>
-    <section id="footnotes" class="footnotes footnotes-end-of-document"
-    role="doc-endnotes">
-    <hr />
-    <ol>
-    <li id="fn1"><p>Matthew Kirschenbaum, <span>“What Is Digital
-    Humanities and What’s It Doing in <span>English</span>
-    Departments?”</span> in <em>Debates in the <span>Digital
-    Humanities</span></em>, ed. Matthew K. Gold (University of Minnesota
-    Press, 2012).<a href="#fnref1" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn2"><p>Alan Liu, <span>“The <span>Meaning</span> of the
-    <span>Digital Humanities</span>,”</span> <em>PMLA/Publications of
-    the Modern Language Association of America</em> 128, no. 2 (2013):
-    409–23, <a
-    href="https://doi.org/10.1632/pmla.2013.128.2.409">https://doi.org/10.1632/pmla.2013.128.2.409</a>.<a
-    href="#fnref2" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn3"><p>Mark Algee-Hewitt and Mark McGurl, <span>“Between
-    <span>Canon</span> and <span>Corpus</span>: <span>Six
-    Perspectives</span> on 20th-<span>Century Novels</span>,”</span>
-    <em>Stanford Literary Lab Pamphlets</em>, no. 8 (January 2015).<a
-    href="#fnref3" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn4"><p>J. D. Porter,
-    <span>“Popularity/<span>Prestige</span>,”</span> <em>Pamphlets of
-    the Stanford Literary Lab</em>, no. 17 (September 2018).<a
-    href="#fnref4" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn5"><p>J. F. Burrows, <em>Computation into Criticism: A
-    Study of <span>Jane Austen</span>’s Novels and an Experiment in
-    Method</em> (Clarendon Press ; Oxford University Press, 1987).<a
-    href="#fnref5" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn6"><p>Andrew Piper, <em>Enumerations: Data and Literary
-    Study</em> (The University of Chicago Press, 2018).<a href="#fnref6"
-    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-    <li id="fn7"><p>Taylor Arnold and Lauren Tilton, <span>“New
-    <span>Data</span>? <span>The Role</span> of <span>Statistics</span>
-    in <span>DH</span>,”</span> in <em>7567060</em>, ed. Matthew K. Gold
-    and Lauren F. Klein, Debates in the <span>Digital Humanities</span>
-    (University of Minnesota Press, 2019).<a href="#fnref7"
-    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-    <li id="fn8"><p>Stephen Ramsay, <em>Reading Machines: Toward an
-    Algorithmic Criticism</em>, Topics in the Digital Humanities
-    (University of Illinois Press, 2011).<a href="#fnref8"
-    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-    <li id="fn9"><p>Katherine Bode, <span>“The <span>Equivalence</span>
-    of <span>‘<span>Close</span>’</span> and
-    <span>‘<span>Distant</span>’</span> <span>Reading</span>; or,
-    <span>Toward</span> a <span>New Object</span> for <span>Data-Rich
-    Literary History</span>,”</span> <em>Modern Language Quarterly: A
-    Journal of Literary History</em> 78, no. 1 (2017): 77–106, <a
-    href="https://doi.org/10.1215/00267929-3699787">https://doi.org/10.1215/00267929-3699787</a>.<a
-    href="#fnref9" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn10"><p>Jo Guldi, <span>“Critical <span>Search</span>:
-    <span>A Procedure</span> for <span>Guided Reading</span> in
-    <span>Large-Scale Textual Corpora</span>,”</span> <em>Journal of
-    Cultural Analytics</em> 3, no. 1 (2018), <a
-    href="https://doi.org/10.22148/16.030">https://doi.org/10.22148/16.030</a>.<a
-    href="#fnref10" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn11"><p>Laura Mandell, <span>“Gender and <span>Cultural
-    Analytics</span>: <span>Finding</span> or <span>Making
-    Stereotypes</span>?”</span> in <em>Debates in the <span>Digital
-    Humanities</span> 2019</em>, ed. Matthew K. Gold and Lauren F Klein,
-    Debates in the <span>Digital Humanities</span> 5 (University of
-    Minnesota Press, 2019).<a href="#fnref11" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn12"><p>Ted Underwood, David Bamman, and Sabrina Lee,
-    <span>“The <span>Transformation</span> of <span>Gender</span> in
-    <span>English-Language Fiction</span>,”</span> <em>Journal of
-    Cultural Analytics</em>, ahead of print, 2018, <a
-    href="https://doi.org/10.22148/16.019">https://doi.org/10.22148/16.019</a>.<a
-    href="#fnref12" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn13"><p>Ryan Heuser and Long Le-Khac, <span>“A
-    <span>Quantitative Literary History</span> of 2,958
-    <span>Nineteenth-Century British Novels</span>: <span>The Semantic
-    Cohort Method</span>,”</span> <em>Pamphlets of the Stanford Literary
-    Lab</em>, no. 4 (May 2012).<a href="#fnref13" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn14"><p>Karen E. Fields and Barbara Jeanne Fields,
-    <em>Racecraft: The <span>Soul</span> of <span>Inequality</span> in
-    <span>American Life</span></em> (Verso, 2012).<a href="#fnref14"
-    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-    <li id="fn15"><p>Tara McPherson, <span>“Why <span>Are</span> the
-    <span>Digital Humanities So White</span>? Or <span>Thinking</span>
-    the <span>Histories</span> of <span>Race</span> and
-    <span>Computation</span>,”</span> in <em>Debates in the Digital
-    Humanities</em>, ed. Matthew K. Gold (Univ Of Minnesota Press,
-    2012).<a href="#fnref15" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn16"><p>Bonnie Ruberg, Jason Boyd, and James Howe,
-    <span>“Toward a <span>Queer Digital Humanities</span>,”</span> in
-    <em>Bodies of <span>Information</span></em>, ed. Elizabeth Losh and
-    Jacqueline Wernimont, Intersectional <span>Feminism</span> and the
-    <span>Digital Humanities</span> (University of Minnesota Press,
-    2018), <a
-    href="https://doi.org/10.5749/j.ctv9hj9r9.11">https://doi.org/10.5749/j.ctv9hj9r9.11</a>.<a
-    href="#fnref16" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn17"><p>Roopika Risam, <em>New Digital Worlds: Postcolonial
-    Digital Humanities in Theory, Praxis, and Pedagogy</em>
-    (Northwestern University Press, 2019).<a href="#fnref17"
-    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-    <li id="fn18"><p>James F. English, <span>“Now, <span>Not Now</span>:
-    <span>Counting Time</span> in <span>Contemporary Fiction
-    Studies</span>,”</span> <em>Modern Language Quarterly</em> 77, no. 3
-    (2016): 395–418, <a
-    href="https://doi.org/10.1215/00267929-3570667">https://doi.org/10.1215/00267929-3570667</a>.<a
-    href="#fnref18" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn19"><p>David M. Blei, <span>“Probabilistic Topic
-    Models,”</span> <em>Communications of the ACM</em> 55, no. 4 (2012):
-    77, <a
-    href="https://doi.org/10.1145/2133806.2133826">https://doi.org/10.1145/2133806.2133826</a>.<a
-    href="#fnref19" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn20"><p>Ted Underwood, <em>Distant Horizons: Digital
-    Evidence and Literary Change</em> (The University of Chicago Press,
-    2019).<a href="#fnref20" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn21"><p>Catherine D’Ignazio and Lauren F. Klein, <em>Data
-    Feminism</em>, Strong Ideas Series (The MIT Press, 2020).<a
-    href="#fnref21" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    <li id="fn22"><p>Tanya Clement, <span>“Text <span>Analysis</span>,
-    <span>Data Mining</span>, and <span>Visualizations</span> in
-    <span>Literary Scholarship</span>,”</span> in <em>Literary Studies
-    in the Digital Age</em>, 2013.<a href="#fnref22"
-    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-    <li id="fn23"><p>Johanna Drucker, <span>“Humanities
-    <span>Approaches</span> to <span>Graphical Display</span>,”</span>
-    <em>Digital Humanities Quarterly</em> 005, no. 1 (2011).<a
-    href="#fnref23" class="footnote-back"
-    role="doc-backlink">↩︎</a></p></li>
-    </ol>
-    </section>
+        <h2 id="description">Description</h2>
+        <p>Computational methods have made it possible to analyze
+        literature in new ways and at new scales. This course trains
+        students in theories and methods of computational literary
+        studies. It requires no background in computer programming or
+        literary criticism. We begin with fundamentals of the Python
+        programming language before moving on to computational analyses
+        of literary texts. Our analyses will be informed by critical
+        readings. While programming distinguishes this course from many
+        other humanities classes, this course is fundamentally about
+        literature, and what we can learn about it at the new scales
+        afforded by computation.</p>
+        <h2 id="objectives">Objectives</h2>
+        <p>Students will be able to:</p>
+        <ul>
+        <li>Plan and justify a program of computational literary
+        analysis.</li>
+        <li>Create a corpus and metadata to study a research
+        question.</li>
+        <li>Use all basic elements of Python proficiently.</li>
+        <li>Use several data science and text mining packages.</li>
+        <li>Visualize data.</li>
+        <li>Integrate data analysis into literary criticism.</li>
+        </ul>
+        <h2 id="technology">Technology</h2>
+        <p>All students will need a laptop running macOS, Linux, or
+        Windows that they can bring to class. (MacOS is preferred.)
+        Chromebooks and iPads will not work for this course. If you need
+        access to an appropriate laptop, please let me know ASAP.</p>
+        <h2 id="readings">Readings</h2>
+        <p>All readings for this course will be posted on Canvas. Please
+        note that many readings will be excerpted. If you need paper
+        copies, please let me know ASAP.</p>
+        <h2 id="calendar">Calendar</h2>
+        <p>I give abbreviated titles for some readings in the calendar.
+        Full citations are available in the bibliography at the end of
+        the syllabus.</p>
+        <table>
+        <colgroup>
+        <col style="width: 9%" />
+        <col style="width: 90%" />
+        </colgroup>
+        <thead>
+        <tr>
+        <th>Date</th>
+        <th>Reading</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Sep 23</td>
+        <td>Kirschenbaum, “What is ‘digital humanities’?”<span
+        class="citation"
+        data-cites="kirschenbaumWhatDigitalHumanities2012"><a
+        href="#fn1" class="footnote-ref" id="fnref1"
+        role="doc-noteref"><sup>1</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Sep 25</td>
+        <td>Liu, “The Meaning of the Digital Humanities”<span
+        class="citation" data-cites="liuMeaningDigitalHumanities2013"><a
+        href="#fn2" class="footnote-ref" id="fnref2"
+        role="doc-noteref"><sup>2</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Sep 30</td>
+        <td>Algee-Hewitt and McGurl, “Between Canon and Corpus”<span
+        class="citation" data-cites="algee-hewittCanonCorpusSix2015"><a
+        href="#fn3" class="footnote-ref" id="fnref3"
+        role="doc-noteref"><sup>3</sup></a></span><br>Porter,
+        “Popularity and Prestige”<span class="citation"
+        data-cites="porterPopularityPrestige2018"><a href="#fn4"
+        class="footnote-ref" id="fnref4"
+        role="doc-noteref"><sup>4</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Oct 2</td>
+        <td>Burrows, <em>Computation into Criticism</em><span
+        class="citation"
+        data-cites="burrowsComputationCriticismStudy1987"><a href="#fn5"
+        class="footnote-ref" id="fnref5"
+        role="doc-noteref"><sup>5</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Oct 7</td>
+        <td>Piper, <em>Enumerations</em><span class="citation"
+        data-cites="piperEnumerationsDataLiterary2018a"><a href="#fn6"
+        class="footnote-ref" id="fnref6"
+        role="doc-noteref"><sup>6</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Oct 9</td>
+        <td>Arnold and Tilton, “Role of Statistics in DH”<span
+        class="citation" data-cites="arnoldNewDataRole2019"><a
+        href="#fn7" class="footnote-ref" id="fnref7"
+        role="doc-noteref"><sup>7</sup></a></span></td>
+        </tr>
+        <tr>
+        <td><em>Oct 14</em></td>
+        <td><em>No class</em></td>
+        </tr>
+        <tr>
+        <td>Oct 16</td>
+        <td>Ramsay, “An Algorithmic Criticism”<span class="citation"
+        data-cites="ramsayReadingMachinesAlgorithmic2011"><a href="#fn8"
+        class="footnote-ref" id="fnref8"
+        role="doc-noteref"><sup>8</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Oct 21</td>
+        <td>Bode, “Equivalence of ‘Close’ and ‘Distant’”<span
+        class="citation"
+        data-cites="bodeEquivalenceCloseDistant2017a"><a href="#fn9"
+        class="footnote-ref" id="fnref9"
+        role="doc-noteref"><sup>9</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Oct 23</td>
+        <td>Guldi, “Critical Search”<span class="citation"
+        data-cites="guldiCriticalSearchProcedure2018"><a href="#fn10"
+        class="footnote-ref" id="fnref10"
+        role="doc-noteref"><sup>10</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Oct 28</td>
+        <td>Mandell, “Gender and Cultural Analytics”<span
+        class="citation"
+        data-cites="mandellGenderCulturalAnalytics2019"><a href="#fn11"
+        class="footnote-ref" id="fnref11"
+        role="doc-noteref"><sup>11</sup></a></span><br>Underwood et al,
+        “The Transformation of Gender”<span class="citation"
+        data-cites="underwoodTransformationGenderEnglishLanguage2018"><a
+        href="#fn12" class="footnote-ref" id="fnref12"
+        role="doc-noteref"><sup>12</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Oct 30</td>
+        <td>Heuser and Le-Khac, “A Quantitative Literary History”<span
+        class="citation"
+        data-cites="heuserQuantitativeLiteraryHistory2012"><a
+        href="#fn13" class="footnote-ref" id="fnref13"
+        role="doc-noteref"><sup>13</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Nov 4</td>
+        <td>Fields, <em>Racecraft</em> (GIGO)<span class="citation"
+        data-cites="fieldsRacecraftSoulInequality2012"><a href="#fn14"
+        class="footnote-ref" id="fnref14"
+        role="doc-noteref"><sup>14</sup></a></span><br>McPherson, “Why
+        are the digital humanities so white?”<span class="citation"
+        data-cites="mcphersonWhyAreDigital2012"><a href="#fn15"
+        class="footnote-ref" id="fnref15"
+        role="doc-noteref"><sup>15</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Nov 6</td>
+        <td>Ruberg et al., “Toward a Queer Digital Humanities”<span
+        class="citation"
+        data-cites="rubergQueerDigitalHumanities2018"><a href="#fn16"
+        class="footnote-ref" id="fnref16"
+        role="doc-noteref"><sup>16</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Nov 11</td>
+        <td>Risam, “The Stakes of Postcolonial Digital Humanities”<span
+        class="citation" data-cites="risamNewDigitalWorlds2019"><a
+        href="#fn17" class="footnote-ref" id="fnref17"
+        role="doc-noteref"><sup>17</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Nov 13</td>
+        <td>English, “Now, Not Now”<span class="citation"
+        data-cites="englishNowNotNow2016"><a href="#fn18"
+        class="footnote-ref" id="fnref18"
+        role="doc-noteref"><sup>18</sup></a></span><br>Blei,
+        “Probabilistic Topic Models”<span class="citation"
+        data-cites="bleiProbabilisticTopicModels2012"><a href="#fn19"
+        class="footnote-ref" id="fnref19"
+        role="doc-noteref"><sup>19</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Nov 18</td>
+        <td>Underwood, <em>Distant Horizons</em><span class="citation"
+        data-cites="underwoodDistantHorizonsDigital2019"><a href="#fn20"
+        class="footnote-ref" id="fnref20"
+        role="doc-noteref"><sup>20</sup></a></span></td>
+        </tr>
+        <tr>
+        <td>Nov 20</td>
+        <td>D’Ignazio and Klein, “Feminist Data Visualization”<span
+        class="citation" data-cites="dignazioDataFeminism2020"><a
+        href="#fn21" class="footnote-ref" id="fnref21"
+        role="doc-noteref"><sup>21</sup></a></span><br>Clement, “Text
+        Analysis”<span class="citation"
+        data-cites="clementTextAnalysisData2013"><a href="#fn22"
+        class="footnote-ref" id="fnref22"
+        role="doc-noteref"><sup>22</sup></a></span><br>Drucker,
+        “Graphical Display”<span class="citation"
+        data-cites="druckerHumanitiesApproachesGraphical2011"><a
+        href="#fn23" class="footnote-ref" id="fnref23"
+        role="doc-noteref"><sup>23</sup></a></span></td>
+        </tr>
+        <tr>
+        <td><em>Nov 25</em></td>
+        <td><em>Recess</em></td>
+        </tr>
+        <tr>
+        <td><em>Nov 27</em></td>
+        <td><em>Recess</em></td>
+        </tr>
+        <tr>
+        <td>Dec 2</td>
+        <td>Presentations</td>
+        </tr>
+        <tr>
+        <td>Dec 4</td>
+        <td>Presentations</td>
+        </tr>
+        <tr>
+        <td><em>Dec 13</em></td>
+        <td><em>Final paper due</em></td>
+        </tr>
+        </tbody>
+        </table>
+        <h2 id="literary-lab-meetings">Literary Lab meetings</h2>
+        <p>Students are encouraged to attend meetings of the Stanford
+        Literary Lab, a research group that focuses on computational
+        text analysis: <a href="https://litlab.stanford.edu/"
+        class="uri">https://litlab.stanford.edu/</a></p>
+        <h2 id="grading">Grading</h2>
+        <p>I round grades to the nearest integer.</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Letter</th>
+        <th>Range</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>A</td>
+        <td>93 or more</td>
+        </tr>
+        <tr>
+        <td>A-</td>
+        <td>90-92</td>
+        </tr>
+        <tr>
+        <td>B+</td>
+        <td>87-89</td>
+        </tr>
+        <tr>
+        <td>B</td>
+        <td>83-86</td>
+        </tr>
+        <tr>
+        <td>B-</td>
+        <td>80-82</td>
+        </tr>
+        <tr>
+        <td>C+</td>
+        <td>77-79</td>
+        </tr>
+        <tr>
+        <td>C</td>
+        <td>73-76</td>
+        </tr>
+        <tr>
+        <td>C-</td>
+        <td>70-72</td>
+        </tr>
+        <tr>
+        <td>D+</td>
+        <td>67-69</td>
+        </tr>
+        <tr>
+        <td>D</td>
+        <td>60-66</td>
+        </tr>
+        <tr>
+        <td>F</td>
+        <td>59 or less</td>
+        </tr>
+        </tbody>
+        </table>
+        <h2 id="evaluation">Evaluation</h2>
+        <table>
+        <colgroup>
+        <col style="width: 23%" />
+        <col style="width: 14%" />
+        <col style="width: 61%" />
+        </colgroup>
+        <thead>
+        <tr>
+        <th>Item</th>
+        <th>Percentage</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Homework</td>
+        <td>40%</td>
+        <td>Weekly assignments that apply material from class.</td>
+        </tr>
+        <tr>
+        <td>Participation</td>
+        <td>20%</td>
+        <td>Attendance, discussion, and lab work.</td>
+        </tr>
+        <tr>
+        <td>Presentation</td>
+        <td>10%</td>
+        <td>One in-class presentation of original research.</td>
+        </tr>
+        <tr>
+        <td>Final Essay</td>
+        <td>30%</td>
+        <td>Uses evidence from computational analysis to advance a
+        literary critical argument.</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>Homework will include programming practice, new problems, and
+        written reflections on readings or results.</p>
+        <p>Attendance is crucial in this course since computational
+        methods build on each other. If you must miss a class, I expect
+        you to cover the material you missed during office hours, or
+        with classmates.</p>
+        <p>Further details on the presentation and final essay will be
+        circulated later in the quarter.</p>
+        <h2 id="miscellaneous-items">Miscellaneous Items</h2>
+        <h3 id="accommodations">Accommodations</h3>
+        <ul>
+        <li>Please let me know about any accommodations you require
+        ASAP.</li>
+        <li>Contact the Office of Accessible Education if you need an
+        updated letter.</li>
+        </ul>
+        <h3 id="absences">Absences</h3>
+        <ul>
+        <li>Students are allowed one unexcused absence.</li>
+        <li>Email me at least 24 hours prior to class to secure an
+        excused absence.</li>
+        <li>If you know you will be absent on specific days this quarter
+        (e.g. away games), please let me know as far in advance as
+        possible.</li>
+        </ul>
+        <h3 id="email">Email</h3>
+        <ul>
+        <li>I usually reply to email within a day. If you have not heard
+        from me after that time, please write again.</li>
+        </ul>
+        <h3 id="office-hours">Office hours</h3>
+        <ul>
+        <li>If you cannot make my regular office hours, I would be happy
+        to schedule a meeting at another time that works for both of
+        us.</li>
+        <li>To discuss writing in progress, I ask that you send me your
+        text two days before we meet.</li>
+        </ul>
+        <h3 id="late-work">Late work</h3>
+        <ul>
+        <li>I apply a -10% penalty for each day that passes after the
+        original deadline to late work.</li>
+        <li>I do not accept work that is more than four days late.</li>
+        <li>(Yes, weekends count.)</li>
+        </ul>
+        <h3 id="other">Other</h3>
+        <ul>
+        <li>Take advantage of the Hume Center for Writing and Speaking
+        while drafting and revising your final essay.</li>
+        <li>If you get stuck on a programming problem, I encourage you
+        to reach out to your classmates to solve it together.</li>
+        <li>Mental and physical health are essential for you to do your
+        best work. If you are feeling unwell at any point during the
+        quarter, please talk to me.</li>
+        </ul>
+        <h2 id="appendix">Appendix</h2>
+        <h3 id="honor-code">Honor Code</h3>
+        <p>The Honor Code is an undertaking of the students,
+        individually and collectively:</p>
+        <ol type="a">
+        <li><p>that they will not give or receive aid in examinations;
+        that they will not give or receive unpermitted aid in class
+        work, in the preparation of reports, or in any other work that
+        is to be used by the instructor as the basis of
+        grading;</p></li>
+        <li><p>that they will do their share and take an active part in
+        seeing to it that others as well as themselves uphold the spirit
+        and letter of the Honor Code.</p></li>
+        </ol>
+        <p>The faculty on its part manifests its confidence in the honor
+        of its students by refraining from proctoring examinations and
+        from taking unusual and unreasonable precautions to prevent the
+        forms of dishonesty mentioned above. The faculty will also
+        avoid, as far as practicable, academic procedures that create
+        temptations to violate the Honor Code.</p>
+        <p>While the faculty alone has the right and obligation to set
+        academic requirements, the students and faculty will work
+        together to establish optimal conditions for honorable academic
+        work.</p>
+        <h4 id="fundamental-standard">Fundamental Standard</h4>
+        <p>Students are expected to show both within and without the
+        University such respect for order, morality, personal honor, and
+        the rights of others as is demanded of good citizens. Failure to
+        do this will be sufficient cause for removal from the
+        University.</p>
+        <h3 id="students-with-documented-disabilities">Students with
+        Documented Disabilities</h3>
+        <p>Students who may need an academic accommodation based on the
+        impact of a disability must initiate the request with the Office
+        of Accessible Education (OAE). Professional staff will evaluate
+        the request with required documentation, recommend reasonable
+        accommodations, and prepare an Accommodation Letter for faculty
+        dated in the current quarter in which the request is being made.
+        Students should contact the OAE as soon as possible since timely
+        notice is needed to coordinate accommodations.</p>
+        <p>The Office of Accessible Education<br />
+        563 Salvatierra Walk<br />
+        650-723-1066<br />
+        <a href="https://studentaffairs.stanford.edu/oae"
+        class="uri">https://studentaffairs.stanford.edu/oae</a></p>
+        <h3 id="campus-resources">Campus Resources</h3>
+        <p>Hume Center for Speaking and Writing<br />
+        <a
+        href="https://sites.stanford.edu/undergrad/tutoring-support/hume-center"
+        class="uri">https://sites.stanford.edu/undergrad/tutoring-support/hume-center</a></p>
+        <p>Office of Sexual Assault &amp; Relationship Abuse Education
+        &amp; Response (SARA)<br />
+        <a href="https://sara.stanford.edu"
+        class="uri">https://sara.stanford.edu</a></p>
+        <p>Counseling and Psychological Services (CAPS)<br />
+        <a href="https://vaden.stanford.edu/caps"
+        class="uri">https://vaden.stanford.edu/caps</a></p>
+        <p>The Bridge Peer Counseling<br />
+        <a
+        href="https://haas.stanford.edu/students/cardinal-commitment/bridge"
+        class="uri">https://haas.stanford.edu/students/cardinal-commitment/bridge</a></p>
+        <p>English for Foreign Students<br />
+        <a
+        href="https://language.stanford.edu/programs/efs/languages/english-foreign-students"
+        class="uri">https://language.stanford.edu/programs/efs/languages/english-foreign-students</a></p>
+        <p>Academic Skills Coaching<br />
+        <a
+        href="http://learningconnection.stanford.edu/academic-skills-coaching"
+        class="uri">http://learningconnection.stanford.edu/academic-skills-coaching</a></p>
+        <p>Undergraduate Advising<br />
+        <a href="https://undergrad.stanford.edu/advising"
+        class="uri">https://undergrad.stanford.edu/advising</a></p>
+        <p>Community Center Resources<br />
+        <a
+        href="https://undergrad.stanford.edu/tutoring-support/community-center-resources"
+        class="uri">https://undergrad.stanford.edu/tutoring-support/community-center-resources</a></p>
+        <h3 id="acknowledgments">Acknowledgments</h3>
+        <p>This syllabus extends past iterations of this course taught
+        by Mark Algee-Hewitt and Ryan Heuser. It has also benefitted,
+        directly and indirectly, from syllabi by David Bamman, Andrew
+        Goldstone, Laura McGrath, and J.D. Porter.</p>
+        <section id="footnotes"
+        class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <ol>
+        <li id="fn1"><p>Matthew Kirschenbaum, <span>“What Is Digital
+        Humanities and What’s It Doing in <span>English</span>
+        Departments?”</span> in <em>Debates in the <span>Digital
+        Humanities</span></em>, ed. Matthew K. Gold (University of
+        Minnesota Press, 2012).<a href="#fnref1" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn2"><p>Alan Liu, <span>“The <span>Meaning</span> of the
+        <span>Digital Humanities</span>,”</span> <em>PMLA/Publications
+        of the Modern Language Association of America</em> 128, no. 2
+        (2013): 409–23, <a
+        href="https://doi.org/10.1632/pmla.2013.128.2.409">https://doi.org/10.1632/pmla.2013.128.2.409</a>.<a
+        href="#fnref2" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn3"><p>Mark Algee-Hewitt and Mark McGurl,
+        <span>“Between <span>Canon</span> and <span>Corpus</span>:
+        <span>Six Perspectives</span> on 20th-<span>Century
+        Novels</span>,”</span> <em>Stanford Literary Lab Pamphlets</em>,
+        no. 8 (January 2015).<a href="#fnref3" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn4"><p>J. D. Porter,
+        <span>“Popularity/<span>Prestige</span>,”</span> <em>Pamphlets
+        of the Stanford Literary Lab</em>, no. 17 (September 2018).<a
+        href="#fnref4" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn5"><p>J. F. Burrows, <em>Computation into Criticism: A
+        Study of <span>Jane Austen</span>’s Novels and an Experiment in
+        Method</em> (Clarendon Press ; Oxford University Press, 1987).<a
+        href="#fnref5" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn6"><p>Andrew Piper, <em>Enumerations: Data and
+        Literary Study</em> (The University of Chicago Press, 2018).<a
+        href="#fnref6" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn7"><p>Taylor Arnold and Lauren Tilton, <span>“New
+        <span>Data</span>? <span>The Role</span> of
+        <span>Statistics</span> in <span>DH</span>,”</span> in
+        <em>7567060</em>, ed. Matthew K. Gold and Lauren F. Klein,
+        Debates in the <span>Digital Humanities</span> (University of
+        Minnesota Press, 2019).<a href="#fnref7" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn8"><p>Stephen Ramsay, <em>Reading Machines: Toward an
+        Algorithmic Criticism</em>, Topics in the Digital Humanities
+        (University of Illinois Press, 2011).<a href="#fnref8"
+        class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+        <li id="fn9"><p>Katherine Bode, <span>“The
+        <span>Equivalence</span> of <span>‘<span>Close</span>’</span>
+        and <span>‘<span>Distant</span>’</span> <span>Reading</span>;
+        or, <span>Toward</span> a <span>New Object</span> for
+        <span>Data-Rich Literary History</span>,”</span> <em>Modern
+        Language Quarterly: A Journal of Literary History</em> 78, no. 1
+        (2017): 77–106, <a
+        href="https://doi.org/10.1215/00267929-3699787">https://doi.org/10.1215/00267929-3699787</a>.<a
+        href="#fnref9" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn10"><p>Jo Guldi, <span>“Critical <span>Search</span>:
+        <span>A Procedure</span> for <span>Guided Reading</span> in
+        <span>Large-Scale Textual Corpora</span>,”</span> <em>Journal of
+        Cultural Analytics</em> 3, no. 1 (2018), <a
+        href="https://doi.org/10.22148/16.030">https://doi.org/10.22148/16.030</a>.<a
+        href="#fnref10" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn11"><p>Laura Mandell, <span>“Gender and <span>Cultural
+        Analytics</span>: <span>Finding</span> or <span>Making
+        Stereotypes</span>?”</span> in <em>Debates in the <span>Digital
+        Humanities</span> 2019</em>, ed. Matthew K. Gold and Lauren F
+        Klein, Debates in the <span>Digital Humanities</span> 5
+        (University of Minnesota Press, 2019).<a href="#fnref11"
+        class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+        <li id="fn12"><p>Ted Underwood, David Bamman, and Sabrina Lee,
+        <span>“The <span>Transformation</span> of <span>Gender</span> in
+        <span>English-Language Fiction</span>,”</span> <em>Journal of
+        Cultural Analytics</em>, ahead of print, 2018, <a
+        href="https://doi.org/10.22148/16.019">https://doi.org/10.22148/16.019</a>.<a
+        href="#fnref12" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn13"><p>Ryan Heuser and Long Le-Khac, <span>“A
+        <span>Quantitative Literary History</span> of 2,958
+        <span>Nineteenth-Century British Novels</span>: <span>The
+        Semantic Cohort Method</span>,”</span> <em>Pamphlets of the
+        Stanford Literary Lab</em>, no. 4 (May 2012).<a href="#fnref13"
+        class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+        <li id="fn14"><p>Karen E. Fields and Barbara Jeanne Fields,
+        <em>Racecraft: The <span>Soul</span> of <span>Inequality</span>
+        in <span>American Life</span></em> (Verso, 2012).<a
+        href="#fnref14" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn15"><p>Tara McPherson, <span>“Why <span>Are</span> the
+        <span>Digital Humanities So White</span>? Or
+        <span>Thinking</span> the <span>Histories</span> of
+        <span>Race</span> and <span>Computation</span>,”</span> in
+        <em>Debates in the Digital Humanities</em>, ed. Matthew K. Gold
+        (Univ Of Minnesota Press, 2012).<a href="#fnref15"
+        class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+        <li id="fn16"><p>Bonnie Ruberg, Jason Boyd, and James Howe,
+        <span>“Toward a <span>Queer Digital Humanities</span>,”</span>
+        in <em>Bodies of <span>Information</span></em>, ed. Elizabeth
+        Losh and Jacqueline Wernimont, Intersectional
+        <span>Feminism</span> and the <span>Digital Humanities</span>
+        (University of Minnesota Press, 2018), <a
+        href="https://doi.org/10.5749/j.ctv9hj9r9.11">https://doi.org/10.5749/j.ctv9hj9r9.11</a>.<a
+        href="#fnref16" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn17"><p>Roopika Risam, <em>New Digital Worlds:
+        Postcolonial Digital Humanities in Theory, Praxis, and
+        Pedagogy</em> (Northwestern University Press, 2019).<a
+        href="#fnref17" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn18"><p>James F. English, <span>“Now, <span>Not
+        Now</span>: <span>Counting Time</span> in <span>Contemporary
+        Fiction Studies</span>,”</span> <em>Modern Language
+        Quarterly</em> 77, no. 3 (2016): 395–418, <a
+        href="https://doi.org/10.1215/00267929-3570667">https://doi.org/10.1215/00267929-3570667</a>.<a
+        href="#fnref18" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn19"><p>David M. Blei, <span>“Probabilistic Topic
+        Models,”</span> <em>Communications of the ACM</em> 55, no. 4
+        (2012): 77, <a
+        href="https://doi.org/10.1145/2133806.2133826">https://doi.org/10.1145/2133806.2133826</a>.<a
+        href="#fnref19" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn20"><p>Ted Underwood, <em>Distant Horizons: Digital
+        Evidence and Literary Change</em> (The University of Chicago
+        Press, 2019).<a href="#fnref20" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn21"><p>Catherine D’Ignazio and Lauren F. Klein,
+        <em>Data Feminism</em>, Strong Ideas Series (The MIT Press,
+        2020).<a href="#fnref21" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn22"><p>Tanya Clement, <span>“Text
+        <span>Analysis</span>, <span>Data Mining</span>, and
+        <span>Visualizations</span> in <span>Literary
+        Scholarship</span>,”</span> in <em>Literary Studies in the
+        Digital Age</em>, 2013.<a href="#fnref22" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        <li id="fn23"><p>Johanna Drucker, <span>“Humanities
+        <span>Approaches</span> to <span>Graphical
+        Display</span>,”</span> <em>Digital Humanities Quarterly</em>
+        005, no. 1 (2011).<a href="#fnref23" class="footnote-back"
+        role="doc-backlink">↩︎</a></p></li>
+        </ol>
+        </section>
   </main>
 </body>
 

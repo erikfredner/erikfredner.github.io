@@ -24,7 +24,8 @@ SLIDES_OUT := $(patsubst $(SLIDES_SRC_DIR)/%,$(SLIDES_OUT_DIR)/%,$(SLIDES_SRC))
 all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT)
 
 $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) | $(OUT_DIR)
-	$(PANDOC) --standalone --template=$(TEMPLATE) \
+	TOC_FLAG=$$(awk 'NR==1 && $$0=="---" {in_yaml=1; next} in_yaml && $$0=="---" {exit} in_yaml && $$0 ~ /^toc:[[:space:]]*true([[:space:]]|$$)/ {print "--toc"; exit}' $<); \
+	$(PANDOC) --standalone $$TOC_FLAG --template=$(TEMPLATE) \
 	  --metadata date="$(CURRENT_YEAR)" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  -o $@ $<

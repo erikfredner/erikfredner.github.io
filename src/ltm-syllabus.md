@@ -1,5 +1,6 @@
 ---
 title: Literary Text Mining
+toc: true
 ---
 
 ## Description
