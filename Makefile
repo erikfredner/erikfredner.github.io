@@ -15,7 +15,13 @@ IMG_OUT_DIR := $(OUT_DIR)/images
 IMG_SRC := $(wildcard $(IMG_SRC_DIR)/*)
 IMAGES_OUT := $(patsubst $(IMG_SRC_DIR)/%,$(IMG_OUT_DIR)/%,$(IMG_SRC))
 
-all: $(HTML_OUT) $(IMAGES_OUT)
+# Slide decks
+SLIDES_SRC_DIR := slides
+SLIDES_OUT_DIR := $(OUT_DIR)/slides
+SLIDES_SRC := $(wildcard $(SLIDES_SRC_DIR)/*.html)
+SLIDES_OUT := $(patsubst $(SLIDES_SRC_DIR)/%,$(SLIDES_OUT_DIR)/%,$(SLIDES_SRC))
+
+all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT)
 
 $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) | $(OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
@@ -33,6 +39,14 @@ $(IMG_OUT_DIR): | $(OUT_DIR)
 
 # Copy each image (pattern rule)
 $(IMG_OUT_DIR)/%: $(IMG_SRC_DIR)/% | $(IMG_OUT_DIR)
+	cp $< $@
+
+# Slide output dir
+$(SLIDES_OUT_DIR): | $(OUT_DIR)
+	mkdir -p $(SLIDES_OUT_DIR)
+
+# Copy each slide deck
+$(SLIDES_OUT_DIR)/%: $(SLIDES_SRC_DIR)/% | $(SLIDES_OUT_DIR)
 	cp $< $@
 
 .PHONY: clean serve
