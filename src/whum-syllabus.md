@@ -24,7 +24,7 @@ an understanding of the relationship literature cultivates between an
 individual and their society, and how different literary forms attempt
 to represent the particular and the universal.
 
-**Goals**
+## Goals
 
 In this course, students will...
 
@@ -43,7 +43,7 @@ In this course, students will...
 
 - Write and revise essays that analyze the central texts of this class
 
-**Required Texts**
+## Required Texts
 
 You must obtain copies of the texts listed below to read both inside and
 outside of class. Shorter texts and excerpts will be provided to you.
@@ -66,7 +66,7 @@ the course editions of each of the works we are reading in translation.
 
 - Baldwin, *Go Tell It on the Mountain*[@baldwinGoTellIt2016]
 
-**Course Schedule**
+## Course Schedule
 
 Academic calendar:
 <https://www.ccny.cuny.edu/registrar/fall-2018-academic-calendar>
@@ -118,13 +118,15 @@ If you are going to watch *Oedipus* on film, I recommend the 1967
 recommend the recording of the 2010 production starring Patrick
 Stewart.
 
-**Assignments**
+## Assignments
 
 Reading is your most important assignment in this course. The quality of
 your reading will be assessed through three written responses, which
 will be as follows:
 
-**Assignment One: Structure. 750 words. Due by 9 AM on October 1.**
+### Assignment One: Structure
+
+750 words. Due by 9 AM on October 1
 
 Select one aspect of *The Odyssey* and reflect on how it affects the
 poem's narrative structure. You may choose any aspect of the poem: a
@@ -137,7 +139,9 @@ What impact does it have on the world of the poem? How would the
 narrative be different without it? Because this is a short essay, it
 would be wise to choose a small aspect of the text.
 
-**Assignment Two: Synecdoche. 750 words. Due by 9 AM on October 22.**
+## Assignment Two: Synecdoche
+
+750 words. Due by 9 AM on October 22
 
 In this assignment, you will be practicing a method of literary
 criticism known as close reading. To do this, we attend to a very small
@@ -157,8 +161,9 @@ specific aspects of the text: its words, their etymologies, syntaxes,
 discourses, etc. Less is, very often, more. It would certainly be
 possible to write your whole essay about one well-chosen word.
 
-**Assignment Three: Synthesis. 2,000 words. Draft of introduction due
-Nov. 19. Due Dec. 23.**
+## Assignment Three: Synthesis
+
+2,000 words. Draft of introduction due Nov. 19. Due Dec. 23.
 
 Your final essay synthesizes the approaches of the first two assignments
 in one longer piece. Here, you will analyze one work from this course by
@@ -183,7 +188,7 @@ during the first workshop on *The* *Odyssey*, students will share the
 aspect of the poem they intend to write about, as well as what they have
 learned about it through their initial reading and research.
 
-**Grading**
+## Grading
 
 | Component        | Weight |
 |------------------|--------|
@@ -207,7 +212,7 @@ learned about it through their initial reading and research.
 | D-    | 60.0 – 62.9%  |
 | F     | Below 60.0%   |
 
-**Miscellaneous**
+## Miscellaneous
 
 Email
 
