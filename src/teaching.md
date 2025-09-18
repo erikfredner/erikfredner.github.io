@@ -25,7 +25,7 @@ Courses are ordered reverse chronologically.
 #### Punching Up: US Satire
 
 - [University of Virginia](https://gened.as.virginia.edu/egmt-1510-punching)
-- [Syllabus](/files/satire_syllabus.pdf)
+- [Syllabus](satire-syllabus.html)
 
 #### From Language to Data
 
