@@ -7,6 +7,8 @@
 - [`make`](https://www.gnu.org/software/make/)
 - [Pandoc](https://pandoc.org)
 - [Pico's Classless CSS](https://picocss.com/docs/classless)
+- [Zotero](https://www.zotero.org)
+  - [Better BibTeX](https://retorque.re/zotero-better-bibtex/)
 
 ## How to create
 
