@@ -1,6 +1,6 @@
 ---
 title: Text Classification with LLMs
-toc: true
+defaults: toc-defaults
 ---
 
 ## Description

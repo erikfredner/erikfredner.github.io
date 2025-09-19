@@ -1,6 +1,6 @@
 ---
 title: Introduction to Data Science
-toc: true
+defaults: toc-defaults
 ---
 
 ## Land Acknowledgment

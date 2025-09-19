@@ -1,6 +1,6 @@
 ---
 title: "Teaching"
-toc: true
+defaults: toc-defaults
 ---
 
 ## Advanced Data Science

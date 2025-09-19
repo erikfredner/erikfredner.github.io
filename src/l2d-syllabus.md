@@ -1,6 +1,6 @@
 ---
 title: From Language to Data
-toc: true
+defaults: toc-defaults
 ---
 
 ## Land Acknowledgment

@@ -1,6 +1,6 @@
 ---
 title: World Humanities 101
-toc: true
+defaults: toc-defaults
 ---
 
 ## "What it is like to be alive"
