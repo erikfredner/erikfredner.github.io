@@ -1,6 +1,5 @@
 ---
 title: "Elden Ring and Exegesis"
-date: 2023-05-04
 ---
 
 Below is the accessibility text for my talk "_Elden Ring_ and Exegesis," given May 4, 2023 for the University of Virginia Department of English Speakers' Committee.

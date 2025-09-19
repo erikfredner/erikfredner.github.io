@@ -1,9 +1,8 @@
 ---
 title: "Counting on The Norton Anthology of American Literature"
-date: 2019-10-30
 ---
 
-I coauthored this essay with J.D. Porter. The essay [appeared in _PMLA_](https://doi.org/10.1632/S0030812923001189) in 2024.
+I coauthored this essay with J. D. Porter. The essay [appeared in _PMLA_](https://doi.org/10.1632/S0030812923001189) in 2024.
 
 ## Abstract
 

@@ -182,4 +182,4 @@ Community Center Resources \
 
 ### Acknowledgments
 
-This syllabus extends past iterations of this course taught by Mark Algee-Hewitt and Ryan Heuser. It has also benefitted, directly and indirectly, from syllabi by David Bamman, Andrew Goldstone, Laura McGrath, and J.D. Porter.
+This syllabus extends past iterations of this course taught by Mark Algee-Hewitt and Ryan Heuser. It has also benefitted, directly and indirectly, from syllabi by David Bamman, Andrew Goldstone, Laura McGrath, and J. D. Porter.

@@ -1,6 +1,5 @@
 ---
 title: "Suspense"
-date: 2019-10-30
 ---
 
 With Mark Algee-Hewitt, Chelsea Davis, Abigail Droge, Tasha Eccles, Morgan Frank, J. D. Porter, Andrew Shephard, Hannah Walser

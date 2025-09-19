@@ -466,7 +466,7 @@ David Mimno, Dan Sinykin, Ted Underwood, and Melanie Walsh.
     Resistance*, Intersections : Transdisciplinary Perspectives on
     Genders and Sexualities (New York: New York University Press, 2021).
 
-[^19]: J.D. Porter, "Popularity/Prestige," *Pamphlets of the Stanford
+[^19]: J. D. Porter, "Popularity/Prestige," *Pamphlets of the Stanford
     Literary Lab* 17 (September 2018),
     <https://litlab.stanford.edu/LiteraryLabPamphlet17.pdf>.
 

@@ -1,6 +1,5 @@
 ---
 title: "Security"
-date: 2019-10-30
 ---
 
 With Mark Algee-Hewitt, Whitney McIntosh, Stephen Stedman

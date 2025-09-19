@@ -1,13 +1,12 @@
 ---
 title: "Celebrity"
-date: 2019-10-30
 ---
 
 Or, "The Stuff of Fame: Material and Printed Constructions of Renown in America."
 
 A collaboration between the Smithsonian Institution and the Stanford Literary Lab.
 
-With Kenneth Cohen, Laura McGrath, Mark Algee-Hewitt, Robyn Asleson, J.D. Porter, Charlotte Lindemann.
+With Kenneth Cohen, Laura McGrath, Mark Algee-Hewitt, Robyn Asleson, J. D. Porter, Charlotte Lindemann.
 
 I am the lead data scientist on this project.
 
