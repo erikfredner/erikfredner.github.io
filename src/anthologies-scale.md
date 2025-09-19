@@ -2,7 +2,7 @@
 title: "Anthologies at Scale: Reading, Fast and Slow"
 ---
 
-Co-authored with [J.D. Porter](https://www.english.upenn.edu/people/j-d-porter).
+Co-authored with [J. D. Porter](https://www.english.upenn.edu/people/j-d-porter).
 
 Digital systems are associated with the fast and easy transfer of data. However, the creation of that data is often slow and difficult.
 
