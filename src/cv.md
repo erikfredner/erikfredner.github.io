@@ -25,17 +25,17 @@ Visiting Student of English\
 
 ## Appointments
 
-Oregon State University\
+[Oregon State University](https://liberalarts.oregonstate.edu/directory/erik-fredner)\
 School of Writing, Literature, and Film\
 Assistant Professor of Digital Humanities and Literature\
 2025--
 
-University of Richmond\
+[University of Richmond](https://english.richmond.edu/faculty/efredner/)\
 Department of English\
 Visiting Assistant Professor of Data Science and Statistics\
 2024--2025
 
-University of Virginia\
+[University of Virginia](https://gened.as.virginia.edu/people/erik-fredner)\
 College of Arts and Sciences\
 Postdoctoral Research Associate and Lecturer\
 2021--2024
@@ -93,7 +93,7 @@ College Fellows Development Grant supporting research on *The MLA International 
 Mellon Foundation Dissertation Fellowship, Stanford Humanities Center,
 2020--2021.
 
-CUNY-Stanford Exchange Fellow, The City College of the City University
+City University of New York--Stanford Exchange Fellow, The City College of the City University
 of New York, 2018--2019.
 
 G.J. Pigott Scholar, Stanford University, 2017--2018.
