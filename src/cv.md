@@ -45,38 +45,37 @@ Postdoctoral Research Associate and Lecturer\
 ### Articles
 
 Erik Fredner and J. D. Porter, "Counting on *The Norton Anthology of American Literature*," *PMLA* 139.1: 50--65, 2024.
-<doi:10.1632/S0030812923001189>
+<https://doi.org/10.1632/S0030812923001189>
 
 Erik Fredner, "A Meaning Apart from Its Indistinguishable Words," *Nathaniel
-Hawthorne Review* 48.1: 82--98, 202. doi:10.5325/nathhawtrevi.48.1.0082
+Hawthorne Review* 48.1: 82--98, 202. <https://doi.org/10.5325/nathhawtrevi.48.1.0082>
 
 Erik Fredner, "Hamlin Garland's 'Problem of Individual Life,'" *Nineteenth-Century
-Literature* 76.3: 354--383, 2021. doi:10.1525/ncl.2021.76.3.354
+Literature* 76.3: 354--383, 2021. <https://doi.org/10.1525/ncl.2021.76.3.354>
 
 David McClure, Mark Algee-Hewitt, Steele Douris, Erik Fredner, and
 Hannah Walser, "Organizing Corpora at the Stanford Literary Lab:
 Balancing Simplicity and Flexibility in Metadata Management,"
 *Proceedings of the Workshop on Challenges in the Management of Large
-Corpora*: 25--29, doi:10.5281/zenodo.1137914, 2017.
+Corpora*: 25--29. <https://ids-pub.bsz-bw.de/frontdoor/index/index/docId/6261>
 
 ### Book Chapter
 
 Mark Algee-Hewitt, Erik Fredner, and Hannah Walser,
 "The Novel as Data," in *The Cambridge Companion to the Novel*, ed.
-Eric Bulson, 189--216, Cambridge University Press,
-doi:10.1017/9781316659694.013, 2018.
+Eric Bulson, 189--216, Cambridge University Press, 2018. <https://doi.org/10.1017/9781316659694.013>
 
 ### Dataset
 
 Erik Fredner, "Moving the Capital of US Literature from Boston to New
 York: Evidence from 11 Million Library of Congress Catalog Records,"
 *The Nineteenth-Century Data Collective*, ed. Meredith Martin and Megan
-Ward, Princeton University Libraries, doi:10.34770/xcgb-zn76, 2025.
+Ward, Princeton University Libraries, 2025. <https://doi.org/10.34770/xcgb-zn76>
 
 ### Review
 
 Erik Fredner, "Enumerations: Data and Literary Study by Andrew Piper,"
-*Studies in the Novel* 52.2: 220--222, doi:10.1353/sdn.2020.0026, 2020.
+*Studies in the Novel* 52.2: 220--222, 2020. <https://doi.org/10.1353/sdn.2020.0026>
 
 ### Dissertation
 
@@ -104,24 +103,22 @@ English, 2017.
 
 ## Presentations
 
-"The Literary Canon on *Jeopardy!*, 1984--2024," Alliance of Digital
+["The Literary Canon on *Jeopardy!*, 1984--2024,"](slides/2025-07_dh.html) Alliance of Digital
 Humanities Organizations, Universidade NOVA de Lisboa, 2025.
 
-"The 'Already Implicit' Canon: Data from Anthologies of African
-American Literature," Digital Americanists Panel, American Literature
+["The 'Already Implicit' Canon: Data from Anthologies of African American Literature,"](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing) Digital Americanists Panel, American Literature
 Association, Boston, Massachusetts, 2025.
 
-"Leaving New York? Imprint Geographies of US Literature since 1945,"
+["Leaving New York? Imprint Geographies of US Literature since 1945,"](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing)
 Stanford Literary Lab, 2025.
 
-"The Ends of Reading," Faculty and Staff Symposium, University of
+["The Ends of Reading,"](reading.html) Faculty and Staff Symposium, University of
 Richmond, 2024.
 
-"The MLA International Bibliography's History of English-Language
-Literary Studies," Alliance of Digital Humanities Organizations, George
+["The MLA International Bibliography's History of English-Language Literary Studies,"](https://docs.google.com/presentation/d/1l9RF4TAfG1vhc70sQD6SnQdnvPGKdysiGc0saopwz_U/edit?slide=id.p#slide=id.p) Alliance of Digital Humanities Organizations, George
 Mason University, 2024.
 
-"Anthologies as Databases," Digital Americanists Panel, American
+["Anthologies as Databases,"](https://docs.google.com/presentation/d/1kxUCWK4iz4En_G63ZDqExkxh6nzd3Qp0PB6DmuwebyU/edit?usp=sharing) Digital Americanists Panel, American
 Literature Association, Chicago, Illinois, 2024.
 
 "The Ends of Reading: Reading Statistics and the Overestimation of
@@ -330,15 +327,15 @@ English 100C "Literary History III (1850--1950)," Stanford University
 Data scientist, "The Stuff of Fame," Stanford Literary Lab
 and Smithsonian Institution, 2019--2021.
 
-Editor, *Café* podcast, Stanford Center for the Study of the Novel,
+Editor, [*Café*](https://novel.stanford.edu/csn-cafe) podcast, Stanford Center for the Study of the Novel,
 2019--2021.
 
 Presenter, Data Privacy and Security Workshop, Stanford University,
 2017--2021.
 
-Contributor, *Techne*, Stanford Literary Lab, 2016--.
+Contributor, [*Techne*](https://litlab.stanford.edu/techne/), Stanford Literary Lab, 2016--.
 
-Writer, *Kill Screen* magazine, Kill Screen Media, 2014--2016.
+Writer, [*Kill Screen*](https://web.archive.org/web/20221003115514/https://killscreen.com/previously/author/erik-fredner/) magazine, Kill Screen Media, 2014--2016.
 
 Writer, Ph.D. Journalist Project, Stanford Humanities Center, 2014--2016.
 
@@ -346,57 +343,54 @@ Writer, Ph.D. Journalist Project, Stanford Humanities Center, 2014--2016.
 
 "Read for Pleasure," Center for Humanities Communication, forthcoming.
 
-"Typicality in US Literature," *Techne*, 2020.
+["Typicality in US Literature,"](https://web.archive.org/web/20220430165427/https://litlab.stanford.edu/typicality-in-the-u-s-novel/) *Techne*, 2020.
 
-"Finding Needles in 34 Million Haystacks," *Techne*, 2019.
+["Finding Needles in 34 Million Haystacks,"](https://web.archive.org/web/20220430054802/https://litlab.stanford.edu/finding-needles-in-34-million-haystacks/) *Techne*, 2019.
 
-"How Many Novels Have Been Published in English? An Attempt,"
+["How Many Novels Have Been Published in English? An Attempt,"](https://web.archive.org/web/20220323072937/https://litlab.stanford.edu/how-many-novels-have-been-published-in-english-an-attempt/)
 *Techne*, 2017.
 
-"The Peculiar Future of Video Game History," *Kill Screen*, 2016.
+["The Peculiar Future of Video Game History,"](https://web.archive.org/web/20230328175329/https://killscreen.com/previously/articles/the-peculiar-future-of-videogame-history/) *Kill Screen*, 2016.
 
-"Eavan Boland Interrogates Identity and Nationhood in New Collection,"
+["Eavan Boland Interrogates Identity and Nationhood in New Collection,"](https://web.archive.org/web/20210810123746/https://news.stanford.edu/news/2015/february/boland-country-book-022615.html)
 *The Humanities at Stanford*, 2015.
 
-"Stanford Literary Scholar: White Whales and the 'Melville Effect,'"
+["Stanford Literary Scholar: White Whales and the 'Melville Effect,'"](https://web.archive.org/web/20210810125202/https://news.stanford.edu/news/2015/may/melville-scholar-boone-051115.html)
 *The Humanities at Stanford*, 2015.
 
-"The Year in Anti-Games," *Kill Screen*, 2014.
+["The Year in Anti-Games,"](https://web.archive.org/web/20231028015401/https://killscreen.com/previously/articles/year-anti-games/) *Kill Screen*, 2014.
 
-"Stanford Scholar Questions Whether Statues Are the Appropriate Way to
-Commemorate Mandela," *The Humanities at Stanford*, 2014.
+["Stanford Scholar Questions Whether Statues Are the Appropriate Way to Commemorate Mandela,"](https://web.archive.org/web/20220611230152/https://news.stanford.edu/pr/2014/pr-mandela-statue-parker-120314.html) *The Humanities at Stanford*, 2014.
 
 ### Podcasts
 
-"Matriculation: The Academic Transition to College,"
+["Matriculation: The Academic Transition to College,"](https://www.virginiaaudio.com/podcasts/symposia-a7d5x)
 *Symposia*, Brown Residential College at the University of Virginia,
 2022.
 
-"Andrea Goulet, Michelle Robinson, and Hector Hoyos on Crime
-Narrative," *Café*, Stanford Center for the Study of the Novel, 2021.
+Andrea Goulet, Michelle Robinson, and Hector Hoyos on Crime Narrative, *Café*, Stanford Center for the Study of the Novel, 2021.
 
-"Nicholas Paige on Technologies of the Novel," *Café*, Stanford Center
+Nicholas Paige on Technologies of the Novel, *Café*, Stanford Center
 for the Study of the Novel, 2021.
 
-"Dorothy Hale, Nancy Ruttenburg, and Alex Woloch on The Novel and the
-New Ethics," *Café*, Stanford Center for the Study of the Novel, 2021.
+Dorothy Hale, Nancy Ruttenburg, and Alex Woloch on *The Novel and the New Ethics*, *Café*, Stanford Center for the Study of the Novel, 2021.
 
-"Sharon Marcus on the 2020 Ian Watt Lecture," *Café*, Stanford Center
+Sharon Marcus on the 2020 Ian Watt Lecture, *Café*, Stanford Center
 for the Study of the Novel, 2021.
 
-"Wai Chee Dimock, John Plotz, and Colin Milburn on Planetary Futures,"
+Wai Chee Dimock, John Plotz, and Colin Milburn on Planetary Futures,
 *Café*, Stanford Center for the Study of the Novel, 2020.
 
-"Ato Quayson, John Kerrigan, and Richard Halpern on Postcolonial
-Tragedy," *Café*, Stanford Center for the Study of the Novel, 2020.
+Ato Quayson, John Kerrigan, and Richard Halpern on Postcolonial
+Tragedy, *Café*, Stanford Center for the Study of the Novel, 2020.
 
-"Emily Apter, Rhonda Garelick, and Anne Higonnet on Fashion Stories,"
+Emily Apter, Rhonda Garelick, and Anne Higonnet on Fashion Stories,
 *Café*, Stanford Center for the Study of the Novel, 2020.
 
-"Stephen Best, Mario Telo, and Kris Cohen on None Like Us," *Café*,
+Stephen Best, Mario Telo, and Kris Cohen on *None Like Us*, *Café*,
 Stanford Center for the Study of the Novel, 2020.
 
-"Rita Felski on the 2019 Ian Watt Lecture," *Café*, Stanford Center
+Rita Felski on the 2019 Ian Watt Lecture, *Café*, Stanford Center
 for the Study of the Novel, 2019.
 
 ## Service
