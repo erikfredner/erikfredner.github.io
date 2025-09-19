@@ -17,6 +17,7 @@ See my [CV](cv.html) for a chronological list of publications and presentations.
   - [Presentation](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing)
 - [The Literary Canon on *Jeopardy!*](jeopardy.html)
   - [Presentation](slides/2025-07_dh.html)
+- [Anthologies at Scale: Reading, Fast and Slow](anthologies-scale.html)
 - [The Ends of Reading](the-ends-of-reading.html)
   - [Presentation](reading.html)
 - [Literary Studies According to *The MLA International Bibliography*](literary-studies-according-to-the-mla-international-bibliography.html)
