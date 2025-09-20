@@ -41,7 +41,7 @@ defaults: toc-defaults
 - [The City College of New York](https://worldhum.commons.gc.cuny.edu)
 - [Syllabus](whum-syllabus.html)
 
-## Average Americans
+## Writing Intensive Seminar in English
 
 - [Stanford University](https://explorecourses.stanford.edu/search?q=fredner&view=catalog&page=0&filter-coursestatus-Active=on&collapse=&academicYear=20172018)
 - [Syllabus](avg-syllabus.html)

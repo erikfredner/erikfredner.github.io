@@ -3,9 +3,7 @@ title: Writing Intensive Seminar in English
 defaults: toc-defaults
 ---
 
-## "Averaging Americans"
-
-### Description
+## Description
 
 Perennially invoked by politicians and pundits, declared "divine" by
 Walt Whitman, the "average American" has been one of the United States'
@@ -27,7 +25,7 @@ will ask how numbers and texts attempt to represent American personhood.
 (No prior experience with statistics, programming, Marxist theory, or
 the digital humanities is required.)
 
-### Texts
+## Texts
 
 Contact me if you need financial assistance to buy course materials.
 
@@ -36,7 +34,7 @@ Contact me if you need financial assistance to buy course materials.
 
 All other texts will be provided to you digitally.
 
-### Goals
+## Goals
 
 Students will be able to:
 
@@ -47,7 +45,7 @@ Students will be able to:
 - Consider intersections of class and race in American literary history.
 - Discuss the relay between power and the statistical imagination.
 
-### Calendar
+## Calendar
 
 We meet for two 110 minute class sessions per week. Read the following
 for each class:
@@ -76,7 +74,7 @@ for each class:
 | Mar. 15 | Assignment three presentation |
 | Mar. 23 | Assignment three due |
 
-### Assignments
+## Assignments
 
 Collaboration is a distinctive feature of digital humanities research.
 In that spirit, students will present their work in class **before and
@@ -133,7 +131,7 @@ often presenting the same project many times as it develops.
 > academic schedule prevents them from attending, accommodations will be
 > made.)
 
-### Course Policies
+## Course Policies
 
 **Grading**
 

@@ -1,8 +1,9 @@
 ---
 title: "Contact"
 ---
+<p><button class="outline"><erik.fredner@oregonstate.edu></button></p>
 
-<article><erik.fredner@oregonstate.edu></article>
+## Elsewhere
 
 - [GitHub](https://github.com/erikfredner)
 - [Google Scholar](https://scholar.google.com/citations?user=Uy-aoiMAAAAJ&hl=en)
