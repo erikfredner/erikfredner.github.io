@@ -32,7 +32,12 @@
   <main>
     $if(title)$<h1>$title$</h1>$endif$
     $if(toc)$
-    $table-of-contents$
+    <br>
+    <details>
+      <summary><u>Contents</u></summary>
+      $table-of-contents$
+    </details>
+    <br>
     $endif$
     $body$
   </main>
