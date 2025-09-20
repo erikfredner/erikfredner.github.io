@@ -2,7 +2,7 @@
 title: Research
 ---
 
-See my [CV](cv.html) for a chronological list of publications and presentations.
+See [CV](cv.html) for a chronological list of publications and presentations.
 
 ## [Book](book-project.html)
 
