@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <title>Fredner&mdash;$title$</title>
   <style>
@@ -33,11 +32,12 @@
   <main>
     $if(title)$<h1>$title$</h1>$endif$
     $if(toc)$
+    <p>
     <details class="dropdown">
       <summary>Contents</summary>
       $table-of-contents$
     </details>
-    <br>
+    </p>
     $endif$
     $body$
   </main>
