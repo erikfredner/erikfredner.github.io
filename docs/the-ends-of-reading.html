@@ -47,7 +47,7 @@
         justifiably privileged or specialized because most people do not
         have recent experiences of reading for pleasure against which to
         compare what and how literary studies reads.</p>
-    <a href="#top"><button class="back-to-top" aria-label="Back to top">↑</button></a>
+    <a href="#top"><button class="back-to-top" aria-label="Back to top">&uarr;</button></a>
 
     <style>
       html {
@@ -69,9 +69,8 @@
         padding: .6rem .8rem;
         border-radius: .75rem;
         opacity: 0;
-        transform: translateY(8px);
         pointer-events: none;
-        transition: opacity .2s ease, transform .2s ease;
+        transition: opacity .2s ease;
       }
 
       .back-to-top:focus-visible {
@@ -81,7 +80,6 @@
 
       .back-to-top.is-visible {
         opacity: 1;
-        transform: none;
         pointer-events: auto;
       }
     </style>

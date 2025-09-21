@@ -40,7 +40,7 @@
         href="/files/am_slides.html">slides</a> for my talk “Seeing the
         Forest and the Trees: How Data Occasions Literary Attention”
         given at American University on January 21, 2025.</p>
-    <a href="#top"><button class="back-to-top" aria-label="Back to top">↑</button></a>
+    <a href="#top"><button class="back-to-top" aria-label="Back to top">&uarr;</button></a>
 
     <style>
       html {
@@ -62,9 +62,8 @@
         padding: .6rem .8rem;
         border-radius: .75rem;
         opacity: 0;
-        transform: translateY(8px);
         pointer-events: none;
-        transition: opacity .2s ease, transform .2s ease;
+        transition: opacity .2s ease;
       }
 
       .back-to-top:focus-visible {
@@ -74,7 +73,6 @@
 
       .back-to-top.is-visible {
         opacity: 1;
-        transform: none;
         pointer-events: auto;
       }
     </style>
