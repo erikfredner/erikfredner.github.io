@@ -33,6 +33,7 @@
     </nav>
   </header>
   <main>
+    <div id="top"></div>
     <h1>Celebrity</h1>
         <p>Or, “The Stuff of Fame: Material and Printed Constructions of
         Renown in America.”</p>
@@ -63,6 +64,68 @@
         demographic, geographic, temporal, material, and conceptual
         evolutions that the existing scholarship has largely missed or
         underestimated.</p>
+    <a href="#top"><button class="back-to-top" aria-label="Back to top">↑</button></a>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      .back-to-top {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 9999;
+        display: inline-block;
+        padding: .6rem .8rem;
+        border-radius: .75rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
+        opacity: 0;
+        transform: translateY(8px);
+        pointer-events: none;
+        transition: opacity .2s ease, transform .2s ease;
+      }
+
+      .back-to-top:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+      }
+
+      .back-to-top.is-visible {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+    </style>
+
+    <script>
+      // Show when #top leaves viewport; hide when visible again.
+      (function () {
+        var btn = document.querySelector('.back-to-top');
+        var top = document.querySelector('#top');
+        if (!btn || !top) return;
+
+        function show() { btn.classList.add('is-visible'); }
+        function hide() { btn.classList.remove('is-visible'); }
+
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries) {
+            entries[0].isIntersecting ? hide() : show();
+          }).observe(top);
+        } else {
+          // Fallback: threshold scroll position
+          window.addEventListener('scroll', function () {
+            (window.scrollY || document.documentElement.scrollTop) > 400 ? show() : hide();
+          }, { passive: true });
+        }
+      })();
+    </script>
   </main>
 </body>
 
