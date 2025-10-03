@@ -4,6 +4,8 @@ title: The “Already Implicit” Canon
 
 ## Data from Anthologies of African American Literature
 
+<p><button class="outline">[Presentation](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing)</button></p>
+
 Co-authored with [J. D. Porter](https://www.english.upenn.edu/people/j-d-porter) and [Arthur Knight](https://www.wm.edu/as/english/facultystaff/knight_a.php).
 
 This essay extends previous work on American literature anthologies[@frednerCountingNortonAnthology2024] to historical anthologies of African American Literature in collaboration with the [William & Mary Anthologies-Canons Lab](https://sites.google.com/email.wm.edu/wm-anthologies-canons-lab/home).

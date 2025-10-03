@@ -2,6 +2,8 @@
 title: Leaving New York? Locations of US Literary Publishing Since 1945
 ---
 
+<p><button class="outline">[Presentation](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing)</button></p>
+
 Co-authored with [Luca Messarra](https://english.stanford.edu/people/luca-messarra).
 
 This project extends [previous work on nineteenth century imprints](https://c19datacollective.com/data/capital-us-literature/) into the twentieth century. We reveal two major twentieth-century trends: the rise and fall of New York City as the place where most works of American literature are published. Since the beginning of the twentieth century, New York has usually *not* published most works of American literature. The geographies of US literary imprints are more diverse than literary historians suspect. Recent US literary histories have been undermined by the erroneous assumption that NYC’s qualitative dominance of American literature entails its quantitative dominance. This data should help the discipline begin to recalibrate this bias.

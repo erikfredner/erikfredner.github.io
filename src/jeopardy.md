@@ -2,6 +2,8 @@
 title: "The Literary Canon on *Jeopardy!*"
 ---
 
+<p><button class="outline">[Presentation](slides/2025-07_dh.html)</button></p>
+
 Critics of the literary canon like John Guillory have long argued that the works and authors in the canon change across cultural space and time. As a result, they cannot ever be comprehensively listed. Yet, if any written list is always already incomplete, there nevertheless exist influential proxies for important dimensions of canonicity that do list canonical authors and works. The contents of literature anthologies that lay claim to national, formal, or cultural representativeness, such as Norton’s various anthologies, are one key example. This essay argues that the literary references—and, crucially, price signals—from the quiz show _Jeopardy!_ offer a unique proxy for literary canonicity over the preceding forty years.
 
 Pierre Bourdieu famously identified multiple axes of canonicity, roughly corresponding to the extent of a work or author’s consecration by 1) the market and 2) sociocultural elites. _Jeopardy!_ provides evidence for canonicity on both of Bourdieu's axes: On the one hand, it is a popular gameshow for a large (and surprisingly diverse) Anglophone television audience, which corresponds with the market. On the other, price signals surrounding specific questions—the round in which a question was asked, its dollar value, etc.—correspond to question writers’ subjective probabilities that gameshow participants would correctly answer a given question. Put another way, price signals represent estimates of how well-known or obscure a particular question about a particular text is, a clear signal of consecration since _Jeopardy!_ does not privilege obscurity as an end in itself.
