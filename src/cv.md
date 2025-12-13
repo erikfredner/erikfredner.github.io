@@ -84,6 +84,10 @@ Inequality," doctoral dissertation, Stanford University, 2021. Committee:
 Gavin Jones, Mark Algee-Hewitt, Mark McGurl, and Paula Moya.
 <https://purl.stanford.edu/rp802rv5947>
 
+## Works in Progress
+
+Please see my [research page](research.html).
+
 ## Awards
 
 College Fellows Development Grant supporting research on literature on *Jeopardy!*, University of Virginia, 2024.
