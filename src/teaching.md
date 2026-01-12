@@ -3,6 +3,11 @@ title: "Teaching"
 defaults: toc-defaults
 ---
 
+## Introduction to Fiction
+
+- [Oregon State University](https://ecampus.oregonstate.edu/soc/ecatalog/ecoursedetail.htm?termcode=all&subject=ENG&coursenumber=104Z)
+- [Syllabus](104z-syllabus.html)
+
 ## Advanced Data Science
 
 - [University of Richmond](https://datascience.richmond.edu/academics/courses.html)
