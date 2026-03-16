@@ -4,24 +4,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.cyan.min.css">
+  
+  <meta property="og:title" content="CV&mdash;Erik Fredner">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Erik Fredner">
+  
+  <link rel="preload" href="fonts/EBGaramond-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
   <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <title>CV&mdash;Erik Fredner</title>
-  <style>
-    body {
-      width: min(100%, 60ch);
-      margin-inline: auto;
-      padding-inline: 1rem;
-    }
-  </style>
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="top"></div>
   <header>
-    <nav>
+    <nav aria-label="Site navigation">
       <ul>
         <li><a href="index.html"><strong>Erik Fredner</strong></a></li>
       </ul>
@@ -33,15 +32,14 @@
       </ul>
     </nav>
   </header>
-  <main>
+  <main id="main-content">
     <h1>CV</h1>
-        <p>
-    <details class="dropdown">
-      <summary>Contents</summary>
+        <nav class="toc-box" aria-label="Table of contents" role="doc-toc">
+      <p class="toc-label" aria-hidden="true">Contents</p>
       <ul>
-      <li><a href="#education" id="toc-education">Education</a></li>
       <li><a href="#appointments"
       id="toc-appointments">Appointments</a></li>
+      <li><a href="#education" id="toc-education">Education</a></li>
       <li><a href="#publications"
       id="toc-publications">Publications</a></li>
       <li><a href="#works-in-progress" id="toc-works-in-progress">Works
@@ -63,15 +61,34 @@
       <li><a href="#languages" id="toc-languages">Languages</a></li>
       <li><a href="#references" id="toc-references">References</a></li>
       </ul>
-    </details>
-    </p>
+    </nav>
+        <h2 id="appointments">Appointments</h2>
+        <p><a
+        href="https://liberalarts.oregonstate.edu/directory/erik-fredner">Oregon
+        State University</a><br />
+        Assistant Professor of Digital Humanities and Literature<br />
+        School of Writing, Literature, and Film<br />
+        2025–</p>
+        <p><a
+        href="https://english.richmond.edu/faculty/efredner/">University
+        of Richmond</a><br />
+        Visiting Assistant Professor of Data Science and
+        Statistics<br />
+        Department of English<br />
+        2024–2025</p>
+        <p><a
+        href="https://gened.as.virginia.edu/people/erik-fredner">University
+        of Virginia</a><br />
+        Postdoctoral Research Associate and Lecturer<br />
+        College of Arts and Sciences<br />
+        2021–2024</p>
         <h2 id="education">Education</h2>
         <p>Stanford University<br />
         Ph.D., English<br />
         Graduate Certificate in Digital Humanities<br />
         2021</p>
         <p>Harvard University<br />
-        A.B., English, <em>magna cum laude</em><br />
+        A.B., English <em>magna cum laude</em><br />
         2012</p>
         <p>Harvard Graduate School of Education<br />
         Undergraduate Teacher Education Program<br />
@@ -80,26 +97,6 @@
         St Peter’s College<br />
         Visiting Student of English<br />
         2011</p>
-        <h2 id="appointments">Appointments</h2>
-        <p><a
-        href="https://liberalarts.oregonstate.edu/directory/erik-fredner">Oregon
-        State University</a><br />
-        School of Writing, Literature, and Film<br />
-        Assistant Professor of Digital Humanities and Literature<br />
-        2025–</p>
-        <p><a
-        href="https://english.richmond.edu/faculty/efredner/">University
-        of Richmond</a><br />
-        Department of English<br />
-        Visiting Assistant Professor of Data Science and
-        Statistics<br />
-        2024–2025</p>
-        <p><a
-        href="https://gened.as.virginia.edu/people/erik-fredner">University
-        of Virginia</a><br />
-        College of Arts and Sciences<br />
-        Postdoctoral Research Associate and Lecturer<br />
-        2021–2024</p>
         <h2 id="publications">Publications</h2>
         <h3 id="articles">Articles</h3>
         <p>Erik Fredner and J. D. Porter, “Counting on <em>The Norton
@@ -149,20 +146,27 @@
         <h2 id="works-in-progress">Works in Progress</h2>
         <p>Please see my <a href="research.html">research page</a>.</p>
         <h2 id="awards">Awards</h2>
-        <p>College Fellows Development Grant supporting research on
-        literature on <em>Jeopardy!</em>, University of Virginia,
-        2024.</p>
-        <p>College Fellows Development Grant supporting research on
-        <em>The MLA International Bibliography</em>, University of
-        Virginia, 2022.</p>
-        <p>Mellon Foundation Dissertation Fellowship, Stanford
-        Humanities Center, 2020–2021.</p>
-        <p>City University of New York–Stanford Exchange Fellow, The
-        City College of the City University of New York, 2018–2019.</p>
-        <p>G.J. Pigott Scholar, Stanford University, 2017–2018.</p>
-        <p>Excellence in Teaching Award, Stanford University, Department
-        of English, 2017.</p>
+        <p>Oregon State University, Center for the Humanities Faculty
+        Research Fellowship, 2026–2027</p>
+        <p>Oregon State University, Critical AI Literacy Summer Teaching
+        Fellowship, 2026</p>
+        <p>University of Virginia, College Fellows Development Grant
+        supporting research on literature on <em>Jeopardy!</em> 2024</p>
+        <p>University of Virginia, College Fellows Development Grant
+        supporting research on <em>The MLA International
+        Bibliography</em>, 2022</p>
+        <p>Stanford Humanities Center, Mellon Foundation Dissertation
+        Fellowship, 2020–2021</p>
+        <p>The City College of the City University of New York, City
+        University of New York–Stanford Exchange Fellow, 2018–2019</p>
+        <p>Stanford University, G.J. Pigott Scholar, 2017–2018</p>
+        <p>Stanford University, Department of English, Excellence in
+        Teaching Award, 2017</p>
         <h2 id="presentations">Presentations</h2>
+        <p>“Canons Across Anthologies of World, Western, and National
+        Literatures,” Symposium: “Mapping the Canon: Quantitative
+        Approaches to Literary History,” Technische Universität
+        Darmstadt, 2026.</p>
         <p><a href="slides/2025-07_dh.html">“The Literary Canon on
         <em>Jeopardy!</em>, 1984–2024,”</a> Alliance of Digital
         Humanities Organizations, Universidade NOVA de Lisboa, 2025.</p>
@@ -464,42 +468,7 @@
         semesters).</p>
         <h2 id="references">References</h2>
         <p>Available upon request.</p>
-    <a href="#top"><button class="back-to-top" aria-label="Back to top">&uarr;</button></a>
-
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-
-      .back-to-top {
-        position: fixed;
-        right: 1rem;
-        bottom: 1rem;
-        z-index: 9999;
-        display: inline-block;
-        padding: .6rem .8rem;
-        border-radius: .75rem;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .2s ease;
-      }
-
-      .back-to-top:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 2px;
-      }
-
-      .back-to-top.is-visible {
-        opacity: 1;
-        pointer-events: auto;
-      }
-    </style>
+    <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 
     <script>
       // Show when #top leaves viewport; hide when visible again.

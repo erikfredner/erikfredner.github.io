@@ -1,7 +1,7 @@
 ---
 title: "Contact"
 ---
-<p><button class="outline"><erik.fredner@oregonstate.edu></button></p>
+[erik.fredner@oregonstate.edu](mailto:erik.fredner@oregonstate.edu)
 
 ## Elsewhere
 

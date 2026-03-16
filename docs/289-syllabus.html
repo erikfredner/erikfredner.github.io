@@ -4,24 +4,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.cyan.min.css">
+  
+  <meta property="og:title" content="Introduction to Data
+Science&mdash;Erik Fredner">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Erik Fredner">
+  
+  <link rel="preload" href="fonts/EBGaramond-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
   <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <title>Introduction to Data Science&mdash;Erik Fredner</title>
-  <style>
-    body {
-      width: min(100%, 60ch);
-      margin-inline: auto;
-      padding-inline: 1rem;
-    }
-  </style>
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="top"></div>
   <header>
-    <nav>
+    <nav aria-label="Site navigation">
       <ul>
         <li><a href="index.html"><strong>Erik Fredner</strong></a></li>
       </ul>
@@ -33,11 +33,10 @@
       </ul>
     </nav>
   </header>
-  <main>
+  <main id="main-content">
     <h1>Introduction to Data Science</h1>
-        <p>
-    <details class="dropdown">
-      <summary>Contents</summary>
+        <nav class="toc-box" aria-label="Table of contents" role="doc-toc">
+      <p class="toc-label" aria-hidden="true">Contents</p>
       <ul>
       <li><a href="#land-acknowledgment"
       id="toc-land-acknowledgment">Land Acknowledgment</a></li>
@@ -67,8 +66,7 @@
       <li><a href="#recommended-reading"
       id="toc-recommended-reading">Recommended Reading</a></li>
       </ul>
-    </details>
-    </p>
+    </nav>
         <h2 id="land-acknowledgment">Land Acknowledgment</h2>
         <p>This class at the University of Richmond respectfully
         acknowledges the traditional custodians of the land we are on
@@ -730,42 +728,7 @@
         role="doc-backlink">↩︎</a></p></li>
         </ol>
         </section>
-    <a href="#top"><button class="back-to-top" aria-label="Back to top">&uarr;</button></a>
-
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-
-      .back-to-top {
-        position: fixed;
-        right: 1rem;
-        bottom: 1rem;
-        z-index: 9999;
-        display: inline-block;
-        padding: .6rem .8rem;
-        border-radius: .75rem;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .2s ease;
-      }
-
-      .back-to-top:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 2px;
-      }
-
-      .back-to-top.is-visible {
-        opacity: 1;
-        pointer-events: auto;
-      }
-    </style>
+    <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 
     <script>
       // Show when #top leaves viewport; hide when visible again.

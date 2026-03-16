@@ -2,7 +2,7 @@
 title: "The Literary Canon on *Jeopardy!*"
 ---
 
-<p><button class="outline">[Presentation](slides/2025-07_dh.html)</button></p>
+[Presentation](slides/2025-07_dh.html)
 
 Critics of the literary canon like John Guillory have long argued that the works and authors in the canon change across cultural space and time. As a result, they cannot ever be comprehensively listed. Yet, if any written list is always already incomplete, there nevertheless exist influential proxies for important dimensions of canonicity that do list canonical authors and works. The contents of literature anthologies that lay claim to national, formal, or cultural representativeness, such as Norton’s various anthologies, are one key example. This essay argues that the literary references—and, crucially, price signals—from the quiz show _Jeopardy!_ offer a unique proxy for literary canonicity over the preceding forty years.
 

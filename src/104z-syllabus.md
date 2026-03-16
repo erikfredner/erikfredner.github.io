@@ -1,4 +1,8 @@
-## ENG 104Z: Introduction to Fiction
+---
+title: "ENG 104Z: Introduction to Fiction"
+toc: true
+toc-depth: 2
+---
 
 - Course Number: [ENG 104Z](https://ecampus.oregonstate.edu/soc/ecatalog/ecoursedetail.htm?termcode=202500&coursenumber=104Z&subject=ENG)
 - Course Title: Introduction to Fiction
@@ -9,7 +13,7 @@
 - Office Hours: [By appointment](https://outlook.office.com/bookwithme/user/4207b564beac4c87b99ad1bdc41b8fb8@oregonstate.edu/meetingtype/vnq18YQtV0CAesARM5L_dA2?anonymous&ismsaljsauthenabled&ep=mlink)
 - Updated: 2026-01-12
 
-### Land Acknowledgment
+## Land Acknowledgment
 
 Oregon State University in Corvallis is located within the traditional homelands of the Marys River or Ampinefu Band of Kalapuya.
 
@@ -17,15 +21,15 @@ Oregon State is committed — in the spirit of self-reflection, learning, reconc
 
 [Read the University's full land acknowledgment here.](https://oregonstate.edu/land-acknowledgment)
 
-### Course Description
+## Course Description
 
 "Introduction to Fiction" invites students to enter imaginative narratives and confront the challenges of being human. Provides opportunities for the appreciation of fiction, including deeper awareness of craft and insight into how reading fiction can lead to self-enrichment. Includes reading a variety of types of fiction, from diverse perspectives and eras, and develops skills in discussion, literary analysis, and critical thinking.
 
-### Prerequisites or Corequisites
+## Prerequisites or Corequisites
 
 None.
 
-### Instructor Communication
+## Instructor Communication
 
 - Nearly all course-related questions are answered in this syllabus.
 - Please post questions not answered in the syllabus in the Q&A Forum so that the whole class may benefit from our conversation.
@@ -33,14 +37,14 @@ None.
 - You can expect a reply to your questions within two business days.
 - Grading and providing feedback on your assignments and activities may take five business days.
 
-### Expectations for Time and Participation
+## Expectations for Time and Participation
 
 This course combines approximately 120 hours of instruction, online
 activities, and assignments for 4 credits.
 
 This course is asynchronous and somewhat flexible, but not self-paced. Our schedule of Course Content and the due dates that appear in Canvas provide guidelines for how you’ll interact and with what frequency. I recommend that you create your own workload schedule and set reminders for assignment due dates.
 
-### Learning Resources
+## Learning Resources
 
 In this class, we will be reading:
 
@@ -54,7 +58,7 @@ You can purchase a physical copy for less than $20. I recommend checking these s
 - [used](https://www.betterworldbooks.com/product/detail/slaughterhouse-five-a-novel-9780385333849)
 - [new](https://bookshop.org/p/books/slaughterhouse-five-a-novel-kurt-vonnegut/0a3c509aea27833f?ean=9780385333849&next=t)
 
-#### Fair Use
+### Fair Use
 
 All other readings will be available on Canvas.
 
@@ -62,31 +66,31 @@ The readings available on Canvas include copyrighted material, the use of which 
 
 <https://policy.oregonstate.edu/policy/copyright-fair-use>
 
-### Technical Assistance
+## Technical Assistance
 
 If you experience any errors or problems while in your online course, contact 24/7 Canvas Support through the Help link within Canvas.  If you experience computer difficulties, need help downloading a browser or plug-in, or need assistance logging into a course, contact the IS Service Desk for assistance. You can call (541) 737-8787 or visit the [Service Desk](https://technology.oregonstate.edu/help) online.
 
-#### Ecampus Reach Out for Success
+### Ecampus Reach Out for Success
 
 If you encounter difficulties, need assistance or want to connect with someone one-on-one, it’s important to reach out. Your Ecampus student success team is here to support you. As part of your success team, Ecampus student services and success coaches are here to help answer any questions you may have.
 
 Ecampus students are always encouraged to discuss issues that impact your academic success with the Ecampus success team. Email <ecampus.success@oregonstate.edu> to get help with identifying strategies and resources that can support you in pursuing your educational goals.
 
-##### For mental health
+#### For mental health
 
 Ecampus students have a different set of [support options for counseling and psychological services](https://counseling.oregonstate.edu/main/ecampus-students) than on-campus students do. These services include the free, virtual mental health and physical wellness support resource, [Anytime Anywhere](https://counseling.oregonstate.edu/AnytimeAnywhere). If you are in immediate crisis, please call or text the Suicide and Crisis Lifeline at 988 or Crisis Text Line by texting 741-741.
 
-##### For financial hardship
+#### For financial hardship
 
 Any student whose academic performance is impacted by financial stress or the inability to afford groceries, housing or other necessities, for any reason, is urged to contact [the Office of Student Care](https://care.oregonstate.edu/) (541-737-8748).
 
-##### Student Resources Guide
+#### Student Resources Guide
 
 To find even more resources, check out [the Student Resources Guide](https://ecampus.oregonstate.edu/services/student-services/guide/#student-care) for additional support services and guidance.
 
-### Measurable Student Learning Outcomes
+## Measurable Student Learning Outcomes
 
-#### Course Specific Learning Outcomes for ENG 104Z
+### Course Specific Learning Outcomes for ENG 104Z
 
 1. Explain how particular elements of fiction, literary devices, genres, and forms deepen our understanding of character or themes.
 
@@ -98,7 +102,7 @@ To find even more resources, check out [the Student Resources Guide](https://eca
 
 5. Defend literary interpretation with textual evidence and close reading.
 
-#### Core Education / Bacc Core / WIC
+### Core Education / Bacc Core / WIC
 
 This is a Core Education course that fulfills the requirements for the [Arts and Humanities: General category](https://coreeducation.oregonstate.edu/curriculum/learning-outcomes-criteria-and-rationale). In addition, this course also fulfills
 the Baccalaureate Core requirements for the Arts and Humanities category.
@@ -112,7 +116,7 @@ the Baccalaureate Core requirements for the Arts and Humanities category.
 3. Employ humanistic, theoretical, and/or philosophical methods to
     explore the human experience.
 
-#### Oregon Transfer Compass / Common Course Numbering Outcomes
+### Oregon Transfer Compass / Common Course Numbering Outcomes
 
 1. Articulate how culture and context shape literary texts and how
     literature contributes to understandings of ourselves and the world.
@@ -122,7 +126,7 @@ the Baccalaureate Core requirements for the Arts and Humanities category.
 
 3. Build interpretations based on relevant evidence.
 
-#### How these outcomes are fulfilled
+### How these outcomes are fulfilled
 
 This course fulfills requirements for the Arts and Humanities: General category does this in the following ways:
 
@@ -134,9 +138,9 @@ This course fulfills requirements for the Arts and Humanities: General category 
 
 Table: How learning outcomes are addressed and assessed
 
-### Evaluation of Student Performance
+## Evaluation of Student Performance
 
-#### Points
+### Points
 
 Students can earn up to 1000 points in this course.
 
@@ -151,7 +155,7 @@ Students can earn up to 1000 points in this course.
 
 Table: Assignments and point values
 
-#### Scale
+### Scale
 
 | Grade | Percentage |
 | :---- | ---------: |
@@ -170,18 +174,18 @@ Table: Assignments and point values
 
 Table: Grading scale
 
-### Course Policies
+## Course Policies
 
-#### Discussion Participation
+### Discussion Participation
 
 Students are expected to participate in all graded discussions. While there is great flexibility in online courses, this is not a self-paced course. You will need to participate in discussions on at least two different days most weeks, with your first post due no later than Wednesday evening.
 
-#### Late Work Policy
+### Late Work Policy
 
 - Late assignments will be accepted with a late penalty of -10% per day.
 - Late work may not receive instructor feedback.
 
-#### Extensions
+### Extensions
 
 - Email me as soon as possible to request an extension.
   - For example, if a deadline in this course conflicts with your assigned jury duty dates, I would happily grant you an extension.
@@ -190,17 +194,17 @@ Students are expected to participate in all graded discussions. While there is g
 - Extension requests made within 48 hours for unforeseeable reasons will likely be granted.
   - For example, if you get sick, that would not be foreseeable.
 
-#### Incompletes
+### Incompletes
 
 When a requirement of a course has not been completed for reasons acceptable to the instructor and the rest of the academic work is passing, a report of “I” (incomplete) may be made and additional time granted, according to [Academic Regulation 17 of OSU Academic Regulations](https://catalog.oregonstate.edu/regulations/).
 
 If you are having any difficulty that might prevent you completing the coursework, please don’t wait until the end of the term; let me know right away.
 
-#### Statement Regarding Religious Accommodation
+### Statement Regarding Religious Accommodation
 
 Oregon State University is required to provide reasonable accommodations for employee and student sincerely held religious beliefs.  It is incumbent on the student making the request to make the faculty member aware of the request as soon as possible prior to the need for the accommodation. See the [Religious Accommodation Process for Students](https://eoa.oregonstate.edu/accommodations/religion).
 
-#### Class Participation and Building Community
+### Class Participation and Building Community
 
 Active interaction with peers and your instructor is essential to everyone’s success in this online course. I encourage you to please practice the following:
 
@@ -210,7 +214,7 @@ Active interaction with peers and your instructor is essential to everyone’s s
 - Practice self-awareness in your communication with peers and consider that your comments may hurt others unintentionally.
 - Assume the best of your classmates and instructor and expect the best from them.
 
-#### Content Warning
+### Content Warning
 
 Literature often deals with difficult topics, including (but not limited
 to) mental illness, violence, racism, sexual assault, war, trauma, and
@@ -229,19 +233,19 @@ discussion boards.
 If you find one of our stories this term too difficult to read or discuss, you can contact me
 for alternative assignments for the quiz and discussion board that week.
 
-#### Academic Integrity
+### Academic Integrity
 
 It is important that you understand what student actions are defined as academic misconduct at Oregon State University.  Refer to the [OSU Student Code of Conduct](https://scs.oregonstate.edu/) and the [Office of the Dean of Students](https://studentlife.oregonstate.edu/) for more information.  More importantly, if you are unsure if something will violate our academic integrity policy, ask your professors, GTAs, academic advisors, or academic integrity officers.
 
 Academic misconduct, or violations of academic integrity, can fall into seven broad areas, including but not limited to: cheating; plagiarism; falsification; assisting; tampering; multiple submissions of work; and unauthorized recording and use.
 
-##### Generative Artificial Intelligence
+#### Generative Artificial Intelligence
 
 Student use of generative artificial intelligence (GenAI) does not typically advance the learning goals in this course, which focus on developing the core activities of reading, thinking, and writing.
 
 As a result, the use of any GenAI tools (including but not limited to ChatGPT, Copilot, or Claude) to generate or edit any portion of the substance of your work is not permitted unless explicitly noted in the assignment instructions. While this course recognizes that AI is increasingly embedded in everyday tools like [Microsoft Word](https://www.microsoft.com/en-us/microsoft-365/word/word-ai) and [Google Search](https://search.google/ai-in-search/), you are not allowed to use AI for your coursework beyond these limited non-substantive supports.
 
-###### Acceptable GenAI Use
+##### Acceptable GenAI Use
 
 I allow one general use of GenAI because it advances the learning goals of this course.
 
@@ -260,15 +264,15 @@ When facing a sentence or paragraph that you struggle to comprehend in this way,
 
 The Custom GPT expects to receive a sentence, paragraph, or passage from a work of fiction, and has been instructed to help you comprehend the passage. I ask that you use this Custom GPT because its behavior should be limited in ways that benefit the learning objectives of this course rather than impeding them.
 
-##### Turnitin
+#### Turnitin
 
 Your instructor may ask you to submit one or more of your writings to Turnitin, a plagiarism prevention service. Your assignment content will be checked for potential plagiarism against Internet sources, academic journal articles, and the papers of other OSU students, for common or borrowed content. Turnitin generates a report that highlights any potentially unoriginal text in your paper. The report may be submitted directly to your instructor or your instructor may elect to have you submit initial drafts through Turnitin, and you will receive the report allowing you the opportunity to make adjustments and ensure that all source material has been properly cited. Papers you submit through Turnitin for this or any class will be added to the OSU Turnitin database and may be checked against other OSU paper submissions. You will retain all rights to your written work.
 
-#### Statement Regarding Students with Disabilities
+### Statement Regarding Students with Disabilities
 
 Oregon State University is committed to making learning experiences accessible to all, which includes consideration of the course design, course learning outcomes, and barriers experienced by the disabled student. Disability Access Services (DAS) staff and students work together to determine reasonable accommodations. Students connected with DAS who have questions about their accommodations should reach out to their DAS Adviser. Students who have not yet completed the process for setting up accommodations, please contact DAS at 541-737-4098, visit [the DAS website](https://ds.oregonstate.edu/), or email <disability.services@oregonstate.edu> to explore accommodations for a disability (e.g., mental health diagnoses, chronic health conditions, learning disabilities, physical conditions/injuries, etc.). Students and faculty members are encouraged to collaborate around the implementation of accommodations.
 
-#### Accessibility of Course Materials
+### Accessibility of Course Materials
 
 All materials used in this course are accessible. If you require
 accommodations please contact [Disability Access Services (DAS)](http://ds.oregonstate.edu/home/).
@@ -277,33 +281,33 @@ Additionally, Canvas, the learning management system through which this
 course is offered, provides a [vendor statement](https://www.canvaslms.com/accessibility)
 certifying how the platform is accessible to students with disabilities.
 
-#### Tutoring and Writing Assistance
+### Tutoring and Writing Assistance
 
 You can connect live with experienced online tutors by accessing Online Tutoring in the side navigation bar of your Canvas course. You are eligible for up to 5 hours of tutoring each week. To learn more, go to [Online Tutoring - Overview](https://ecampus.oregonstate.edu/services/student-services/online-tutoring/).
 
 To get help with any form of writing, you can contact [Oregon State Online Writing Support](https://writingcenter.oregonstate.edu/written-feedback) for feedback via email or live Zoom appointment.
 
-#### Academic Calendar
+### Academic Calendar
 
 All students are subject to the registration and refund deadlines as stated in the Academic Calendar: <https://registrar.oregonstate.edu/osu-academic-calendar>
 
-#### Student Bill of Rights
+### Student Bill of Rights
 
 OSU has twelve established student rights. They include due process in all university disciplinary processes, an equal opportunity to learn, and grading in accordance with the course syllabus:
 
 <https://asosu.oregonstate.edu/advocacy/rights>
 
-#### Expectations for Student Conduct
+### Expectations for Student Conduct
 
 Student conduct is governed by the university’s policies, as explained in the Student Conduct Code (<https://beav.es/codeofconduct>). Students are expected to conduct themselves in the course (e.g., on discussion boards, email postings) in compliance with the university's regulations regarding civility.
 
-#### Student Learning Experience Survey
+### Student Learning Experience Survey
 
 During Fall, Winter, and Spring term the online Student Learning Experience surveys open to students the Wednesday of week 9 and close the Sunday before Finals Week. Students will receive notification, instructions, and the link through their ONID email. They may also log into the survey via MyOregonState or directly at <https://beav.es/Student-Learning-Survey>. Survey results are extremely important and are used to help improve courses and the learning experience of future students. Responses are anonymous (unless a student chooses to “sign” their comments, agreeing to relinquish anonymity of written comments) and are not available to instructors until after grades have been posted. The results of scaled questions and signed comments go to both the instructor and their unit head/supervisor. Anonymous (unsigned) comments go to the instructor only.
 
-### Course Content
+## Course Content
 
-#### Week 0: Getting Started
+### Week 0: Getting Started
 
 - Required Reading
   - Start Here Module (Canvas)
@@ -311,7 +315,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - Start Here Quiz
   - Encouraged: Introduction DB (officially due in Week 1)
 
-#### Week 1: What is Literary Fiction?
+### Week 1: What is Literary Fiction?
 
 - Required Reading
   - Logan and Thompson-Gillis, "Books and Reading in the 21st Century"
@@ -325,7 +329,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - DB comments
   - Module 1 Quiz
 
-#### Week 2: Ironic Twists and Turns; The American Gothic
+### Week 2: Ironic Twists and Turns; The American Gothic
 
 - Required Reading
   - Logan and Thompson-Gillis, "Defining the Short Story"
@@ -341,7 +345,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - DB comments
   - Module 2 Quiz
 
-#### Week 3: The Southern Gothic & Point of View; Style: Minimalism & Stream of Consciousness
+### Week 3: The Southern Gothic & Point of View; Style: Minimalism & Stream of Consciousness
 
 - Required Reading
   - Logan and Thompson-Gillis, "Cultural Relevance of the Short Story"
@@ -355,7 +359,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - DB comments
   - Module 3 Quiz
 
-#### Week 4: Magical Realism
+### Week 4: Magical Realism
 
 - Required Reading
   - Logan and Thompson-Gillis, "The Literary Canon"
@@ -368,7 +372,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - DB comments
   - Module 4 Quiz
 
-#### Week 5: Coming of Age
+### Week 5: Coming of Age
 
 - Required Reading
   - Oates, "Where Are You Going, Where Have You Been?"
@@ -381,7 +385,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - DB comments
   - Module 5 Quiz
 
-#### Week 6: Parents & Children
+### Week 6: Parents & Children
 
 - Required Reading
   - Walker, "Everyday Use"
@@ -392,7 +396,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - Walker & Liu activity
   - Module 6 Quiz
 
-#### Week 7: Afrofuturism; Genre Bending: Science & Magic & Myth
+### Week 7: Afrofuturism; Genre Bending: Science & Magic & Myth
 
 - Required Reading
   - Jemisin, "Cloud Dragon Skies"
@@ -404,7 +408,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - Presentation Showcase (initial post)
   - Module 7 Quiz
 
-#### Week 8: Narrative Structure; Return to Metafiction
+### Week 8: Narrative Structure; Return to Metafiction
 
 - Required Reading
   - Vonnegut, *Slaughterhouse-Five:* Ch. 1-4
@@ -416,7 +420,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - DB comments
   - Module 8 Quiz
 
-#### Week 9: Postmodern Literature
+### Week 9: Postmodern Literature
 
 - Required Reading
   - Vonnegut, *Slaughterhouse-Five:* Ch. 5-8
@@ -428,7 +432,7 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - DB comments
   - Module 9 Quiz
 
-#### Week 10: Writing About Literature
+### Week 10: Writing About Literature
 
 - Required Reading
   - Vonnegut, *Slaughterhouse-Five:* Ch. 9-10
@@ -438,13 +442,13 @@ During Fall, Winter, and Spring term the online Student Learning Experience surv
   - Peer Review Feedback
   - Module 10 Quiz
 
-#### Finals Week
+### Finals Week
 
 - Tuesday Assignments
   - Essay (Final Draft)
 - Wednesday Assignments
   - Reflection
 
-### Acknowledgments
+## Acknowledgments
 
 This course is a modified version of a previous iteration of this course developed by [Liz Delf](https://liberalarts.oregonstate.edu/directory/liz-delf).

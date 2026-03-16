@@ -4,7 +4,7 @@ title: The “Already Implicit” Canon
 
 ## Data from Anthologies of African American Literature
 
-<p><button class="outline">[Presentation](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing)</button></p>
+[Presentation](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing)
 
 Co-authored with [J. D. Porter](https://www.english.upenn.edu/people/j-d-porter) and [Arthur Knight](https://www.wm.edu/as/english/facultystaff/knight_a.php).
 
