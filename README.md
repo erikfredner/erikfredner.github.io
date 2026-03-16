@@ -1,30 +1,48 @@
-# Website
+# fredner.org
 
-[fredner.org](https://fredner.org)
+Source for [fredner.org](https://fredner.org) — a static academic website built with Pandoc and hosted on GitHub Pages.
 
 ## Dependencies
 
 - [`make`](https://www.gnu.org/software/make/)
 - [Pandoc](https://pandoc.org)
-- [Pico](https://picocss.com/docs)
-- [Zotero](https://www.zotero.org)
-  - [Better BibTeX](https://retorque.re/zotero-better-bibtex/)
+- [Zotero](https://www.zotero.org) + [Better BibTeX](https://retorque.re/zotero-better-bibtex/) (for `references.bib`)
 
-## How to create
+## Commands
 
-```zsh
-make
+```bash
+make              # Build all pages into docs/
+make serve        # Build and serve locally at http://localhost:8000
+make clean        # Remove the entire docs/ directory
+make prune-images # Delete images in src/images/ not referenced by any src/*.md
 ```
 
-This will:
+To rebuild a single page:
 
-1. Take all of the `.md` files in `src`.
-2. Use `pandoc` to convert them to HTML pages using the base template, while respecting certain `pandoc` YAML options like `toc`.
-3. Copy HTML, images, and slides to `docs`.
+```bash
+pandoc --standalone --template=templates/base.html \
+  --metadata date="$(date +%Y)" \
+  --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
+  -o docs/PAGE.html src/PAGE.md
+cp style.css docs/style.css
+cp -r fonts docs/fonts
+```
 
-## Why do it this way?
+## Architecture
 
-- WordPress is slow.
-- I already write everything in Pandoc markdown.
-- Pandoc handles citations.
-- Easy to use GitHub Pages subdomains for projects.
+**Build pipeline:** `src/*.md` → Pandoc → `docs/*.html`
+
+| File/Directory | Purpose |
+|---|---|
+| `src/*.md` | Source pages (Markdown + YAML frontmatter) |
+| `templates/base.html` | Single HTML template for all pages |
+| `style.css` | Stylesheet with EB Garamond variable fonts and light/dark mode |
+| `fonts/` | EB Garamond variable font files (regular + italic) |
+| `references.bib` | Shared bibliography for all citations |
+| `chicago-notes.csl` | Citation style (Chicago notes) |
+| `CNAME` | Custom domain (`fredner.org`) — copied to `docs/` by `make` |
+| `.nojekyll` | Disables Jekyll processing on GitHub Pages — copied to `docs/` by `make` |
+
+**Source pages:** Each `src/*.md` file has a YAML frontmatter `title` field that becomes both the `<title>` and `<h1>`. Add `toc: true` and `toc-depth: 2` to frontmatter for pages that need a table of contents.
+
+**`docs/` is the deploy target:** GitHub Pages serves from `docs/`. Running `make clean && make` fully regenerates it. `CNAME` and `.nojekyll` are recreated by `make` so they survive `make clean`.
