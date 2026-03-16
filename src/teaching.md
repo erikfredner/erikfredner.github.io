@@ -1,6 +1,7 @@
 ---
 title: "Teaching"
-defaults: toc-defaults
+toc: true
+toc-depth: 2
 ---
 
 ## Introduction to Fiction

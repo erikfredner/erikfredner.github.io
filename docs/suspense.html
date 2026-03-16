@@ -4,24 +4,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.cyan.min.css">
+  
+  <meta property="og:title" content="Suspense&mdash;Erik Fredner">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Erik Fredner">
+  
+  <link rel="preload" href="fonts/EBGaramond-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
   <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <title>Suspense&mdash;Erik Fredner</title>
-  <style>
-    body {
-      width: min(100%, 60ch);
-      margin-inline: auto;
-      padding-inline: 1rem;
-    }
-  </style>
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="top"></div>
   <header>
-    <nav>
+    <nav aria-label="Site navigation">
       <ul>
         <li><a href="index.html"><strong>Erik Fredner</strong></a></li>
       </ul>
@@ -33,7 +32,7 @@
       </ul>
     </nav>
   </header>
-  <main>
+  <main id="main-content">
     <h1>Suspense</h1>
         <p>With Mark Algee-Hewitt, Chelsea Davis, Abigail Droge, Tasha
         Eccles, Morgan Frank, J. D. Porter, Andrew Shephard, Hannah
@@ -50,42 +49,7 @@
         language, narrative and psychology – via a detailed comparative
         analysis of “suspenseful” texts from 1750 to the present
         day.</p>
-    <a href="#top"><button class="back-to-top" aria-label="Back to top">&uarr;</button></a>
-
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-
-      .back-to-top {
-        position: fixed;
-        right: 1rem;
-        bottom: 1rem;
-        z-index: 9999;
-        display: inline-block;
-        padding: .6rem .8rem;
-        border-radius: .75rem;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .2s ease;
-      }
-
-      .back-to-top:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 2px;
-      }
-
-      .back-to-top.is-visible {
-        opacity: 1;
-        pointer-events: auto;
-      }
-    </style>
+    <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 
     <script>
       // Show when #top leaves viewport; hide when visible again.

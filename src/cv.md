@@ -1,7 +1,25 @@
 ---
 title: CV
-defaults: toc-defaults
+toc: true
+toc-depth: 2
 ---
+
+## Appointments
+
+[Oregon State University](https://liberalarts.oregonstate.edu/directory/erik-fredner)\
+Assistant Professor of Digital Humanities and Literature\
+School of Writing, Literature, and Film\
+2025--
+
+[University of Richmond](https://english.richmond.edu/faculty/efredner/)\
+Visiting Assistant Professor of Data Science and Statistics\
+Department of English\
+2024--2025
+
+[University of Virginia](https://gened.as.virginia.edu/people/erik-fredner)\
+Postdoctoral Research Associate and Lecturer\
+College of Arts and Sciences\
+2021--2024
 
 ## Education
 
@@ -11,7 +29,7 @@ Graduate Certificate in Digital Humanities\
 2021
 
 Harvard University\
-A.B., English, *magna cum laude*\
+A.B., English *magna cum laude*\
 2012
 
 Harvard Graduate School of Education\
@@ -22,23 +40,6 @@ University of Oxford\
 St Peter's College\
 Visiting Student of English\
 2011
-
-## Appointments
-
-[Oregon State University](https://liberalarts.oregonstate.edu/directory/erik-fredner)\
-School of Writing, Literature, and Film\
-Assistant Professor of Digital Humanities and Literature\
-2025--
-
-[University of Richmond](https://english.richmond.edu/faculty/efredner/)\
-Department of English\
-Visiting Assistant Professor of Data Science and Statistics\
-2024--2025
-
-[University of Virginia](https://gened.as.virginia.edu/people/erik-fredner)\
-College of Arts and Sciences\
-Postdoctoral Research Associate and Lecturer\
-2021--2024
 
 ## Publications
 
@@ -90,22 +91,25 @@ Please see my [research page](research.html).
 
 ## Awards
 
-College Fellows Development Grant supporting research on literature on *Jeopardy!*, University of Virginia, 2024.
+Oregon State University, Center for the Humanities Faculty Research Fellowship, 2026--2027
 
-College Fellows Development Grant supporting research on *The MLA International Bibliography*, University of Virginia, 2022.
+Oregon State University, Critical AI Literacy Summer Teaching Fellowship, 2026
 
-Mellon Foundation Dissertation Fellowship, Stanford Humanities Center,
-2020--2021.
+University of Virginia, College Fellows Development Grant supporting research on literature on *Jeopardy!* 2024
 
-City University of New York--Stanford Exchange Fellow, The City College of the City University
-of New York, 2018--2019.
+University of Virginia, College Fellows Development Grant supporting research on *The MLA International Bibliography*, 2022
 
-G.J. Pigott Scholar, Stanford University, 2017--2018.
+Stanford Humanities Center, Mellon Foundation Dissertation Fellowship, 2020--2021
 
-Excellence in Teaching Award, Stanford University, Department of
-English, 2017.
+The City College of the City University of New York, City University of New York--Stanford Exchange Fellow,  2018--2019
+
+Stanford University, G.J. Pigott Scholar, 2017--2018
+
+Stanford University, Department of English, Excellence in Teaching Award, 2017
 
 ## Presentations
+
+"Canons Across Anthologies of World, Western, and National Literatures," Symposium: "Mapping the Canon: Quantitative Approaches to Literary History," Technische Universität Darmstadt, 2026.
 
 ["The Literary Canon on *Jeopardy!*, 1984--2024,"](slides/2025-07_dh.html) Alliance of Digital
 Humanities Organizations, Universidade NOVA de Lisboa, 2025.

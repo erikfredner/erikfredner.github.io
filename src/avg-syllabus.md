@@ -1,6 +1,7 @@
 ---
 title: Writing Intensive Seminar in English
-defaults: toc-defaults
+toc: true
+toc-depth: 2
 ---
 
 ## Description

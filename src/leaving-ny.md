@@ -2,7 +2,7 @@
 title: Leaving New York? Locations of US Literary Publishing Since 1945
 ---
 
-<p><button class="outline">[Presentation](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing)</button></p>
+[Presentation](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing)
 
 Co-authored with [Luca Messarra](https://english.stanford.edu/people/luca-messarra).
 

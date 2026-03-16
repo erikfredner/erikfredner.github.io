@@ -1,6 +1,7 @@
 ---
 title: Advanced Data Science
-defaults: toc-defaults
+toc: true
+toc-depth: 2
 ---
 
 ## Land Acknowledgment

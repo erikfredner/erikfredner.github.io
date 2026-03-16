@@ -1,6 +1,7 @@
 ---
 title: The Ends of Reading
-defaults: toc-defaults
+toc: true
+toc-depth: 2
 ---
 
 ## Introduction

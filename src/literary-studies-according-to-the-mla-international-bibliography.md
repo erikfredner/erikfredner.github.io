@@ -2,7 +2,7 @@
 title: "Literary Studies According to <i>The MLA International Bibliography</i>"
 ---
 
-<p><button class="outline">[Presentation](https://docs.google.com/presentation/d/1l9RF4TAfG1vhc70sQD6SnQdnvPGKdysiGc0saopwz_U/edit?slide=id.p#slide=id.p)</button></p>
+[Presentation](https://docs.google.com/presentation/d/1l9RF4TAfG1vhc70sQD6SnQdnvPGKdysiGc0saopwz_U/edit?slide=id.p#slide=id.p)
 
 Co-authored with [Mark Algee-Hewitt](https://english.stanford.edu/people/mark-algee-hewitt).
 
