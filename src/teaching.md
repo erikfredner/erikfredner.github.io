@@ -2,12 +2,12 @@
 title: "Teaching"
 ---
 
-| Course | Institution | Syllabus | Repository |
+| Course | Institution | Syllabus | Repo |
 | -------------------------------- | --- | --- | --- |
 | Introduction to Fiction | [Oregon State University](https://ecampus.oregonstate.edu/soc/ecatalog/ecoursedetail.htm?termcode=all&subject=ENG&coursenumber=104Z) | [Syllabus](104z-syllabus.html) | |
-| Advanced Data Science | [University of Richmond](https://datascience.richmond.edu/academics/courses.html) | [Syllabus](389-syllabus.html) | [Repository](https://github.com/erikfredner/dsst389-2024/) |
-| Introduction to Data Science | [University of Richmond](https://datascience.richmond.edu/academics/courses.html) | [Syllabus](289-syllabus.html) | [Repository](https://github.com/erikfredner/dsst289-2024) |
-| Text Classification with LLMs | [Text Analysis Pedagogy Institute](https://constellate.org/tap-institute) | [Syllabus](tapi-syllabus.html) | [Repository](https://github.com/erikfredner/tap-2024?tab=readme-ov-file) |
+| Advanced Data Science | [University of Richmond](https://datascience.richmond.edu/academics/courses.html) | [Syllabus](389-syllabus.html) | [Repo](https://github.com/erikfredner/dsst389-2024/) |
+| Introduction to Data Science | [University of Richmond](https://datascience.richmond.edu/academics/courses.html) | [Syllabus](289-syllabus.html) | [Repo](https://github.com/erikfredner/dsst289-2024) |
+| Text Classification with LLMs | [Text Analysis Pedagogy Institute](https://constellate.org/tap-institute) | [Syllabus](tapi-syllabus.html) | [Repo](https://github.com/erikfredner/tap-2024?tab=readme-ov-file) |
 | Punching Up: US Satire | [University of Virginia](https://gened.as.virginia.edu/egmt-1510-punching) | [Syllabus](satire-syllabus.html) | |
 | From Language to Data | [University of Virginia](https://gened.as.virginia.edu/egmt-1520-language-data) | [Syllabus](l2d-syllabus.html) | |
 | Literary Text Mining | [Stanford University](https://explorecourses.stanford.edu/search?view=catalog&filter-coursestatus-Active=off&page=0&catalog=&academicYear=&q=literary+text+mining&collapse=) | [Syllabus](ltm-syllabus.html) | |
