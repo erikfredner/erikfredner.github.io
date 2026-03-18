@@ -168,6 +168,12 @@ header nav a:hover {
   margin: 0 0 0.4rem;
   font-weight: 600;
   font-size: 0.95rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.toc-label::-webkit-details-marker {
+  display: none;
 }
 
 nav.toc-box ul {

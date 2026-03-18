@@ -35,10 +35,10 @@
   <main id="main-content">
     $if(title)$<h1>$title$</h1>$endif$
     $if(toc)$
-    <nav class="toc-box" aria-label="Table of contents" role="doc-toc">
-      <p class="toc-label" aria-hidden="true">Contents</p>
+    <details class="toc-box">
+      <summary class="toc-label">Contents</summary>
       $table-of-contents$
-    </nav>
+    </details>
     $endif$
     $body$
     <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
