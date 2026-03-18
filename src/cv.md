@@ -6,17 +6,17 @@ toc-depth: 2
 
 ## Appointments
 
-[Oregon State University](https://liberalarts.oregonstate.edu/directory/erik-fredner)\
+Oregon State University\
 Assistant Professor of Digital Humanities and Literature\
 School of Writing, Literature, and Film\
 2025--
 
-[University of Richmond](https://english.richmond.edu/faculty/efredner/)\
+University of Richmond\
 Visiting Assistant Professor of Data Science and Statistics\
 Department of English\
 2024--2025
 
-[University of Virginia](https://gened.as.virginia.edu/people/erik-fredner)\
+University of Virginia\
 Postdoctoral Research Associate and Lecturer\
 College of Arts and Sciences\
 2021--2024
@@ -288,45 +288,35 @@ Morgan Day Frank, J. D. Porter, Andrew Shephard, and Hannah Walser, 2014.
 
 ### As instructor of record
 
-Data Science and Statistics 389 "Advanced
-Data Science," University of Richmond, 2024--2025.
+Introduction to Fiction, Oregon State University, 2025--26
 
-Data Science and Statistics 289 "Introduction to Data Science,"
-University of Richmond, 2024--2025.
+Advanced Data Science, University of Richmond, 2024--2025
 
-"Text Classification with Large Language Models," The Text Analysis
-Pedagogy Institute, 2024.
+Introduction to Data Science, University of Richmond, 2024--2025
 
-Empirical and Scientific Engagement 1520 "From Language to Data,"
-University of Virginia, 2021--2024.
+Text Classification with Large Language Models, The Text Analysis Pedagogy Institute, 2024
 
-Engaging Aesthetics 1510 "Punching Up: US Satire," University of
-Virginia, 2021--2024.
+From Language to Data, University of Virginia, 2021--2024
 
-Summer Research Program, Stanford Center for Spatial and Textual
-Analysis, 2020.
+Punching Up: US Satire, University of Virginia, 2021--2024
 
-English 184E "Literary Text Mining," Stanford University, 2018--2019.
+Summer Research Program, Stanford Center for Spatial and Textual Analysis, 2020
 
-World Humanities 101 "What It Is Like To Be Alive," The City College
-of New York, 2018--2019.
+Literary Text Mining, Stanford University, 2018--2019.
 
-English 162W "Average Americans: Writing Intensive Seminar in
-English," Stanford University, 2017--2018.
+World Humanities 101, The City College of New York, 2018--2019
+
+Writing-Intensive Seminar in English, Stanford University, 2017--2018
 
 ### As teaching assistant
 
-English 184E "Literary Text Mining,"
-Stanford University (instructor Ryan Heuser), 2018--2019.
+Literary Text Mining, Stanford University (instructor Ryan Heuser), 2018--2019
 
-English 396L Pedagogy, Stanford University (instructor Paula Moya),
-2017--2018.
+Pedagogy, Stanford University (instructor Paula Moya), 2017--2018
 
-English 161 "Narrative and Narrative Theory," Stanford University
-(instructors Paula Moya and J. D. Porter), 2015--2016.
+Narrative and Narrative Theory, Stanford University (instructors Paula Moya and J.D. Porter), 2015--2016
 
-English 100C "Literary History III (1850--1950)," Stanford University
-(instructor Franco Moretti), 2014--2015.
+"Literary History III (1850--1950)," Stanford University (instructor Franco Moretti), 2014--2015
 
 ## Public Humanities
 
@@ -372,7 +362,7 @@ Writer, Ph.D. Journalist Project, Stanford Humanities Center, 2014--2016.
 
 ### Podcasts
 
-["Matriculation: The Academic Transition to College,"](https://www.virginiaaudio.com/podcasts/symposia-a7d5x)
+["Matriculation: The Academic Transition to College"](https://www.virginiaaudio.com/podcasts/symposia-a7d5x),
 *Symposia*, Brown Residential College at the University of Virginia,
 2022.
 
@@ -461,15 +451,25 @@ Modern Language Association, 2014--.
 
 ## Technical
 
-Programming: Python, R, Tidyverse, Jupyter, RStudio, `zsh`, `git`.
+### Programming
 
-Scientific publishing: Pandoc, Quarto, Markdown, LaTeX, Django, HTML.
+Python, R, Tidyverse, Jupyter, RStudio, `zsh`, `git`, Claude, Codex
 
-Databases: PostgreSQL, DBeaver.
+### Scientific publishing
 
-Data visualization: `matplotlib`, `ggplot`, Tableau.
+Pandoc, Quarto, Markdown, LaTeX, Django
 
-Natural language processing: `nltk`, `spaCy`, `stanza`, Ollama, LLM APIs.
+### Databases
+
+SQL, Postgre, DBeaver
+
+### Data visualization
+
+`matplotlib`, `ggplot`, Tableau
+
+### Natural language processing
+
+`spaCy`, `stanza`, `nltk`, Ollama, LLMs
 
 ## Languages
 
