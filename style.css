@@ -1,20 +1,3 @@
-/* EB Garamond variable fonts */
-@font-face {
-  font-family: 'EB Garamond';
-  src: url('fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  src: url('fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
 /* Color tokens */
 :root {
   --color-bg: #fff;
@@ -45,12 +28,12 @@
 
 /* Body */
 body {
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: Georgia, serif;
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--color-text);
   background: var(--color-bg);
-  width: min(100%, 60ch);
+  width: min(100%, 640px);
   margin-inline: auto;
   padding-inline: 1rem;
 }

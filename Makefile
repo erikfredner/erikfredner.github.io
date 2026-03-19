@@ -24,6 +24,8 @@ SLIDES_OUT := $(patsubst $(SLIDES_SRC_DIR)/%,$(SLIDES_OUT_DIR)/%,$(SLIDES_SRC))
 # CSS
 CSS_SRC := style.css
 CSS_OUT := $(OUT_DIR)/style.css
+CSS_HEADER_DIR := .cache
+CSS_HEADER := $(CSS_HEADER_DIR)/style-inline.html
 
 # Fonts
 FONTS_SRC_DIR := fonts
@@ -38,11 +40,20 @@ NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
 all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(CSS_OUT) $(FONTS_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT)
 
-$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(CSS_OUT) | $(OUT_DIR)
+$(CSS_HEADER_DIR):
+	mkdir -p $(CSS_HEADER_DIR)
+
+$(CSS_HEADER): $(CSS_SRC) | $(CSS_HEADER_DIR)
+	printf '<style>\n' > $@
+	cat $(CSS_SRC) >> $@
+	printf '\n</style>' >> $@
+
+$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(CSS_HEADER) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc --toc-depth=2' || echo ''); \
 	$(PANDOC) --standalone $$TOC_ARG --template=$(TEMPLATE) \
 	  --metadata date="$(CURRENT_YEAR)" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
+	  -H $(CSS_HEADER) \
 	  -o $@ $<
 
 # Ensure base output dir exists
