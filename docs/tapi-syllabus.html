@@ -151,6 +151,41 @@ header nav a:hover {
   color: var(--color-accent);
 }
 
+/* Hamburger toggle button (hidden on wide screens) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  padding: 0.2rem 0.4rem;
+  line-height: 1;
+}
+
+@media (max-width: 500px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.25rem 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  header nav.open .nav-links {
+    display: flex;
+  }
+}
+
 /* TOC box */
 .toc-box {
   border: 1px solid var(--color-border);
@@ -271,7 +306,8 @@ tbody tr:nth-child(even) {
       <ul>
         <li><a href="index.html"><strong>Erik Fredner</strong></a></li>
       </ul>
-      <ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
         <li><a href="contact.html">Contact</a></li>
         <li><a href="cv.html">CV</a></li>
         <li><a href="research.html">Research</a></li>
@@ -411,6 +447,17 @@ tbody tr:nth-child(even) {
     <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 
     <script>
+      // Mobile nav toggle
+      (function () {
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = toggle && toggle.closest('nav');
+        if (!toggle || !nav) return;
+        toggle.addEventListener('click', function () {
+          var open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+      })();
+
       // Show when #top leaves viewport; hide when visible again.
       (function () {
         var btn = document.querySelector('.back-to-top');
