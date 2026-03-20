@@ -45,45 +45,43 @@ Visiting Student of English\
 
 ### Articles
 
-Erik Fredner and J. D. Porter, "Counting on *The Norton Anthology of American Literature*," *PMLA* 139.1: 50--65, 2024.
-<https://doi.org/10.1632/S0030812923001189>
+Erik Fredner and J. D. Porter, ["Counting on *The Norton Anthology of American Literature*,"](https://doi.org/10.1632/S0030812923001189) *PMLA* 139.1: 50--65, 2024.
 
-Erik Fredner, "A Meaning Apart from Its Indistinguishable Words," *Nathaniel
-Hawthorne Review* 48.1: 82--98, 202. <https://doi.org/10.5325/nathhawtrevi.48.1.0082>
+Erik Fredner, ["A Meaning Apart from Its Indistinguishable Words,"](https://doi.org/10.5325/nathhawtrevi.48.1.0082) *Nathaniel
+Hawthorne Review* 48.1: 82--98, 202.
 
-Erik Fredner, "Hamlin Garland's 'Problem of Individual Life,'" *Nineteenth-Century
-Literature* 76.3: 354--383, 2021. <https://doi.org/10.1525/ncl.2021.76.3.354>
+Erik Fredner, ["Hamlin Garland's 'Problem of Individual Life,'"](https://doi.org/10.1525/ncl.2021.76.3.354) *Nineteenth-Century
+Literature* 76.3: 354--383, 2021.
 
 David McClure, Mark Algee-Hewitt, Steele Douris, Erik Fredner, and
-Hannah Walser, "Organizing Corpora at the Stanford Literary Lab:
-Balancing Simplicity and Flexibility in Metadata Management,"
+Hannah Walser, ["Organizing Corpora at the Stanford Literary Lab:
+Balancing Simplicity and Flexibility in Metadata Management,"](https://ids-pub.bsz-bw.de/frontdoor/index/index/docId/6261)
 *Proceedings of the Workshop on Challenges in the Management of Large
-Corpora*: 25--29. <https://ids-pub.bsz-bw.de/frontdoor/index/index/docId/6261>
+Corpora*: 25--29.
 
 ### Book Chapter
 
 Mark Algee-Hewitt, Erik Fredner, and Hannah Walser,
-"The Novel as Data," in *The Cambridge Companion to the Novel*, ed.
-Eric Bulson, 189--216, Cambridge University Press, 2018. <https://doi.org/10.1017/9781316659694.013>
+["The Novel as Data,"](https://doi.org/10.1017/9781316659694.013) in *The Cambridge Companion to the Novel*, ed.
+Eric Bulson, 189--216, Cambridge University Press, 2018.
 
 ### Dataset
 
-Erik Fredner, "Moving the Capital of US Literature from Boston to New
-York: Evidence from 11 Million Library of Congress Catalog Records,"
+Erik Fredner, ["Moving the Capital of US Literature from Boston to New
+York: Evidence from 11 Million Library of Congress Catalog Records,"](https://doi.org/10.34770/xcgb-zn76)
 *The Nineteenth-Century Data Collective*, ed. Meredith Martin and Megan
-Ward, Princeton University Libraries, 2025. <https://doi.org/10.34770/xcgb-zn76>
+Ward, Princeton University Libraries, 2025.
 
 ### Review
 
-Erik Fredner, "Enumerations: Data and Literary Study by Andrew Piper,"
-*Studies in the Novel* 52.2: 220--222, 2020. <https://doi.org/10.1353/sdn.2020.0026>
+Erik Fredner, ["*Enumerations: Data and Literary Study* by Andrew Piper,"](https://doi.org/10.1353/sdn.2020.0026)
+*Studies in the Novel* 52.2: 220--222, 2020.
 
 ### Dissertation
 
-Erik Fredner, "Averaging Americans: Literature, Statistics, and
-Inequality," doctoral dissertation, Stanford University, 2021. Committee:
+Erik Fredner, ["Averaging Americans: Literature, Statistics, and
+Inequality,"](https://purl.stanford.edu/rp802rv5947) doctoral dissertation, Stanford University, 2021. Committee:
 Gavin Jones, Mark Algee-Hewitt, Mark McGurl, and Paula Moya.
-<https://purl.stanford.edu/rp802rv5947>
 
 ## Works in Progress
 
