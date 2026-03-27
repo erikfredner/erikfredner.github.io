@@ -278,3 +278,12 @@ tbody tr:nth-child(even) {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: 2rem;
+  padding-block: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
