@@ -5,6 +5,7 @@ TEMPLATE := templates/base.html
 BIBLIOGRAPHY := references.bib
 CSL := chicago-notes.csl
 CURRENT_YEAR := $(shell date +%Y)
+BUILD_DATE := $(shell date +%Y-%m-%d)
 
 SRC_MD := $(wildcard $(SRC_DIR)/*.md)
 HTML_OUT := $(patsubst $(SRC_DIR)/%.md,$(OUT_DIR)/%.html,$(SRC_MD))
@@ -52,6 +53,7 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(CSS_HEAD
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc --toc-depth=2' || echo ''); \
 	$(PANDOC) --standalone $$TOC_ARG --template=$(TEMPLATE) \
 	  --metadata date="$(CURRENT_YEAR)" \
+	  --metadata build-date="$(BUILD_DATE)" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  -H $(CSS_HEADER) \
 	  -o $@ $<
