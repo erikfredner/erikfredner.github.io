@@ -1,7 +1,6 @@
 ---
 title: Research
 toc: true
-toc-depth: 2
 ---
 
 ## Book

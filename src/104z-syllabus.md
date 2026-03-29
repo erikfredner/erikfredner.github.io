@@ -1,7 +1,6 @@
 ---
 title: "ENG 104Z: Introduction to Fiction"
 toc: true
-toc-depth: 2
 ---
 
 - Course Number: [ENG 104Z](https://ecampus.oregonstate.edu/soc/ecatalog/ecoursedetail.htm?termcode=202500&coursenumber=104Z&subject=ENG)

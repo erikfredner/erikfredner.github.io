@@ -1,7 +1,6 @@
 ---
 title: Literary Text Mining
 toc: true
-toc-depth: 2
 ---
 
 ## Description

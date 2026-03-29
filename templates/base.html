@@ -11,7 +11,7 @@
   <meta property="og:site_name" content="Erik Fredner">
   $if(description)$
   <meta property="og:description" content="$description$">$endif$
-  $for(header-includes)$$header-includes$$endfor$
+  <link rel="stylesheet" href="style.css">
   <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <title>$title$&mdash;Erik Fredner</title>
@@ -79,7 +79,7 @@
     </script>
   </main>
   <footer>
-    $build-date$ &middot; <a href="mailto:erik.fredner@oregonstate.edu">erik.fredner@oregonstate.edu</a>
+    $build-date$ &middot; <a href="mailto:$email$">$email$</a>
   </footer>
 </body>
 

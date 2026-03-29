@@ -1,7 +1,6 @@
 ---
 title: "Punching Up: US Satire"
 toc: true
-toc-depth: 2
 ---
 
 ## Land Acknowledgment

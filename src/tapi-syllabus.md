@@ -1,7 +1,6 @@
 ---
 title: Text Classification with LLMs
 toc: true
-toc-depth: 2
 ---
 
 ## Description

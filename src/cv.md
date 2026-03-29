@@ -1,7 +1,6 @@
 ---
 title: CV
 toc: true
-toc-depth: 2
 ---
 
 ## Appointments
