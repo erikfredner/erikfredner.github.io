@@ -60,7 +60,7 @@ Please see my [research page](research.html).
 1. "Du Bois, Statistical Thinking, and Irony," Modern Language Association, Philadelphia, Pennsylvania, 2024.
 1. "Implications of Large Language Models for Teaching and Research," New Curriculum Pedagogy Workshop, University of Virginia, 2023.
 1. "How Literary Canons Evolve: A Data-Driven Approach," Department of English, The College of William & Mary, 2023.
-1. "*Elden Ring* and Exegesis," Department of English Speakers Series, University of Virginia, 2023.
+1. ["*Elden Ring* and Exegesis,"](er.html) Department of English Speakers Series, University of Virginia, 2023.
 1. "What Good is Distant Reading for Our Reading?" Duke University, 2023.
 1. "On Scholarly Podcasting," Stanford Center for Spatial and Textual Analysis, 2022.
 1. "Counting on *The Norton Anthology of American Literature*," DH Unbound, Association for Computers and the Humanities, 2022.
@@ -104,10 +104,11 @@ Please see my [research page](research.html).
 
 1. "Counting on Anthologies of African American Literature," with J.D. Porter, Arthur Knight, and Alexander Nwala, 2022--
 1. "*The MLA International Bibliography* as Literary History," with Mark Algee-Hewitt, 2021--
-1. "Typicality," with Mark Algee-Hewitt, 2018.
-1. "Microgenres," with Mark Algee-Hewitt, Michaela Bronstein, Abigail Droge, Ryan Heuser, Alexander Manshel, Nichole Nomura, J.D. Porter, and Hannah Walser, 2017.
-1. "Security," with Mark Algee-Hewitt, Whitney McIntosh, and Stephen Stedman, 2015.
-1. "Suspense," with Mark Algee-Hewitt, Abigail Droge, Tasha Eccles, Morgan Day Frank, J.D. Porter, Andrew Shephard, and Hannah Walser, 2014.
+1. ["Celebrity,"](celebrity.html) a collaboration with the Smithsonian Institution
+1. ["Typicality,"](typicality.html) with Mark Algee-Hewitt, 2018.
+1. ["Microgenres,"](microgenres.html) with Mark Algee-Hewitt, Michaela Bronstein, Abigail Droge, Ryan Heuser, Alexander Manshel, Nichole Nomura, J.D. Porter, and Hannah Walser, 2017.
+1. ["Security,"](security.html) with Mark Algee-Hewitt, Whitney McIntosh, and Stephen Stedman, 2015.
+1. ["Suspense,"](suspense.html) with Mark Algee-Hewitt, Abigail Droge, Tasha Eccles, Morgan Day Frank, J.D. Porter, Andrew Shephard, and Hannah Walser, 2014.
 
 ## Teaching
 
