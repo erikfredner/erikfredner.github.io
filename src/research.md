@@ -5,7 +5,12 @@ toc: true
 
 ## Works in progress
 
-- Book: [_Averaging Americans: Why US Literature Started Thinking Statistically_](averaging-americans.html)
+### Book
+
+[_Averaging Americans: Why US Literature Started Thinking Statistically_](averaging-americans.html)
+
+### Essays
+
 - [Reading with Large Language Models](reading-llms.html)
 - [Leaving New York? Locations of US Literary Publishing Since 1945](leaving-ny.html)
 - [The “Already Implicit” Canon: Data from Anthologies of African American Literature](af-am-anthologies.html)
@@ -16,8 +21,8 @@ toc: true
 
 ## Complete projects
 
-- [Moving the Capital of US Literature from Boston to New York](https://c19datacollective.com/data/capital-us-literature/)
-- [Counting on _The Norton Anthology of American Literature_](https://doi.org/10.1632/S0030812923001189)
+These are inactive projects that may not appear on my [CV](cv.html).
+
 - [_Elden Ring_ and Exegesis](er.html)
 - [Celebrity, a collaboration with the Smithsonian Institution](celebrity.html)
 - [Microgenres](microgenres.html)

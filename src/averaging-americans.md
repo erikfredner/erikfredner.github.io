@@ -1,5 +1,5 @@
 ---
-title: "Averaging Americans: Why US Literature Started Thinking Statistically"
+title: "<i>Averaging Americans</i>"
 ---
 
 _Averaging Americans: Why US Literature Started Thinking Statistically_ discovers a significant trend in US literary history by computationally analyzing more than 18,000 works of US fiction across the long nineteenth century. American authors increasingly make generalizations about individuals and groups of people using statistical reasoning, and become increasingly confident in asserting fixed characteristics as central tendencies of groups.
