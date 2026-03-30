@@ -3,6 +3,9 @@ title: Advanced Data Science
 toc: true
 ---
 
+- Institution: [University of Richmond](https://datascience.richmond.edu/academics/courses.html)
+- Repository: [github.com/erikfredner/dsst389-2024](https://github.com/erikfredner/dsst389-2024/)
+
 ## Land Acknowledgment
 
 This class at the University of Richmond respectfully acknowledges the traditional custodians of the land we are on today, the Powhatan people, and pays respect to their elders past, present, and emerging.

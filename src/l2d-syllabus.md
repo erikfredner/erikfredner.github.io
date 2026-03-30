@@ -3,6 +3,8 @@ title: From Language to Data
 toc: true
 ---
 
+- Institution: [University of Virginia](https://gened.as.virginia.edu/egmt-1520-language-data)
+
 ## Land Acknowledgment
 
 This class at the University of Virginia respectfully acknowledges the

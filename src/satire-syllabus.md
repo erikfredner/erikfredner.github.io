@@ -3,6 +3,8 @@ title: "Punching Up: US Satire"
 toc: true
 ---
 
+- Institution: [University of Virginia](https://gened.as.virginia.edu/egmt-1510-punching)
+
 ## Land Acknowledgment
 
 This class at the University of Virginia respectfully acknowledges the custodians of the land we are on today, the Monacan Nation, and pay our respect to their elders past, present and emerging. To learn more about UVA's past and present connections to the Monacan Nation, I recommend [this website](https://eocr.virginia.edu/monacan) from the Office for Equal Opportunity and Civil Rights. To learn more about the Monacan people, [read their history](https://www.monacannation.com/our-history.html)

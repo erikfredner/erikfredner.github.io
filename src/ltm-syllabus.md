@@ -3,6 +3,8 @@ title: Literary Text Mining
 toc: true
 ---
 
+- Institution: [Stanford University](https://explorecourses.stanford.edu/search?view=catalog&filter-coursestatus-Active=off&page=0&catalog=&academicYear=&q=literary+text+mining&collapse=)
+
 ## Description
 
 Computational methods have made it possible to analyze literature in new ways and at new scales. This course trains students in theories and methods of computational literary studies. It requires no background in computer programming or literary criticism. We begin with fundamentals of the Python programming language before moving on to computational analyses of literary texts. Our analyses will be informed by critical readings. While programming distinguishes this course from many other humanities classes, this course is fundamentally about literature, and what we can learn about it at the new scales afforded by computation.

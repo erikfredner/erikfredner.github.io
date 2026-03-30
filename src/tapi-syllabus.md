@@ -3,6 +3,9 @@ title: Text Classification with LLMs
 toc: true
 ---
 
+- Institution: [Text Analysis Pedagogy Institute](https://constellate.org/tap-institute)
+- Repository: [github.com/erikfredner/tap-2024](https://github.com/erikfredner/tap-2024?tab=readme-ov-file)
+
 ## Description
 
 In this course, you will learn the basics of using a large language model (specifically, ChatGPT) for text classification. Using the ChatGPT application programming interface (API), we will explore how LLMs can assist humans (and humanists) with various text classification tasks (e.g., binary, labeling, applying confidence intervals to judgments, etc.). We will get to know the API, create validation data, engineer prompts, and automate API calls for large data sets.

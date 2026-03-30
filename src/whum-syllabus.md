@@ -3,6 +3,8 @@ title: World Humanities 101
 toc: true
 ---
 
+- Institution: [The City College of New York](https://worldhum.commons.gc.cuny.edu)
+
 ## "What it is like to be alive"
 
 ### Description

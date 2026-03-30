@@ -3,6 +3,7 @@ title: "ENG 104Z: Introduction to Fiction"
 toc: true
 ---
 
+- Institution: [Oregon State University](https://ecampus.oregonstate.edu/soc/ecatalog/ecoursedetail.htm?termcode=all&subject=ENG&coursenumber=104Z)
 - Course Number: [ENG 104Z](https://ecampus.oregonstate.edu/soc/ecatalog/ecoursedetail.htm?termcode=202500&coursenumber=104Z&subject=ENG)
 - Course Title: Introduction to Fiction
 - Credits: 4

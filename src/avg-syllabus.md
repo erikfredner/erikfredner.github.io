@@ -3,6 +3,8 @@ title: Writing Intensive Seminar in English
 toc: true
 ---
 
+- Institution: [Stanford University](https://explorecourses.stanford.edu/search?q=fredner&view=catalog&page=0&filter-coursestatus-Active=on&collapse=&academicYear=20172018)
+
 ## Description
 
 Perennially invoked by politicians and pundits, declared "divine" by
