@@ -3,7 +3,7 @@ title: Research
 toc: true
 ---
 
-This page links to ongoing research. Individual research pages include abstracts and slideshows where available.
+This page links to ongoing research. Project pages include abstracts and slideshows where available.
 
 For published and forthcoming research, please see my [CV](cv.html).
 
