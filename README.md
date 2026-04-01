@@ -26,6 +26,7 @@ pandoc --standalone --template=templates/base.html \
   -o docs/PAGE.html src/PAGE.md
 cp style.css docs/style.css
 cp -r fonts docs/fonts
+rm -f docs/fonts/*.ttf docs/fonts/*.py
 ```
 
 ## Architecture
@@ -37,7 +38,7 @@ cp -r fonts docs/fonts
 | `src/*.md` | Source pages (Markdown + YAML frontmatter) |
 | `templates/base.html` | Single HTML template for all pages |
 | `style.css` | Stylesheet with EB Garamond variable fonts and light/dark mode |
-| `fonts/` | EB Garamond variable font files (regular + italic) |
+| `fonts/` | EB Garamond source TTFs + optimized WOFF2 files; only `.woff2` is copied to `docs/fonts/` |
 | `references.bib` | Shared bibliography for all citations |
 | `chicago-notes.csl` | Citation style (Chicago notes) |
 | `CNAME` | Custom domain (`fredner.org`) — copied to `docs/` by `make` |
