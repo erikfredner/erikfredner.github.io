@@ -1,11 +1,8 @@
 ---
 title: Research
-toc: true
 ---
 
-This page links to ongoing research. Project pages include abstracts and slideshows where available.
-
-For published and forthcoming research, please see my [CV](cv.html).
+The pages linked below include abstracts and slideshows for works in progress. For published and forthcoming research, please see my [CV](cv.html).
 
 ## Book
 
