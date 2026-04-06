@@ -296,6 +296,35 @@ tbody tr:nth-child(even) {
   pointer-events: auto;
 }
 
+/* Blog post date */
+.post-date {
+  color: var(--color-muted);
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Blog index cards */
+.post-card {
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.post-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.post-card p:last-child {
+  margin-bottom: 0;
+}
+
+.post-card .post-date {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
 /* Footer */
 footer {
   border-top: 1px solid var(--color-border);
