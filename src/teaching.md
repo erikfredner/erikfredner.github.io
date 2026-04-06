@@ -2,6 +2,8 @@
 title: "Teaching"
 ---
 
+The links below take you to the syllabi for my courses.
+
 - [Introduction to Fiction](104z-syllabus.html)
 - [Advanced Data Science](389-syllabus.html)
 - [Introduction to Data Science](289-syllabus.html)
