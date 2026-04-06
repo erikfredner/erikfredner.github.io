@@ -63,7 +63,6 @@ all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(CSS_OUT) $(FONTS_OUT) $(CNAME_OUT
 $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	$(PANDOC) --standalone $$TOC_ARG --defaults=defaults/toc-defaults.yaml --template=$(TEMPLATE) \
-	  --metadata date="$(CURRENT_YEAR)" \
 	  --metadata build-date="$(BUILD_DATE)" \
 	  --metadata email="$(EMAIL)" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
@@ -138,10 +137,11 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(BLOG_OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
-$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(POST_TEMPLATE) | $(BLOG_OUT_DIR)
-	$(PANDOC) --standalone --template=$(POST_TEMPLATE) \
+$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) | $(BLOG_OUT_DIR)
+	$(PANDOC) --standalone --template=$(TEMPLATE) \
 	  --metadata build-date="$(BUILD_DATE)" \
 	  --metadata email="$(EMAIL)" \
+	  --metadata pathprefix="../" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  -o $@ $<
 

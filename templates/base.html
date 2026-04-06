@@ -11,9 +11,9 @@
   <meta property="og:site_name" content="Erik Fredner">
   $if(description)$
   <meta property="og:description" content="$description$">$endif$
-  <link rel="preload" href="fonts/EBGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/EBGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="$pathprefix$fonts/EBGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="$pathprefix$fonts/EBGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="$pathprefix$style.css">
   <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
   <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -26,19 +26,20 @@
   <header>
     <nav aria-label="Site navigation">
       <ul>
-        <li><a href="index.html"><strong>Erik Fredner</strong></a></li>
+        <li><a href="$pathprefix$index.html"><strong>Erik Fredner</strong></a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
       <ul class="nav-links">
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="teaching.html">Teaching</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="$pathprefix$cv.html">CV</a></li>
+        <li><a href="$pathprefix$research.html">Research</a></li>
+        <li><a href="$pathprefix$teaching.html">Teaching</a></li>
+        <li><a href="$pathprefix$blog.html">Blog</a></li>
       </ul>
     </nav>
   </header>
   <main id="main-content">
     $if(title)$<h1>$title$</h1>$endif$
+    $if(date)$<p class="post-date"><time datetime="$date$">$date$</time></p>$endif$
     $if(toc)$
     <details class="toc-box">
       <summary class="toc-label">Contents</summary>
