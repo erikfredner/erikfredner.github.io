@@ -46,19 +46,12 @@ SLIDES_OUT := $(patsubst $(SLIDES_SRC_DIR)/%,$(SLIDES_OUT_DIR)/%,$(SLIDES_SRC))
 CSS_SRC := style.css
 CSS_OUT := $(OUT_DIR)/style.css
 
-# Fonts
-FONTS_SRC_DIR := fonts
-FONTS_OUT_DIR := $(OUT_DIR)/fonts
-FONTS_SRC := $(wildcard $(FONTS_SRC_DIR)/*)
-FONTS_OUT := $(patsubst $(FONTS_SRC_DIR)/%,$(FONTS_OUT_DIR)/%,$(FONTS_SRC))
-
 # GitHub Pages config files
 CNAME_SRC := CNAME
 CNAME_OUT := $(OUT_DIR)/CNAME
 NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
-all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(CSS_OUT) $(FONTS_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
-	rm -f $(FONTS_OUT_DIR)/*.ttf $(FONTS_OUT_DIR)/*.py
+all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(CSS_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
 $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
@@ -90,14 +83,6 @@ $(SLIDES_OUT_DIR)/%: $(SLIDES_SRC_DIR)/% | $(SLIDES_OUT_DIR)
 
 # Copy CSS
 $(CSS_OUT): $(CSS_SRC) | $(OUT_DIR)
-	cp $< $@
-
-# Font output dir
-$(FONTS_OUT_DIR): | $(OUT_DIR)
-	mkdir -p $(FONTS_OUT_DIR)
-
-# Copy each font
-$(FONTS_OUT_DIR)/%: $(FONTS_SRC_DIR)/% | $(FONTS_OUT_DIR)
 	cp $< $@
 
 # Copy CNAME for GitHub Pages custom domain
