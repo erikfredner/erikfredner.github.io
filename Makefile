@@ -33,8 +33,18 @@ BLOG_HTML_OUT := $(patsubst $(BLOG_SRC_DIR)/%.md,$(BLOG_OUT_DIR)/%.html,$(BLOG_P
 # Image assets
 IMG_SRC_DIR := $(SRC_DIR)/images
 IMG_OUT_DIR := $(OUT_DIR)/images
-IMG_SRC := $(wildcard $(IMG_SRC_DIR)/*)
-IMAGES_OUT := $(patsubst $(IMG_SRC_DIR)/%,$(IMG_OUT_DIR)/%,$(IMG_SRC))
+
+IMG_JPG_SRC  := $(wildcard $(IMG_SRC_DIR)/*.jpg)
+IMG_JPEG_SRC := $(wildcard $(IMG_SRC_DIR)/*.jpeg)
+IMG_PNG_SRC  := $(wildcard $(IMG_SRC_DIR)/*.png)
+IMG_WEBP_SRC := $(wildcard $(IMG_SRC_DIR)/*.webp)
+
+IMG_JPG_OUT  := $(patsubst $(IMG_SRC_DIR)/%.jpg,$(IMG_OUT_DIR)/%.webp,$(IMG_JPG_SRC))
+IMG_JPEG_OUT := $(patsubst $(IMG_SRC_DIR)/%.jpeg,$(IMG_OUT_DIR)/%.webp,$(IMG_JPEG_SRC))
+IMG_PNG_OUT  := $(patsubst $(IMG_SRC_DIR)/%.png,$(IMG_OUT_DIR)/%.webp,$(IMG_PNG_SRC))
+IMG_WEBP_OUT := $(patsubst $(IMG_SRC_DIR)/%,$(IMG_OUT_DIR)/%,$(IMG_WEBP_SRC))
+
+IMAGES_OUT := $(IMG_JPG_OUT) $(IMG_JPEG_OUT) $(IMG_PNG_OUT) $(IMG_WEBP_OUT)
 
 # Slide decks
 SLIDES_SRC_DIR := slides
@@ -69,8 +79,18 @@ $(OUT_DIR):
 $(IMG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(IMG_OUT_DIR)
 
-# Copy each image (pattern rule)
-$(IMG_OUT_DIR)/%: $(IMG_SRC_DIR)/% | $(IMG_OUT_DIR)
+# Convert JPG/JPEG/PNG to WebP
+$(IMG_OUT_DIR)/%.webp: $(IMG_SRC_DIR)/%.jpg | $(IMG_OUT_DIR)
+	cwebp -quiet $< -o $@
+
+$(IMG_OUT_DIR)/%.webp: $(IMG_SRC_DIR)/%.jpeg | $(IMG_OUT_DIR)
+	cwebp -quiet $< -o $@
+
+$(IMG_OUT_DIR)/%.webp: $(IMG_SRC_DIR)/%.png | $(IMG_OUT_DIR)
+	cwebp -quiet $< -o $@
+
+# Copy existing WebP files unchanged
+$(IMG_OUT_DIR)/%.webp: $(IMG_SRC_DIR)/%.webp | $(IMG_OUT_DIR)
 	cp $< $@
 
 # Slide output dir
@@ -95,9 +115,11 @@ $(NOJEKYLL_OUT): | $(OUT_DIR)
 
 # Delete images in src/images/ that are not referenced in any src/*.md
 prune-images:
-	@for img in $(IMG_SRC_DIR)/*; do \
-	  name=$$(basename $$img); \
-	  if ! grep -qr "images/$$name" $(SRC_DIR)/*.md; then \
+	@for img in $(IMG_SRC_DIR)/*.jpg $(IMG_SRC_DIR)/*.jpeg $(IMG_SRC_DIR)/*.png $(IMG_SRC_DIR)/*.webp; do \
+	  [ -e "$$img" ] || continue; \
+	  base=$$(basename "$$img"); \
+	  stem=$$(basename "$$img" | sed 's/\.[^.]*$$//'); \
+	  if ! grep -qr "images/$$base\|images/$$stem\." $(SRC_DIR)/*.md $(SRC_DIR)/blog/*.md 2>/dev/null; then \
 	    echo "Removing unused image: $$img"; \
 	    rm "$$img"; \
 	  fi; \
