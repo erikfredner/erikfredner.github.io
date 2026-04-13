@@ -6,6 +6,7 @@ Source for [fredner.org](https://fredner.org) — a static academic website buil
 
 - [`make`](https://www.gnu.org/software/make/)
 - [Pandoc](https://pandoc.org)
+- [`cwebp`](https://developers.google.com/speed/webp/docs/cwebp) — `brew install webp` (for image conversion)
 - [Zotero](https://www.zotero.org) + [Better BibTeX](https://retorque.re/zotero-better-bibtex/) (for `references.bib`)
 
 ## Commands
@@ -39,6 +40,7 @@ rm -f docs/fonts/*.ttf docs/fonts/*.py
 | `templates/base.html` | Single HTML template for all pages |
 | `style.css` | Stylesheet with EB Garamond variable fonts and light/dark mode |
 | `fonts/` | EB Garamond source TTFs + optimized WOFF2 files; only `.woff2` is copied to `docs/fonts/` |
+| `src/images/` | Source images (JPG, JPEG, PNG, WebP); JPG/JPEG/PNG are auto-converted to WebP on build |
 | `references.bib` | Shared bibliography for all citations |
 | `chicago-notes.csl` | Citation style (Chicago notes) |
 | `CNAME` | Custom domain (`fredner.org`) — copied to `docs/` by `make` |
