@@ -50,7 +50,7 @@ html {
 }
 
 /* Typography */
-h1, h2, h3, h4 { font-family: Helvetica, Arial, sans-serif; }
+h1, h2, h3, h4, header { font-family: Helvetica, Arial, sans-serif; }
 h1 { font-size: 1.8rem; font-weight: 700; margin-block: 1.2rem 0.5rem; }
 h2 { font-size: 1.4rem; font-weight: 600; margin-block: 1.2rem 0.4rem; }
 h3 { font-size: 1.2rem; font-weight: 600; margin-block: 1rem 0.3rem; }
@@ -111,10 +111,6 @@ pre code {
 }
 
 /* Navigation */
-header {
-  font-family: Helvetica, Arial, sans-serif;
-}
-
 header nav {
   display: flex;
   justify-content: space-between;
@@ -182,7 +178,7 @@ header nav a:hover {
 .toc-box {
   border: 1px solid var(--color-border);
   border-radius: 0.4em;
-  padding: 0.75rem 1rem 0.75rem 1rem;
+  padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
   background: var(--color-code-bg);
 }
@@ -210,12 +206,7 @@ nav.toc-box ul li {
 }
 
 nav.toc-box ul li a {
-  color: var(--color-accent);
   text-decoration: none;
-}
-
-nav.toc-box ul li a:hover {
-  text-decoration: underline;
 }
 
 /* Headshot */
@@ -274,11 +265,6 @@ tbody tr:nth-child(even) {
   text-decoration: none;
 }
 
-.back-to-top:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
 .back-to-top.is-visible {
   opacity: 1;
   pointer-events: auto;
@@ -287,8 +273,7 @@ tbody tr:nth-child(even) {
 /* Blog post date */
 .post-date {
   color: var(--color-muted);
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
+  margin-block: -0.5rem 1rem;
 }
 
 /* Blog index cards */
@@ -300,8 +285,7 @@ tbody tr:nth-child(even) {
 }
 
 .post-card h2 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
+  margin-block: 0 0.4rem;
 }
 
 .post-card p:last-child {
@@ -310,7 +294,6 @@ tbody tr:nth-child(even) {
 
 .post-card .post-date {
   font-size: 0.9rem;
-  color: var(--color-muted);
 }
 
 /* Footer */
