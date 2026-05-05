@@ -4,6 +4,7 @@ OUT_DIR := docs
 TEMPLATE := templates/base.html
 BIBLIOGRAPHY := references.bib
 CSL := chicago-notes.csl
+LUA_FILTER := filters/webp.lua
 CURRENT_YEAR := $(shell date +%Y)
 BUILD_DATE := $(shell date +%Y-%m-%d)
 EMAIL := erik.fredner@oregonstate.edu
@@ -63,9 +64,10 @@ NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
 all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(CSS_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
-$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) | $(OUT_DIR)
+$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	$(PANDOC) --standalone $$TOC_ARG --defaults=defaults/toc-defaults.yaml --template=$(TEMPLATE) \
+	  --lua-filter=$(LUA_FILTER) \
 	  --metadata build-date="$(BUILD_DATE)" \
 	  --metadata email="$(EMAIL)" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
@@ -131,8 +133,9 @@ blog: $(BLOG_INDEX_HTML) $(FEED_OUT) $(BLOG_HTML_OUT)
 $(BLOG_INDEX_MD): $(BLOG_SRC_MD) $(BLOG_SCRIPT) | $(BUILD_DIR)
 	uv run $(BLOG_SCRIPT) --src-dir $(BLOG_SRC_DIR) --build-dir $(BUILD_DIR) --site-url $(SITE_URL)
 
-$(BLOG_INDEX_HTML): $(BLOG_INDEX_MD) $(TEMPLATE) | $(OUT_DIR)
+$(BLOG_INDEX_HTML): $(BLOG_INDEX_MD) $(TEMPLATE) $(LUA_FILTER) | $(OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
+	  --lua-filter=$(LUA_FILTER) \
 	  --metadata build-date="$(BUILD_DATE)" \
 	  --metadata email="$(EMAIL)" \
 	  -o $@ $<
@@ -144,8 +147,9 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(BLOG_OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
-$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) | $(BLOG_OUT_DIR)
+$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) | $(BLOG_OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
+	  --lua-filter=$(LUA_FILTER) \
 	  --metadata build-date="$(BUILD_DATE)" \
 	  --metadata email="$(EMAIL)" \
 	  --metadata pathprefix="../" \

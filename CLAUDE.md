@@ -8,19 +8,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 make          # Build all HTML pages into docs/
 make serve    # Build and serve locally at http://localhost:8000
 make clean    # Remove the entire docs/ directory
+make prune-images  # Remove src/images/ files not referenced in any .md
 ```
 
-To rebuild a single page (also copies CSS and fonts if not present):
+To rebuild a single non-blog page:
 ```bash
-pandoc --standalone --template=templates/base.html \
-  --metadata date="$(date +%Y)" \
+pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/base.html \
+  --lua-filter=filters/webp.lua \
+  --metadata build-date="$(date +%Y-%m-%d)" \
+  --metadata email="erik.fredner@oregonstate.edu" \
   --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
   -o docs/PAGE.html src/PAGE.md
 cp style.css docs/style.css
-cp -r fonts docs/fonts
 ```
 
-Pages that need a TOC use `toc: true` and `toc-depth: 2` directly in YAML frontmatter — no `--defaults` flag needed.
+To rebuild a single blog post:
+```bash
+pandoc --standalone --template=templates/base.html \
+  --lua-filter=filters/webp.lua \
+  --metadata build-date="$(date +%Y-%m-%d)" \
+  --metadata email="erik.fredner@oregonstate.edu" \
+  --metadata pathprefix="../" \
+  --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
+  -o docs/blog/POST.html src/blog/POST.md
+```
 
 ## Architecture
 
@@ -28,15 +39,20 @@ This is a static academic website built with **Pandoc** and deployed to GitHub P
 
 **Build pipeline:** `src/*.md` → pandoc → `docs/*.html`
 
-- `templates/base.html` — single HTML template for all pages; includes GoatCounter analytics, navigation, and back-to-top button
-- `style.css` — self-contained stylesheet with EB Garamond variable fonts, light/dark mode, and all layout styles; copied to `docs/style.css` by the Makefile
-- `fonts/` — EB Garamond variable font files (regular + italic); copied to `docs/fonts/` by the Makefile
+- `templates/base.html` — single HTML template for all pages; includes GoatCounter analytics, navigation, and back-to-top button. Blog posts require `--metadata pathprefix="../"` so relative asset paths resolve correctly from `docs/blog/`.
+- `style.css` — stylesheet using system fonts, light/dark mode, and all layout styles; copied to `docs/style.css` by the Makefile
 - `references.bib` — Zotero/Better BibTeX bibliography; all citations across the site draw from this file
 - `chicago-notes.csl` — citation style applied by pandoc's `--citeproc`
-- `defaults/` — pandoc defaults YAML files; currently unused (TOC is controlled via frontmatter)
+- `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages
 
-**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes the `<title>` and `<h1>`. Use `toc: true` and `toc-depth: 2` for pages that need a table of contents.
+**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes the `<title>` and `<h1>`. Use `toc: true` in frontmatter for pages that need a table of contents (the Makefile detects this and passes `--toc` to pandoc).
 
-**Assets:** `src/images/` → `docs/images/`, `slides/*.html` → `docs/slides/`, `style.css` → `docs/style.css`, and `fonts/` → `docs/fonts/` are all copied by the Makefile.
+**Blog pipeline:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html` + `docs/blog.html` index + `docs/feed.xml` Atom feed.
+
+- `scripts/build_blog.py` — run via `uv run` (inline script metadata declares `pyyaml` dependency); reads frontmatter, filters out drafts, generates `build/blog-index.md` and `build/feed.xml`
+- Blog posts with `draft: true` in frontmatter are excluded from the index and feed, and not built to HTML
+- Required blog frontmatter: `title`, `date` (YYYY-MM-DD); optional: `description`, `draft`
+
+**Assets:** `src/images/` → `docs/images/` (JPG/PNG converted to WebP via `cwebp`; `.webp` copied directly). Requires `cwebp` installed.
 
 **No Jekyll:** `.nojekyll` disables GitHub Pages' Jekyll processing; the `docs/` folder is served as plain static files.
