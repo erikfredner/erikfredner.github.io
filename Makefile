@@ -161,4 +161,9 @@ $(BUILD_DIR):
 
 .PHONY: clean serve prune-images blog
 clean: ; rm -rf $(OUT_DIR)
-serve: all ; cd $(OUT_DIR) && python3 -m http.server 8000
+serve: all
+	python3 -m http.server 8000 --bind localhost --directory $(OUT_DIR) & \
+	SERVER_PID=$$!; \
+	trap "kill $$SERVER_PID 2>/dev/null" EXIT INT TERM; \
+	{ find $(SRC_DIR) -name '*.md'; echo $(CSS_SRC); find templates/ -name '*.html'; find filters/ -name '*.lua'; } | entr $(MAKE) all; \
+	kill $$SERVER_PID 2>/dev/null
