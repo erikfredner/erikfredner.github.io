@@ -10,7 +10,7 @@ The pages linked below include abstracts and slideshows for works in progress. F
 
 ## Essays
 
-- [Reading with Large Language Models](reading-llms.html)
+- [Reading with Language Models](reading-lms.html)
 - [Leaving New York? Locations of US Literary Publishing Since 1945](leaving-ny.html)
 - [The “Already Implicit” Canon: Data from Anthologies of African American Literature](af-am-anthologies.html)
 - [The Literary Canon on _Jeopardy!_](jeopardy.html)
