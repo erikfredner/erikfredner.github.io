@@ -1,6 +1,17 @@
 /* Site chrome on top of tufte.css + pandoc.css + tufte-extra.css.
    Light-only — Tufte CSS owns body/heading/link/table/code typography. */
 
+/* Tighten vertical rhythm around the article: Tufte's defaults
+   (article padding 5rem; h1 margin-top 4rem) leave too much air
+   between the nav, the title, and the footer. */
+article {
+  padding: 1.5rem 0;
+}
+
+article > header h1.title {
+  margin-top: 1rem;
+}
+
 /* Tufte width rules target `section > p` etc., which only match when
    --section-divs wraps content. Pages without H2 headings (e.g., index.md),
    or content before the first H2, end up as direct article children.
@@ -222,7 +233,7 @@ article > header .post-date {
 /* Footer — match body-text column width */
 footer {
   border-top: 1px solid #d1d5db;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   padding-block: 1rem;
   font-size: 1.1rem;
   color: #555;
