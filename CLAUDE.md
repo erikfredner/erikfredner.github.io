@@ -5,58 +5,63 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-make          # Build all HTML pages into docs/
-make serve    # Build, serve at http://localhost:8000, and live-reload on src/ changes (requires entr)
-make clean    # Remove the entire docs/ directory
-make prune-images  # Remove src/images/ files not referenced in any .md
+make               # Build all pages into docs/
+make serve         # Build, serve at http://localhost:8000, and live-reload on src/ changes (requires entr)
+make clean         # Remove the entire docs/ directory
+make prune-images  # Remove src/images/ files not referenced by any .md
 ```
 
-External tools required: `pandoc`, `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
+External tools required: `pandoc`, `pandoc-sidenote` (`brew install jez/formulae/pandoc-sidenote`), `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
 
 To rebuild a single non-blog page:
 ```bash
-pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/base.html \
+pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/tufte-base.html \
+  --section-divs \
   --lua-filter=filters/webp.lua \
   --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
   --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
+  --filter pandoc-sidenote \
   -o docs/PAGE.html src/PAGE.md
-cp style.css docs/style.css
 ```
 
-To rebuild a single blog post:
+To rebuild a single blog post (note the `pathprefix` so relative asset paths resolve from `docs/blog/`):
 ```bash
-pandoc --standalone --template=templates/base.html \
+pandoc --standalone --template=templates/tufte-base.html \
+  --section-divs \
   --lua-filter=filters/webp.lua \
   --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
   --metadata pathprefix="../" \
   --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
+  --filter pandoc-sidenote \
   -o docs/blog/POST.html src/blog/POST.md
 ```
 
 ## Architecture
 
-This is a static academic website built with **Pandoc** and deployed to GitHub Pages from the `docs/` directory (domain: fredner.org).
+This is a static academic website built with **Pandoc + Tufte CSS** and deployed to GitHub Pages from the `docs/` directory (domain: fredner.org).
 
-**Build pipeline:** `src/*.md` → pandoc → `docs/*.html`
+**Build pipeline:** `src/*.md` → pandoc (with `pandoc-sidenote` + Lua filter) → `docs/*.html`
 
-- `templates/base.html` — single HTML template for all pages; includes GoatCounter analytics, navigation, and back-to-top button. Blog posts require `--metadata pathprefix="../"` so relative asset paths resolve correctly from `docs/blog/`.
-- `style.css` — stylesheet using system fonts, light/dark mode, and all layout styles; copied to `docs/style.css` by the Makefile
-- `references.bib` — Zotero/Better BibTeX bibliography; all citations across the site draw from this file
-- `chicago-notes.csl` — citation style applied by pandoc's `--citeproc`
-- `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages
+- `templates/tufte-base.html` — single HTML template for all pages; adapts the upstream `tufte.html5` template to preserve site chrome (nav, skip-link, back-to-top, footer). Blog posts pass `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`. `templates/post.html` is referenced by the Makefile but not currently used for rendering.
+- `vendor/tufte/` — vendored [tufte-css](https://edwardtufte.github.io/tufte-css/) (`tufte.css`, `et-book/` fonts) plus [jez/tufte-pandoc-css](https://github.com/jez/tufte-pandoc-css) (`pandoc.css`, `tufte-extra.css`), and site-specific overrides in `site-extra.css`. All four CSS files plus the `et-book/` font tree are copied to `docs/` by the Makefile.
+- `--filter pandoc-sidenote` — converts pandoc footnotes (including Chicago-notes citations from `--citeproc`) into Tufte-style sidenotes. Citation/footnote rendering depends on this filter; do not remove it.
+- `--section-divs` — wraps each heading section in `<section>` so Tufte CSS layout rules apply correctly.
+- `references.bib` — Zotero/Better BibTeX bibliography; all citations across the site draw from this file.
+- `chicago-notes.csl` — Chicago notes citation style applied by pandoc's `--citeproc`.
+- `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages.
 
-**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes the `<title>` and `<h1>`. Use `toc: true` in frontmatter for pages that need a table of contents (the Makefile detects this and passes `--toc` to pandoc).
+**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc).
 
 **Blog pipeline:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html` + `docs/blog.html` index + `docs/feed.xml` Atom feed.
 
-- `scripts/build_blog.py` — run via `uv run` (inline script metadata declares `pyyaml` dependency); reads frontmatter, filters out drafts, generates `build/blog-index.md` and `build/feed.xml`
-- Blog posts with `draft: true` in frontmatter are excluded from the index and feed, and not built to HTML
-- Required blog frontmatter: `title`, `date` (YYYY-MM-DD); optional: `description`, `draft`
+- `scripts/build_blog.py` — run via `uv run` (inline script metadata declares the `pyyaml` dependency); reads frontmatter, filters out drafts, generates `build/blog-index.md` and `build/feed.xml`.
+- The Makefile also filters drafts at the Make level (via a `grep '^draft: true'` shell loop) so `make` never builds an HTML page for a draft post.
+- Required blog frontmatter: `title`, `date` (YYYY-MM-DD). Optional: `description`, `draft`.
 
-**Assets:** `src/images/` → `docs/images/` (JPG/PNG converted to WebP via `cwebp`; `.webp` copied directly). In markdown, reference images by their original `.jpg`/`.png` filename — `filters/webp.lua` rewrites image `src` attributes to `.webp` during the pandoc run so the HTML matches the converted asset.
+**Assets:** `src/images/` → `docs/images/`. JPG/JPEG/PNG are converted to WebP via `cwebp`; existing `.webp` files are copied through unchanged. In markdown, reference images by their original `.jpg`/`.jpeg`/`.png` filename — `filters/webp.lua` rewrites image `src` attributes to `.webp` during the pandoc run so the HTML matches the converted asset.
 
 **Slides:** `slides/*.html` is copied verbatim to `docs/slides/` (no pandoc processing).
 
-**No Jekyll:** `.nojekyll` disables GitHub Pages' Jekyll processing; the `docs/` folder is served as plain static files.
+**GitHub Pages config:** `CNAME` (custom domain) and `.nojekyll` (disables Jekyll) are recreated in `docs/` by `make`, so they survive `make clean`.
