@@ -6,10 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 make          # Build all HTML pages into docs/
-make serve    # Build and serve locally at http://localhost:8000
+make serve    # Build, serve at http://localhost:8000, and live-reload on src/ changes (requires entr)
 make clean    # Remove the entire docs/ directory
 make prune-images  # Remove src/images/ files not referenced in any .md
 ```
+
+External tools required: `pandoc`, `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
 
 To rebuild a single non-blog page:
 ```bash
@@ -53,6 +55,8 @@ This is a static academic website built with **Pandoc** and deployed to GitHub P
 - Blog posts with `draft: true` in frontmatter are excluded from the index and feed, and not built to HTML
 - Required blog frontmatter: `title`, `date` (YYYY-MM-DD); optional: `description`, `draft`
 
-**Assets:** `src/images/` → `docs/images/` (JPG/PNG converted to WebP via `cwebp`; `.webp` copied directly). Requires `cwebp` installed.
+**Assets:** `src/images/` → `docs/images/` (JPG/PNG converted to WebP via `cwebp`; `.webp` copied directly). In markdown, reference images by their original `.jpg`/`.png` filename — `filters/webp.lua` rewrites image `src` attributes to `.webp` during the pandoc run so the HTML matches the converted asset.
+
+**Slides:** `slides/*.html` is copied verbatim to `docs/slides/` (no pandoc processing).
 
 **No Jekyll:** `.nojekyll` disables GitHub Pages' Jekyll processing; the `docs/` folder is served as plain static files.
