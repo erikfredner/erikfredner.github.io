@@ -1,7 +1,7 @@
 PANDOC := pandoc
 SRC_DIR := src
 OUT_DIR := docs
-TEMPLATE := templates/base.html
+TEMPLATE := templates/tufte-base.html
 BIBLIOGRAPHY := references.bib
 CSL := chicago-notes.csl
 LUA_FILTER := filters/webp.lua
@@ -53,24 +53,30 @@ SLIDES_OUT_DIR := $(OUT_DIR)/slides
 SLIDES_SRC := $(wildcard $(SLIDES_SRC_DIR)/*.html)
 SLIDES_OUT := $(patsubst $(SLIDES_SRC_DIR)/%,$(SLIDES_OUT_DIR)/%,$(SLIDES_SRC))
 
-# CSS
-CSS_SRC := style.css
-CSS_OUT := $(OUT_DIR)/style.css
+# Tufte CSS bundle (vendored stylesheets + et-book fonts)
+TUFTE_SRC_DIR  := vendor/tufte
+TUFTE_CSS_NAMES := tufte.css pandoc.css tufte-extra.css site-extra.css
+TUFTE_CSS_OUT  := $(patsubst %,$(OUT_DIR)/%,$(TUFTE_CSS_NAMES))
+TUFTE_FONT_SRC := $(shell find $(TUFTE_SRC_DIR)/et-book -type f 2>/dev/null)
+TUFTE_FONT_OUT := $(patsubst $(TUFTE_SRC_DIR)/%,$(OUT_DIR)/%,$(TUFTE_FONT_SRC))
+TUFTE_OUT      := $(TUFTE_CSS_OUT) $(TUFTE_FONT_OUT)
 
 # GitHub Pages config files
 CNAME_SRC := CNAME
 CNAME_OUT := $(OUT_DIR)/CNAME
 NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
-all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(CSS_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
+all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
 $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	$(PANDOC) --standalone $$TOC_ARG --defaults=defaults/toc-defaults.yaml --template=$(TEMPLATE) \
+	  --section-divs \
 	  --lua-filter=$(LUA_FILTER) \
 	  --metadata build-date="$(BUILD_DATE)" \
 	  --metadata email="$(EMAIL)" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
+	  --filter pandoc-sidenote \
 	  -o $@ $<
 
 # Ensure base output dir exists
@@ -103,8 +109,13 @@ $(SLIDES_OUT_DIR): | $(OUT_DIR)
 $(SLIDES_OUT_DIR)/%: $(SLIDES_SRC_DIR)/% | $(SLIDES_OUT_DIR)
 	cp $< $@
 
-# Copy CSS
-$(CSS_OUT): $(CSS_SRC) | $(OUT_DIR)
+# Copy Tufte CSS files
+$(OUT_DIR)/%.css: $(TUFTE_SRC_DIR)/%.css | $(OUT_DIR)
+	cp $< $@
+
+# Copy et-book font files (preserve subdirectory structure)
+$(OUT_DIR)/et-book/%: $(TUFTE_SRC_DIR)/et-book/% | $(OUT_DIR)
+	@mkdir -p $(dir $@)
 	cp $< $@
 
 # Copy CNAME for GitHub Pages custom domain
@@ -149,11 +160,13 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
 $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) | $(BLOG_OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
+	  --section-divs \
 	  --lua-filter=$(LUA_FILTER) \
 	  --metadata build-date="$(BUILD_DATE)" \
 	  --metadata email="$(EMAIL)" \
 	  --metadata pathprefix="../" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
+	  --filter pandoc-sidenote \
 	  -o $@ $<
 
 $(BUILD_DIR):
@@ -165,5 +178,5 @@ serve: all
 	python3 -m http.server 8000 --bind localhost --directory $(OUT_DIR) & \
 	SERVER_PID=$$!; \
 	trap "kill $$SERVER_PID 2>/dev/null" EXIT INT TERM; \
-	{ find $(SRC_DIR) -name '*.md'; echo $(CSS_SRC); find templates/ -name '*.html'; find filters/ -name '*.lua'; } | entr $(MAKE) all; \
+	{ find $(SRC_DIR) -name '*.md'; find $(TUFTE_SRC_DIR) -name '*.css'; find templates/ -name '*.html'; find filters/ -name '*.lua'; } | entr $(MAKE) all; \
 	kill $$SERVER_PID 2>/dev/null
