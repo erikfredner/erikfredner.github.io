@@ -70,10 +70,12 @@ all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYL
 
 $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
+	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
+	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
 	$(PANDOC) --standalone $$TOC_ARG --defaults=defaults/toc-defaults.yaml --template=$(TEMPLATE) \
 	  --section-divs \
 	  --lua-filter=$(LUA_FILTER) \
-	  --metadata build-date="$(BUILD_DATE)" \
+	  --metadata build-date="$$PAGE_DATE" \
 	  --metadata email="$(EMAIL)" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  --filter pandoc-sidenote \
@@ -159,10 +161,12 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
 $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) | $(BLOG_OUT_DIR)
+	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
+	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
 	  --section-divs \
 	  --lua-filter=$(LUA_FILTER) \
-	  --metadata build-date="$(BUILD_DATE)" \
+	  --metadata build-date="$$PAGE_DATE" \
 	  --metadata email="$(EMAIL)" \
 	  --metadata pathprefix="../" \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
