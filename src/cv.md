@@ -18,6 +18,7 @@ toc: true
 
 ## Publications
 
+1. Erik Fredner, ["The Ends of Reading,"](the-ends-of-reading.html) *American Literature*, forthcoming.
 1. Erik Fredner, ["Moving the Capital of US Literature from Boston to New York: Evidence from 11 Million Library of Congress Catalog Records,"](https://doi.org/10.34770/xcgb-zn76) *The Nineteenth-Century Data Collective*, ed. Meredith Martin and Megan Ward, Princeton University Libraries, 2025.
 1. Erik Fredner and J.D. Porter, ["Counting on *The Norton Anthology of American Literature*,"](https://doi.org/10.1632/S0030812923001189) *PMLA* 139.1: 50--65, 2024.
 1. Erik Fredner, ["A Meaning Apart from Its Indistinguishable Words,"](https://doi.org/10.5325/nathhawtrevi.48.1.0082) *Nathaniel Hawthorne Review* 48.1: 82--98, 2022.
@@ -44,7 +45,7 @@ Please see my [research page](research.html).
 
 ## Presentations
 
-1. "Canons Across Anthologies of World, Western, and National Literatures," Symposium: "Mapping the Canon: Quantitative Approaches to Literary History," Technische Universität Darmstadt, 2026.
+1. ["Canons within Canons? US Author and Work Selections across Anthology Series,"](https://www.linglit.tu-darmstadt.de/institutlinglit/mitarbeitende/brottrager/mapping_the_canon/index.en.jsp) Symposium: "Mapping the Canon: Quantitative Approaches to Literary History," Technische Universität Darmstadt, 2026.
 1. ["The Literary Canon on *Jeopardy!*, 1984--2024,"](slides/2025-07_dh.html) Alliance of Digital Humanities Organizations, Universidade NOVA de Lisboa, 2025.
 1. ["The 'Already Implicit' Canon: Data from Anthologies of African American Literature,"](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing) Digital Americanists Panel, American Literature Association, Boston, Massachusetts, 2025.
 1. ["Leaving New York? Imprint Geographies of US Literature since 1945,"](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing) Stanford Literary Lab, 2025.
@@ -202,7 +203,7 @@ Please see my [research page](research.html).
 
 ### Programming
 
-Python, R, Tidyverse, Jupyter, RStudio, `zsh`, `git`, Claude, Codex
+Python, R, Tidyverse, Jupyter, `fish`, `git`, Claude Code
 
 ### Scientific publishing
 
@@ -210,7 +211,7 @@ Pandoc, Quarto, Markdown, LaTeX, Django
 
 ### Databases
 
-SQL, Postgre, DBeaver
+SQLite, Postgres, DBeaver
 
 ### Data visualization
 
@@ -218,8 +219,7 @@ SQL, Postgre, DBeaver
 
 ### Natural language processing
 
-`spaCy`, `stanza`, `nltk`, Ollama, LLMs
-
+Language models, Ollama, `spaCy`, `stanza`, `nltk`
 ## Languages
 
 Spanish (intermediate); French (reading); Chinese (two semesters).
