@@ -8,6 +8,7 @@ LUA_FILTER := filters/webp.lua
 LISTS_FILTER := filters/inject-lists.lua
 WRAP_LISTS_FILTER := filters/wrap-lists.lua
 CITE_URLS_FILTER := filters/cite-urls.lua
+FIG_MARGIN_FILTER := filters/figure-margin.lua
 CURRENT_YEAR := $(shell date +%Y)
 BUILD_DATE := $(shell date +%Y-%m-%d)
 EMAIL := erik.fredner@oregonstate.edu
@@ -73,7 +74,7 @@ NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
 all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
-$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(CITE_URLS_FILTER) | $(OUT_DIR)
+$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(CITE_URLS_FILTER) $(FIG_MARGIN_FILTER) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
@@ -87,6 +88,7 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILT
 	  --lua-filter=$(WRAP_LISTS_FILTER) \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  --lua-filter=$(CITE_URLS_FILTER) \
+	  --lua-filter=$(FIG_MARGIN_FILTER) \
 	  --filter pandoc-sidenote \
 	  -o $@ $<
 
@@ -173,7 +175,7 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(BLOG_OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
-$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(CITE_URLS_FILTER) | $(BLOG_OUT_DIR)
+$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(CITE_URLS_FILTER) $(FIG_MARGIN_FILTER) | $(BLOG_OUT_DIR)
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
@@ -187,6 +189,7 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA
 	  --lua-filter=$(WRAP_LISTS_FILTER) \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  --lua-filter=$(CITE_URLS_FILTER) \
+	  --lua-filter=$(FIG_MARGIN_FILTER) \
 	  --filter pandoc-sidenote \
 	  -o $@ $<
 

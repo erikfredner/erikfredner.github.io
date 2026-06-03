@@ -96,7 +96,7 @@ The SPPA's questions about literary reading have been conceptually consistent si
 
 It should be noted here that such survey questions are subject to social desirability bias, which means survey respondents are more likely to answer questions in ways they believe will reflect well on them. For example, more people report voting in elections than actually vote [@holbrookSocialDesirabilityBias2010]. Even as reading for pleasure has been declining, reading remains socially desirable. So, while the SPPA measures reading books and literature, it also measures how socially desirable it is to be perceived as a person who read a book last year. Although we cannot disentangle them, as the number of people reading for pleasure has been declining, so too has the number of people lying about reading.
 
-![Survey of Public Participation in the Arts reading rates within the past year by reading type.](images/fig1.svg){#fig:sppa}
+![Survey of Public Participation in the Arts reading rates within the past year by reading type.](images/fig1.svg){#fig:sppa .marginfig}
 
 The values in @fig:sppa clearly slip over time.^[My thanks to Sunil Iyengar and the research staff of the National Endowment for the Arts for help finding some values.] However, it can be hard to see how large these changes are in percentages alone. Comparing changes in the odds of reading helps by controlling for absolute differences in participation.^[Previous studies have used odds ratios to assess changing participation rates in the SPPA relative to a reference year. I use the same method as in the following paper, but applied to different set of questions: @dimaggioArtsParticipationCultural2004, 176-177.] That may sound technical, but it makes intuitive sense: In @fig:sppa, a 1% decrease among poetry readers is more meaningful than a 1% decrease among novel readers since a much smaller share of the public reads poetry than novels or short stories. The odds of reading novels or short stories are 45% lower than they were in 1992, whereas the odds of reading poetry or plays are down by 51% and 56%, respectively. The odds of reading literature in the preceding year are about 49% lower than they were in 1982.
 
@@ -118,7 +118,7 @@ In his guide to *The Harvard Classics*, Charles Eliot said if someone could "spa
 
 Readers may be wondering to what extent this decline is explained by frequently cited competitors of reading for leisure time like television, video games, and the internet. @fig:atusor shows the odds ratios for participating in many leisure activities viewed as competition to reading. Relative to 2003, respondents were less likely to spend time on reading, socializing, the arts, and television, and more likely to spend time on games and computing. However, the changes in @fig:atusor only correlate. The data cannot tell us whether individual respondents "traded" their reading time for other activities since the ATUS does not interview the same people from one year to the next.
 
-![American Time Use Survey odds ratios for participation in socializing, relaxing, and leisure activities.](images/fig2.svg){#fig:atusor}
+![American Time Use Survey odds ratios for participation in socializing, relaxing, and leisure activities.](images/fig2.svg){#fig:atusor .marginfig}
 
 Some readers might wonder if these trends are explained by even larger forces, such as a reduction in leisure time as economic precarity and inequality have increased. While new technologies are usually the prime suspects in the reading murder mystery, some critics have instead looked to macroeconomic transformations after the 2008 financial crisis for an explanation.^[See @brouilletteRiseFallEnglishLanguage2022 125-126.] Surprisingly, people in the US reported about 1% more leisure time in 2024 than in 2003. Regardless of how most people spent this small amount of additional leisure time, the survey suggests they mostly did not spend it reading.
 
@@ -126,9 +126,9 @@ While all of the values presented in this essay thus far are weighted to represe
 
 @fig:atused shows three noteworthy patterns in reading for personal interest by education.^[My thanks to Michelle Freeman at the Bureau of Labor Statistics for sharing these estimates, which BLS does not publicize.] First, even as reading declines, more education predicts more reading. Yet none of these groups, including the most educated, has ever been more likely than not to read for personal interest on any given day. @fig:atusedor shows the most important fact: Even though more education predicts more reading, the odds of reading have been decreasing at relatively similar rates across education levels.
 
-![American Time Use Survey participation in reading for personal interest by education.](images/fig3.svg){#fig:atused}
+![American Time Use Survey participation in reading for personal interest by education.](images/fig3.svg){#fig:atused .marginfig}
 
-![American Time Use Survey odds ratios for participation in reading for personal interest by education relative to 2004 baseline.](images/fig4.svg){#fig:atusedor}
+![American Time Use Survey odds ratios for participation in reading for personal interest by education relative to 2004 baseline.](images/fig4.svg){#fig:atusedor .marginfig}
 
 As voluntary reading decreases, reading rates among those with more education come to resemble the reading rates of those with less education from years prior. The decline in voluntary reading has been difficult to notice because the rate of decline has been relatively consistent over time and therefore has not reached a point of sudden crisis. This pattern of voluntary reading by education demonstrates why the cumulative effects of consistent decline make a difference: the general downward trend encompasses everyone, including those most likely to read.
 
@@ -138,7 +138,7 @@ Whereas the previous two surveys focus on adults, the National Assessment of Edu
 
 Beginning in 1984, the LTT asks children how often they "read for fun on \[their\] own time" [@LongTermTrendReading, 3]. This question matches the restrictions of the previous surveys in that the reading cannot be done for school or work. Students may respond they read for fun "almost every day," "once or twice a week," "once or twice a month," "a few times a year," or "never or hardly ever."
 
-![National Assessment of Educational Progress Long-Term Trend reading for fun weekly or more often by age.](images/fig5.svg){#fig:ltt}
+![National Assessment of Educational Progress Long-Term Trend reading for fun weekly or more often by age.](images/fig5.svg){#fig:ltt .marginfig}
 
 As @fig:ltt shows, most children reported reading for fun at least weekly until the 2000s. This is no longer the case for thirteen- and seventeen-year-olds. While nine-year-olds have always read for fun more than older children, that gap has been growing over time. Like educational attainment and reading for personal intereset, children's ages also predict how often they read for fun. The older children get, the less likely they are to read for fun regularly. Today, the odds of nine-year-olds reading for fun weekly or more are 58% lower than they were in 1984. But the odds of thirteen-year-olds reading for fun weekly or more are 76% lower.^[The odds of seventeen-year-olds reading are 62% lower. However, the LTT survey has not been repeated for seventeen-year-olds since 2012, so this value is not as comparable with the data for nine- or thirteen-year-olds since it is much older.]
 
