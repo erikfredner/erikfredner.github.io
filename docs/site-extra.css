@@ -158,14 +158,20 @@ header > nav a:hover { color: #0e7490; }
 }
 .toc-box[open] .toc-label::before { content: "▾"; }
 
-.toc-box ul {
+.toc-box ul,
+.toc-box ol {
   margin: 0;
-  padding-left: 1rem;
-  list-style: none;
   width: auto;
 }
-.toc-box ul li { margin-block: 0.15rem; }
-.toc-box ul li a { background: none; text-shadow: none; }
+.toc-box ul {
+  padding-left: 1rem;
+  list-style: none;
+}
+.toc-box ol {
+  padding-left: 2rem;
+}
+.toc-box li { margin-block: 0.15rem; }
+.toc-box li a { background: none; text-shadow: none; }
 
 /* Homepage headshot */
 img.headshot {

@@ -11,7 +11,7 @@ make clean         # Remove the entire docs/ directory
 make prune-images  # Remove src/images/ files not referenced by any .md
 ```
 
-External tools required: `pandoc`, `pandoc-sidenote` (`brew install jez/formulae/pandoc-sidenote`), `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
+External tools required: `pandoc`, `pandoc-sidenote` (`brew install jez/formulae/pandoc-sidenote`), `pandoc-crossref` (`brew install pandoc-crossref`), `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
 
 To rebuild a single non-blog page:
 ```bash
@@ -20,6 +20,9 @@ pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/t
   --lua-filter=filters/webp.lua \
   --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
+  --lua-filter=filters/inject-lists.lua \
+  --filter pandoc-crossref \
+  --lua-filter=filters/wrap-lists.lua \
   --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
   --filter pandoc-sidenote \
   -o docs/PAGE.html src/PAGE.md
@@ -33,6 +36,9 @@ pandoc --standalone --template=templates/tufte-base.html \
   --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
   --metadata pathprefix="../" \
+  --lua-filter=filters/inject-lists.lua \
+  --filter pandoc-crossref \
+  --lua-filter=filters/wrap-lists.lua \
   --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
   --filter pandoc-sidenote \
   -o docs/blog/POST.html src/blog/POST.md
@@ -52,7 +58,7 @@ This is a static academic website built with **Pandoc + Tufte CSS** and deployed
 - `chicago-notes.csl` — Chicago notes citation style applied by pandoc's `--citeproc`.
 - `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages.
 
-**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc).
+**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<div class="list-of-figures-box">` styled to match the TOC).
 
 **Blog pipeline:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html` + `docs/blog.html` index + `docs/feed.xml` Atom feed.
 

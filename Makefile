@@ -5,6 +5,8 @@ TEMPLATE := templates/tufte-base.html
 BIBLIOGRAPHY := references.bib
 CSL := chicago-notes.csl
 LUA_FILTER := filters/webp.lua
+LISTS_FILTER := filters/inject-lists.lua
+WRAP_LISTS_FILTER := filters/wrap-lists.lua
 CURRENT_YEAR := $(shell date +%Y)
 BUILD_DATE := $(shell date +%Y-%m-%d)
 EMAIL := erik.fredner@oregonstate.edu
@@ -39,13 +41,15 @@ IMG_JPG_SRC  := $(wildcard $(IMG_SRC_DIR)/*.jpg)
 IMG_JPEG_SRC := $(wildcard $(IMG_SRC_DIR)/*.jpeg)
 IMG_PNG_SRC  := $(wildcard $(IMG_SRC_DIR)/*.png)
 IMG_WEBP_SRC := $(wildcard $(IMG_SRC_DIR)/*.webp)
+IMG_SVG_SRC  := $(wildcard $(IMG_SRC_DIR)/*.svg)
 
 IMG_JPG_OUT  := $(patsubst $(IMG_SRC_DIR)/%.jpg,$(IMG_OUT_DIR)/%.webp,$(IMG_JPG_SRC))
 IMG_JPEG_OUT := $(patsubst $(IMG_SRC_DIR)/%.jpeg,$(IMG_OUT_DIR)/%.webp,$(IMG_JPEG_SRC))
 IMG_PNG_OUT  := $(patsubst $(IMG_SRC_DIR)/%.png,$(IMG_OUT_DIR)/%.webp,$(IMG_PNG_SRC))
 IMG_WEBP_OUT := $(patsubst $(IMG_SRC_DIR)/%,$(IMG_OUT_DIR)/%,$(IMG_WEBP_SRC))
+IMG_SVG_OUT  := $(patsubst $(IMG_SRC_DIR)/%,$(IMG_OUT_DIR)/%,$(IMG_SVG_SRC))
 
-IMAGES_OUT := $(IMG_JPG_OUT) $(IMG_JPEG_OUT) $(IMG_PNG_OUT) $(IMG_WEBP_OUT)
+IMAGES_OUT := $(IMG_JPG_OUT) $(IMG_JPEG_OUT) $(IMG_PNG_OUT) $(IMG_WEBP_OUT) $(IMG_SVG_OUT)
 
 # Slide decks
 SLIDES_SRC_DIR := slides
@@ -68,7 +72,7 @@ NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
 all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
-$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) | $(OUT_DIR)
+$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
@@ -77,6 +81,9 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILT
 	  --lua-filter=$(LUA_FILTER) \
 	  --metadata build-date="$$PAGE_DATE" \
 	  --metadata email="$(EMAIL)" \
+	  --lua-filter=$(LISTS_FILTER) \
+	  --filter pandoc-crossref \
+	  --lua-filter=$(WRAP_LISTS_FILTER) \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  --filter pandoc-sidenote \
 	  -o $@ $<
@@ -101,6 +108,10 @@ $(IMG_OUT_DIR)/%.webp: $(IMG_SRC_DIR)/%.png | $(IMG_OUT_DIR)
 
 # Copy existing WebP files unchanged
 $(IMG_OUT_DIR)/%.webp: $(IMG_SRC_DIR)/%.webp | $(IMG_OUT_DIR)
+	cp $< $@
+
+# Copy SVG files unchanged
+$(IMG_OUT_DIR)/%.svg: $(IMG_SRC_DIR)/%.svg | $(IMG_OUT_DIR)
 	cp $< $@
 
 # Slide output dir
@@ -130,7 +141,7 @@ $(NOJEKYLL_OUT): | $(OUT_DIR)
 
 # Delete images in src/images/ that are not referenced in any src/*.md
 prune-images:
-	@for img in $(IMG_SRC_DIR)/*.jpg $(IMG_SRC_DIR)/*.jpeg $(IMG_SRC_DIR)/*.png $(IMG_SRC_DIR)/*.webp; do \
+	@for img in $(IMG_SRC_DIR)/*.jpg $(IMG_SRC_DIR)/*.jpeg $(IMG_SRC_DIR)/*.png $(IMG_SRC_DIR)/*.webp $(IMG_SRC_DIR)/*.svg; do \
 	  [ -e "$$img" ] || continue; \
 	  base=$$(basename "$$img"); \
 	  stem=$$(basename "$$img" | sed 's/\.[^.]*$$//'); \
@@ -160,7 +171,7 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(BLOG_OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
-$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) | $(BLOG_OUT_DIR)
+$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) | $(BLOG_OUT_DIR)
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
@@ -169,6 +180,9 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA
 	  --metadata build-date="$$PAGE_DATE" \
 	  --metadata email="$(EMAIL)" \
 	  --metadata pathprefix="../" \
+	  --lua-filter=$(LISTS_FILTER) \
+	  --filter pandoc-crossref \
+	  --lua-filter=$(WRAP_LISTS_FILTER) \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  --filter pandoc-sidenote \
 	  -o $@ $<
