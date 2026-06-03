@@ -24,6 +24,7 @@ pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/t
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
   --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
+  --lua-filter=filters/cite-urls.lua \
   --filter pandoc-sidenote \
   -o docs/PAGE.html src/PAGE.md
 ```
@@ -40,6 +41,7 @@ pandoc --standalone --template=templates/tufte-base.html \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
   --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
+  --lua-filter=filters/cite-urls.lua \
   --filter pandoc-sidenote \
   -o docs/blog/POST.html src/blog/POST.md
 ```
@@ -56,6 +58,7 @@ This is a static academic website built with **Pandoc + Tufte CSS** and deployed
 - `--section-divs` — wraps each heading section in `<section>` so Tufte CSS layout rules apply correctly.
 - `references.bib` — Zotero/Better BibTeX bibliography; all citations across the site draw from this file.
 - `chicago-notes.csl` — Chicago notes citation style applied by pandoc's `--citeproc`.
+- `filters/cite-urls.lua` — runs after `--citeproc`, before `pandoc-sidenote`. citeproc wraps each citation in `<a href="#ref-...">` as a back-link to a bibliography entry, but chicago-notes is a notes-only style with no bibliography section, so the wrapper renders as a dead link and also swallows DOIs / JSTOR URLs. This filter strips the `#ref-` wrapper, keeps its inline content as plain text, and promotes any bare-URL child to its own external Link so the URL is clickable.
 - `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages.
 
 **Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<div class="list-of-figures-box">` styled to match the TOC).

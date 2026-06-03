@@ -255,3 +255,9 @@ footer a {
   background: none;
   text-shadow: none;
 }
+
+/* Sidenotes: long URLs (no spaces or hyphens) overflow the margin column.
+   Break them anywhere so a single citation can't blow past the sidenote width. */
+.sidenote, .marginnote {
+  overflow-wrap: anywhere;
+}
