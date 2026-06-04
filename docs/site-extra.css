@@ -18,8 +18,7 @@ article > header h1.title {
    Mirror Tufte's section-child width rules onto article-child elements. */
 article > p,
 article > footer,
-article > table,
-article > blockquote {
+article > table {
   width: 55%;
 }
 
@@ -34,8 +33,7 @@ article > ul {
 @media (max-width: 760px) {
   article > p,
   article > footer,
-  article > table,
-  article > blockquote {
+  article > table {
     width: 100%;
   }
   article > dl,
@@ -43,6 +41,55 @@ article > ul {
   article > ul {
     width: 90%;
   }
+}
+
+/* Blockquotes: upstream tufte.css gives `blockquote p` / `blockquote footer`
+   width:55% but leaves the blockquote itself unconstrained, so nested lists
+   and other elements spill past the main column. Constrain the blockquote to
+   the 55% main column and reset the inner-child widths that assumed a wider
+   parent. Also zero out the user-agent default `margin: 1em 40px` so the
+   blockquote's left/right edges align with normal paragraphs — without this,
+   the 40px UA margin-left shifts the inner content (and any sidenotes that
+   float against its right edge) 40px further right than a sibling <p>.
+   Selector is `article blockquote` (not `>`) because --section-divs nests
+   blockquotes inside <section>. */
+article blockquote {
+  width: 55%;
+  /* Negative left margin + matching padding lets the border-left sit in the
+     otherwise-empty left margin without pushing the text (or floating
+     sidenotes) inward — the content area still spans the same 55% main
+     column as a normal <p>. */
+  margin-left: calc(-1rem - 3px);
+  margin-right: 0;
+  border-left: 3px solid #d1d5db;
+  padding-left: 1rem;
+}
+
+article blockquote p,
+article blockquote footer {
+  width: auto;
+  margin-right: 0;
+}
+
+@media (max-width: 760px) {
+  article blockquote {
+    width: 100%;
+    margin-left: 0;
+    /* Keep the bar visible on mobile but skip the negative-margin trick
+       since there's no margin column to lend space to. */
+  }
+}
+
+/* Tufte's `blockquote .sidenote/.marginnote` rule (tufte.css:280) shifts
+   sidenotes further into the margin (margin-right:-82%, min-width:59%) to
+   compensate for the wider-than-main-column blockquote it assumes. With the
+   blockquote now matching the main column, reset to the base sidenote
+   positioning so all sidenotes align consistently. */
+article blockquote .sidenote,
+article blockquote .marginnote {
+  margin-right: -60%;
+  min-width: 0;
+  text-align: inherit;
 }
 
 
