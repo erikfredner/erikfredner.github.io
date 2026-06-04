@@ -20,7 +20,9 @@ pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/t
   --lua-filter=filters/webp.lua \
   --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
+  --metadata site-url="https://fredner.org" \
   --metadata link-citations=false \
+  --lua-filter=filters/og-image.lua \
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
@@ -37,8 +39,10 @@ pandoc --standalone --template=templates/tufte-base.html \
   --lua-filter=filters/webp.lua \
   --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
+  --metadata site-url="https://fredner.org" \
   --metadata pathprefix="../" \
   --metadata link-citations=false \
+  --lua-filter=filters/og-image.lua \
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
@@ -64,6 +68,7 @@ This is a static academic website built with **Pandoc + Tufte CSS** and deployed
 - `chicago-notes.csl` — Chicago notes citation style applied by pandoc's `--citeproc`.
 - `--metadata link-citations=false` — chicago-notes is a notes-only style with no bibliography section, so the default citeproc behavior of wrapping each citation in `<a href="#ref-...">` produces dead links and also swallows DOIs / JSTOR URLs that would otherwise render as clickable external links. Setting `link-citations` to `false` suppresses the wrapper entirely, leaving bare URLs in the citation content to be rendered as ordinary external links.
 - `filters/figure-margin.lua` — runs after citeproc, before `pandoc-sidenote`. Detects Figure blocks whose inner Image carries the `.marginfig` class (markdown: `![caption](src){#fig:foo .marginfig}`) and rewrites them as a Tufte-style `<figure>` with the caption in a `<span class="marginnote">` so it floats into the right sidenote column. Must run after `pandoc-crossref` so the caption already carries its `Figure N:` prefix, and after citeproc so caption citations are resolved.
+- `filters/og-image.lua` — runs right after `filters/webp.lua` so it sees the `.webp`-rewritten src. Captures the first `Image` element on the page, resolves it against the `site-url` metadata (set in the Makefile to `https://fredner.org`), and exposes the absolute URL as `og-image` metadata. The template renders `<meta property="og:image">` (plus `twitter:card` / `twitter:image`) when that value is set, so iMessage / Slack / Twitter link previews show the page's first image. Pages with no images emit no `og:image` tag.
 - `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages.
 
 **Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<div class="list-of-figures-box">` styled to match the TOC).

@@ -5,6 +5,7 @@ TEMPLATE := templates/tufte-base.html
 BIBLIOGRAPHY := references.bib
 CSL := chicago-notes.csl
 LUA_FILTER := filters/webp.lua
+OG_IMAGE_FILTER := filters/og-image.lua
 LISTS_FILTER := filters/inject-lists.lua
 WRAP_LISTS_FILTER := filters/wrap-lists.lua
 FIG_MARGIN_FILTER := filters/figure-margin.lua
@@ -73,7 +74,7 @@ NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
 all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
-$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) | $(OUT_DIR)
+$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
@@ -82,7 +83,9 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILT
 	  --lua-filter=$(LUA_FILTER) \
 	  --metadata build-date="$$PAGE_DATE" \
 	  --metadata email="$(EMAIL)" \
+	  --metadata site-url="$(SITE_URL)" \
 	  --metadata link-citations=false \
+	  --lua-filter=$(OG_IMAGE_FILTER) \
 	  --lua-filter=$(LISTS_FILTER) \
 	  --filter pandoc-crossref \
 	  --lua-filter=$(WRAP_LISTS_FILTER) \
@@ -174,7 +177,7 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(BLOG_OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
-$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) | $(BLOG_OUT_DIR)
+$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) | $(BLOG_OUT_DIR)
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
@@ -182,8 +185,10 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA
 	  --lua-filter=$(LUA_FILTER) \
 	  --metadata build-date="$$PAGE_DATE" \
 	  --metadata email="$(EMAIL)" \
+	  --metadata site-url="$(SITE_URL)" \
 	  --metadata pathprefix="../" \
 	  --metadata link-citations=false \
+	  --lua-filter=$(OG_IMAGE_FILTER) \
 	  --lua-filter=$(LISTS_FILTER) \
 	  --filter pandoc-crossref \
 	  --lua-filter=$(WRAP_LISTS_FILTER) \
