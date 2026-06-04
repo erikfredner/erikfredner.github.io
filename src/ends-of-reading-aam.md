@@ -1,16 +1,21 @@
 ---
 title: The Ends of Reading
 author: Erik Fredner
-date: \today
-abstract: "People in the US today are much less likely to read voluntarily than they were a few decades ago. This essay explains findings from three federal government surveys that describe voluntary reading, and attempts to make them useful for literary studies. I argue that literary scholars need to know the rate and magnitude of the decline in voluntary reading for two reasons. First, the annual decline has been relatively constant over the past forty years. Arguments that reading has long been in crisis correctly identify this consistency while ignoring the cumulative effects of persistent decline. The recent history of voluntary reading in the US is best understood through data precisely because of the numbing effects of crisis rhetoric. Second, literary studies' specialized reading practices are only legibly specialized in contradistinction to non-specialized reading practices. As fewer people read voluntarily, this reduces the distinctiveness of literary studies' methods. Increasingly, the distinction is not between specialized and nonspecialized reading, but between reading and not reading. Literary studies has not registered widespread interest in nonspecialized reading, a byproduct, perhaps, of an overriding interest in specialized reading. Yet the latter depends to an extent largely unacknowledged within the profession on the former."
-indent: true
+date: 2026-06-04
 lang: en-US
-linkcolor: blue
 lof: true
-strip-comments: true
 toc: true
-urlcolor: blue
 ---
+
+## Accepted Article Manuscript
+
+Below is the accepted article manuscript for "The Ends of Reading," which is forthcoming with invited responses in [*American Literature*](https://read.dukeupress.edu/american-literature).
+
+Once the article is available, I will link to the published version here.
+
+## Abstract
+
+People in the US today are much less likely to read voluntarily than they were a few decades ago. This essay explains findings from three federal government surveys that describe voluntary reading, and attempts to make them useful for literary studies. I argue that literary scholars need to know the rate and magnitude of the decline in voluntary reading for two reasons. First, the annual decline has been relatively constant over the past forty years. Arguments that reading has long been in crisis correctly identify this consistency while ignoring the cumulative effects of persistent decline. The recent history of voluntary reading in the US is best understood through data precisely because of the numbing effects of crisis rhetoric. Second, literary studies' specialized reading practices are only legibly specialized in contradistinction to non-specialized reading practices. As fewer people read voluntarily, this reduces the distinctiveness of literary studies' methods. Increasingly, the distinction is not between specialized and nonspecialized reading, but between reading and not reading. Literary studies has not registered widespread interest in nonspecialized reading, a byproduct, perhaps, of an overriding interest in specialized reading. Yet the latter depends to an extent largely unacknowledged within the profession on the former.
 
 ## Introduction
 
