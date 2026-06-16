@@ -19,7 +19,7 @@ toc: true
 ## Publications
 
 1. Erik Fredner, ["The Ends of Reading,"](the-ends-of-reading.html) *American Literature*, forthcoming.
-1. Erik Fredner, ["Moving the Capital of US Literature from Boston to New York: Evidence from 11 Million Library of Congress Catalog Records,"](https://doi.org/10.34770/xcgb-zn76) *The Nineteenth-Century Data Collective*, ed. Meredith Martin and Megan Ward, Princeton University Libraries, 2025.
+1. Erik Fredner, ["Moving the Capital of US Literature from Boston to New York: Evidence from 11 Million Library of Congress Catalog Records,"](https://c19datacollective.com/data/capital-us-literature/) *The Nineteenth-Century Data Collective*, ed. Meredith Martin and Megan Ward, Princeton University Libraries, 2025.
 1. Erik Fredner and J.D. Porter, ["Counting on *The Norton Anthology of American Literature*,"](https://doi.org/10.1632/S0030812923001189) *PMLA* 139.1: 50--65, 2024.
 1. Erik Fredner, ["A Meaning Apart from Its Indistinguishable Words,"](https://doi.org/10.5325/nathhawtrevi.48.1.0082) *Nathaniel Hawthorne Review* 48.1: 82--98, 2022.
 1. Erik Fredner, ["Hamlin Garland's 'Problem of Individual Life,'"](https://doi.org/10.1525/ncl.2021.76.3.354) *Nineteenth-Century Literature* 76.3: 354--383, 2021.
