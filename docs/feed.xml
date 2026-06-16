@@ -4,7 +4,14 @@
   <link href="https://fredner.org/feed.xml" rel="self"/>
   <link href="https://fredner.org/"/>
   <id>https://fredner.org/feed.xml</id>
-  <updated>2026-06-01T19:24:24Z</updated>
+  <updated>2026-06-16T18:04:11Z</updated>
+  <entry>
+    <title>Symposium: Mapping the Canon</title>
+    <link href="https://fredner.org/blog/darmstadt.html"/>
+    <id>https://fredner.org/blog/darmstadt.html</id>
+    <updated>2026-06-19T00:00:00Z</updated>
+    <summary>Presenting new research on canons within canons.</summary>
+  </entry>
   <entry>
     <title>Memorize poems with Anki</title>
     <link href="https://fredner.org/blog/anki-cloze.html"/>
