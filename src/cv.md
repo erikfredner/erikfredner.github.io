@@ -45,7 +45,7 @@ Please see my [research page](research.html).
 
 ## Presentations
 
-1. ["Canons within Canons? US Author and Work Selections across Anthology Series,"](https://www.linglit.tu-darmstadt.de/institutlinglit/mitarbeitende/brottrager/mapping_the_canon/index.en.jsp) Symposium: "Mapping the Canon: Quantitative Approaches to Literary History," Technische Universität Darmstadt, 2026.
+1. ["Canons within canons? Anthology selections of US literature across series,"](https://fredner.org/mapping-canon) Symposium: "Mapping the Canon: Quantitative Approaches to Literary History," Technische Universität Darmstadt, 2026.
 1. ["The Literary Canon on *Jeopardy!*, 1984--2024,"](slides/2025-07_dh.html) Alliance of Digital Humanities Organizations, Universidade NOVA de Lisboa, 2025.
 1. ["The 'Already Implicit' Canon: Data from Anthologies of African American Literature,"](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing) Digital Americanists Panel, American Literature Association, Boston, Massachusetts, 2025.
 1. ["Leaving New York? Imprint Geographies of US Literature since 1945,"](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing) Stanford Literary Lab, 2025.
