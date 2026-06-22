@@ -41,26 +41,1818 @@ Models&mdash;Erik Fredner">
         <h1 class="title">Reading with Language Models</h1>
         
       </header>
-                  <p>This essay is part of a proposed collection of
-                  essays for <em>MFS Modern Fiction Studies</em> about
-                  “Cultural AI” edited by Richard Jean So and Aarthi
-                  Vadde.</p>
-                  <hr />
-                  <p>Literary scholars’ justified opposition to their
-                  students’ use of language models (LMs) to avoid the
-                  reading, writing, and thinking crucial to the teaching
-                  of literature has obscured how LMs can advance
-                  literary scholarship. I argue that literary scholars
-                  using LMs have already begun to construct an implicit
-                  norm that gives greater license to read with LMs when
-                  they adopt what Louise Rosenblatt terms the efferent
-                  stance toward literary texts, but less license when
-                  they adopt what she terms the aesthetic stance.
-                  Rosenblatt’s distinction may help mediate the conflict
-                  between literary scholars who strongly oppose LMs and
-                  those who are curious to know what value they may have
-                  for literary studies by demarcating limits to LMs’ use
-                  within the discipline’s core practices of reading.</p>
+                  <details class="toc-box">
+        <summary class="toc-label">Contents</summary>
+        <ul>
+        <li><a href="#manuscript-information"
+        id="toc-manuscript-information">Manuscript Information</a></li>
+        <li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+        <li><a href="#introduction"
+        id="toc-introduction">Introduction</a></li>
+        <li><a href="#generating-readings-with-lms"
+        id="toc-generating-readings-with-lms">Generating readings with
+        LMs</a></li>
+        <li><a href="#reading-with-lms"
+        id="toc-reading-with-lms">Reading with LMs</a></li>
+        <li><a href="#browsing-scanning-skimming-with-lms"
+        id="toc-browsing-scanning-skimming-with-lms">Browsing, scanning,
+        skimming with LMs</a></li>
+        <li><a href="#reading-paraliterary-texts-with-lms"
+        id="toc-reading-paraliterary-texts-with-lms">Reading
+        paraliterary texts with LMs</a></li>
+        <li><a href="#conclusion"
+        id="toc-conclusion">Conclusion</a></li>
+        </ul>
+      </details>
+            <section id="manuscript-information" class="level2">
+            <h2>Manuscript Information</h2>
+            <p>This essay is part of a proposed collection of essays for
+            <em>Modern Fiction Studies</em> on the topic of Cultural AI
+            edited by Richard Jean So and Aarthi Vadde.</p>
+            </section>
+            <section id="abstract" class="level2">
+            <h2>Abstract</h2>
+            <p>Literary scholars’ justified opposition to their
+            students’ use of language models (LMs) to avoid the reading,
+            writing, and thinking crucial to the teaching of literature
+            has obscured how LMs can advance literary scholarship. I
+            argue that literary scholars using LMs have already begun to
+            construct an implicit norm that gives greater license to
+            read with LMs when they adopt what Louise Rosenblatt terms
+            the efferent stance toward literary texts, but less license
+            when they adopt what she terms the aesthetic stance.
+            Rosenblatt’s distinction may help mediate the conflict
+            between literary scholars who strongly oppose LMs and those
+            who are curious to know what value they may have for
+            literary studies by demarcating limits to LMs’ use within
+            the discipline’s core practices of reading.</p>
+            </section>
+            <section id="introduction" class="level2">
+            <h2>Introduction</h2>
+            <p>Based on the evidence available online, literary scholars
+            appear to be largely united in their opposition to language
+            models (LMs) like ChatGPT. In this, surveys suggest that
+            they are no different from the majority of Americans.<span
+            class="sidenote-wrapper"><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="faverioWhatDataSays2026">Michelle Faverio and
+            Emma Kikuchi, <span>“What the Data Says about
+            <span>Americans</span>’ Views of Artificial
+            Intelligence,”</span> Artificial Intelligence in <em>Pew
+            Research Center</em>, 2026</span>.<br />
+            <br />
+            </span></span> There are many good reasons for
+            opposition.<span
+            class="sidenote-wrapper"><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span
+            class="sidenote">See e.g., <span class="citation"
+            data-cites="gebruTESCREALBundleEugenics2024">Timnit Gebru
+            and Émile P. Torres, <span>“The <span>TESCREAL</span>
+            Bundle: <span>Eugenics</span> and the Promise of Utopia
+            Through Artificial General Intelligence,”</span> <em>First
+            Monday</em>, ahead of print, April 2024, <a
+            href="https://doi.org/10.5210/fm.v29i4.13636">https://doi.org/10.5210/fm.v29i4.13636</a></span>;
+            <span class="citation" data-cites="benderAIConHow2025">Emily
+            M. Bender and Alex Hanna, <em>The <span>AI Con</span>: How
+            to Fight Big Tech’s Hype and Create the Future We Want</em>,
+            First edition (HarperCollins, 2025)</span>; and <span
+            class="citation"
+            data-cites="varoquauxHypeSustainabilityPrice2025">Gael
+            Varoquaux, Sasha Luccioni, and Meredith Whittaker,
+            <span>“Hype, <span>Sustainability</span>, and the
+            <span>Price</span> of the <span
+            class="nocase">Bigger-is-Better Paradigm</span> in
+            <span>AI</span>,”</span> <em>Proceedings of the 2025
+            <span>ACM Conference</span> on <span>Fairness</span>,
+            <span>Accountability</span>, and
+            <span>Transparency</span></em> (New York, NY, USA),
+            <span>FAccT</span> ’25, June 2025, 61–75, <a
+            href="https://doi.org/10.1145/3715275.3732006">https://doi.org/10.1145/3715275.3732006</a></span>.<br />
+            <br />
+            </span></span> An important reason within literary studies
+            is that instructors have observed their students using LMs
+            to avoid the reading, writing, and thinking essential to the
+            teaching of literature.<span
+            class="sidenote-wrapper"><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="mcmurtrieReadingStruggleMeets2025a">Beth
+            McMurtrie, <span>“The <span>Reading Struggle Meets
+            AI</span>,”</span> News in <em>The Chronicle of Higher
+            Education</em>,
+            https://www.chronicle.com/article/the-reading-struggle-meets-ai,
+            2025</span>; and <span class="citation"
+            data-cites="kosmynaYourBrainChatGPT2025a">Nataliya Kosmyna,
+            Eugene Hauptmann, Ye Tong Yuan, et al., <em>Your
+            <span>Brain</span> on <span>ChatGPT</span>:
+            <span>Accumulation</span> of <span>Cognitive Debt</span>
+            When <span>Using</span> an <span>AI Assistant</span> for
+            <span>Essay Writing Task</span></em>, arXiv:2506.08872,
+            arXiv, 2025, <a
+            href="https://doi.org/10.48550/arXiv.2506.08872">https://doi.org/10.48550/arXiv.2506.08872</a></span>.<br />
+            <br />
+            </span></span></p>
+            <p>However, justified opposition to the ways some students
+            have been using LMs obscures how these models can be used to
+            advance literary scholarship. Used with caution by literary
+            scholars in ways that I will describe, reading with LMs can
+            also <em>occasion</em> reading, writing, and thinking.<span
+            class="sidenote-wrapper"><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span
+            class="sidenote">On LMs and the question of “reading,” see
+            <span class="citation"
+            data-cites="mitchellDebateUnderstandingAIs2023">Melanie
+            Mitchell and David C. Krakauer, <span>“The Debate over
+            Understanding in <span>AI</span>’s Large Language
+            Models,”</span> <em>Proceedings of the National Academy of
+            Sciences</em> 120, no. 13 (2023): e2215907120, <a
+            href="https://doi.org/10.1073/pnas.2215907120">https://doi.org/10.1073/pnas.2215907120</a></span>.<br />
+            <br />
+            </span></span> While most applications of LMs to texts of
+            interest to literary studies thus far have occurred within
+            digital humanities and adjacent fields, the use of LMs for
+            literary scholarship is not limited to such work. In fact,
+            their use can be so similar to the everyday work of literary
+            studies that many scholars may not realize that they have
+            already begun to use some of them.</p>
+            <p>Broadly, I will argue that scholars engaged in this work
+            have begun to construct an implicit norm about how to read
+            with LMs. Literary scholars grant greater license to read
+            with LMs when they adopt what Rosenblatt terms the “efferent
+            stance” toward a text, and less license when they adopt what
+            she terms the “aesthetic stance.” A reading on the efferent
+            end of Rosenblatt’s continuum “is centered predominantly on
+            what is to be extracted and retained after the reading
+            event,” whereas a reading on the aesthetic end “adopts an
+            attitude of readiness to focus attention on what is being
+            lived through during the reading event.”<span
+            class="citation"
+            data-cites="rosenblattTransactionalTheoryReading2018"><span
+            class="sidenote-wrapper"><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span
+            class="sidenote"><span>“The <span>Transactional
+            Theory</span> of <span>Reading</span> and
+            <span>Writing</span>,”</span> in <em>Theoretical
+            <span>Models</span> and <span>Processes</span> of
+            <span>Literacy</span></em>, 7th ed. (Routledge, 2018),
+            458.<br />
+            <br />
+            </span></span></span> This emerging norm has rarely been
+            theorized in these terms.<span
+            class="sidenote-wrapper"><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span
+            class="sidenote">For a previous use of Rosenblatt’s
+            distinction within digital humanities more generally, see
+            <span class="citation"
+            data-cites="lynchElectricalEvocationsComputer2019">Tom Liam
+            Lynch, <span>“Electrical <span>Evocations</span>:
+            <span>Computer Science</span>, the <span>Teaching</span> of
+            <span>Literature</span>, and the <span>Future</span> of
+            <span>English Education</span>,”</span> <em>English
+            Education</em> 52, no. 1 (2019): 15–37, <a
+            href="https://doi.org/10.58680/ee201930312">https://doi.org/10.58680/ee201930312</a></span>.<br />
+            <br />
+            </span></span> While both stances are essential to the
+            discipline’s “core practice” of close reading, literary
+            studies also depends upon many other reading practices that
+            receive less attention.<span class="citation"
+            data-cites="guilloryCloseReading2024"><span
+            class="sidenote-wrapper"><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span
+            class="sidenote">John Guillory, <em>On Close Reading</em>
+            (The University of Chicago Press, 2024), 3.<br />
+            <br />
+            </span></span></span> These include but are not limited to
+            browsing, skimming, and scanning texts. Rosenblatt’s
+            distinction may help mediate the conflict glossed above
+            between literary scholars who strongly oppose the use of LMs
+            within literary studies and those who are curious to know
+            what value they may have for the field by demarcating limits
+            to LMs’ use within the discipline’s core practices.</p>
+            <p>I will make the case for this distinction through many
+            examples that fruitfully apply LMs to literary texts,
+            literary criticism, and paraliterary texts of interest to
+            literary studies. By reviewing the tasks for which these
+            models have been used, I show how they can be used
+            persuasively despite their weaknesses. For example,
+            hallucinations—LMs’ best-known weakness—cannot be
+            eliminated; they are inherent to the autoregressive
+            structures of these models.<span class="citation"
+            data-cites="russinovichPriceIntelligence2025"><span
+            class="sidenote-wrapper"><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span
+            class="sidenote">Mark Russinovich, Ahmed Salem, Santiago
+            Zanella-Béguelin, and Yonatan Zunger, <span>“The
+            <span>Price</span> of <span>Intelligence</span>,”</span>
+            <em>Commun. ACM</em>, ahead of print, August 2025, <a
+            href="https://doi.org/10.1145/3749447">https://doi.org/10.1145/3749447</a>.<br />
+            <br />
+            </span></span></span> Hallucinations therefore pose a
+            significant risk to the use of LMs for research. At the same
+            time, researchers have used and invented techniques to
+            mitigate hallucinations substantially. To claim that LMs are
+            useless because hallucinations are inevitable is analogous
+            to claiming that GPS turn-by-turn navigation is useless
+            because it does not correctly guide drivers to their
+            destination every time. In both cases, people figure out how
+            to use imperfect technologies in ways that account for their
+            shortcomings.</p>
+            <p>A lot of the research that has already applied LMs to
+            literary texts and questions has been published and
+            presented in venues unfamiliar to most literary scholars.
+            Because of this, I review some of it here in a way that
+            attempts to make its relevance to literary studies writ
+            large clear. I discuss reading with LMs in several distinct
+            contexts: How scholars have already applied LMs to literary
+            texts and literary criticism for tasks including annotation,
+            summarization, imitation, and information retrieval; how
+            literary scholars have and will use vector search and
+            retrieval augmented generation to complement their browsing,
+            skimming, and scanning, especially of secondary sources; and
+            how I have used LMs to classify and extrude data from
+            paraliterary texts that contain unstructured information
+            about authors, works, and their relative positions in
+            literary canon. All of these uses of LMs occur closer to the
+            efferent end of Rosenblatt’s continuum. However, information
+            they reveal about the texts thus analyzed can also occasion
+            readings closer to the aesthetic end.</p>
+            <p>My focus on how literary studies has and might read with
+            LMs differs from many recent discussions about LMs and the
+            humanities. Much of that work has focused on the
+            relationship between the questions, knowledge, and methods
+            of the humanities, and the creation, use, and effects of LMs
+            in the world.<span
+            class="sidenote-wrapper"><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span
+            class="sidenote">e.g., <span class="citation"
+            data-cites="vaddeOutsideLanguageMachines2024">Aarthi Vadde,
+            <span>“Inside and Outside the <span>Language
+            Machines</span>,”</span> <em>PMLA</em> 139, no. 3 (2024):
+            553–58, <a
+            href="https://doi.org/10.1632/S0030812924000579">https://doi.org/10.1632/S0030812924000579</a></span>;
+            <span class="citation"
+            data-cites="benjaminNewArtificialIntelligentsia2024">Ruha
+            Benjamin, <span>“The <span>New Artificial
+            Intelligentsia</span>,”</span> in <em>Los Angeles Review of
+            Books</em>,
+            https://lareviewofbooks.org/article/the-new-artificial-intelligentsia,
+            2024</span>; <span class="citation"
+            data-cites="elkinsAIUniversityRuins2024">Katherine Elkins,
+            <span>“A(<span>I</span>) <span>University</span> in
+            <span>Ruins</span>: <span>What Remains</span> in a
+            <span>World</span> with <span>Large Language
+            Models</span>?”</span> <em>PMLA</em> 139, no. 3 (2024):
+            559–65, <a
+            href="https://doi.org/10.1632/S0030812924000543">https://doi.org/10.1632/S0030812924000543</a></span>;
+            <span class="citation"
+            data-cites="kleinProvocationsHumanitiesGenerative2025a">Lauren
+            Klein, Meredith Martin, André Brock, et al.,
+            <em>Provocations from the <span>Humanities</span> for
+            <span>Generative AI Research</span></em>, arXiv:2502.19190,
+            arXiv, 2025, <a
+            href="https://doi.org/10.48550/arXiv.2502.19190">https://doi.org/10.48550/arXiv.2502.19190</a></span>;
+            <span class="citation"
+            data-cites="hemmentDoingAIDifferently2025">Drew Hemment and
+            Cody Kommers, <em>Doing <span>AI Differently</span>:
+            <span>Rethinking</span> the <span>Foundations</span> of
+            <span>AI</span> via the <span>Humanities</span></em>
+            (Zenodo, 2025)</span>; and <span class="citation"
+            data-cites="rolandGenerativeAIFictionality2026">Edwin Roland
+            and Richard Jean So, <em>Generative <span>AI</span> &amp;
+            <span>Fictionality</span>: <span>How Novels Power Large
+            Language Models</span></em>, arXiv:2603.01220, arXiv, 2026,
+            <a
+            href="https://doi.org/10.48550/arXiv.2603.01220">https://doi.org/10.48550/arXiv.2603.01220</a></span>.<br />
+            <br />
+            </span></span> Others have focused on the interrelationships
+            between university administrators, university workers, and
+            the increasing (and increasingly worrisome) proportion of
+            university budgets diverted to big tech, including but not
+            limited to contracts for LMs.<span
+            class="sidenote-wrapper"><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span
+            class="sidenote">See e.g., <span class="citation"
+            data-cites="kirschenbaumAIUniversityService2024">Matthew
+            Kirschenbaum and Rita Raley, <span>“<span>AI</span> and the
+            <span>University</span> as a <span>Service</span>,”</span>
+            <em>PMLA</em> 139, no. 3 (2024): 504–15, <a
+            href="https://doi.org/10.1632/S003081292400052X">https://doi.org/10.1632/S003081292400052X</a></span>;
+            <span class="citation"
+            data-cites="mcclanahanEdTech2025">Annie McClanahan and
+            Louise McCune, <span>“Ed <span>Tech</span>,”</span> in
+            <em>University Keywords</em>, ed. Andy Hines, Critical
+            University Studies (Johns Hopkins University Press,
+            2025)</span>; and <span class="citation"
+            data-cites="seyboldTechnofeudalEducation2025">Matt Seybold,
+            <span>“Against <span>Technofeudal Education</span>,”</span>
+            Substack Newsletter, in <em>The American Vandal</em>,
+            2025</span>. For the view from the professioriate, see <span
+            class="citation"
+            data-cites="ArtificialIntelligenceAcademic2025"><em>Artificial
+            <span>Intelligence</span> and <span>Academic
+            Professions</span></em> (American Association of University
+            Professors, 2025)</span>. On AI and labor more generally,
+            see <span class="citation"
+            data-cites="pasquinelliEyeMasterSocial2023">Matteo
+            Pasquinelli, <em>The Eye of the Master: A Social History of
+            Artificial Intelligence</em> (Verso, 2023)</span>.<br />
+            <br />
+            </span></span></p>
+            <p>I do not focus on the field’s use of these models to add
+            to the AI hype. Rather, I do so in opposition to a weak
+            critique. Too many arguments against the use of LMs in
+            literary studies proceed from the supposition that they are
+            not or cannot be useful to the discipline because they have
+            been harmful in the classroom. However true this argument
+            may be of the classroom, it is demonstrably false with
+            respect to research. Ethical arguments against LMs—how they
+            disempower labor, reproduce biases including but not limited
+            to racism and sexism, rely on copyrighted material without
+            compensating its creators, accelerate surveillance by the
+            state and by capital, etc.—are far stronger. Claims made for
+            or against LMs on grounds of their usefulness demand serious
+            engagement with both their capacities and disciplinary norms
+            governing their use. While I cannot discuss the former here
+            as the state of the art expires weekly, I will attempt to
+            describe how I see the latter emerging.</p>
+            </section>
+            <section id="generating-readings-with-lms" class="level2">
+            <h2>Generating readings with LMs</h2>
+            <p>While this essay discusses scholars using LMs to advance
+            literary research, it does not advocate for LMs
+            independently generating readings of literary texts. A
+            common rejoinder to LM-generated text captures the
+            prevailing view of this issue: “Why should I bother to read
+            something that no one bothered to write?”<span
+            class="sidenote-wrapper"><label for="sn-10" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-10" class="margin-toggle"/><span
+            class="sidenote">There is little doubt that LM-generated
+            research has already been submitted and may well be
+            published, if it has not been already. For example, <span
+            class="citation"
+            data-cites="liangQuantifyingLargeLanguage2025">Weixin Liang,
+            Yaohui Zhang, Zhengxuan Wu, et al., <span>“Quantifying Large
+            Language Model Usage in Scientific Papers,”</span>
+            <em>Nature Human Behaviour</em> 9, no. 12 (2025): 2599–609,
+            <a
+            href="https://doi.org/10.1038/s41562-025-02273-8">https://doi.org/10.1038/s41562-025-02273-8</a></span>
+            show that words disproportionately favored by LMs like
+            <em>pivotal</em> and <em>intricate</em> began appearing much
+            more often in scientific abstracts after the release of
+            ChatGPT.<br />
+            <br />
+            </span></span> My aim in this section is to articulate the
+            assumptions on which this question rests. A strong version
+            of its argument must hold true in a hypothetical future
+            where LM-generated literary scholarship is indistinguishable
+            from the work of experts. Today, one can argue for the
+            superiority of expert work on the merits. But it is more
+            useful to contemplate why this judgment would persist even
+            if LM-generated text were one day indistinguishable from
+            expert work. That answer turns on reading and writing as
+            embodied experiences.</p>
+            <p>A thought experiment will help to ground this point.
+            Jorge Luis Borges’s character Pierre Menard wants to live
+            his life such that he will “produce a number of pages which
+            coincided—word for word and line for line—with those of
+            Miguel de Cervantes.”<span class="citation"
+            data-cites="borgesPierreMenardAuthor1999"><span
+            class="sidenote-wrapper"><label for="sn-11" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-11" class="margin-toggle"/><span
+            class="sidenote"><span>“Pierre <span>Menard</span>,
+            <span>Author</span> of the
+            <span><em>Quixote</em></span>,”</span> in <em>Collected
+            Fictions</em>, trans. Andrew Hurley (Allen Lane The Penguin
+            Press, 1999), 91.<br />
+            <br />
+            </span></span></span> In the judgment of the narrator of
+            Borges’s story, “The Cervantes text and the Menard text are
+            verbally identical, but the second is almost infinitely
+            richer. (More <em>ambiguous</em>, his detractors will
+            say—but ambiguity is richness).”<span class="citation"
+            data-cites="borgesPierreMenardAuthor1999"><span
+            class="sidenote-wrapper"><label for="sn-12" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-12" class="margin-toggle"/><span
+            class="sidenote"><span>“Pierre <span>Menard</span>,
+            <span>Author</span> of the
+            <span><em>Quixote</em></span>,”</span> 94.<br />
+            <br />
+            </span></span></span> The same words, but not the same
+            meaning. Menard’s seem “richer” because of his
+            quixotism.</p>
+            <p>Now, imagine if a future LM could be trained on a
+            scholar’s prior reading and writing such that it could
+            generate a new reading of a new text that is identical to
+            one that scholar had independently written. Even though
+            these texts would be identical, most literary scholars would
+            not regard them as being of equal value because they emerged
+            from different contexts.</p>
+            <p>The scholar’s version would be considered more valuable
+            because it testifies to the embodied experiences of specific
+            texts encountered by specific readers at specific times. A
+            version of this position has been central to feminist
+            scholarship, Black studies, queer theory, disability
+            studies, and many other fields. As Paula Moya put it
+            recently, “Because a work of literature is only actualized
+            in the process of being read, it can never be the same for
+            all readers or even for the ‘same’ reader over time.”<span
+            class="citation"
+            data-cites="moyaPropositionsCloseReading2024"><span
+            class="sidenote-wrapper"><label for="sn-13" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-13" class="margin-toggle"/><span
+            class="sidenote"><span>“Some <span>Propositions</span> on
+            <span>Close Reading</span>,”</span> <em>Symploke</em> 32,
+            no. 1 (2024): 359.<br />
+            <br />
+            </span></span></span> And one reader’s embodied experience
+            of one text at the moment of its reading—what Derek Attridge
+            calls “the literary event”—cannot be modeled, either.<span
+            class="citation"
+            data-cites="attridgeSingularityLiterature2017"><span
+            class="sidenote-wrapper"><label for="sn-14" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-14" class="margin-toggle"/><span
+            class="sidenote"><em>The Singularity of Literature</em>,
+            Routledge Classics (Routledge, 2017), 84–85.<br />
+            <br />
+            </span></span></span></p>
+            <p>Writing after reading discloses aspects of that
+            experience that the writer hopes to make meaningful to other
+            readers. As I.A. Richards put it a century ago, “Criticism
+            is the endeavour to discriminate between experiences.”<span
+            class="citation"
+            data-cites="richardsPrinciplesLiteraryCriticism1925a"><span
+            class="sidenote-wrapper"><label for="sn-15" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-15" class="margin-toggle"/><span
+            class="sidenote"><em>Principles of Literary Criticism</em>,
+            International Library of Psychology, Philosophy, and
+            Scientific Method (K. Paul, Trench, Trubner, &amp; Co.,
+            ltd.; Harcourt, Brace &amp; Co., inc, 1925) viii.<br />
+            <br />
+            </span></span></span> A century later, Lauren Klein et
+            al. said, “Models make words, but people make meaning.”<span
+            class="citation"
+            data-cites="kleinProvocationsHumanitiesGenerative2025a"><span
+            class="sidenote-wrapper"><label for="sn-16" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-16" class="margin-toggle"/><span
+            class="sidenote"><em>Provocations from the
+            <span>Humanities</span> for <span>Generative AI
+            Research</span></em>, 1.<br />
+            <br />
+            </span></span></span> Dan Sinykin and Johanna Winant
+            emphasize embodiment in close reading by narrating how the
+            method works with anaphoric emphasis on <em>you</em>: “…you
+            start with someone else’s words; you see something in those
+            words that means something to you…And now you might look up
+            from the text because you want to show what’s happened to
+            someone else. You want to explain something to another
+            person: your own reader.”<span class="citation"
+            data-cites="sinykinCloseReadingTwentyfirst2025"><span
+            class="sidenote-wrapper"><label for="sn-17" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-17" class="margin-toggle"/><span
+            class="sidenote"><em>Close Reading for the Twenty-First
+            Century</em>, Skills for Scholars (Princeton University
+            Press, 2025), 1.<br />
+            <br />
+            </span></span></span> N. Katherine Hayles has made the same
+            point in the context of LMs: “Literary criticism…has always
+            worked from one customary presupposition: that the texts it
+            interrogates have been written by humans with language
+            processed by human brains.”<span class="citation"
+            data-cites="haylesBacteriaAIHuman2025"><span
+            class="sidenote-wrapper"><label for="sn-18" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-18" class="margin-toggle"/><span
+            class="sidenote"><em>Bacteria to <span>AI</span>: Human
+            Futures with Our Nonhuman Symbionts</em> (The University of
+            Chicago Press, 2025), 139.<br />
+            <br />
+            </span></span></span> What Hayles says here of literary
+            texts applies equally to scholarship. LM-generated texts do
+            not imply that embodied work of observation, interpretation,
+            and communication. LM outputs mean differently without this
+            context, just as Menard’s <em>Quixote</em> means differently
+            than Cervantes’s.</p>
+            <p>Leif Weatherby might characterize this distinction as
+            “remainder humanism.” It is a “remainder” in the sense that
+            it defines as human the “ever shrinking area of things that
+            ‘computers can’t do’.”<span class="citation"
+            data-cites="weatherbyLanguageMachinesCultural2025"><span
+            class="sidenote-wrapper"><label for="sn-19" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-19" class="margin-toggle"/><span
+            class="sidenote"><em>Language Machines: Cultural
+            <span>AI</span> and the End of Remainder Humanism</em>,
+            Posthumanities 74 (University of Minnesota Press, 2025),
+            37.<br />
+            <br />
+            </span></span></span> Weatherby is right that defining the
+            human in the negative is a losing game. Recent studies have
+            shown that the difference between human and machine
+            performance on measurable aspects of close reading is
+            surprisingly small: no statistically significant difference
+            was observed in the grades assigned to essays about Old
+            English poetry between Oxford University students and
+            GPT-4;<span class="citation"
+            data-cites="revellChatGPTHumanEssayists2024"><span
+            class="sidenote-wrapper"><label for="sn-20" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-20" class="margin-toggle"/><span
+            class="sidenote">T. Revell, W. Yeadon, G. Cahilly-Bretzin,
+            et al., <span>“<span>ChatGPT</span> Versus Human Essayists:
+            An Exploration of the Impact of Artificial Intelligence for
+            Authorship and Academic Integrity in the Humanities,”</span>
+            <em>International Journal for Educational Integrity</em> 20,
+            no. 1 (2024): 1–19, <a
+            href="https://doi.org/10.1007/s40979-024-00161-8">https://doi.org/10.1007/s40979-024-00161-8</a>.<br />
+            <br />
+            </span></span></span> GPT-4 approximated or outperformed
+            literary scholars at correctly identifying poetic forms of
+            unlabeled poems;<span class="citation"
+            data-cites="walshSonnetNotBot2024"><span
+            class="sidenote-wrapper"><label for="sn-21" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-21" class="margin-toggle"/><span
+            class="sidenote">Melanie Walsh, Anna Preus, and Maria
+            Antoniak, <em>Sonnet or <span>Not</span>, <span>Bot</span>?
+            <span>Poetry Evaluation</span> for <span>Large Models</span>
+            and <span>Datasets</span></em>, arXiv:2406.18906, arXiv,
+            2024, <a
+            href="https://doi.org/10.48550/arXiv.2406.18906">https://doi.org/10.48550/arXiv.2406.18906</a>.<br />
+            <br />
+            </span></span></span> a small LM performed better than the
+            average of human evaluators on college-level multiple-choice
+            close reading questions;<span class="citation"
+            data-cites="suiKRISTEVACloseReading2025"><span
+            class="sidenote-wrapper"><label for="sn-22" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-22" class="margin-toggle"/><span
+            class="sidenote">Peiqi Sui, Juan Diego Rodriguez, Philippe
+            Laban, et al., <em><span>KRISTEVA</span>: <span>Close
+            Reading</span> as a <span>Novel Task</span> for
+            <span>Benchmarking Interpretive Reasoning</span></em>,
+            arXiv:2505.09825, arXiv, 2025, <a
+            href="https://doi.org/10.48550/arXiv.2505.09825">https://doi.org/10.48550/arXiv.2505.09825</a>.<br />
+            <br />
+            </span></span></span> and LM-generated interpretations of
+            texts helped people answer close reading questions about
+            those texts more accurately than they otherwise would
+            have.<span class="citation"
+            data-cites="zhiWhatDoesAI2026"><span
+            class="sidenote-wrapper"><label for="sn-23" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-23" class="margin-toggle"/><span
+            class="sidenote">Jiayin Zhi, Hoyt Long, Richard Jean So, and
+            Mina Lee, <em>What <span>Does AI Do</span> for
+            <span>Cultural Interpretation</span>? <span>A Randomized
+            Experiment</span> on <span>Close Reading Poems</span> with
+            <span>Exposure</span> to <span>AI
+            Interpretation</span></em>, 2026, <a
+            href="https://doi.org/10.1145/3772318.3791727">https://doi.org/10.1145/3772318.3791727</a>.<br />
+            <br />
+            </span></span></span> This goes beyond close reading quizzes
+            to other supposedly distinctive human abilities. For
+            example, one recent study found that LMs matched humans on
+            questions designed to test theory of mind.<span
+            class="citation"
+            data-cites="strachanTestingTheoryMind2024"><span
+            class="sidenote-wrapper"><label for="sn-24" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-24" class="margin-toggle"/><span
+            class="sidenote">James W. A. Strachan, Dalila Albergo,
+            Giulia Borghini, et al., <span>“Testing Theory of Mind in
+            Large Language Models and Humans,”</span> <em>Nature Human
+            Behaviour</em> 8, no. 7 (2024): 1285–95, <a
+            href="https://doi.org/10.1038/s41562-024-01882-z">https://doi.org/10.1038/s41562-024-01882-z</a>.<br />
+            <br />
+            </span></span></span> Even if LMs match or exceed measurable
+            expert performance on such tasks, arguing from embodied
+            experience means that context need not be evident in the
+            text in order to make a meaningful difference.</p>
+            <p>However, arguing from embodied experience does cut
+            against key insights from the conflict between phenomenology
+            and structuralism. Jacques Derrida would have challenged the
+            notion that the absence of embodied context from
+            LM-generated text differentiates it from any other instance
+            of writing because “a written sign carries with it a force
+            that breaks with its context, that is, with the collectivity
+            of presences organizing the moment of its inscription.”<span
+            class="citation" data-cites="derridaLimitedInc1988a"><span
+            class="sidenote-wrapper"><label for="sn-25" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-25" class="margin-toggle"/><span
+            class="sidenote"><span>“<span>Signature Event
+            Context</span>,”</span> in <em><span>Limited Inc</span></em>
+            (Northwestern University Press, 1988), 9.<br />
+            <br />
+            </span></span></span> For Derrida, what applies to writing
+            also applies to “the entire field of what philosophy would
+            call experience, even the experience of being,” challenging
+            whether this distinction is any distinction at all.<span
+            class="citation" data-cites="derridaLimitedInc1988a"><span
+            class="sidenote-wrapper"><label for="sn-26" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-26" class="margin-toggle"/><span
+            class="sidenote"><span>“<span>Signature Event
+            Context</span>,”</span> 9.<br />
+            <br />
+            </span></span></span> With respect to LMs, Hayles calls this
+            “the null strategy,”<span class="citation"
+            data-cites="haylesBacteriaAIHuman2025"><span
+            class="sidenote-wrapper"><label for="sn-27" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-27" class="margin-toggle"/><span
+            class="sidenote"><em>Bacteria to <span>AI</span></em>,
+            147.<br />
+            <br />
+            </span></span></span> which she opposes because it relies on
+            “the incorrect assumption that [LM-generated texts] display
+            interiority and subjectivity.”<span class="citation"
+            data-cites="haylesBacteriaAIHuman2025"><span
+            class="sidenote-wrapper"><label for="sn-28" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-28" class="margin-toggle"/><span
+            class="sidenote"><em>Bacteria to <span>AI</span></em>,
+            144.<br />
+            <br />
+            </span></span></span> Widespread uptake of the rejoinder
+            “Why should I bother to read something that no one bothered
+            to write?” suggests that Derrida’s argument is being
+            reconsidered in the context of LMs. This would be a striking
+            turn of the dialectic, given that, as Ted Underwood has
+            argued, contemporary LMs themselves represent “the empirical
+            triumph of theory,” especially structuralism. As the
+            philosopher Alva Noë recently put it, “Computers, however
+            vitally important these may become as technological
+            extensions of our work, never enter into human being.”<span
+            class="citation"
+            data-cites="noeEntanglementHowArt2023"><span
+            class="sidenote-wrapper"><label for="sn-29" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-29" class="margin-toggle"/><span
+            class="sidenote"><em>The Entanglement: How Art and
+            Philosophy Make Us What We Are</em> (Princeton University
+            Press, 2023), 160.<br />
+            <br />
+            </span></span></span></p>
+            <p>LMs cannot independently generate readings that can
+            answer the question “Why should I bother to read something
+            that no one bothered to write?” because no one bothered to
+            write them. Embodied experiences of reading and writing
+            appear to be prerequisites for such work, albeit ones that
+            did not need to be named before it became possible that a
+            reading could be created without them. However, LMs need not
+            generate close readings independently to be useful to close
+            readers.<span
+            class="sidenote-wrapper"><label for="sn-30" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-30" class="margin-toggle"/><span
+            class="sidenote">In some fields, LMs have been used to
+            simulate feedback from peer reviewers and editors. In the
+            sciences, see <span class="citation"
+            data-cites="liangCanLargeLanguage2024">Weixin Liang, Yuhui
+            Zhang, Hancheng Cao, et al., <span>“Can <span>Large Language
+            Models Provide Useful Feedback</span> on <span>Research
+            Papers</span>? <span>A Large-Scale Empirical
+            Analysis</span>,”</span> <em>NEJM AI</em> 1, no. 8 (2024),
+            <a
+            href="https://doi.org/10.1056/AIoa2400196">https://doi.org/10.1056/AIoa2400196</a></span>.
+            In creative writing, see <span class="citation"
+            data-cites="geroSocialDynamicsAI2023">Katy Ilonka Gero, Tao
+            Long, and Lydia B. Chilton, <span>“Social
+            <span>Dynamics</span> of <span>AI Support</span> in
+            <span>Creative Writing</span>,”</span> <em>Proceedings of
+            the 2023 <span>CHI Conference</span> on <span>Human
+            Factors</span> in <span>Computing Systems</span></em> (New
+            York, NY, USA), <span>CHI</span> ’23, April 2023, 1–15, <a
+            href="https://doi.org/10.1145/3544548.3580782">https://doi.org/10.1145/3544548.3580782</a></span>.<br />
+            <br />
+            </span></span> The remainder of this essay will show how LMs
+            are already being used to create evidence that supports
+            literary scholarship.</p>
+            </section>
+            <section id="reading-with-lms" class="level2">
+            <h2>Reading with LMs</h2>
+            <p>By now, researchers have already been reading literature
+            with LMs for several years. For example, the National
+            Endowment for the Humanities first funded the AI for
+            Humanists project, which seeks to help position humanists
+            “to make use of—and to critique” LMs, in 2021.<span
+            class="citation" data-cites="AIHumanistsProject2025"><span
+            class="sidenote-wrapper"><label for="sn-31" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-31" class="margin-toggle"/><span
+            class="sidenote"><span>“The <span>AI</span> for
+            <span>Humanists Project</span>,”</span> in <em>AI for
+            Humanists</em>, http://www.bertforhumanists.org//,
+            2025.<br />
+            <br />
+            </span></span></span> However, much of this work has been
+            published in venues far afield from the reading of most
+            literary scholars. In this section, I describe some recent
+            research that exemplifies why and how literary studies has
+            and will read with LMs.<span
+            class="sidenote-wrapper"><label for="sn-32" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-32" class="margin-toggle"/><span
+            class="sidenote">For a review that covers the humanities and
+            social sciences more broadly, see <span class="citation"
+            data-cites="karjusMachineassistedQuantitizingDesigns2025">Andres
+            Karjus, <span>“Machine-Assisted Quantitizing Designs:
+            Augmenting Humanities and Social Sciences with Artificial
+            Intelligence,”</span> <em>Humanities and Social Sciences
+            Communications</em> 12, no. 1 (2025): 277, <a
+            href="https://doi.org/10.1057/s41599-025-04503-w">https://doi.org/10.1057/s41599-025-04503-w</a></span>.<br />
+            <br />
+            </span></span> While these studies tend to foreground
+            computational and statistical methods, I have prioritized
+            discussing studies that have co-authors who are literary
+            scholars, who are well aware of where and why their
+            approaches break from traditional literary scholarship. I
+            organize this brief discussion around some of the key tasks
+            for which scholars have used LMs with literary texts.</p>
+            <p>One such task is annotation. While different in form,
+            annotation with LMs is identical in spirit to marking up a
+            book with any systematic approach to marginalia, highlight
+            colors, or page flags. The difference is that digital
+            annotations are computationally tractable, so they can be
+            used to count examples or retrieve text associated with one
+            or more annotations. For instance, Andrew Piper and Sunyam
+            Bagga use GPT-4 to annotate passages from many kinds of
+            prose narratives to identify which predetermined
+            characteristics, if any, a given passage possesses (e.g.,
+            does it contain specific markers of time?). They find that
+            the model annotates passages in ways that tend to agree with
+            human annotations of the same passages for the same
+            features. Similarly, Catherine Yeh, Tara Menon, et al. use
+            LMs to annotate where characters are geographically located
+            at specific points in the narratives of novels, plays, and
+            epic poems. They use the resulting data to visualize the
+            relationship between time, space, and characters over an
+            entire text, such that they can show which characters are at
+            the Bennetts’ and which at Netherfield across narrative time
+            in <em>Pride and Prejudice</em>. Their approach also
+            demonstrates how LM annotations can be reviewed and
+            corrected by researchers after generation, a research
+            process usually referred to as “human-in-the-loop.” Haaris
+            Mian, Melanie Subbiah, Sharon Marcus, et al. use LMs to
+            operationalize and extend Alex Woloch’s account of
+            character. Where previous such analyses primarily focused on
+            computationally tractable elements (like direct mentions of
+            a character’s name), they extend this model to more complex
+            categories that they use LMs to annotate, including
+            interiority, action, discussion by other characters, and
+            discussion by the narrator for each character. Their model
+            uses the sum of these factors as an index of how major or
+            minor individual characters are.<span class="citation"
+            data-cites="mianComputationalRepresentationsCharacter2026a"><span
+            class="sidenote-wrapper"><label for="sn-33" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-33" class="margin-toggle"/><span
+            class="sidenote">Haaris Mian, Melanie Subbiah, Sharon
+            Marcus, Nora Shaalan, and Kathleen McKeown,
+            <em>Computational <span>Representations</span> of
+            <span>Character Significance</span> in
+            <span>Novels</span></em>, arXiv:2601.15508, arXiv, 2026, 3,
+            <a
+            href="https://doi.org/10.48550/arXiv.2601.15508">https://doi.org/10.48550/arXiv.2601.15508</a>.<br />
+            <br />
+            </span></span></span></p>
+            <p>In these examples and others like them, researchers use
+            LMs to annotate passages from literary texts in order to
+            extract data about structural or formal features that can be
+            used for other analyses—a quintessentially efferent reading
+            practice. As these examples also suggest, one standard
+            approach to assessing the accuracy of LM annotations
+            compares them to identical annotations created and validated
+            by experts on a representative sample of the texts to be
+            annotated. Such annotation tasks often find that LM
+            annotation is faster and cheaper than human annotation,
+            while producing results that evaluations suggest are as good
+            or better than those produced by humans. Their speed and
+            performance also makes it possible to do this kind of
+            annotation at otherwise unimaginable scales.<span
+            class="sidenote-wrapper"><label for="sn-34" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-34" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="kommersMeaningNotMetric2025">Cody Kommers, Drew
+            Hemment, Maria Antoniak, et al., <em>Meaning <span>Is Not A
+            Metric</span>: <span>Using LLMs</span> to Make Cultural
+            Context Legible at Scale</em>, arXiv:2505.23785, arXiv,
+            2025, <a
+            href="https://doi.org/10.48550/arXiv.2505.23785">https://doi.org/10.48550/arXiv.2505.23785</a></span>.<br />
+            <br />
+            </span></span> While working at larger scales does not
+            necessarily confer advantages for close reading (though it
+            can), it clearly makes a difference for fields of literary
+            study that attempt to make sense of larger bodies of texts,
+            such as literary history, genre theory, and stylistics.</p>
+            <p>Summarization is another task for which researchers have
+            applied LMs to literary texts. Cleanth Brooks’s heresy of
+            paraphrase notwithstanding, summarizing texts can be useful
+            for researchers who wish to identify passages that discuss
+            similar themes or topics using dissimilar language. When
+            literary works address subjects indirectly, metaphorically,
+            or through omission, computational approaches like counting
+            words can conceal similarities between passages. For
+            example, as Toni Morrison emphasizes in <em>Playing in the
+            Dark</em>, American literature’s pervasive “Africanist
+            presence” is evinced through “significant and underscored
+            omissions.”<span class="citation"
+            data-cites="morrisonPlayingDarkWhiteness1992"><span
+            class="sidenote-wrapper"><label for="sn-35" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-35" class="margin-toggle"/><span
+            class="sidenote"><em>Playing in the Dark: Whiteness and the
+            Literary Imagination</em>, The <span>William E</span>.
+            <span>Massey</span>, <span>Sr</span>. Lectures in the
+            History of <span>American</span> Civilization 1990 (Harvard
+            University Press, 1992), 6.<br />
+            <br />
+            </span></span></span> Building on such observations, Lucy Li
+            et al. use LMs to summarize passages from fiction, asking
+            the LM to “tell” rather than “show” what happens in each
+            passage. They use the resulting summaries as inputs for
+            topic modeling, a natural language processing technique that
+            predates LMs for characterizing the topics that documents
+            discuss based on the underlying distributions of words in a
+            corpus.<span class="citation"
+            data-cites="bleiProbabilisticTopicModels2012"><span
+            class="sidenote-wrapper"><label for="sn-36" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-36" class="margin-toggle"/><span
+            class="sidenote">David M. Blei, <span>“Probabilistic Topic
+            Models,”</span> <em>Communications of the ACM</em> 55, no. 4
+            (2012): 77, <a
+            href="https://doi.org/10.1145/2133806.2133826">https://doi.org/10.1145/2133806.2133826</a>.<br />
+            <br />
+            </span></span></span> Eschewing topic modeling, Andrew Piper
+            and Sophie Wu have used LMs to annotate narrative topics in
+            news and fiction directly, finding that LMs performed as
+            well as humans with respect to identifying news topics, but
+            outperformed humans when identifying topics in fiction. LM
+            summaries help researchers identify topics, concepts, and
+            patterns in their distributions.</p>
+            <p>Imitation of authorial style is another task related to
+            but distinct from summarization. In literature classrooms,
+            imitation has long been used as a pedagogical technique to
+            help students better understand minutiae of authorial style.
+            Gabi Kirilloff et al. use GPT-4 to generate 6,000 synthetic
+            paragraphs in the styles of ten nineteenth-century authors
+            ranging from Pauline E. Hopkins to Charles Dickens. They
+            find that GPT-4’s imitations are generally easy to detect,
+            capturing authors’ “themes without capturing literary
+            style.”<span class="citation"
+            data-cites="kirilloffWrittenStyleChatGPT2025"><span
+            class="sidenote-wrapper"><label for="sn-37" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-37" class="margin-toggle"/><span
+            class="sidenote"><span>“<span>‘<span>Written</span> in the
+            <span>Style</span> of ’</span>: <span>ChatGPT</span> and the
+            <span>Literary Canon</span>,”</span> <em>Harvard Data
+            Science Review</em> 7, no. 4 (2025): 22, <a
+            href="https://doi.org/10.1162/99608f92.6d5fb5ef">https://doi.org/10.1162/99608f92.6d5fb5ef</a>.<br />
+            <br />
+            </span></span></span> For example, the synthetic passages
+            use nouns and determiners much more often than do the
+            authors the LM was assigned to imitate, so much so that the
+            researchers can predict whether a passage was written by the
+            author or the LM more than 95% of the time. However, as in
+            the classroom, degrees of failure in imitation also reveal
+            aspects of authors’ styles. They show that Mark Twain is an
+            exception to their general conclusion: GPT-4 imitates Twain
+            much better than the other authors in their sample.</p>
+            <p>Information retrieval is a fourth task for which LMs have
+            been used with literary texts, and one that I will discuss
+            further in the next section. Where the previous studies I
+            have cited in this section apply LMs directly (or, in the
+            case of imitation, indirectly) to literary texts, Katherine
+            Thai and Mohit Iyyer apply LMs to both literary fiction and
+            literary criticism simultaneously. Specifically, they
+            provide an LM with the full text of a work of prose fiction
+            as well as a work of literary criticism that features at
+            least one direct quote from that work of fiction. For the
+            experiment, one direct quote has been blanked out, though
+            the surrounding critical context remains. The LM is then
+            asked to determine which quote from the provided fiction has
+            been blanked out in the criticism. The authors find that
+            Google’s LM Gemini outperforms experts at correctly
+            identifying which quote has been removed. This is an
+            exemplary information retrieval task because the goal is to
+            find a specific passage in the fiction (the “needle”) that
+            best fits the context provided by both the criticism and the
+            fiction itself (the “haystack”).<span
+            class="sidenote-wrapper"><label for="sn-38" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-38" class="margin-toggle"/><span
+            class="sidenote">On needles in haystacks, see also <span
+            class="citation" data-cites="hamiltonTooLongDidnt2025">Sil
+            Hamilton, Rebecca M. M. Hicke, Matthew Wilkens, and David
+            Mimno, <em>Too <span>Long</span>, <span>Didn</span>’t
+            <span>Model</span>: <span>Decomposing LLM Long-Context
+            Understanding With Novels</span></em>, arXiv:2505.14925,
+            arXiv, 2025, <a
+            href="https://doi.org/10.48550/arXiv.2505.14925">https://doi.org/10.48550/arXiv.2505.14925</a></span>.<br />
+            <br />
+            </span></span> The authors argue that this demonstrates LMs’
+            capacity to assist with what they term literary evidence
+            retrieval: Given a source text and a critical context, an LM
+            can do as well as (or better than) experts at identifying
+            omitted evidence.</p>
+            <p>Although there are other studies that I could discuss (as
+            well as nits that could be picked with these studies), these
+            four tasks give a good sense of how and why scholars have
+            used LMs to read literary texts and literary scholarship
+            directly. These descriptions also suggest some of the ways
+            in which the assumptions underlying this work differ from
+            those of most literary scholarship. For example, much of
+            this work uses LMs to identify and evaluate many examples
+            with shared properties, rather than focusing on how a few
+            examples illuminate larger wholes. Though such aggregative
+            approaches are most strongly associated with computational
+            literary studies, they are also directly applicable to other
+            fields such as literary history, genre studies, and
+            stylistics, among others.<span
+            class="sidenote-wrapper"><label for="sn-39" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-39" class="margin-toggle"/><span
+            class="sidenote">See e.g., <span class="citation"
+            data-cites="sobchukComputationalThematicsComparing2024">Oleg
+            Sobchuk and Artjoms Šeļa, <span>“Computational Thematics:
+            Comparing Algorithms for Clustering the Genres of Literary
+            Fiction,”</span> <em>Humanities and Social Sciences
+            Communications</em> 11, no. 1 (2024): 1–12, <a
+            href="https://doi.org/10.1057/s41599-024-02933-6">https://doi.org/10.1057/s41599-024-02933-6</a></span>.<br />
+            <br />
+            </span></span></p>
+            <p>All of these examples also directly or indirectly
+            acknowledge two limitations of these approaches. The first
+            is that all of these tasks artificially reduce the
+            complexity of individual literary texts, though they also do
+            so for limited purposes. This reduction is characteristic of
+            efferent reading. The second is that LMs’ stochastic natures
+            mean that, even if their outputs are correct in the vast
+            majority of cases, they <em>will</em> be wrong in some
+            cases, and it is not possible to predict why or how they
+            will go wrong when they go wrong. Such errors are intrinsic
+            to the autoregressive structures of these models; they can
+            be reduced, but it is not clear that they can be
+            eliminated.<span
+            class="sidenote-wrapper"><label for="sn-40" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-40" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="marcusTamingSiliconValley2024">Gary Marcus,
+            <em>Taming <span>Silicon Valley</span>: How We Can Ensure
+            That <span>AI</span> Works for Us</em> (The MIT Press,
+            2024)</span>.<br />
+            <br />
+            </span></span> This is usually cited as the best argument
+            against using LMs for research. However, critiques that stop
+            there miss two points that the research reviewed above
+            demonstrates. First, researchers can account for that degree
+            of error using techniques like human-in-the-loop
+            verification, ensemble methods, and statistical approaches
+            to quantify their uncertainty. Second, the relevant
+            comparator here is not perfect accuracy in evaluating a
+            small number of cases, but expert accuracy in evaluating a
+            large number of cases.</p>
+            </section>
+            <section id="browsing-scanning-skimming-with-lms"
+            class="level2">
+            <h2>Browsing, scanning, skimming with LMs</h2>
+            <p>As both Pierre Bayard and Amy Hungerford have suggested,
+            literary scholars must solve the problem of having too much
+            to read by browsing, skimming, scanning, and sometimes
+            skipping texts.<span
+            class="sidenote-wrapper"><label for="sn-41" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-41" class="margin-toggle"/><span
+            class="sidenote">The distinction: “Skimming is defined as
+            getting the main idea or gist of a selection quickly and
+            scanning as a high speed search for the answer to a specific
+            question or the location of a specific fact” <span
+            class="citation"
+            data-cites="maxwellSkimmingScanningImprovement1972">(Martha
+            J. Maxwell, <span>“Skimming and <span>Scanning
+            Improvement</span>: <span>The Needs</span>,
+            <span>Assumptions</span> and <span>Knowledge
+            Base</span>,”</span> <em>Journal of Reading Behavior</em> 5,
+            no. 1 (1972): 48, <a
+            href="https://doi.org/10.1080/10862967209547021">https://doi.org/10.1080/10862967209547021</a>)</span>.<br />
+            <br />
+            </span></span> These judgments are made using efferent
+            reading practices, not aesthetic ones. To be sure, much
+            literary scholarship itself rewards Rosenblatt’s aesthetic
+            stance. But it would be impossible for a scholar to do all
+            of their professional reading in that mode. Despite
+            increases in publication and the expansion of admissible
+            evidence, literary studies’ aggregate research time has
+            shrunk as the academic precariat has grown.<span
+            class="sidenote-wrapper"><label for="sn-42" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-42" class="margin-toggle"/><span
+            class="sidenote">For the latest figures, see <span
+            class="citation"
+            data-cites="colbyDataSnapshotTenure2025">Glenn Colby,
+            <span>“Data <span>Snapshot</span>: <span>Tenure</span> and
+            <span>Contingency</span> in <span>US Higher
+            Education</span>, <span>Fall</span> 2023,”</span>
+            <em>Academe Magazine</em> 111, no. 2 (2025)</span>.<br />
+            <br />
+            </span></span> Below, I demonstrate how scholars have
+            already begun to complement these techniques for reviewing
+            secondary literature with others enabled by LMs,
+            specifically vector search and retrieval augmented
+            generation (RAG).</p>
+            <p>Unlike the research described in the previous section,
+            vector search and RAG will seem similar to the ordinary
+            research practices of most literary scholars today,
+            especially for literature reviews. Specifically, they
+            complement keyword search. Because of this connection, it is
+            worth briefly considering how keyword search recently
+            changed scholarly practices of browsing, skimming, and
+            scanning, and how the discipline responded at that time. In
+            1995, Yahoo! Search came online; scholarly concern about
+            keyword search followed soon thereafter.<span
+            class="sidenote-wrapper"><label for="sn-43" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-43" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="stebelmanCybercheatingDishonestyGoes1998">Scott
+            Stebelman, <span>“Cybercheating: Dishonesty Goes
+            Digital.”</span> <em>American Libraries</em> 29, no. 8
+            (1998): 48–51</span> and <span class="citation"
+            data-cites="renardCutPaste1011999">Lisa Renard, <span>“Cut
+            and <span>Paste</span> 101: <span>Plagiarism</span> and the
+            <span>Net</span>.”</span> <em>Educational Leadership</em>
+            57, no. 4 (1999): 38</span>.<br />
+            <br />
+            </span></span> Suddenly, students could find texts to
+            plagiarize with ease. Over recent decades, this has gotten
+            easier. Yet warnings about keyword search abated as
+            researchers began to use this tool for their own work.<span
+            class="sidenote-wrapper"><label for="sn-44" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-44" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="borgmanScholarshipDigitalAge2007">Christine L.
+            Borgman, <em>Scholarship in the Digital Age: Information,
+            Infrastructure, and the <span>Internet</span></em> (MIT
+            Press, 2007)</span> and <span class="citation"
+            data-cites="frydmanDefenseSearchBar2025">Hannah Frydman,
+            <span>“In <span>Defense</span> of the <span>Search
+            Bar</span>,”</span> <em>The American Historical Review</em>
+            130, no. 2 (2025): 714–35, <a
+            href="https://doi.org/10.1093/ahr/rhaf010">https://doi.org/10.1093/ahr/rhaf010</a></span>.<br />
+            <br />
+            </span></span> Few scholars today oppose keyword search with
+            the vigor that some did in the 1990s. In a 2001 essay
+            reflecting on the impact of keyword search on literary
+            studies, David S. Miall lamented that full texts online
+            “offer only a partial and inadequate solution to the needs
+            of a literary scholar; even full-text searching provides
+            access only to words, not to concepts.”<span
+            class="citation"
+            data-cites="miallLibraryInternetLiterary2001"><span
+            class="sidenote-wrapper"><label for="sn-45" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-45" class="margin-toggle"/><span
+            class="sidenote"><span>“The <span>Library</span> Versus the
+            <span>Internet</span>: <span>Literary Studies</span> Under
+            <span>Siege</span>?”</span> <em>PMLA</em> 116, no. 5 (2001):
+            1407, <a
+            href="https://www.jstor.org/stable/463544">https://www.jstor.org/stable/463544</a>.<br />
+            <br />
+            </span></span></span> Vector search and RAG can be combined
+            to search texts in ways more closely aligned with Miall’s
+            conceptual search than keyword search. Though it may seem
+            like a remote possibility now, what happened with keyword
+            search after the 1990s may repeat with vector search and
+            RAG, especially as they are currently being incorporated
+            into electronic resources that scholars already depend on
+            like EBSCO and Primo.</p>
+            <section id="vector-search" class="level3">
+            <h3>Vector search</h3>
+            <p>To explain how vector search and RAG impact literary
+            studies’ reading, I must first briefly explain how vector
+            search differs from keyword search.<span
+            class="sidenote-wrapper"><label for="sn-46" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-46" class="margin-toggle"/><span
+            class="sidenote">For a more technical overview, see <span
+            class="citation"
+            data-cites="syedWhatVectorSearch2024">Meredith Syed and
+            Erika Russi, <span>“What Is Vector Search?”</span> in
+            <em>IBM</em>,
+            https://www.ibm.com/think/topics/vector-search,
+            2024</span>.<br />
+            <br />
+            </span></span> LMs fundamentally emerge from observations of
+            words and parts of words (collectively, “tokens”) in many
+            contexts across many documents. Relationships between one
+            token and other tokens can be represented as vectors. This
+            representation makes it possible to show, for example, that
+            the vector for <em>claw</em> is more similar to the vector
+            for <em>cat</em> than the vector for <em>hat</em>. Phrases,
+            sentences, and paragraphs can be represented in much the
+            same way, allowing for the similarity of entire passages to
+            be compared using the same principle. Vector search uses
+            this technique to retrieve the most similar passages in a
+            document to a researcher’s prompt.</p>
+            <p>The key difference between vector search and keyword
+            search is that, in vector search, semantically similar
+            passages can be identified even when none of the keywords in
+            the prompt appear in the document. For example, suppose a
+            researcher were scanning a monograph for discussions of
+            serial publication, but none of its paratexts (table of
+            contents, index, etc.) pointed to a clear answer. A keyword
+            search for <em>serial</em> would miss passages about works
+            “published in monthly numbers” or those that “appeared in
+            installments,” even though those phrases match the intent of
+            the query precisely. Keyword search risks false negatives in
+            cases like this by missing discussions of a subject that
+            lack the keyword. Vector search, by contrast, risks false
+            positives, retrieving relatively dissimilar passages this
+            monograph did not, in fact, discuss serial publication.</p>
+            <p>While retrieving semantically similar passages is the
+            exceptional feature of vector search, it is important to
+            note why using vector search specifically (and LMs
+            generally) on relatively recent documents in languages well
+            represented online—such as recent scholarship in
+            English—performs more reliably than does vector search of
+            older documents, or documents in languages not well
+            represented online.<span
+            class="sidenote-wrapper"><label for="sn-47" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-47" class="margin-toggle"/><span
+            class="sidenote">As of this writing, the top languages on
+            the web by total number of webpages are English (49%),
+            Spanish (6%), German (6%), Japanese (5%), and French (4%).
+            See <span class="citation"
+            data-cites="UsageStatisticsMarket"><span>“Usage
+            <span>Statistics</span> and <span>Market Share</span> of
+            <span>Content Languages</span> for <span>Websites</span>,
+            <span>June</span> 2025,”</span> in <em>W3Techs</em>,
+            https://w3techs.com/technologies/overview/content_language,
+            2025</span>.<br />
+            <br />
+            </span></span> Vector search is therefore more useful for
+            searching secondary sources than primary sources, which is
+            evident in the platforms that have begun to adopt it such as
+            EBSCO, Primo, JSTOR, and Project MUSE. To understand why, we
+            can think of perhaps the best-known example of semantic
+            shift in English over recent centuries: <em>gay</em>.<span
+            class="sidenote-wrapper"><label for="sn-48" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-48" class="margin-toggle"/><span
+            class="sidenote">For a computational analysis of this shift,
+            see <span class="citation"
+            data-cites="hamiltonCulturalShiftLinguistic2016">William L.
+            Hamilton, Jure Leskovec, and Dan Jurafsky, <span>“Cultural
+            Shift or Linguistic Drift? Comparing Two Computational
+            Measures of Semantic Change,”</span> <em>Proceedings of the
+            <span>Conference</span> on <span>Empirical Methods</span> in
+            <span>Natural Language Processing</span>.
+            <span>Conference</span> on <span>Empirical Methods</span> in
+            <span>Natural Language Processing</span></em> 2016 (2016):
+            2116</span>.<br />
+            <br />
+            </span></span> The context of <em>gay</em> as used by a
+            Twitter troll may be anachronistically imported into the
+            semantic space of <em>gay</em> in <em>The Great Gatsby</em>
+            because the same token appears in both places in the
+            training data for the embedding model.<span
+            class="sidenote-wrapper"><label for="sn-49" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-49" class="margin-toggle"/><span
+            class="sidenote">The former is <span class="citation"
+            data-cites="oxfordenglishdictionaryGayAdjSense2025">Oxford
+            English Dictionary, <em>Gay, Adj., Sense 10</em>, Oxford
+            University Press, 2025</span>, while the latter is <span
+            class="citation"
+            data-cites="oxfordenglishdictionaryGayAdjSense2025a">Oxford
+            English Dictionary, <em>Gay, Adj., Sense 3.a</em>, Oxford
+            University Press, 2025.</span><br />
+            <br />
+            </span></span> Ted Underwood, Laura K. Nelson, and Matthew
+            Wilkens have studied anachronism of this sort as a
+            particularly important problem for the use of LMs to analyze
+            historical texts.</p>
+            <p>Although false positives and anachronism pose different
+            threats to vector search than keyword search’s false
+            negatives, they can be addressed using the same strategy. No
+            one who uses keyword search finds that its results
+            invariably reflect their intentions. Keyword searchers try
+            multiple queries when one does not return an expected
+            result, and accept that inconclusive results occur.
+            Experience with vector search likewise cultivates a sense of
+            its capacities and limits. However, the line between keyword
+            and vector search is becoming blurred by a paradigm called
+            hybrid search that invisibly performs both keyword and
+            vector search with the same query. Google Search has already
+            worked this way for some time.<span class="citation"
+            data-cites="HybridSearchVertex2025"><span
+            class="sidenote-wrapper"><label for="sn-50" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-50" class="margin-toggle"/><span
+            class="sidenote"><span>“About Hybrid Search,”</span> in
+            <em>Google Cloud</em>,
+            https://cloud.google.com/vertex-ai/docs/vector-search/about-hybrid-search,
+            2025.<br />
+            <br />
+            </span></span></span> Vector and hybrid search paradigms are
+            also being incorporated into library e-resources that
+            scholars depend upon for searching catalogs and databases,
+            such as EBSCO.<span class="citation"
+            data-cites="EBSCOsAINatural2025"><span
+            class="sidenote-wrapper"><label for="sn-51" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-51" class="margin-toggle"/><span
+            class="sidenote"><span>“<span>EBSCO</span>’s <span>AI
+            Natural Language Search Mode</span>,”</span> in <em>EBSCO
+            Connect</em>,
+            https://connect.ebsco.com/s/article/Coming-soon-Introducing-EBSCOs-AI-Natural-Language-Search-Mode?language=en_US,
+            2025.<br />
+            <br />
+            </span></span></span></p>
+            <p>If vector search seems only moderately useful for
+            searching a single document, its effects become more
+            profound when retrieving passages from multiple documents
+            simultaneously, as in retrieval augmented generation.</p>
+            </section>
+            <section id="retrieval-augmented-generation" class="level3">
+            <h3>Retrieval augmented generation</h3>
+            <p>Vector search retrieves semantically similar passages to
+            a query. Retrieval augmented generation (RAG) uses the
+            passages surfaced by vector search as evidence as it
+            generates textual responses to prompts in the style of a
+            chatbot.<span class="citation"
+            data-cites="lewisRetrievalaugmentedGenerationKnowledgeintensive2020"><span
+            class="sidenote-wrapper"><label for="sn-52" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-52" class="margin-toggle"/><span
+            class="sidenote">Patrick Lewis, Ethan Perez, Aleksandra
+            Piktus, et al., <span>“Retrieval-Augmented Generation for
+            Knowledge-Intensive <span>NLP</span> Tasks,”</span>
+            <em>Proceedings of the 34th <span>International
+            Conference</span> on <span>Neural Information Processing
+            Systems</span></em> (Red Hook, NY, USA), <span>NIPS</span>
+            ’20, December 2020, 9459–74.<br />
+            <br />
+            </span></span></span> Crucially for scholars, RAG systems
+            quote, cite, and link to the passages identified by vector
+            search in their generated responses. Because their responses
+            are “grounded” by specific documents, RAG has been found to
+            reduce the likelihood of hallucination (or confabulation),
+            which is when an LM generates plausible-sounding but false
+            information, such as citations to documents that do not
+            exist.<span
+            class="sidenote-wrapper"><label for="sn-53" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-53" class="margin-toggle"/><span
+            class="sidenote">For discussions of hallucination and
+            confabulation, see <span class="citation"
+            data-cites="leeHallucinationsNeuralMachine2018">Katherine
+            Lee, Orhan Firat, Ashish Agarwal, Clara Fannjiang, and David
+            Sussillo, <em>Hallucinations in <span>Neural Machine
+            Translation</span></em>, September 2018</span> and <span
+            class="citation"
+            data-cites="suiConfabulationSurprisingValue2024">Peiqi Sui,
+            Eamon Duede, Sophie Wu, and Richard Jean So,
+            <em>Confabulation: <span>The Surprising Value</span> of
+            <span>Large Language Model Hallucinations</span></em>,
+            arXiv:2406.04175, arXiv, 2024, <a
+            href="https://doi.org/10.48550/arXiv.2406.04175">https://doi.org/10.48550/arXiv.2406.04175</a></span>.
+            On RAG and hallucination, see <span class="citation"
+            data-cites="ayalaReducingHallucinationStructured2024">Orlando
+            Ayala and Patrice Bechard, <span>“Reducing Hallucination in
+            Structured Outputs via <span>Retrieval-Augmented
+            Generation</span>,”</span> in <em>Proceedings of the 2024
+            <span>Conference</span> of the <span>North American
+            Chapter</span> of the <span>Association</span> for
+            <span>Computational Linguistics</span>: <span>Human Language
+            Technologies</span> (<span>Volume</span> 6: <span>Industry
+            Track</span>)</em>, ed. Yi Yang, Aida Davani, Avi Sil, and
+            Anoop Kumar (Association for Computational Linguistics,
+            2024), <a
+            href="https://doi.org/10.18653/v1/2024.naacl-industry.19">https://doi.org/10.18653/v1/2024.naacl-industry.19</a></span>.<br />
+            <br />
+            </span></span> RAG is already being used for research in
+            domains with certain structural similarities to literary
+            studies like law.<span class="citation"
+            data-cites="barronBridgingLegalKnowledge2025"><span
+            class="sidenote-wrapper"><label for="sn-54" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-54" class="margin-toggle"/><span
+            class="sidenote">Ryan C. Barron, Maksim E. Eren, Olga M.
+            Serafimova, Cynthia Matuszek, and Boian S. Alexandrov,
+            <em>Bridging <span>Legal Knowledge</span> and
+            <span>AI</span>: <span>Retrieval-Augmented Generation</span>
+            with <span>Vector Stores</span>, <span>Knowledge
+            Graphs</span>, and <span class="nocase">Hierarchical
+            Non-negative Matrix Factorization</span></em>,
+            arXiv:2502.20364, arXiv, 2025, <a
+            href="https://doi.org/10.48550/arXiv.2502.20364">https://doi.org/10.48550/arXiv.2502.20364</a>.<br />
+            <br />
+            </span></span></span></p>
+            <p>Like vector search, literary scholars have likely already
+            experienced RAG whether they know it or not. Google’s AI
+            Overviews use RAG to respond to queries by gathering
+            information from multiple webpages, generating responsive
+            text, and citing the pages referenced in the result.<span
+            class="sidenote-wrapper"><label for="sn-55" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-55" class="margin-toggle"/><span
+            class="sidenote">Few searchers check those citations,
+            however. See <span class="citation"
+            data-cites="liebGoogleUsersAre2025">Athena Chapekis and Anna
+            Lieb, <span>“Google Users Are Less Likely to Click on Links
+            When an <span>AI</span> Summary Appears in the
+            Results,”</span> in <em>Pew Research Center</em>,
+            2025</span>.<br />
+            <br />
+            </span></span> To get a sense of what this is like in a
+            scholarly context, researchers can try JSTOR’s RAG tool,
+            which identifies responsive passages from across JSTOR’s
+            collection.<span class="citation"
+            data-cites="JSTORsAIResearch"><span
+            class="sidenote-wrapper"><label for="sn-56" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-56" class="margin-toggle"/><span
+            class="sidenote"><span>“<span>JSTOR</span>’s <span>AI</span>
+            Research Tool,”</span> in <em>About JSTOR</em>, n.d.<br />
+            <br />
+            </span></span></span> Primo also has a similar tool for
+            identifying references in libraries’ catalogs.<span
+            class="citation" data-cites="GettingStartedPrimo2024"><span
+            class="sidenote-wrapper"><label for="sn-57" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-57" class="margin-toggle"/><span
+            class="sidenote"><span>“Getting <span>Started</span> with
+            <span>Primo Research Assistant</span>,”</span> in <em>Ex
+            Libris Knowledge Center</em>,
+            https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/015_Getting_Started_with_Primo_Research_Assistant,
+            2024.<br />
+            <br />
+            </span></span></span></p>
+            <p>The disadvantage of RAG systems like these is that the
+            researcher does not choose the documents to be searched.
+            However, a custom RAG system can complement the browsing,
+            skimming, and scanning scholars do when preparing a
+            literature review by allowing them to choose the documents
+            themselves. For example, Javier Cha has done this by using
+            Open WebUI’s RAG implementation with LMs running on
+            university-owned hardware. Because of the predominance of
+            commercial chatbots like ChatGPT in discourse about LMs, few
+            realize that it is possible to run open-weight LMs on their
+            own computers using software like Ollama. Scholars who use
+            reference management software like Zotero are especially
+            well positioned to retrieve not only responsive passages
+            across their documents, but also metadata about those
+            passages. Whatever a specific RAG implementation may be, the
+            key point is that a RAG system can run on a laptop to search
+            documents of a scholar’s choosing without necessarily
+            providing copies of any of those sources to model-makers
+            like OpenAI, and can even be used without an internet
+            connection.</p>
+            <p>Vector search and RAG will be more similar in their
+            effects on literary scholarship to keyword search than other
+            uses of LMs that attract more attention and alarm, such as
+            generating essays. Just as most scholars today routinely
+            search library catalogs, databases, and PDFs for keywords,
+            RAG makes it possible to identify passages within and across
+            documents that are semantically similar to researchers’
+            prompts. And just as scholars had to become experienced with
+            keyword search to understand its strengths and weaknesses,
+            so too with vector search and RAG, though hybrid search
+            paradigms may make this process more difficult by blurring
+            the distinction. As Joshua Rothman recently suggested in
+            <em>The New Yorker</em>, “In our current reading regime,
+            summarized or altered texts are the exception, not the rule.
+            But over the next decade or so, that polarity may well
+            reverse: we may routinely start with alternative texts and
+            only later decide to seek out originals.” “Alternative
+            texts” need not be summaries generated by LMs. In the case
+            of vector search and RAG, the constituent passages of a text
+            are <em>reorganized</em> based on their semantic similarity
+            to a query, such that the passage of an article most similar
+            to the query becomes the first one presented for reading,
+            irrespective of its true position in the text. In certain
+            respects, this is similar to the excerption of longer prose
+            works in an anthology, where a reader’s encounter with a
+            part of a text makes a case for its whole.<span
+            class="sidenote-wrapper"><label for="sn-58" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-58" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="priceAnthologyRiseNovel2000">Leah Price, <em>The
+            Anthology and the Rise of the Novel: From
+            <span>Richardson</span> to <span>George Eliot</span></em>
+            (Cambridge University Press, 2000)</span>.<br />
+            <br />
+            </span></span> The important difference here is that, rather
+            than selections made by an editor for a general audience,
+            the reorganization of passages in a RAG system is
+            individualized, transient, and always subject to the
+            revision of the prompt or a change of LM. Grounded in a
+            bibliography determined by the researcher, vector search and
+            RAG complement existing browsing, skimming, and scanning
+            techniques that scholars already use to determine what to
+            read and how to read it.</p>
+            </section>
+            </section>
+            <section id="reading-paraliterary-texts-with-lms"
+            class="level2">
+            <h2>Reading paraliterary texts with LMs</h2>
+            <p>The preceding two sections discussed using LMs to read
+            literary texts and literary scholarship. Both involved the
+            evaluation of LM outputs by experts, whether through
+            comparison to validated data, or through iterative
+            refinement of vector search and RAG results. However,
+            irrespective of the validation processes put in place, some
+            literary scholars likely remain skeptical about using these
+            models to gather information directly from literary texts
+            themselves because of the literary qualities like irony and
+            ambiguity that make those texts interesting to study in the
+            first place. In this section, I will show how LMs can be
+            used to study literature without applying them to literary
+            texts. I will do so by briefly discussing some of my ongoing
+            research on the literary canon, which uses LMs in different
+            ways and on different kinds of texts than those discussed
+            thus far.</p>
+            <p>Although the literary canon “never appears as as a
+            complete and uncontested list in any particular time and
+            place,” there exist some good proxies for that list,
+            including comprehensive literature anthologies like those
+            published by Norton as well as reference works like <em>The
+            MLA International Bibliography</em>.<span class="citation"
+            data-cites="guilloryCulturalCapitalProblem2023"><span
+            class="sidenote-wrapper"><label for="sn-59" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-59" class="margin-toggle"/><span
+            class="sidenote">John Guillory, <em>Cultural Capital: The
+            Problem of Literary Canon Formation</em>, First edition,
+            enlarged (The University of Chicago Press, 2023), 30.<br />
+            <br />
+            </span></span></span><span
+            class="sidenote-wrapper"><label for="sn-60" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-60" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="frednerCountingNortonAnthology2024">Erik Fredner
+            and J. D. Porter, <span>“Counting on <span><em>The Norton
+            Anthology</em></span><span> <em>of</em>
+            </span><span><em>American Literature</em></span>,”</span>
+            <em>PMLA</em> 139, no. 1 (2024): 50–65, <a
+            href="https://doi.org/10.1632/S0030812923001189">https://doi.org/10.1632/S0030812923001189</a></span>
+            as well as <span class="citation"
+            data-cites="frednerMLAInternationalBibliographys2024">Erik
+            Fredner and Mark Algee-Hewitt, <span>“<span><em>The</em>
+            </span><span><em>MLA International
+            Bibliography</em></span>’s <span>History</span> of
+            <span>English-Language Literary Studies</span>,
+            1982-2023,”</span> <em><span>DH2024</span></em> (Arlington,
+            VA), August 2024</span>.<br />
+            <br />
+            </span></span> In pursuit of other such lists, I have
+            extended this line of research to the quiz show
+            <em>Jeopardy</em>.</p>
+            <p><em>Jeopardy</em> should be of interest to literary
+            scholars because it is one of the few places in American
+            popular culture that routinely engages with literary
+            history. About one in five questions references literature.
+            Unlike anthologies or the <em>Bibliography</em>—both of
+            which approach canonicity from a scholarly
+            perspective—<em>Jeopardy</em> provides evidence about both
+            popular and scholarly understandings of the canon.<span
+            class="sidenote-wrapper"><label for="sn-61" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-61" class="margin-toggle"/><span
+            class="sidenote">For other efforts to quantify the
+            popularity-prestige distinction with respect to canonicity,
+            see <span class="citation"
+            data-cites="porterPopularityPrestige2018">J. D. Porter,
+            <span>“Popularity/<span>Prestige</span>,”</span>
+            <em>Pamphlets of the Stanford Literary Lab</em>, no. 17
+            (September 2018)</span> as well as <span class="citation"
+            data-cites="barreOperationalizingCanonicityQuantitative2023a">Jean
+            Barré, Jean-Baptiste Camps, and Thierry Poibeau,
+            <span>“Operationalizing <span>Canonicity</span>: <span>A
+            Quantitative Study</span> of <span>French</span> 19th and
+            20th <span>Century Literature</span>,”</span> <em>Journal of
+            Cultural Analytics</em> 8, no. 3 (2023), <a
+            href="https://doi.org/10.22148/001c.88113">https://doi.org/10.22148/001c.88113</a></span>.<br />
+            <br />
+            </span></span></p>
+            <p>Although about one in five <em>Jeopardy</em> questions
+            references literature, they are not all equally difficult.
+            Easy questions will likely be known by many viewers, whereas
+            difficult questions may only be known by experts.
+            <em>Jeopardy</em> quantifies difficulty through gameplay,
+            such as the different dollar values writers assign to each
+            question. As a result, over the past forty years,
+            <em>Jeopardy</em> clue writers have made thousands of
+            specific wagers about which literary authors and works
+            Americans would be more or less likely to know. Aggregating
+            these wagers provides new insights into the structure of the
+            literary canon. But it remained inaccessible to scholars
+            because <em>Jeopardy</em> questions are not structured for
+            this analysis as written. However, I have used LMs to
+            extract and restructure that latent information for
+            analysis.</p>
+            <p>The results of this research have already shown difficult
+            questions are more likely to be associated with authors and
+            works better known to literary scholars than to the general
+            public, whereas easy questions are more likely to be
+            associated with literature for young people and popular
+            literature, especially authors and texts with film and
+            television adaptations.<span class="citation"
+            data-cites="frednerLiteraryCanonJeopardy2025"><span
+            class="sidenote-wrapper"><label for="sn-62" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-62" class="margin-toggle"/><span
+            class="sidenote">Erik Fredner, <span>“The <span>Literary
+            Canon</span> on
+            <span><em>Jeopardy</em></span><span><em>!</em></span>,
+            1984-2024,”</span> <em><span>DH2025</span></em>
+            (Universidade NOVA de Lisboa), July 2025, <a
+            href="https://doi.org/10.5281/zenodo.19494801">https://doi.org/10.5281/zenodo.19494801</a>.<br />
+            <br />
+            </span></span></span> Some of the authors most frequently
+            referenced in the most difficult clues include Gogol,
+            Pynchon, Petrarch, and Strindberg whereas some of the
+            easiest are Aesop, Schulz, Collins, Rowling, and Tolkien.
+            However, <em>Jeopardy</em> does not reproduce the
+            popularity-prestige continuum solely along the axis of
+            difficulty. A small number of the most canonical authors
+            like Shakespeare and Cervantes appear at every level of
+            difficulty. However, the relative difficulty of authors’ or
+            texts’ questions tends to reproduce the relative valuation
+            that characterizes canonicity itself.</p>
+            <p>While there is much more to be said about these results
+            elsewhere, my present purpose is to explain how LMs enabled
+            this research by classifying and extruding structured data
+            from <em>Jeopardy</em> clues. This work differs from other
+            research discussed thus far by using LMs to read
+            paraliterary texts in order to study a literary topic. This
+            distinction matters because it avoids the problem of
+            attempting to read literary texts themselves, which are
+            often studied precisely because of their ability to resist
+            encapsulation.</p>
+            <section id="classification" class="level3">
+            <h3>Classification</h3>
+            <p>In support of this research, the editor of the
+            <em>Jeopardy</em> fan site J-Archive! shared a copy of their
+            database of about 550,000 questions that have been asked on
+            air since 1984 with me.<span
+            class="sidenote-wrapper"><label for="sn-63" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-63" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="FancreatedArchiveJeopardy"><span>“The
+            Fan-Created Archive of
+            <span><em>Jeopardy</em></span><span><em>!</em></span> Games
+            and Players,”</span> in <em>J! Archive</em>,
+            https://j-archive.com/, n.d</span>.<br />
+            <br />
+            </span></span> I then had to determine which of those
+            hundreds of thousands of questions referenced literary
+            authors or texts. Many computational approaches to text
+            classification predate LMs, and LMs are not always the best
+            choice for this kind of task.<span
+            class="sidenote-wrapper"><label for="sn-64" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-64" class="margin-toggle"/><span
+            class="sidenote">See <span class="citation"
+            data-cites="bammanClassificationLargeLanguage2024">David
+            Bamman, Kent K. Chang, Li Lucy, and Naitian Zhou, <em>On
+            <span>Classification</span> with <span>Large Language
+            Models</span> in <span>Cultural Analytics</span></em>,
+            arXiv:2410.12029, arXiv, 2024, <a
+            href="https://doi.org/10.48550/arXiv.2410.12029">https://doi.org/10.48550/arXiv.2410.12029</a></span>.<br />
+            <br />
+            </span></span> However, other approaches often require a
+            large number of words in each text to be reliably
+            classified. <em>Jeopardy</em> questions, by contrast, are
+            cryptic and concise. For example:</p>
+            <table>
+            <tbody>
+            <tr>
+            <td><em>Category</em></td>
+            <td>BEFORE &amp; AFTER</td>
+            </tr>
+            <tr>
+            <td><em>Clue</em></td>
+            <td>San Antonio Spurs “Admiral” marooned by Daniel
+            Defoe</td>
+            </tr>
+            <tr>
+            <td><em>Answer</em></td>
+            <td>David Robinson Crusoe</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>This clue requires contestants to combine knowledge of
+            basketball (David Robinson) and the eighteenth-century novel
+            (Robinson Crusoe) to produce the nonce answer “David
+            Robinson Crusoe.” LMs outperform other classification
+            methods in gnomic cases like this because, in an LM’s
+            representation, words are embedded with other words that do
+            not appear in the text. James Dobson and Scott Sanders have
+            argued that counting words radically decontextualizes “the
+            enclosed words in ways that foreclose many modes of critical
+            analysis.”<span class="citation"
+            data-cites="dobsonDistantApproachesPrinted2022"><span
+            class="sidenote-wrapper"><label for="sn-65" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-65" class="margin-toggle"/><span
+            class="sidenote"><span>“Distant <span>Approaches</span> to
+            the <span>Printed Page</span>,”</span> <em>Digital Studies /
+            Le Champ Numérique</em> 12, no. 1 (2022): 4, <a
+            href="https://doi.org/10.16995/dscn.8107">https://doi.org/10.16995/dscn.8107</a>.<br />
+            <br />
+            </span></span></span> For contemporary texts in languages
+            well represented online, LMs do the opposite.</p>
+            <p>As in much of the work cited above, I evaluate how well
+            LMs classify <em>Jeopardy</em> questions by comparing the
+            outputs of many different LMs to a benchmark dataset with a
+            representative sample of validated classifications. After
+            identifying the best-performing LM, I run that model against
+            the same dataset multiple times, allowing it to vote on each
+            classification several times. Because any given model
+            response has a chance of containing a hallucination,
+            self-consistency is a common strategy to mitigate
+            hallucinations. When classifying <em>Jeopardy</em>
+            questions, the model disagreed with itself about 2.5% of the
+            time. Those points of disagreement often corresponded with
+            ambiguous cases. For example, co-authoring the political
+            thriller <em>The President is Missing</em> with James
+            Patterson is not the most salient fact about Bill Clinton.
+            Does his stint as a novelist mean that every clue about
+            Clinton after 2018 should also count as a reference to an
+            author of fiction, even when a given clue is about his
+            presidency, his ability as a saxophonist, or his veganism?
+            Reasonable people could disagree.</p>
+            <p>Despite such difficulties, GPT-5 matched the benchmark
+            classification data about 94% of the time.<span
+            class="sidenote-wrapper"><label for="sn-66" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-66" class="margin-toggle"/><span
+            class="sidenote">Precision of 0.94, recall of 0.93, and F1
+            of 0.94.<br />
+            <br />
+            </span></span> Although perfect accuracy might seem
+            necessary, some degree of error is inevitable. If these
+            classifications had instead been done manually, it would
+            have taken months of meticulous work that might not have
+            produced better results. People cannot do this kind of
+            classification work effectively for even one hour at a time.
+            Some studies suggest that humans’ ability to do this kind of
+            work begins to deteriorate in as little as two minutes.<span
+            class="citation"
+            data-cites="craigAbbreviatedVigilanceTask2019"><span
+            class="sidenote-wrapper"><label for="sn-67" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-67" class="margin-toggle"/><span
+            class="sidenote">Curtis M. Craig and Martina I. Klein,
+            <span>“The <span>Abbreviated Vigilance Task</span> and
+            <span>Its Attentional Contributors</span>,”</span> <em>Human
+            Factors</em> 61, no. 3 (2019): 426–39, <a
+            href="https://doi.org/10.1177/0018720818822350">https://doi.org/10.1177/0018720818822350</a>.<br />
+            <br />
+            </span></span></span> For tasks like this, the relevant
+            comparator is not perfect accuracy, but human accuracy.</p>
+            </section>
+            <section id="extrusion" class="level3">
+            <h3>Extrusion</h3>
+            <p><em>Jeopardy</em> fans will already know that it is
+            acceptable to answer a question about a person with their
+            last name using the form, “Who is Eliot?” However, in a
+            question about literature, this answer would not include all
+            of the relevant information: Is this clue about George,
+            T.S., or some other Eliot? Similarly, literature questions
+            that contain quotes or other references do not necessarily
+            name the author or work referenced. For example, a question
+            about the famous movie line “Stella!” may be answered
+            “Brando,” leaving Tennessee Williams and <em>A Streetcar
+            Named Desire</em> unmentioned. For these reasons, I use an
+            LM to extrude structured information about authors and texts
+            referenced in clues about literature even when they are not
+            explicitly named. This is especially important when a clue
+            contains multiple literary references:</p>
+            <table data-tbl-colwidths="[10,90]">
+            <colgroup>
+            <col style="width: 38%" />
+            <col style="width: 61%" />
+            </colgroup>
+            <tbody>
+            <tr>
+            <td><em>Category</em></td>
+            <td>FOR WHOM THE BELL TOLLS</td>
+            </tr>
+            <tr>
+            <td><em>Clue</em></td>
+            <td>Quasimodo would be relieved that Emmanuel, this
+            structure’s 13-ton bell, is now rung electronically</td>
+            </tr>
+            <tr>
+            <td><em>Answer</em></td>
+            <td>Notre Dame</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>This clue minimally references Donne’s <em>Devotions upon
+            Emergent Occasions</em>, Hugo’s <em>Notre-Dame de
+            Paris</em>, and Hemingway’s <em>For Whom the Bell
+            Tolls</em>.<span
+            class="sidenote-wrapper"><label for="sn-68" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-68" class="margin-toggle"/><span
+            class="sidenote">Though Emmanuel might reasonably be
+            construed as a reference to the Book of Isaiah (and Notre
+            Dame to Mary), I exclude canonical sacred texts such as the
+            Bible, the Quran, and the Vedas from this analysis.<br />
+            <br />
+            </span></span> The LM extrudes that information in a data
+            structure that can be used to link recurring references to
+            the same authors and works, as well as disambiguate works
+            with the same title or authors with the same name.</p>
+            <p>Evaluating the quality of such output is more complex
+            than classification because it must be more flexible. It is
+            not sufficient to write down correct answers and check if
+            the model’s output matches them exactly. LMs often produce
+            output that is accurate without precisely matching reference
+            data. For example, some clues with references to Sherlock
+            Holmes are associated with the author “Arthur Conan Doyle”
+            whereas others are associated with “Sir Arthur Conan Doyle.”
+            Similarly, LMs occasionally substitute alternate titles,
+            such as connecting one reference to Scheherazade with
+            <em>One Thousand and One Nights</em> and another with
+            <em>The Arabian Nights</em>. These answers both correctly
+            refer to the same entities without using identical
+            representations. There are many strategies to evaluate and
+            improve the accuracy of this kind of output, some of which
+            involve using another LM to judge the semantic equivalence
+            between an output and a validated answer.<span
+            class="citation"
+            data-cites="liLLMsasJudgesComprehensiveSurvey2024"><span
+            class="sidenote-wrapper"><label for="sn-69" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-69" class="margin-toggle"/><span
+            class="sidenote">Haitao Li, Qian Dong, Junjie Chen, et al.,
+            <em><span class="nocase">LLMs-as-Judges</span>: <span>A
+            Comprehensive Survey</span> on <span
+            class="nocase">LLM-based Evaluation Methods</span></em>,
+            arXiv:2412.05579, arXiv, 2024, <a
+            href="https://doi.org/10.48550/arXiv.2412.05579">https://doi.org/10.48550/arXiv.2412.05579</a>.<br />
+            <br />
+            </span></span></span> However, this kind of output can also
+            be evaluated and corrected by hand.</p>
+            <p>Grading a representative sample of such extrusions, I
+            found the ouputs to be about 98% accurate.<span
+            class="sidenote-wrapper"><label for="sn-70" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-70" class="margin-toggle"/><span
+            class="sidenote"><code>gpt-5</code>. Authors: precision
+            0.99, recall 0.98, F1 0.98. Works: precision 0.98, recall
+            1.0, F1 0.99.<br />
+            <br />
+            </span></span> In addition to exceptionally accurate
+            performance on straightforward clues (e.g., “This author of
+            <em>The Wizard of Oz</em>…”), LMs also reliably catch
+            subtler literary references. For example:</p>
+            <table data-tbl-colwidths="[10,90]">
+            <colgroup>
+            <col style="width: 38%" />
+            <col style="width: 61%" />
+            </colgroup>
+            <tbody>
+            <tr>
+            <td><em>Category</em></td>
+            <td>THE OLD TESTAMENT</td>
+            </tr>
+            <tr>
+            <td><em>Clue</em></td>
+            <td>In Genesis 21, Abraham banishes Hagar &amp; this son of
+            theirs to the desert; call him…</td>
+            </tr>
+            <tr>
+            <td><em>Answer</em></td>
+            <td>Ishmael</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>LMs consistently identify the allusion to
+            <em>Moby-Dick</em>’s first sentence at the end of this clue
+            despite its brevity, modified syntax (“Call him” not “Call
+            me Ishmael”), and the overriding biblical context.</p>
+            <p>I dwell on these details to emphasize that the tasks for
+            which I used LMs in this research—classification and
+            extrusion of literary references—bear considerable
+            resemblance to work that many literary scholars do (or, if
+            they have the means, hire research assistants to do) such as
+            Tessa Roynon’s study of classical allusions in Toni
+            Morrison’s novels. Validating and correcting outputs
+            manually exemplifies the ways in which LMs can be used to
+            complement literary expertise. Evaluating model outputs one
+            by one emphasizes both how impressive and how inconsistent
+            LMs can be. Researchers cannot afford to lose sight of
+            either when reading with them.</p>
+            <p>Unlike earlier examples that used LMs with literary texts
+            and criticism, this research on <em>Jeopardy</em> reads
+            paraliterary texts with LMs to study the literary canon.
+            Even if <em>Jeopardy</em> clues themselves do not reward
+            close reading, their metadata—authors and works referenced,
+            difficulty, dating, etc.—characterizes clue writers’
+            perceptions of the commonness or rarity of the knowledge
+            they test, providing valuable evidence of the changing
+            contours of the literary canon.</p>
+            </section>
+            </section>
+            <section id="conclusion" class="level2">
+            <h2>Conclusion</h2>
+            <p>Researchers have already been reading literature,
+            literary criticism, and paraliterary texts with LMs in ways
+            that should be of interest to literary studies writ large
+            for years. I have argued that an emergent norm across the
+            many uses of LMs discussed here is a greater license to read
+            with LMs for what Rosenblatt calls efferent reading (“what
+            is to be extracted and retained after the reading event”),
+            but lesser license for aesthetic reading (“what is being
+            lived through during the reading event”). LMs cannot
+            independently generate close readings that fulfill literary
+            studies’ expectations without embodied experiences of
+            reading and writing. However, reading with LMs can
+            complement and accelerate the discipline’s equally necessary
+            but less often theorized efferent reading.</p>
+            <p>I wish to conclude by suggesting some of the ways that
+            the uses of LMs described here seem likely to impact
+            literary studies in the short term. Whether and how literary
+            studies will continue to read with LMs depends on material
+            factors, the most important of which may be cost. In 2026,
+            capital expenditure on LM infrastructure by US big tech
+            companies is expected to exceed two percent of US gross
+            domestic product. If it does, this will make it the second
+            most expensive capital project in US history: far greater
+            than the space race, slightly greater than the railroad
+            build-out of the 1850s, and exceeded only by the Louisiana
+            Purchase.<span class="citation"
+            data-cites="bobrowskyBigTechsAI2026"><span
+            class="sidenote-wrapper"><label for="sn-71" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-71" class="margin-toggle"/><span
+            class="sidenote">Meghan Bobrowsky, Drew An-Pham, and Alana
+            Pipe, <span>“Big <span>Tech</span>’s <span>AI Push Is
+            Costing</span> a <span>Lot More Than</span> the <span>Moon
+            Landing</span>,”</span> <em>Wall Street Journal</em>,
+            February 2026.<br />
+            <br />
+            </span></span></span> Investors will demand that these
+            extraordinary costs be recouped with interest. However,
+            China’s “six tigers”—LM companies that make models
+            competitive with the state of the art—have prioritized
+            releasing open-weight models that can be freely downloaded
+            and run on hardware of one’s choosing, thereby driving down
+            costs. To compete, both Google and OpenAI have released
+            open-weight models. This competition matters because
+            open-weight models are adequate for many of the research
+            tasks described here, and have other advantages for
+            researchers—chief among them, reproducibility. Proprietary
+            LMs like ChatGPT and Claude may never be cheaper than they
+            now are, which could preclude their use for some kinds of
+            research in the future. At the same time, open-weight models
+            are sufficient for much of the work described here.</p>
+            <p>Of the applications discussed in this essay, those likely
+            to have the most widespread impact on literary studies are
+            vector search and RAG. Both of these are being incorporated
+            into tools like EBSCO and Primo, which provide the search
+            interfaces for many university library catalogs, as well as
+            search engines like Google. Vector search and RAG will make
+            missing relevant research less likely, such as a monograph
+            that discusses a topic that is related to but would not be
+            identified by a particular keyword search. Tools like Primo
+            Research Assistant also make it possible to generate
+            annotated bibliographies using a library’s holdings. While
+            the latter represents a paradigm shift for library patrons
+            from reviewing a list of search results to reading a
+            chatbot-like interface, I suggested earlier that these kinds
+            of changes may eventually seem as unremarkable as keyword
+            search now seems.</p>
+            <p>Many of the data-driven research questions discussed
+            above differ from those studied by most literary scholars.
+            However, not every question in literary studies is best
+            approached through close reading. Questions of the sort
+            asked by fields like literary history, genre theory, and
+            stylistics require gathering information from across many
+            different texts, tasks at which these models excel. Scholars
+            studying individual authors with large oeuvres face similar
+            problems. Computational approaches to these problems of
+            scale have historically been limited to the small group of
+            literary scholars who are either computer programmers
+            themselves or who collaborate with programmers. For scholars
+            whose barriers to conducting computational research were
+            technical rather than theoretical, the recent emergence of
+            LM coding agents, the most famous of which is currently
+            Claude Code, suggests that a lack of coding knowledge may no
+            longer be a significant barrier to generating code that
+            meets their needs. That said, doing so responsibly is an
+            entirely different question, and one that falls outside of
+            the bounds of this essay.</p>
+            <p>Finally, the <em>Jeopardy</em> example demonstrates that
+            even <em>a priori</em> objections to the use of LMs to read
+            literary texts directly does not exhaust their usefulness to
+            literary studies. LMs can read paraliterary texts and
+            extrude latent information about literary history. Obvious
+            candidates for similar work include identifying literary
+            allusions in periodicals, on social media, and in film,
+            television, or podcast transcripts.</p>
+            <p>Through all of these examples, I have tried to show that
+            the argument against LMs on grounds of uselessness for
+            literary studies is false with respect to scholarship. The
+            better arguments are ethical. Despite intrinsic problems
+            like hallucination, emerging practices make the use of LMs
+            more reliable. Furthermore, the relevant criterion for
+            assessing their reliability is not perfect accuracy, but
+            human accuracy. Under such conditions, LMs can complement
+            literary studies’ reading, though that does not mean that
+            they must.</p>
+            </section>
     </article>
     <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 
