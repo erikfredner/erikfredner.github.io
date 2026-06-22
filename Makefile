@@ -13,6 +13,13 @@ CURRENT_YEAR := $(shell date +%Y)
 BUILD_DATE := $(shell date +%Y-%m-%d)
 EMAIL := erik.fredner@oregonstate.edu
 
+# Per-page footer dates come from `git log` of each source file, but Make's
+# rebuild check is mtime-based and a commit does not change the source file's
+# mtime. Depending on the reflog (touched by every commit) forces pages to
+# rebuild after a commit so the footer date reflects the latest content change.
+# (wildcard => degrades gracefully to current behavior if the reflog is absent.)
+GIT_HEAD := $(wildcard .git/logs/HEAD)
+
 SRC_MD := $(wildcard $(SRC_DIR)/*.md)
 HTML_OUT := $(patsubst $(SRC_DIR)/%.md,$(OUT_DIR)/%.html,$(SRC_MD))
 
@@ -74,7 +81,7 @@ NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
 all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
-$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) | $(OUT_DIR)
+$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) $(GIT_HEAD) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
@@ -177,7 +184,7 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(BLOG_OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
-$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) | $(BLOG_OUT_DIR)
+$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) $(GIT_HEAD) | $(BLOG_OUT_DIR)
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
