@@ -74,12 +74,32 @@ TUFTE_FONT_SRC := $(shell find $(TUFTE_SRC_DIR)/et-book -type f 2>/dev/null)
 TUFTE_FONT_OUT := $(patsubst $(TUFTE_SRC_DIR)/%,$(OUT_DIR)/%,$(TUFTE_FONT_SRC))
 TUFTE_OUT      := $(TUFTE_CSS_OUT) $(TUFTE_FONT_OUT)
 
+# Upstream sources for the vendored Tufte CSS (used only by `make update-tufte`).
+# tufte.css comes from edwardtufte/tufte-css; pandoc.css and tufte-extra.css from
+# jez/tufte-pandoc-css. site-extra.css is local and is never overwritten.
+TUFTE_CSS_UPSTREAM_URL  := https://raw.githubusercontent.com/edwardtufte/tufte-css/gh-pages/tufte.css
+PANDOC_CSS_UPSTREAM_URL := https://raw.githubusercontent.com/jez/tufte-pandoc-css/master/pandoc.css
+EXTRA_CSS_UPSTREAM_URL  := https://raw.githubusercontent.com/jez/tufte-pandoc-css/master/tufte-extra.css
+# Local-only stamp (gitignored) recording the last successful upstream refresh.
+TUFTE_STAMP := $(TUFTE_SRC_DIR)/.tufte-updated
+
 # GitHub Pages config files
 CNAME_SRC := CNAME
 CNAME_OUT := $(OUT_DIR)/CNAME
 NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
-all: $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
+all: tufte-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
+
+# Refresh the vendored Tufte CSS from upstream if it hasn't been pulled in the
+# last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
+# are non-fatal: the build continues with the existing vendored copies.
+.PHONY: tufte-autoupdate
+tufte-autoupdate:
+	@if [ -z "$$(find $(TUFTE_STAMP) -mtime -30 2>/dev/null)" ]; then \
+	  echo "Tufte CSS not refreshed in 30+ days; checking upstream..."; \
+	  if $(MAKE) --no-print-directory update-tufte; then touch $(TUFTE_STAMP); \
+	  else echo "warning: tufte auto-update failed (offline?); using existing vendored copies."; fi; \
+	fi
 
 $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) $(GIT_HEAD) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
@@ -207,7 +227,15 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-.PHONY: clean serve prune-images blog
+# Re-pull the vendored Tufte CSS from upstream (leaves site-extra.css alone).
+# Run `git diff vendor/tufte` afterward to review any incoming changes.
+update-tufte:
+	curl -fsSL $(TUFTE_CSS_UPSTREAM_URL)  -o $(TUFTE_SRC_DIR)/tufte.css
+	curl -fsSL $(PANDOC_CSS_UPSTREAM_URL) -o $(TUFTE_SRC_DIR)/pandoc.css
+	curl -fsSL $(EXTRA_CSS_UPSTREAM_URL)  -o $(TUFTE_SRC_DIR)/tufte-extra.css
+	@echo "Tufte CSS refreshed from upstream. Review with: git diff $(TUFTE_SRC_DIR)"
+
+.PHONY: clean serve prune-images update-tufte tufte-autoupdate blog
 clean: ; rm -rf $(OUT_DIR)
 serve: all
 	python3 -m http.server 8000 --bind localhost --directory $(OUT_DIR) & \

@@ -9,7 +9,12 @@ make               # Build all pages into docs/
 make serve         # Build, serve at http://localhost:8000, and live-reload on src/ changes (requires entr)
 make clean         # Remove the entire docs/ directory
 make prune-images  # Remove src/images/ files not referenced by any .md
+make update-tufte  # Re-pull vendored tufte.css/pandoc.css/tufte-extra.css from upstream (review with git diff)
 ```
+
+`make update-tufte` refreshes the upstream-tracked CSS in `vendor/tufte/` (`tufte.css` from edwardtufte/tufte-css, `pandoc.css` + `tufte-extra.css` from jez/tufte-pandoc-css). It deliberately does **not** touch `site-extra.css` (local overrides) or the `et-book/` fonts (which never change upstream). Review incoming changes with `git diff vendor/tufte` before committing.
+
+This refresh also runs **automatically** as part of `make`, but at most once every 30 days: the `tufte-autoupdate` prerequisite of `all` checks a gitignored stamp file (`vendor/tufte/.tufte-updated`) via `find -mtime -30` and only re-pulls when the stamp is missing or older than 30 days, touching it on success. The auto-update is non-fatal — if the fetch fails (e.g. offline) the build continues with the existing vendored copies. So a routine `make` will occasionally pull a newer Tufte CSS; check `git diff vendor/tufte` after a build that prints the refresh message.
 
 External tools required: `pandoc`, `pandoc-sidenote` (`brew install jez/formulae/pandoc-sidenote`), `pandoc-crossref` (`brew install pandoc-crossref`), `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
 
