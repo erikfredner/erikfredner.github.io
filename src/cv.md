@@ -18,7 +18,7 @@ toc: true
 
 ## Publications
 
-1. Erik Fredner, ["The Ends of Reading,"](the-ends-of-reading.html) *American Literature*, forthcoming.
+1. Erik Fredner, ["The Ends of Reading,"](the-ends-of-reading.html) *American Literature* 99.4: forthcoming, 2026.
 1. Erik Fredner, ["Moving the Capital of US Literature from Boston to New York: Evidence from 11 Million Library of Congress Catalog Records,"](https://c19datacollective.com/data/capital-us-literature/) *The Nineteenth-Century Data Collective*, ed. Meredith Martin and Megan Ward, Princeton University Libraries, 2025.
 1. Erik Fredner and J.D. Porter, ["Counting on *The Norton Anthology of American Literature*,"](https://doi.org/10.1632/S0030812923001189) *PMLA* 139.1: 50--65, 2024.
 1. Erik Fredner, ["A Meaning Apart from Its Indistinguishable Words,"](https://doi.org/10.5325/nathhawtrevi.48.1.0082) *Nathaniel Hawthorne Review* 48.1: 82--98, 2022.
@@ -115,16 +115,17 @@ Please see my [research page](research.html).
 
 ### As instructor of record
 
-1. Introduction to Fiction, Oregon State University, 2025--26
-1. Advanced Data Science, University of Richmond, 2024--2025
-1. Introduction to Data Science, University of Richmond, 2024--2025
-1. Text Classification with Large Language Models, The Text Analysis Pedagogy Institute, 2024
-1. From Language to Data, University of Virginia, 2021--2024
-1. Punching Up: US Satire, University of Virginia, 2021--2024
+1. [Introduction to Science Fiction and Fantasy](https://fredner.org/eng108/), Oregon State University, 2026--27
+1. [Introduction to Fiction](104z-syllabus.html), Oregon State University, 2025--26
+1. [Advanced Data Science](389-syllabus.html), University of Richmond, 2024--2025
+1. [Introduction to Data Science](289-syllabus.html), University of Richmond, 2024--2025
+1. [Text Classification with Large Language Models](tapi-syllabus.html), The Text Analysis Pedagogy Institute, 2024
+1. [From Language to Data](l2d-syllabus.html), University of Virginia, 2021--2024
+1. [Punching Up: US Satire](satire-syllabus.html), University of Virginia, 2021--2024
 1. Summer Research Program, Stanford Center for Spatial and Textual Analysis, 2020
-1. Literary Text Mining, Stanford University, 2018--2019
-1. World Humanities 101, The City College of New York, 2018--2019
-1. Writing-Intensive Seminar in English, Stanford University, 2017--2018
+1. [Literary Text Mining](ltm-syllabus.html), Stanford University, 2018--2019
+1. [World Humanities 101](whum-syllabus.html), The City College of New York, 2018--2019
+1. [Writing-Intensive Seminar in English](avg-syllabus.html), Stanford University, 2017--2018
 
 ### As teaching assistant
 
@@ -170,6 +171,7 @@ Please see my [research page](research.html).
 
 ## Service
 
+1. Reviewer, *The Journal of Cultural Analytics*, 2026--
 1. Reviewer, *Humanities*, 2025--
 1. Reviewer, *Post45 Data Collective*, 2025--
 1. Reviewer, *PMLA*, 2024--
