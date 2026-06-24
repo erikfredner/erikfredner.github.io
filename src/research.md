@@ -2,7 +2,9 @@
 title: Research
 ---
 
-Links below describe works in progress. For published and forthcoming research, please see my [CV](cv.html).
+This page links to works in progress.
+
+For published and forthcoming research, please see my [CV](cv.html).
 
 ## Book
 
