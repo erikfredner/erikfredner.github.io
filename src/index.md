@@ -7,4 +7,4 @@ Erik Fredner is [Assistant Professor of Digital Humanities and Literature at Ore
 
 Erik studies US literature and culture using computational methods. His first book project shows how US literature over the long nineteenth century began to think statistically. He collaborates on computational literary studies projects with the [Stanford Literary Lab](https://litlab.stanford.edu), [the University of Pennsylvania Price Lab for Digital Humanities](https://pricelab.sas.upenn.edu), and the [William & Mary Anthologies-Canons Lab](https://sites.google.com/email.wm.edu/wm-anthologies-canons-lab/home).
 
-For publications, presentations, and teaching, see my [CV](cv.html). For upcoming events and other items of note, see my [blog](blog.html).
+For publications, presentations, and teaching, see the [*curriculum vitae*](cv.html). For upcoming events and other items of note, see the [blog](blog.html).

@@ -222,6 +222,7 @@ SQLite, Postgres, DBeaver
 ### Natural language processing
 
 Language models, Ollama, `spaCy`, `stanza`, `nltk`
+
 ## Languages
 
 Spanish (intermediate); French (reading); Chinese (two semesters).
