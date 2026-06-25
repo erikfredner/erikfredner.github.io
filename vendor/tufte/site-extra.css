@@ -10,6 +10,16 @@ article {
 
 article > header h1.title {
   margin-top: 1rem;
+  /* Tufte's h1 has no width, so it spans the full article width (87.5%)
+     and a long title runs into the sidenote column. Constrain it to the
+     main text column so long titles wrap within the body's bounding box. */
+  width: 55%;
+}
+
+@media (max-width: 760px) {
+  article > header h1.title {
+    width: 100%;
+  }
 }
 
 /* Tufte width rules target `section > p` etc., which only match when

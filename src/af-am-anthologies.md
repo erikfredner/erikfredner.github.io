@@ -1,8 +1,6 @@
 ---
-title: The “Already Implicit” Canon
+title: The Implicit Canon Across Anthologies of African American Literature
 ---
-
-## Data from Anthologies of African American Literature
 
 [Presentation](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing)
 
