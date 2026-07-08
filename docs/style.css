@@ -1,29 +1,7 @@
 /* fredner.org — single site stylesheet.
    Minimalist black-on-white (with prefers-color-scheme dark variant):
-   a centered ~65ch column of left-aligned EB Garamond text.
-   Fonts: vendor/fonts/ebgaramond (OFL-1.1), copied to docs/fonts/ by make.
-   URLs below are relative to this stylesheet at the docs root, so they
-   resolve correctly from blog pages too (which link ../style.css). */
-
-/* ---------- Fonts ---------- */
-
-@font-face {
-  font-family: "EB Garamond";
-  src: url("fonts/EBGaramond-VF.woff2") format("woff2-variations"),
-       url("fonts/EBGaramond-VF.woff2") format("woff2");
-  font-weight: 400 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "EB Garamond";
-  src: url("fonts/EBGaramond-Italic-VF.woff2") format("woff2-variations"),
-       url("fonts/EBGaramond-Italic-VF.woff2") format("woff2");
-  font-weight: 400 800;
-  font-style: italic;
-  font-display: swap;
-}
+   a centered ~65ch column of left-aligned text.
+   System serif throughout — no webfonts. */
 
 /* ---------- Theme ---------- */
 
@@ -73,9 +51,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
-  /* EB Garamond has a small x-height; 1.25rem reads like a typical 1rem face */
-  font-size: 1.25rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.125rem;
   line-height: 1.55;
 }
 

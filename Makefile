@@ -55,12 +55,9 @@ SLIDES_OUT_DIR := $(OUT_DIR)/slides
 SLIDES_SRC := $(wildcard $(SLIDES_SRC_DIR)/*.html)
 SLIDES_OUT := $(patsubst $(SLIDES_SRC_DIR)/%,$(SLIDES_OUT_DIR)/%,$(SLIDES_SRC))
 
-# Stylesheet + vendored EB Garamond webfonts (OFL-1.1; license ships with the fonts)
-STYLE_SRC    := css/style.css
-STYLE_OUT    := $(OUT_DIR)/style.css
-FONT_SRC_DIR := vendor/fonts/ebgaramond
-FONT_SRC     := $(wildcard $(FONT_SRC_DIR)/*)
-FONT_OUT     := $(patsubst $(FONT_SRC_DIR)/%,$(OUT_DIR)/fonts/%,$(FONT_SRC))
+# Stylesheet
+STYLE_SRC := css/style.css
+STYLE_OUT := $(OUT_DIR)/style.css
 
 # Vendored CSL from citation-style-language/styles (used by `make update-csl`).
 CSL_DIR          := vendor/csl
@@ -73,7 +70,7 @@ CNAME_SRC := CNAME
 CNAME_OUT := $(OUT_DIR)/CNAME
 NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
-all: csl-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
+all: csl-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(STYLE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
 # Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
@@ -137,11 +134,6 @@ $(SLIDES_OUT_DIR)/%: $(SLIDES_SRC_DIR)/% | $(SLIDES_OUT_DIR)
 
 # Copy the stylesheet
 $(STYLE_OUT): $(STYLE_SRC) | $(OUT_DIR)
-	cp $< $@
-
-# Copy EB Garamond webfonts (plus OFL.txt license)
-$(OUT_DIR)/fonts/%: $(FONT_SRC_DIR)/% | $(OUT_DIR)
-	@mkdir -p $(dir $@)
 	cp $< $@
 
 # Copy CNAME for GitHub Pages custom domain

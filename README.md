@@ -41,8 +41,7 @@ pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/b
 |---|---|
 | `src/*.md` | Source pages (Markdown + YAML frontmatter) |
 | `templates/base.html` | Single HTML template for all pages (nav, skip-link, back-to-top) |
-| `css/style.css` | The site's single stylesheet: minimalist centered column, EB Garamond, light + dark themes |
-| `vendor/fonts/ebgaramond/` | Vendored [EB Garamond](https://github.com/octaviopardo/EBGaramond12) variable webfonts (OFL-1.1); copied to `docs/fonts/` by `make` |
+| `css/style.css` | The site's single stylesheet: minimalist centered column, system fonts, light + dark themes |
 | `vendor/csl/` | Vendored citation styles from [citation-style-language/styles](https://github.com/citation-style-language/styles) |
 | `filters/webp.lua` | Pandoc Lua filter that rewrites image `src` attributes to `.webp` so HTML matches converted assets |
 | `src/images/` | Source images (JPG, JPEG, PNG, WebP); JPG/JPEG/PNG are auto-converted to WebP on build |
