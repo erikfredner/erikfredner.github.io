@@ -1,0 +1,483 @@
+/* fredner.org — single site stylesheet.
+   Minimalist black-on-white (with prefers-color-scheme dark variant):
+   a centered ~65ch column of left-aligned EB Garamond text.
+   Fonts: vendor/fonts/ebgaramond (OFL-1.1), copied to docs/fonts/ by make.
+   URLs below are relative to this stylesheet at the docs root, so they
+   resolve correctly from blog pages too (which link ../style.css). */
+
+/* ---------- Fonts ---------- */
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("fonts/EBGaramond-VF.woff2") format("woff2-variations"),
+       url("fonts/EBGaramond-VF.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("fonts/EBGaramond-Italic-VF.woff2") format("woff2-variations"),
+       url("fonts/EBGaramond-Italic-VF.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---------- Theme ---------- */
+
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --text: #1a1a1a;      /* 16.9:1 on --bg */
+  --muted: #595959;     /* 7.0:1 — bylines, captions, footer */
+  --link: #0e7490;      /* 5.4:1 — teal accent carried over from the old design */
+  --border: #d1d5db;
+  --target-bg: #fff3c4; /* footnote :target highlight */
+  --code-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --text: #e4e2dd;    /* ~13:1, slightly warm */
+    --muted: #a3a3a3;   /* ~7:1 */
+    --link: #67c3dc;    /* ~8:1 */
+    --border: #3a3f45;
+    --target-bg: #3b3620;
+    --code-bg: #1e1e1e;
+  }
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* respect the user's browser default */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  /* EB Garamond has a small x-height; 1.25rem reads like a typical 1rem face */
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+:target {
+  scroll-margin-top: 1rem;
+}
+
+/* ---------- Centered reading column ---------- */
+
+header > nav,
+main,
+body > footer {
+  max-width: 65ch;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ---------- Typography ---------- */
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-block: 1.75em 0.5em;
+}
+
+h1.title {
+  font-size: 1.9em;
+  margin-top: 1.5rem;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1em;
+  font-style: italic;
+}
+
+p {
+  margin-block: 1em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin-block: 2rem;
+}
+
+p.byline,
+.post-date {
+  color: var(--muted);
+}
+
+article > header .post-date {
+  margin-block: -0.5rem 1rem;
+}
+
+/* ---------- Site chrome ---------- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--bg);
+  color: var(--link);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+header > nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+header > nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+}
+
+header > nav a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+header > nav a:hover {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--text);
+  padding: 0.2rem 0.4rem;
+  line-height: 1;
+}
+
+@media (max-width: 500px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  header > nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.25rem 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  header > nav.open .nav-links {
+    display: flex;
+  }
+}
+
+body > footer {
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  padding-block: 1rem;
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  display: inline-block;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: none;
+  }
+}
+
+/* Collapsible TOC and lists of figures/tables (template + filters/wrap-lists.lua) */
+
+.toc-box {
+  margin: 1.5rem 0 2rem;
+}
+
+.toc-label {
+  font-style: italic;
+  font-size: 1.2em;
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+}
+
+.toc-label::-webkit-details-marker {
+  display: none;
+}
+
+.toc-label::before {
+  content: "\25B8"; /* ▸ */
+  display: inline-block;
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.toc-box[open] .toc-label::before {
+  content: "\25BE"; /* ▾ */
+}
+
+.toc-box ul,
+.toc-box ol {
+  margin: 0;
+}
+
+.toc-box ul {
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.toc-box ol {
+  padding-left: 2rem;
+}
+
+.toc-box li {
+  margin-block: 0.15rem;
+}
+
+/* Blog index cards (emitted by scripts/build_blog.py) */
+
+.post-card {
+  margin-bottom: 1.5rem;
+}
+
+.post-card h2 {
+  margin-block: 0 0.3em;
+  font-size: 1.4em;
+}
+
+.post-card p:last-child {
+  margin-bottom: 0;
+}
+
+.post-card .post-date {
+  font-size: 0.85em;
+  margin-block: 0;
+}
+
+/* ---------- Content elements ---------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 2rem 0;
+}
+
+figcaption,
+table caption {
+  font-size: 0.9em;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 0.95em;
+  caption-side: bottom;
+}
+
+th,
+td {
+  padding: 0.4em 0.6em;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  border-bottom: 2px solid var(--text);
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+blockquote {
+  margin-inline: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+code {
+  font-size: 0.85em;
+  background: var(--code-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+sup,
+sub {
+  line-height: 0;
+}
+
+/* ---------- Footnotes (pandoc's end-of-document notes section) ---------- */
+
+a.footnote-ref {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 0.15em;
+}
+
+#footnotes {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  font-size: 0.9em;
+}
+
+#footnotes hr {
+  display: none;
+}
+
+#footnotes ol {
+  padding-left: 1.5rem;
+}
+
+#footnotes li {
+  margin-bottom: 0.6em;
+}
+
+#footnotes li p {
+  margin-block: 0.25em;
+}
+
+#footnotes li:target,
+[id^="fnref"]:target {
+  background: var(--target-bg);
+}
+
+.footnote-back {
+  text-decoration: none;
+  margin-left: 0.25em;
+}
+
+/* Long bare URLs in citations shouldn't force horizontal scroll */
+#footnotes,
+#refs {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+  header > nav,
+  .back-to-top,
+  .skip-link {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    color: inherit;
+  }
+}

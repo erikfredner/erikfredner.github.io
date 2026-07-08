@@ -1,14 +1,13 @@
 PANDOC := pandoc
 SRC_DIR := src
 OUT_DIR := docs
-TEMPLATE := templates/tufte-base.html
+TEMPLATE := templates/base.html
 BIBLIOGRAPHY := references.bib
-CSL := chicago-notes.csl
+CSL := vendor/csl/chicago-notes.csl
 LUA_FILTER := filters/webp.lua
 OG_IMAGE_FILTER := filters/og-image.lua
 LISTS_FILTER := filters/inject-lists.lua
 WRAP_LISTS_FILTER := filters/wrap-lists.lua
-FIG_MARGIN_FILTER := filters/figure-margin.lua
 CURRENT_YEAR := $(shell date +%Y)
 BUILD_DATE := $(shell date +%Y-%m-%d)
 EMAIL := erik.fredner@oregonstate.edu
@@ -24,7 +23,6 @@ SRC_MD := $(wildcard $(SRC_DIR)/*.md)
 HTML_OUT := $(patsubst $(SRC_DIR)/%.md,$(OUT_DIR)/%.html,$(SRC_MD))
 
 # Blog
-POST_TEMPLATE   := templates/post.html
 BUILD_DIR       := build
 BLOG_SCRIPT     := scripts/build_blog.py
 BLOG_SRC_DIR    := $(SRC_DIR)/blog
@@ -66,42 +64,38 @@ SLIDES_OUT_DIR := $(OUT_DIR)/slides
 SLIDES_SRC := $(wildcard $(SLIDES_SRC_DIR)/*.html)
 SLIDES_OUT := $(patsubst $(SLIDES_SRC_DIR)/%,$(SLIDES_OUT_DIR)/%,$(SLIDES_SRC))
 
-# Tufte CSS bundle (vendored stylesheets + et-book fonts)
-TUFTE_SRC_DIR  := vendor/tufte
-TUFTE_CSS_NAMES := tufte.css pandoc.css tufte-extra.css site-extra.css
-TUFTE_CSS_OUT  := $(patsubst %,$(OUT_DIR)/%,$(TUFTE_CSS_NAMES))
-TUFTE_FONT_SRC := $(shell find $(TUFTE_SRC_DIR)/et-book -type f 2>/dev/null)
-TUFTE_FONT_OUT := $(patsubst $(TUFTE_SRC_DIR)/%,$(OUT_DIR)/%,$(TUFTE_FONT_SRC))
-TUFTE_OUT      := $(TUFTE_CSS_OUT) $(TUFTE_FONT_OUT)
+# Stylesheet + vendored EB Garamond webfonts (OFL-1.1; license ships with the fonts)
+STYLE_SRC    := css/style.css
+STYLE_OUT    := $(OUT_DIR)/style.css
+FONT_SRC_DIR := vendor/fonts/ebgaramond
+FONT_SRC     := $(wildcard $(FONT_SRC_DIR)/*)
+FONT_OUT     := $(patsubst $(FONT_SRC_DIR)/%,$(OUT_DIR)/fonts/%,$(FONT_SRC))
 
-# Upstream sources for the vendored Tufte CSS (used only by `make update-tufte`).
-# tufte.css comes from edwardtufte/tufte-css; pandoc.css and tufte-extra.css from
-# jez/tufte-pandoc-css. site-extra.css is local and is never overwritten.
-TUFTE_CSS_UPSTREAM_URL  := https://raw.githubusercontent.com/edwardtufte/tufte-css/gh-pages/tufte.css
-PANDOC_CSS_UPSTREAM_URL := https://raw.githubusercontent.com/jez/tufte-pandoc-css/master/pandoc.css
-EXTRA_CSS_UPSTREAM_URL  := https://raw.githubusercontent.com/jez/tufte-pandoc-css/master/tufte-extra.css
+# Vendored CSL from citation-style-language/styles (used by `make update-csl`).
+CSL_DIR          := vendor/csl
+CSL_UPSTREAM_URL := https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-notes.csl
 # Local-only stamp (gitignored) recording the last successful upstream refresh.
-TUFTE_STAMP := $(TUFTE_SRC_DIR)/.tufte-updated
+CSL_STAMP := $(CSL_DIR)/.csl-updated
 
 # GitHub Pages config files
 CNAME_SRC := CNAME
 CNAME_OUT := $(OUT_DIR)/CNAME
 NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
-all: tufte-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(TUFTE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
+all: csl-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
-# Refresh the vendored Tufte CSS from upstream if it hasn't been pulled in the
+# Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
-# are non-fatal: the build continues with the existing vendored copies.
-.PHONY: tufte-autoupdate
-tufte-autoupdate:
-	@if [ -z "$$(find $(TUFTE_STAMP) -mtime -30 2>/dev/null)" ]; then \
-	  echo "Tufte CSS not refreshed in 30+ days; checking upstream..."; \
-	  if $(MAKE) --no-print-directory update-tufte; then touch $(TUFTE_STAMP); \
-	  else echo "warning: tufte auto-update failed (offline?); using existing vendored copies."; fi; \
+# are non-fatal: the build continues with the existing vendored copy.
+.PHONY: csl-autoupdate
+csl-autoupdate:
+	@if [ -z "$$(find $(CSL_STAMP) -mtime -30 2>/dev/null)" ]; then \
+	  echo "CSL not refreshed in 30+ days; checking upstream..."; \
+	  if $(MAKE) --no-print-directory update-csl; then touch $(CSL_STAMP); \
+	  else echo "warning: CSL auto-update failed (offline?); using existing vendored copy."; fi; \
 	fi
 
-$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) $(GIT_HEAD) | $(OUT_DIR)
+$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(GIT_HEAD) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
@@ -117,8 +111,6 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILT
 	  --filter pandoc-crossref \
 	  --lua-filter=$(WRAP_LISTS_FILTER) \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
-	  --lua-filter=$(FIG_MARGIN_FILTER) \
-	  --filter pandoc-sidenote \
 	  -o $@ $<
 
 # Ensure base output dir exists
@@ -155,12 +147,12 @@ $(SLIDES_OUT_DIR): | $(OUT_DIR)
 $(SLIDES_OUT_DIR)/%: $(SLIDES_SRC_DIR)/% | $(SLIDES_OUT_DIR)
 	cp $< $@
 
-# Copy Tufte CSS files
-$(OUT_DIR)/%.css: $(TUFTE_SRC_DIR)/%.css | $(OUT_DIR)
+# Copy the stylesheet
+$(STYLE_OUT): $(STYLE_SRC) | $(OUT_DIR)
 	cp $< $@
 
-# Copy et-book font files (preserve subdirectory structure)
-$(OUT_DIR)/et-book/%: $(TUFTE_SRC_DIR)/et-book/% | $(OUT_DIR)
+# Copy EB Garamond webfonts (plus OFL.txt license)
+$(OUT_DIR)/fonts/%: $(FONT_SRC_DIR)/% | $(OUT_DIR)
 	@mkdir -p $(dir $@)
 	cp $< $@
 
@@ -204,7 +196,7 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(BLOG_OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
-$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(FIG_MARGIN_FILTER) $(GIT_HEAD) | $(BLOG_OUT_DIR)
+$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(GIT_HEAD) | $(BLOG_OUT_DIR)
 	PAGE_DATE=$$(git log -1 --format=%cs -- $< 2>/dev/null); \
 	[ -n "$$PAGE_DATE" ] || PAGE_DATE=$(BUILD_DATE); \
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
@@ -220,26 +212,22 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(LUA
 	  --filter pandoc-crossref \
 	  --lua-filter=$(WRAP_LISTS_FILTER) \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
-	  --lua-filter=$(FIG_MARGIN_FILTER) \
-	  --filter pandoc-sidenote \
 	  -o $@ $<
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-# Re-pull the vendored Tufte CSS from upstream (leaves site-extra.css alone).
-# Run `git diff vendor/tufte` afterward to review any incoming changes.
-update-tufte:
-	curl -fsSL $(TUFTE_CSS_UPSTREAM_URL)  -o $(TUFTE_SRC_DIR)/tufte.css
-	curl -fsSL $(PANDOC_CSS_UPSTREAM_URL) -o $(TUFTE_SRC_DIR)/pandoc.css
-	curl -fsSL $(EXTRA_CSS_UPSTREAM_URL)  -o $(TUFTE_SRC_DIR)/tufte-extra.css
-	@echo "Tufte CSS refreshed from upstream. Review with: git diff $(TUFTE_SRC_DIR)"
+# Re-pull the vendored CSL from upstream.
+# Run `git diff vendor/csl` afterward to review any incoming changes.
+update-csl:
+	curl -fsSL $(CSL_UPSTREAM_URL) -o $(CSL_DIR)/chicago-notes.csl
+	@echo "CSL refreshed from upstream. Review with: git diff $(CSL_DIR)"
 
-.PHONY: clean serve prune-images update-tufte tufte-autoupdate blog
+.PHONY: clean serve prune-images update-csl csl-autoupdate blog
 clean: ; rm -rf $(OUT_DIR)
 serve: all
 	python3 -m http.server 8000 --bind localhost --directory $(OUT_DIR) & \
 	SERVER_PID=$$!; \
 	trap "kill $$SERVER_PID 2>/dev/null" EXIT INT TERM; \
-	{ find $(SRC_DIR) -name '*.md'; find $(TUFTE_SRC_DIR) -name '*.css'; find templates/ -name '*.html'; find filters/ -name '*.lua'; } | entr $(MAKE) all; \
+	{ find $(SRC_DIR) -name '*.md'; find css -name '*.css'; find templates/ -name '*.html'; find filters/ -name '*.lua'; } | entr $(MAKE) all; \
 	kill $$SERVER_PID 2>/dev/null

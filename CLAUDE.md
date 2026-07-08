@@ -9,18 +9,18 @@ make               # Build all pages into docs/
 make serve         # Build, serve at http://localhost:8000, and live-reload on src/ changes (requires entr)
 make clean         # Remove the entire docs/ directory
 make prune-images  # Remove src/images/ files not referenced by any .md
-make update-tufte  # Re-pull vendored tufte.css/pandoc.css/tufte-extra.css from upstream (review with git diff)
+make update-csl    # Re-pull the vendored chicago-notes.csl from upstream (review with git diff)
 ```
 
-`make update-tufte` refreshes the upstream-tracked CSS in `vendor/tufte/` (`tufte.css` from edwardtufte/tufte-css, `pandoc.css` + `tufte-extra.css` from jez/tufte-pandoc-css). It deliberately does **not** touch `site-extra.css` (local overrides) or the `et-book/` fonts (which never change upstream). Review incoming changes with `git diff vendor/tufte` before committing.
+`make update-csl` refreshes `vendor/csl/chicago-notes.csl` from [citation-style-language/styles](https://github.com/citation-style-language/styles). `vendor/csl/modern-language-association.csl` also lives there but is not wired into any build target and is never overwritten.
 
-This refresh also runs **automatically** as part of `make`, but at most once every 30 days: the `tufte-autoupdate` prerequisite of `all` checks a gitignored stamp file (`vendor/tufte/.tufte-updated`) via `find -mtime -30` and only re-pulls when the stamp is missing or older than 30 days, touching it on success. The auto-update is non-fatal — if the fetch fails (e.g. offline) the build continues with the existing vendored copies. So a routine `make` will occasionally pull a newer Tufte CSS; check `git diff vendor/tufte` after a build that prints the refresh message.
+This refresh also runs **automatically** as part of `make`, but at most once every 30 days: the `csl-autoupdate` prerequisite of `all` checks a gitignored stamp file (`vendor/csl/.csl-updated`) via `find -mtime -30` and only re-pulls when the stamp is missing or older than 30 days, touching it on success. The auto-update is non-fatal — if the fetch fails (e.g. offline) the build continues with the existing vendored copy. So a routine `make` will occasionally pull a newer CSL; check `git diff vendor/csl` after a build that prints the refresh message.
 
-External tools required: `pandoc`, `pandoc-sidenote` (`brew install jez/formulae/pandoc-sidenote`), `pandoc-crossref` (`brew install pandoc-crossref`), `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
+External tools required: `pandoc`, `pandoc-crossref` (`brew install pandoc-crossref`), `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
 
 To rebuild a single non-blog page:
 ```bash
-pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/tufte-base.html \
+pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/base.html \
   --section-divs \
   --lua-filter=filters/webp.lua \
   --metadata build-date="$(date +%Y-%m-%d)" \
@@ -31,15 +31,13 @@ pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/t
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
-  --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
-  --lua-filter=filters/figure-margin.lua \
-  --filter pandoc-sidenote \
+  --citeproc --bibliography=references.bib --csl=vendor/csl/chicago-notes.csl \
   -o docs/PAGE.html src/PAGE.md
 ```
 
 To rebuild a single blog post (note the `pathprefix` so relative asset paths resolve from `docs/blog/`):
 ```bash
-pandoc --standalone --template=templates/tufte-base.html \
+pandoc --standalone --template=templates/base.html \
   --section-divs \
   --lua-filter=filters/webp.lua \
   --metadata build-date="$(date +%Y-%m-%d)" \
@@ -51,9 +49,7 @@ pandoc --standalone --template=templates/tufte-base.html \
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
-  --citeproc --bibliography=references.bib --csl=chicago-notes.csl \
-  --lua-filter=filters/figure-margin.lua \
-  --filter pandoc-sidenote \
+  --citeproc --bibliography=references.bib --csl=vendor/csl/chicago-notes.csl \
   -o docs/blog/POST.html src/blog/POST.md
 ```
 
@@ -63,22 +59,24 @@ Because this date comes from git history but Make's rebuild check is mtime-based
 
 ## Architecture
 
-This is a static academic website built with **Pandoc + Tufte CSS** and deployed to GitHub Pages from the `docs/` directory (domain: fredner.org).
+This is a static academic website built with **Pandoc** and a single local stylesheet, deployed to GitHub Pages from the `docs/` directory (domain: fredner.org).
 
-**Build pipeline:** `src/*.md` → pandoc (with `pandoc-sidenote` + Lua filter) → `docs/*.html`
+**Build pipeline:** `src/*.md` → pandoc (with Lua filters) → `docs/*.html`
 
-- `templates/tufte-base.html` — single HTML template for all pages; adapts the upstream `tufte.html5` template to preserve site chrome (nav, skip-link, back-to-top, footer). Blog posts pass `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`. `templates/base.html` (which links the root `style.css`) and the Makefile's `POST_TEMPLATE := templates/post.html` variable are both vestigial — `base.html` is never invoked, `post.html` does not exist, and nothing references `style.css`. Only `tufte-base.html` is used.
-- `vendor/tufte/` — vendored [tufte-css](https://edwardtufte.github.io/tufte-css/) (`tufte.css`, `et-book/` fonts) plus [jez/tufte-pandoc-css](https://github.com/jez/tufte-pandoc-css) (`pandoc.css`, `tufte-extra.css`), and site-specific overrides in `site-extra.css`. All four CSS files plus the `et-book/` font tree are copied to `docs/` by the Makefile.
-- `--filter pandoc-sidenote` — converts pandoc footnotes (including Chicago-notes citations from `--citeproc`) into Tufte-style sidenotes. Citation/footnote rendering depends on this filter; do not remove it.
-- `--section-divs` — wraps each heading section in `<section>` so Tufte CSS layout rules apply correctly.
+- `templates/base.html` — single HTML template for all pages (nav, skip-link, back-to-top, footer, GoatCounter analytics). Blog posts pass `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`. The template preloads the roman EB Garamond variable font and links `style.css`.
+- `css/style.css` — the site's only stylesheet: minimalist black-on-white design with a `prefers-color-scheme: dark` variant (colors are CSS custom properties on `:root`), a centered ~65ch column of left-aligned text, and EB Garamond type. It styles all site chrome (`.skip-link`, nav, `.toc-box`, `.back-to-top`, `.post-card`, footer) and content elements (figures/figcaptions, tables, blockquotes, code, and pandoc's end-of-document footnotes section). Copied to `docs/style.css` by the Makefile. All font sizes are relative (rem/em); keep it that way for accessibility.
+- `vendor/fonts/ebgaramond/` — vendored [EB Garamond](https://github.com/octaviopardo/EBGaramond12) variable webfonts (OFL-1.1: `EBGaramond-VF.woff2` roman + `EBGaramond-Italic-VF.woff2`, weight axis 400–800) plus `OFL.txt`. Copied to `docs/fonts/` by the Makefile (the license must ship with the fonts). Loaded via two `@font-face` rules in `style.css` with `font-display: swap`. These files were renamed from upstream's bracketed names (`EBGaramond[wght].woff2`) for URL safety and are not expected to change; there is no auto-update for fonts.
+- `vendor/csl/` — vendored citation styles from [citation-style-language/styles](https://github.com/citation-style-language/styles). `chicago-notes.csl` (Chicago 18th ed., notes without bibliography) is the only CSL the build uses; refreshed by `make update-csl` / the 30-day `csl-autoupdate` stamp.
+- **Footnotes and citations** render as pandoc's standard end-of-document footnotes section (`<section id="footnotes" role="doc-endnotes">`), styled by `style.css` with `:target` highlighting for the in-page note links. Chicago-notes citations become footnotes via `--citeproc`.
+- `--section-divs` — wraps each heading section in `<section>`; kept for semantic structure and anchor targets.
 - `references.bib` — Zotero/Better BibTeX bibliography; all citations across the site draw from this file.
-- `chicago-notes.csl` — Chicago notes citation style applied by pandoc's `--citeproc`; this is the only CSL the build uses. `modern-language-association.csl` also lives in the repo root but is not wired into any build target.
 - `--metadata link-citations=false` — chicago-notes is a notes-only style with no bibliography section, so the default citeproc behavior of wrapping each citation in `<a href="#ref-...">` produces dead links and also swallows DOIs / JSTOR URLs that would otherwise render as clickable external links. Setting `link-citations` to `false` suppresses the wrapper entirely, leaving bare URLs in the citation content to be rendered as ordinary external links.
-- `filters/figure-margin.lua` — runs after citeproc, before `pandoc-sidenote`. Rewrites every pandoc Figure block as a Tufte-style margin figure by default: the image stays in the main column and the caption is moved into a `<span class="marginnote">` so it floats into the right sidenote column. To opt a figure out of margin treatment and render it as a normal full-width figure instead, tag the image with `.fullwidth` (markdown: `![caption](src){#fig:foo .fullwidth}`); the filter then leaves the Figure alone and pandoc's default `<figure>` output is picked up by the existing `figure.fullwidth` rules in `vendor/tufte/tufte.css`. Must run after `pandoc-crossref` so the caption already carries its `Figure N:` prefix, and after citeproc so caption citations are resolved.
+- **Figures** are pandoc's default `<figure><img><figcaption>` output, numbered by `pandoc-crossref` (`![caption](src){#fig:foo}`). Captions render below the image, styled by `style.css`.
 - `filters/og-image.lua` — runs right after `filters/webp.lua` so it sees the `.webp`-rewritten src. Captures the first `Image` element on the page, resolves it against the `site-url` metadata (set in the Makefile to `https://fredner.org`), and exposes the absolute URL as `og-image` metadata. The template renders `<meta property="og:image">` (plus `twitter:card` / `twitter:image`) when that value is set, so iMessage / Slack / Twitter link previews show the page's first image. Pages with no images emit no `og:image` tag.
 - `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages.
+- **Syntax highlighting:** no page currently contains fenced code blocks, so pandoc emits no `highlighting-css`. If highlighted code is ever added, pass `--highlight-style=monochrome` (weight/italic-based) rather than writing per-token color overrides — pandoc's default token colors are not tuned for the dark theme.
 
-**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<div class="list-of-figures-box">` styled to match the TOC).
+**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<details class="toc-box list-of-figures-box">` styled to match the TOC).
 
 **Blog pipeline:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html` + `docs/blog.html` index + `docs/feed.xml` Atom feed.
 
