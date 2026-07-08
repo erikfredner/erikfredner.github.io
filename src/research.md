@@ -12,8 +12,7 @@ For published and forthcoming research, please see my [CV](cv.html#publications)
 
 ## Essays
 
-- [Reading with Language Models](reading-lms.html)
-- [Leaving New York? Locations of US Literary Publishing Since 1945](leaving-ny.html)
+- [“You ever heard of them?”: Publishing Twentieth-Century US Literature Outside of New York](outside-nyc.html)
 - [The Implicit Canon Across Anthologies of African American Literature](af-am-anthologies.html)
 - [The Literary Canon on _Jeopardy!_](jeopardy.html)
 - [Anthologies at Scale: Reading, Fast and Slow](anthologies-scale.html)
