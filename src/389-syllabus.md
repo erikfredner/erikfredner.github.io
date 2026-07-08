@@ -61,6 +61,8 @@ I expect you to...
 | Group Projects   | 60%         |
 | Final Project    | 20%        |
 
+<br>
+
 | Letter Grade | Range   |
 |--------------|---------|
 | A            | 93-100  |
