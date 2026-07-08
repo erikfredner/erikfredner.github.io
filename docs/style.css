@@ -86,11 +86,15 @@ body {
 /* ---------- Centered reading column ---------- */
 
 header > nav,
-main,
-body > footer {
+main {
   max-width: 65ch;
   margin-inline: auto;
   padding-inline: 1rem;
+}
+
+/* Breathing room at the end of the page now that there is no footer */
+main {
+  padding-bottom: 3rem;
 }
 
 /* ---------- Typography ---------- */
@@ -230,14 +234,6 @@ header > nav a:hover {
   header > nav.open .nav-links {
     display: flex;
   }
-}
-
-body > footer {
-  border-top: 1px solid var(--border);
-  margin-top: 2rem;
-  padding-block: 1rem;
-  font-size: 0.9em;
-  color: var(--muted);
 }
 
 .back-to-top {

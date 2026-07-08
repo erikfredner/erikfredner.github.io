@@ -23,7 +23,6 @@ To rebuild a single non-blog page:
 pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/base.html \
   --section-divs \
   --lua-filter=filters/webp.lua \
-  --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
   --metadata site-url="https://fredner.org" \
   --metadata link-citations=false \
@@ -40,7 +39,6 @@ To rebuild a single blog post (note the `pathprefix` so relative asset paths res
 pandoc --standalone --template=templates/base.html \
   --section-divs \
   --lua-filter=filters/webp.lua \
-  --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
   --metadata site-url="https://fredner.org" \
   --metadata pathprefix="../" \
@@ -53,18 +51,14 @@ pandoc --standalone --template=templates/base.html \
   -o docs/blog/POST.html src/blog/POST.md
 ```
 
-The full `make` build sets `build-date` per page from `git log -1 --format=%cs -- <file>` (falling back to today's date if the file has no git history). The ad-hoc commands above just use today's date.
-
-Because this date comes from git history but Make's rebuild check is mtime-based — and a commit does not change the source file's mtime — every HTML rule also depends on `.git/logs/HEAD` (the `GIT_HEAD` variable, the reflog, which every commit touches). Without this, a page committed *after* it was last built would keep stamping the previous commit's date in its footer forever, since Make would consider the page up-to-date. The dependency is wrapped in `$(wildcard ...)` so the build degrades gracefully if no reflog exists. A consequence is that the first `make` after any commit rebuilds all pages, but each is restamped with its own source's git date, so unchanged pages keep their original (older) footer date.
-
 ## Architecture
 
 This is a static academic website built with **Pandoc** and a single local stylesheet, deployed to GitHub Pages from the `docs/` directory (domain: fredner.org).
 
 **Build pipeline:** `src/*.md` → pandoc (with Lua filters) → `docs/*.html`
 
-- `templates/base.html` — single HTML template for all pages (nav, skip-link, back-to-top, footer, GoatCounter analytics). Blog posts pass `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`. The template preloads the roman EB Garamond variable font and links `style.css`.
-- `css/style.css` — the site's only stylesheet: minimalist black-on-white design with a `prefers-color-scheme: dark` variant (colors are CSS custom properties on `:root`), a centered ~65ch column of left-aligned text, and EB Garamond type. It styles all site chrome (`.skip-link`, nav, `.toc-box`, `.back-to-top`, `.post-card`, footer) and content elements (figures/figcaptions, tables, blockquotes, code, and pandoc's end-of-document footnotes section). Copied to `docs/style.css` by the Makefile. All font sizes are relative (rem/em); keep it that way for accessibility.
+- `templates/base.html` — single HTML template for all pages (nav, skip-link, back-to-top, GoatCounter analytics; no footer). Blog posts pass `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`. The template preloads the roman EB Garamond variable font and links `style.css`.
+- `css/style.css` — the site's only stylesheet: minimalist black-on-white design with a `prefers-color-scheme: dark` variant (colors are CSS custom properties on `:root`), a centered ~65ch column of left-aligned text, and EB Garamond type. It styles all site chrome (`.skip-link`, nav, `.toc-box`, `.back-to-top`, `.post-card`) and content elements (figures/figcaptions, tables, blockquotes, code, and pandoc's end-of-document footnotes section). Copied to `docs/style.css` by the Makefile. All font sizes are relative (rem/em); keep it that way for accessibility.
 - `vendor/fonts/ebgaramond/` — vendored [EB Garamond](https://github.com/octaviopardo/EBGaramond12) variable webfonts (OFL-1.1: `EBGaramond-VF.woff2` roman + `EBGaramond-Italic-VF.woff2`, weight axis 400–800) plus `OFL.txt`. Copied to `docs/fonts/` by the Makefile (the license must ship with the fonts). Loaded via two `@font-face` rules in `style.css` with `font-display: swap`. These files were renamed from upstream's bracketed names (`EBGaramond[wght].woff2`) for URL safety and are not expected to change; there is no auto-update for fonts.
 - `vendor/csl/` — vendored citation styles from [citation-style-language/styles](https://github.com/citation-style-language/styles). `chicago-notes.csl` (Chicago 18th ed., notes without bibliography) is the only CSL the build uses; refreshed by `make update-csl` / the 30-day `csl-autoupdate` stamp.
 - **Footnotes and citations** render as pandoc's standard end-of-document footnotes section (`<section id="footnotes" role="doc-endnotes">`), styled by `style.css` with `:target` highlighting for the in-page note links. Chicago-notes citations become footnotes via `--citeproc`.

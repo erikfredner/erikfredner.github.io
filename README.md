@@ -28,7 +28,6 @@ To rebuild a single page:
 pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/base.html \
   --section-divs \
   --lua-filter=filters/webp.lua \
-  --metadata build-date="$(date +%Y-%m-%d)" \
   --metadata email="erik.fredner@oregonstate.edu" \
   --citeproc --bibliography=references.bib --csl=vendor/csl/chicago-notes.csl \
   -o docs/PAGE.html src/PAGE.md
@@ -41,7 +40,7 @@ pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/b
 | File/Directory | Purpose |
 |---|---|
 | `src/*.md` | Source pages (Markdown + YAML frontmatter) |
-| `templates/base.html` | Single HTML template for all pages (nav, skip-link, back-to-top, footer) |
+| `templates/base.html` | Single HTML template for all pages (nav, skip-link, back-to-top) |
 | `css/style.css` | The site's single stylesheet: minimalist centered column, EB Garamond, light + dark themes |
 | `vendor/fonts/ebgaramond/` | Vendored [EB Garamond](https://github.com/octaviopardo/EBGaramond12) variable webfonts (OFL-1.1); copied to `docs/fonts/` by `make` |
 | `vendor/csl/` | Vendored citation styles from [citation-style-language/styles](https://github.com/citation-style-language/styles) |
