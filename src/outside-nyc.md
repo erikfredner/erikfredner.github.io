@@ -1,8 +1,6 @@
 ---
-title: Leaving New York? Locations of US Literary Publishing Since 1945
+title: "\"You ever heard of them?\": Publishing twentieth-century US literature outside of New York"
 ---
-
-[Presentation](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing)
 
 Co-authored with [Luca Messarra](https://english.stanford.edu/people/luca-messarra).
 

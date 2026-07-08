@@ -1,7 +1,7 @@
 /* fredner.org — single site stylesheet.
    Minimalist black-on-white (with prefers-color-scheme dark variant):
    a centered ~65ch column of left-aligned text.
-   System serif throughout — no webfonts. */
+   Helvetica Neue throughout, falling back to system sans-serif — no webfonts. */
 
 /* ---------- Theme ---------- */
 
@@ -51,7 +51,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.125rem;
   line-height: 1.55;
 }
@@ -155,7 +155,6 @@ header > nav {
   justify-content: space-between;
   align-items: center;
   padding-block: 0.75rem;
-  border-bottom: 1px solid var(--border);
 }
 
 header > nav ul {
@@ -250,7 +249,6 @@ header > nav a:hover {
 }
 
 .toc-label {
-  font-style: italic;
   font-size: 1.2em;
   cursor: pointer;
   list-style: none;
