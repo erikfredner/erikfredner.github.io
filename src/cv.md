@@ -19,6 +19,7 @@ toc: true
 ## Publications
 
 1. Erik Fredner, ["Reading with Language Models,"](reading-lms.html) *Modern Fiction Studies* special issue on Cultural AI, forthcoming, 2027.
+1. Erik Fredner and Luca Messarra, ["Leaving New York: Publishing Twentieth-Century US Literature Elsewhere,"](leaving-nyc.html) *American Literary History* 38.3: forthcoming, 2026.
 1. Erik Fredner, ["The Ends of Reading,"](the-ends-of-reading.html) *American Literature* 99.4: forthcoming, 2026.
 1. Erik Fredner, ["Moving the Capital of US Literature from Boston to New York: Evidence from 11 Million Library of Congress Catalog Records,"](https://c19datacollective.com/data/capital-us-literature/) *The Nineteenth-Century Data Collective*, ed. Meredith Martin and Megan Ward, Princeton University Libraries, 2025.
 1. Erik Fredner and J.D. Porter, ["Counting on *The Norton Anthology of American Literature*,"](https://doi.org/10.1632/S0030812923001189) *PMLA* 139.1: 50--65, 2024.

@@ -2,9 +2,7 @@
 title: Research
 ---
 
-This page links to my works in progress.
-
-For published and forthcoming research, please see my [CV](cv.html#publications).
+Links on this page describe research in progress. For published and forthcoming work, please see my [CV](cv.html#publications).
 
 ## Book
 
@@ -12,7 +10,6 @@ For published and forthcoming research, please see my [CV](cv.html#publications)
 
 ## Essays
 
-- [“You ever heard of them?”: Publishing Twentieth-Century US Literature Outside of New York](outside-nyc.html)
 - [The Implicit Canon Across Anthologies of African American Literature](af-am-anthologies.html)
 - [The Literary Canon on _Jeopardy!_](jeopardy.html)
 - [Anthologies at Scale: Reading, Fast and Slow](anthologies-scale.html)

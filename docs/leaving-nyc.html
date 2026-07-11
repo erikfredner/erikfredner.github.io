@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Leaving New York: Publishing
+Twentieth-Century US Literature Elsewhere&mdash;Erik Fredner">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Erik Fredner">
+      <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
+    <!-- Goat Counter -->
+  <script data-goatcounter="https://erik.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <title>Leaving New York: Publishing Twentieth-Century US Literature
+Elsewhere&mdash;Erik Fredner</title>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="top"></div>
+  <header>
+    <nav aria-label="Site navigation">
+      <ul>
+        <li><a href="index.html" class="site-title">Erik Fredner</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <article>
+            <header>
+        <h1 class="title">Leaving New York: Publishing Twentieth-Century
+US Literature Elsewhere</h1>
+        
+      </header>
+                  <p>Co-authored with <a
+                  href="https://english.stanford.edu/people/luca-messarra">Luca
+                  Messarra</a>.</p>
+                  <p>This project extends <a
+                  href="https://c19datacollective.com/data/capital-us-literature/">previous
+                  work on nineteenth century imprints</a> into the
+                  twentieth century.</p>
+                  <section id="manuscript-information" class="level2">
+                  <h2>Manuscript information</h2>
+                  <p>This essay is forthcoming in <em>American Literary
+                  History</em> 38.3 in 2026.</p>
+                  </section>
+                  <section id="abstract" class="level2">
+                  <h2>Abstract</h2>
+                  <p>Who doesn’t believe that most American literature
+                  is published in New York City? Our analysis of 303,563
+                  Library of Congress records reveals the expected rise
+                  followed by the unexpected fall of NYC in
+                  twentieth-century American literary publishing. NYC
+                  only published most works of American literature
+                  cataloged by the LC between 1947 and 1963, peaking in
+                  1956 and declining sharply thereafter. That decline
+                  does not reflect decreased publishing in NYC, but
+                  rather increased growth elsewhere. Changes in printing
+                  technology and the business of publishing best explain
+                  these trends. As offset lithography and
+                  phototypesetting displaced letterpress, older presses
+                  became available for cheap, allowing publishers
+                  outside NYC to print “real” books whose aesthetic
+                  would be archivable as American literature. In
+                  conjunction with new cataloguing standards, NEA grant
+                  funding, and the rise of third-party distributors,
+                  declining costs deregionalized the small press. These
+                  findings nuance conventional narratives of
+                  conglomeration since consolidation of capital and
+                  proliferation of publishers happened simultaneously.
+                  And they challenge the erroneous assumption that NYC’s
+                  qualitative dominance entails its quantitative
+                  dominance. US literary histories can benefit from
+                  attending to the supply-side of literary production.
+                  Doing so reveals that the periphery is not
+                  peripheral.</p>
+                  </section>
+    </article>
+    <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
+
+    <script>
+      // Mobile nav toggle
+      (function () {
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = toggle && toggle.closest('nav');
+        if (!toggle || !nav) return;
+        toggle.addEventListener('click', function () {
+          var open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+      })();
+
+      // Show when #top leaves viewport; hide when visible again.
+      (function () {
+        var btn = document.querySelector('.back-to-top');
+        var top = document.querySelector('#top');
+        if (!btn || !top) return;
+
+        function show() { btn.classList.add('is-visible'); }
+        function hide() { btn.classList.remove('is-visible'); }
+
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries) {
+            entries[0].isIntersecting ? hide() : show();
+          }).observe(top);
+        } else {
+          window.addEventListener('scroll', function () {
+            (window.scrollY || document.documentElement.scrollTop) > 400 ? show() : hide();
+          }, { passive: true });
+        }
+      })();
+    </script>
+  </main>
+</body>
+
+</html>
