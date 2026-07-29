@@ -1,12 +1,82 @@
 /* fredner.org — single site stylesheet.
    Minimalist black-on-white (with prefers-color-scheme dark variant):
    a centered ~65ch column of left-aligned text.
-   Helvetica Neue throughout, falling back to system sans-serif — no webfonts. */
+   Source Serif 4 for prose, Source Sans 3 for headings and chrome,
+   Source Code Pro for code — self-hosted variable subsets from fonts/. */
+
+/* ---------- Webfonts ---------- */
+
+/* Subset variable WOFF2s built by `make fonts` (see scripts/build_fonts.py).
+   One file per face, weight axis 200-900, so a single request covers every
+   weight the site uses. Paths are relative to this stylesheet, which sits at
+   the site root, so they resolve for blog pages under /blog/ too. */
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("fonts/source-serif-4-roman.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("fonts/source-serif-4-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/source-sans-3-upright.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("fonts/source-code-pro-upright.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Metric-matched fallbacks. `font-display: swap` paints text immediately in a
+   system font and swaps when the webfont lands; without these overrides that
+   swap reflows the page. The numbers are derived from the OS/2 and hhea tables
+   of the subsets and of the system fonts (size-adjust is the x-height ratio,
+   the others are the webfont's own metrics divided by it) — recompute them if
+   `make fonts` pulls an upstream release with different metrics. */
+
+@font-face {
+  font-family: "Source Serif Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  size-adjust: 98.66%;
+  ascent-override: 105.01%;
+  descent-override: 33.95%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Source Sans Fallback";
+  src: local("Helvetica Neue"), local("Arial");
+  size-adjust: 92.4%;
+  ascent-override: 108.2%;
+  descent-override: 35.3%;
+  line-gap-override: 0%;
+}
 
 /* ---------- Theme ---------- */
 
 :root {
   color-scheme: light dark;
+
+  --font-serif: "Source Serif 4", "Source Serif Fallback", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", "Source Sans Fallback", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
   --bg: #ffffff;
   --text: #1a1a1a;      /* 16.9:1 on --bg */
   --muted: #595959;     /* 7.0:1 — bylines, captions, footer */
@@ -51,7 +121,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-serif);
   font-size: 1.125rem;
   line-height: 1.55;
 }
@@ -80,6 +150,7 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-sans);
   font-weight: 600;
   line-height: 1.2;
   margin-block: 1.75em 0.5em;
@@ -98,9 +169,11 @@ h3 {
   font-size: 1.2em;
 }
 
+/* No italic Source Sans is shipped (h4 appears on 3 pages), so the old
+   font-style: italic here would have been a synthesized oblique. The
+   sans/serif contrast against body text distinguishes it well enough. */
 h4 {
   font-size: 1em;
-  font-style: italic;
 }
 
 p {
@@ -136,6 +209,7 @@ article > header .post-date {
 /* ---------- Site chrome ---------- */
 
 .skip-link {
+  font-family: var(--font-sans);
   position: absolute;
   top: -100%;
   left: 0;
@@ -151,6 +225,7 @@ article > header .post-date {
 }
 
 header > nav {
+  font-family: var(--font-sans);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -179,6 +254,7 @@ header > nav a:hover {
 }
 
 .nav-toggle {
+  font-family: var(--font-sans);
   display: none;
   background: none;
   border: none;
@@ -213,6 +289,7 @@ header > nav a:hover {
 }
 
 .back-to-top {
+  font-family: var(--font-sans);
   position: fixed;
   right: 1rem;
   bottom: 1rem;
@@ -249,6 +326,7 @@ header > nav a:hover {
 }
 
 .toc-label {
+  font-family: var(--font-sans);
   font-size: 1.2em;
   cursor: pointer;
   list-style: none;
@@ -322,6 +400,7 @@ figure {
 
 figcaption,
 table caption {
+  font-family: var(--font-sans);
   font-size: 0.9em;
   color: var(--muted);
   margin-top: 0.5rem;
@@ -342,6 +421,7 @@ td {
 }
 
 th {
+  font-family: var(--font-sans);
   border-bottom: 2px solid var(--text);
 }
 
@@ -365,6 +445,7 @@ dd {
 }
 
 code {
+  font-family: var(--font-mono);
   font-size: 0.85em;
   background: var(--code-bg);
   padding: 0.1em 0.3em;
@@ -372,6 +453,7 @@ code {
 }
 
 pre {
+  font-family: var(--font-mono);
   background: var(--code-bg);
   padding: 1rem;
   overflow-x: auto;

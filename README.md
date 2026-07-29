@@ -8,7 +8,7 @@ Source for [fredner.org](https://fredner.org) — a static academic website buil
 - [Pandoc](https://pandoc.org)
 - [`pandoc-crossref`](https://github.com/lierdakil/pandoc-crossref) — `brew install pandoc-crossref` (figure/table numbering and cross-references)
 - [`cwebp`](https://developers.google.com/speed/webp/docs/cwebp) — `brew install webp` (for image conversion)
-- [`uv`](https://docs.astral.sh/uv/) (for the blog build script)
+- [`uv`](https://docs.astral.sh/uv/) (for the blog and font build scripts)
 - [`entr`](https://eradman.com/entrproject/) — `brew install entr` (only required by `make serve` for live reload)
 - [Zotero](https://www.zotero.org) + [Better BibTeX](https://retorque.re/zotero-better-bibtex/) (for `references.bib`)
 
@@ -20,6 +20,7 @@ make serve        # Build, serve at http://localhost:8000, and live-reload on sr
 make clean        # Remove the entire docs/ directory
 make prune-images # Delete images in src/images/ not referenced by any src/*.md
 make update-csl   # Re-pull the vendored CSL from upstream (review with git diff)
+make fonts        # Re-download and re-subset the Source webfonts (review with git diff)
 ```
 
 `make` also refreshes the vendored CSL from upstream automatically, at most once every 30 days (tracked by a gitignored stamp file, `vendor/csl/.csl-updated`). The refresh is non-fatal if offline. After a build that prints the refresh message, review with `git diff vendor/csl`.
@@ -52,7 +53,9 @@ Blog posts use the same command minus the `--defaults` flag, plus `--metadata pa
 | `src/*.md` | Source pages (Markdown + YAML frontmatter) |
 | `src/blog/*.md` | Blog posts (built by the blog pipeline below) |
 | `templates/base.html` | Single HTML template for all pages (nav, skip-link, back-to-top, GoatCounter analytics) |
-| `css/style.css` | The site's single stylesheet: minimalist centered column, system serif type, light + dark themes — copied to `docs/style.css` by `make` |
+| `css/style.css` | The site's single stylesheet: minimalist centered column, the Source type system, light + dark themes — copied to `docs/style.css` by `make` |
+| `fonts/*.woff2` | Self-hosted subset webfonts (Source Serif 4, Source Sans 3, Source Code Pro), built by `make fonts` and copied to `docs/fonts/` |
+| `scripts/build_fonts.py` | Downloads the Adobe variable fonts and subsets them (run via `uv run`, invoked by `make fonts`) |
 | `defaults/toc-defaults.yaml` | Pandoc defaults for non-blog pages (`toc-depth: 2`) |
 | `filters/webp.lua` | Rewrites image `src` attributes to `.webp` so HTML matches converted assets |
 | `filters/og-image.lua` | Captures each page's first image as an absolute `og:image` URL for link previews |
@@ -67,6 +70,10 @@ Blog posts use the same command minus the `--defaults` flag, plus `--metadata pa
 | `.nojekyll` | Disables Jekyll processing on GitHub Pages — recreated in `docs/` by `make` |
 
 **Source pages:** Each `src/*.md` file has a YAML frontmatter `title` field that becomes both the `<title>` and `<h1>`. Optional frontmatter: `toc: true` for a table of contents, `lof: true` / `lot: true` for lists of figures/tables, `description` for the meta description.
+
+**Fonts:** the site sets [Source Serif 4](https://github.com/adobe-fonts/source-serif) for prose, [Source Sans 3](https://github.com/adobe-fonts/source-sans) for headings and chrome, and [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) for code — all SIL OFL 1.1, all self-hosted rather than loaded from a font CDN. Browsers have partitioned the HTTP cache by site since 2020, so a third-party font host buys no cache sharing while costing two extra origin connections on the critical path; serving the fonts from `fonts/` puts them on the already-warm connection and lets them be preloaded.
+
+`make fonts` downloads the upstream variable fonts and subsets them to the codepoints the site actually uses (~141 KB for all four faces, down from ~1 MB unsubsetted). It is not part of `make` — run it deliberately and review the diff. See `scripts/build_fonts.py` for the ranges, and note that the site's bibliography needs Latin Extended-A, which the usual "latin" webfont subset omits.
 
 **Blog:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html`, plus the `docs/blog.html` index and `docs/feed.xml` Atom feed. Posts require `title` and `date` (YYYY-MM-DD) frontmatter; optional `description` and `draft`. Posts marked `draft: true` are excluded from the index, the feed, and the build.
 

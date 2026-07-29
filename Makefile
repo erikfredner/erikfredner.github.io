@@ -59,6 +59,15 @@ SLIDES_OUT := $(patsubst $(SLIDES_SRC_DIR)/%,$(SLIDES_OUT_DIR)/%,$(SLIDES_SRC))
 STYLE_SRC := css/style.css
 STYLE_OUT := $(OUT_DIR)/style.css
 
+# Subset webfonts (built by `make fonts`, committed to the repo)
+FONT_SCRIPT  := scripts/build_fonts.py
+FONT_SRC_DIR := fonts
+FONT_OUT_DIR := $(OUT_DIR)/fonts
+# The OFL requires the license to travel with the fonts, so the LICENSE-*.md
+# files that build_fonts.py pulls down are served alongside them.
+FONT_SRC     := $(wildcard $(FONT_SRC_DIR)/*.woff2) $(wildcard $(FONT_SRC_DIR)/*.md)
+FONT_OUT     := $(patsubst $(FONT_SRC_DIR)/%,$(FONT_OUT_DIR)/%,$(FONT_SRC))
+
 # Vendored CSL from citation-style-language/styles (used by `make update-csl`).
 CSL_DIR          := vendor/csl
 CSL_UPSTREAM_URL := https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-notes.csl
@@ -70,7 +79,7 @@ CNAME_SRC := CNAME
 CNAME_OUT := $(OUT_DIR)/CNAME
 NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
-all: csl-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(STYLE_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
+all: csl-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
 
 # Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
@@ -136,6 +145,22 @@ $(SLIDES_OUT_DIR)/%: $(SLIDES_SRC_DIR)/% | $(SLIDES_OUT_DIR)
 $(STYLE_OUT): $(STYLE_SRC) | $(OUT_DIR)
 	cp $< $@
 
+# Font output dir
+$(FONT_OUT_DIR): | $(OUT_DIR)
+	mkdir -p $(FONT_OUT_DIR)
+
+# Copy each subset webfont and its license
+$(FONT_OUT_DIR)/%: $(FONT_SRC_DIR)/% | $(FONT_OUT_DIR)
+	cp $< $@
+
+# Re-download and re-subset the Source families from adobe-fonts/*.
+# Deliberately NOT a prerequisite of `all`: it needs network access and its
+# output is committed, so run it on purpose and review the diff. If the upstream
+# metrics change, re-derive the fallback overrides in css/style.css.
+fonts:
+	uv run $(FONT_SCRIPT) --out-dir $(FONT_SRC_DIR)
+	@echo "Fonts rebuilt. Review with: git diff --stat $(FONT_SRC_DIR)"
+
 # Copy CNAME for GitHub Pages custom domain
 $(CNAME_OUT): $(CNAME_SRC) | $(OUT_DIR)
 	cp $< $@
@@ -199,7 +224,7 @@ update-csl:
 	curl -fsSL $(CSL_UPSTREAM_URL) -o $(CSL_DIR)/chicago-notes.csl
 	@echo "CSL refreshed from upstream. Review with: git diff $(CSL_DIR)"
 
-.PHONY: clean serve prune-images update-csl csl-autoupdate blog
+.PHONY: clean serve prune-images update-csl csl-autoupdate blog fonts
 clean: ; rm -rf $(OUT_DIR)
 serve: all
 	python3 -m http.server 8000 --bind localhost --directory $(OUT_DIR) & \

@@ -6,17 +6,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 make               # Build all pages into docs/
-make serve         # Build, serve at http://localhost:8000, and live-reload on src/ changes (requires entr)
+make serve         # Build, serve at http://localhost:8000, rebuild on changes to src/, css/, templates/, filters/ (requires entr)
 make clean         # Remove the entire docs/ directory
 make prune-images  # Remove src/images/ files not referenced by any .md
 make update-csl    # Re-pull the vendored chicago-notes.csl from upstream (review with git diff)
+make fonts         # Re-download and re-subset the Source webfonts into fonts/ (review with git diff)
 ```
 
 `make update-csl` refreshes `vendor/csl/chicago-notes.csl` from [citation-style-language/styles](https://github.com/citation-style-language/styles). `vendor/csl/modern-language-association.csl` also lives there but is not wired into any build target and is never overwritten.
 
 This refresh also runs **automatically** as part of `make`, but at most once every 30 days: the `csl-autoupdate` prerequisite of `all` checks a gitignored stamp file (`vendor/csl/.csl-updated`) via `find -mtime -30` and only re-pulls when the stamp is missing or older than 30 days, touching it on success. The auto-update is non-fatal — if the fetch fails (e.g. offline) the build continues with the existing vendored copy. So a routine `make` will occasionally pull a newer CSL; check `git diff vendor/csl` after a build that prints the refresh message.
 
-External tools required: `pandoc`, `pandoc-crossref` (`brew install pandoc-crossref`), `cwebp` (`brew install webp`), `uv` (for the blog script), and `entr` (only for `make serve`).
+External tools required: `pandoc`, `pandoc-crossref` (`brew install pandoc-crossref`), `cwebp` (`brew install webp`), `uv` (for the blog and font scripts), and `entr` (only for `make serve`).
 
 To rebuild a single non-blog page:
 ```bash
@@ -55,10 +56,12 @@ pandoc --standalone --template=templates/base.html \
 
 This is a static academic website built with **Pandoc** and a single local stylesheet, deployed to GitHub Pages from the `docs/` directory (domain: fredner.org).
 
+**`docs/` is committed to git.** It is the deploy target — GitHub Pages serves the checked-in build output, so any change to `src/`, `css/`, `templates/`, or `filters/` must be followed by `make` and the regenerated `docs/` files committed alongside the source change, or the live site will not reflect it. `build/` is gitignored.
+
 **Build pipeline:** `src/*.md` → pandoc (with Lua filters) → `docs/*.html`
 
 - `templates/base.html` — single HTML template for all pages (nav, skip-link, back-to-top, GoatCounter analytics; no footer). Blog posts pass `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`. The template links `style.css`.
-- `css/style.css` — the site's only stylesheet: minimalist black-on-white design with a `prefers-color-scheme: dark` variant (colors are CSS custom properties on `:root`), a centered ~65ch column of left-aligned text, and system serif type throughout (no webfonts). It styles all site chrome (`.skip-link`, nav, `.toc-box`, `.back-to-top`, `.post-card`) and content elements (figures/figcaptions, tables, blockquotes, code, and pandoc's end-of-document footnotes section). Copied to `docs/style.css` by the Makefile. All font sizes are relative (rem/em); keep it that way for accessibility.
+- `css/style.css` — the site's only stylesheet: minimalist black-on-white design with a `prefers-color-scheme: dark` variant (colors are CSS custom properties on `:root`), a centered ~65ch column of left-aligned text, and the three self-hosted Source families (see **Fonts** below) exposed as `--font-serif` / `--font-sans` / `--font-mono`. It styles all site chrome (`.skip-link`, nav, `.toc-box`, `.back-to-top`, `.post-card`) and content elements (figures/figcaptions, tables, blockquotes, code, and pandoc's end-of-document footnotes section). Copied to `docs/style.css` by the Makefile. All font sizes are relative (rem/em); keep it that way for accessibility.
 - `vendor/csl/` — vendored citation styles from [citation-style-language/styles](https://github.com/citation-style-language/styles). `chicago-notes.csl` (Chicago 18th ed., notes without bibliography) is the only CSL the build uses; refreshed by `make update-csl` / the 30-day `csl-autoupdate` stamp.
 - **Footnotes and citations** render as pandoc's standard end-of-document footnotes section (`<section id="footnotes" role="doc-endnotes">`), styled by `style.css` with `:target` highlighting for the in-page note links. Chicago-notes citations become footnotes via `--citeproc`.
 - `--section-divs` — wraps each heading section in `<section>`; kept for semantic structure and anchor targets.
@@ -66,16 +69,27 @@ This is a static academic website built with **Pandoc** and a single local style
 - `--metadata link-citations=false` — chicago-notes is a notes-only style with no bibliography section, so the default citeproc behavior of wrapping each citation in `<a href="#ref-...">` produces dead links and also swallows DOIs / JSTOR URLs that would otherwise render as clickable external links. Setting `link-citations` to `false` suppresses the wrapper entirely, leaving bare URLs in the citation content to be rendered as ordinary external links.
 - **Figures** are pandoc's default `<figure><img><figcaption>` output, numbered by `pandoc-crossref` (`![caption](src){#fig:foo}`). Captions render below the image, styled by `style.css`.
 - `filters/og-image.lua` — runs right after `filters/webp.lua` so it sees the `.webp`-rewritten src. Captures the first `Image` element on the page, resolves it against the `site-url` metadata (set in the Makefile to `https://fredner.org`), and exposes the absolute URL as `og-image` metadata. The template renders `<meta property="og:image">` (plus `twitter:card` / `twitter:image`) when that value is set, so iMessage / Slack / Twitter link previews show the page's first image. Pages with no images emit no `og:image` tag.
+- `--metadata email=...` is passed by every Makefile pandoc rule but the template no longer references `$email$`; it is vestigial. Contact addresses live in page content (`src/index.md`), not in the chrome.
 - `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages.
 - **Syntax highlighting:** no page currently contains fenced code blocks, so pandoc emits no `highlighting-css`. If highlighted code is ever added, pass `--highlight-style=monochrome` (weight/italic-based) rather than writing per-token color overrides — pandoc's default token colors are not tuned for the dark theme.
 
-**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<details class="toc-box list-of-figures-box">` styled to match the TOC).
+**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. `description` (optional) becomes the `<meta name="description">` and `og:description`. `date` (optional; set on blog posts) renders a `<time>` byline under the title. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<details class="toc-box list-of-figures-box">` styled to match the TOC).
 
 **Blog pipeline:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html` + `docs/blog.html` index + `docs/feed.xml` Atom feed.
 
 - `scripts/build_blog.py` — run via `uv run` (inline script metadata declares the `pyyaml` dependency); reads frontmatter, filters out drafts, generates `build/blog-index.md` and `build/feed.xml`.
-- The Makefile also filters drafts at the Make level (via a `grep '^draft: true'` shell loop) so `make` never builds an HTML page for a draft post.
+- The Makefile also filters drafts at the Make level (via a `grep '^draft: true'` shell loop) so `make` never builds an HTML page for a draft post. A post with no `date` is skipped with a warning by the script (so it vanishes from the index and feed) but the Makefile still builds its HTML page — always set `date`.
 - Required blog frontmatter: `title`, `date` (YYYY-MM-DD). Optional: `description`, `draft`.
+- `docs/blog.html` (the index) is built from the generated `build/blog-index.md` with a deliberately minimal pandoc call — no `--section-divs`, no crossref, no citeproc, no `site-url`. The index markup (`.post-card`, `.post-date`) is emitted as raw HTML by `build_blog.py`, so changing the index layout means editing that script, not a template.
+
+**Fonts:** self-hosted subsets of three Adobe families (all SIL OFL 1.1) — **Source Serif 4** for body prose, **Source Sans 3** for headings and site chrome (nav, TOC label, back-to-top, skip link, figcaptions, table headers), **Source Code Pro** for `code`/`pre`.
+
+- `scripts/build_fonts.py` (`make fonts`) downloads the variable TTFs from the `release` branch of `adobe-fonts/source-serif`, `source-sans`, and `source-code-pro`, subsets them with fontTools, and writes `fonts/*.woff2` plus each repo's `LICENSE-*.md`. `make` copies both into `docs/fonts/`.
+- **`make fonts` is deliberately *not* a prerequisite of `all`** — unlike the CSL auto-update there is no 30-day stamp, because silently changing the site's typography mid-build is undesirable. Run it on purpose and review the diff.
+- **The subset ranges are load-bearing, not decorative.** `references.bib` contains `Č č ļ Š` (Latin Extended-A) in author names, which fall *outside* the usual "latin" webfont subset that Google Fonts and Fontsource ship — a `latin`-only build drops to a fallback face mid-name on `reading-lms.html` and `the-ends-of-reading.html`. The text ranges in `build_fonts.py` also cover the `↑`, `▸`, `▾` symbols the template and stylesheet inject. Source Code Pro is ASCII-only (the site has no `<pre>` blocks; mono is inline-only).
+- **`PIN_OPSZ` in `build_fonts.py` matters a lot for size.** Source Serif 4 ships a second variation axis (`opsz 8–60`) whose `gvar` deltas more than double the file — 124 KB vs 51 KB for the roman. Since the serif is only ever set at 16–18px here, the axis is pinned to its default of 20. All four faces total ~141 KB.
+- The `@font-face` blocks use `font-weight: 200 900` (one variable file per face covers every weight) and `font-display: swap`, paired with metric-matched `Source Serif Fallback` / `Source Sans Fallback` faces that use `local()` + `size-adjust`/`ascent-override`/`descent-override` so the swap doesn't reflow the page. **Those override values are derived from the fonts' `OS/2` and `hhea` tables — recompute them if `make fonts` pulls an upstream release with different metrics.**
+- `templates/base.html` preloads only the serif roman and sans upright (the two faces on every page). The `crossorigin` attribute is required even though the fonts are same-origin: fonts are fetched in CORS mode, and without it the preload lands in a separate cache entry and the font downloads twice.
 
 **Assets:** `src/images/` → `docs/images/`. JPG/JPEG/PNG are converted to WebP via `cwebp`; existing `.webp` and `.svg` files are copied through unchanged. In markdown, reference images by their original `.jpg`/`.jpeg`/`.png` filename — `filters/webp.lua` rewrites image `src` attributes to `.webp` during the pandoc run so the HTML matches the converted asset.
 
