@@ -16,23 +16,29 @@
   <link rel="preload" href="fonts/source-serif-4-roman.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/source-sans-3-upright.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
-    <!-- Goat Counter -->
+    <title>Blog&mdash;Erik Fredner</title>
+  <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  <title>Blog&mdash;Erik Fredner</title>
 </head>
 
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="top"></div>
   <header>
+    <!-- aria-current marks the section you are in. The nav-* variables are set
+         by the Makefile from each source file's stem, so a page whose stem
+         matches no nav item simply sets one that nobody reads. (Note for
+         editors: a literal dollar sign is template syntax even inside an HTML
+         comment, so the Makefile's metadata flag cannot be quoted here.) -->
     <nav aria-label="Site navigation">
       <ul>
         <li><a href="index.html" class="site-title">Erik Fredner</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
       <ul class="nav-links">
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li>
         <li><a href="cv.html">CV</a></li>
         <li><a href="research.html">Research</a></li>
       </ul>
@@ -45,22 +51,29 @@
         
         
       </header>
-                  <section id="symposium-mapping-the-canon"
-                  class="post-card">
-                  <h2><a href="blog/darmstadt.html">Symposium: Mapping
-                  the Canon</a></h2>
+                  <div class="post-card">
+                  <p class="post-date">
+                  2026-06-19
+                  </p>
+                  <h2 id="symposium-mapping-the-canon"><a
+                  href="blog/darmstadt.html">Symposium: Mapping the
+                  Canon</a></h2>
                   <p>Presenting new research on canons within
                   canons.</p>
-                  <p><span class="post-date">2026-06-19</span></p>
-                  </section>
-                  <section id="memorize-poems-with-anki"
-                  class="post-card">
-                  <h2><a href="blog/anki-cloze.html">Memorize poems with
+                  </div>
+                  <div class="post-card">
+                  <p class="post-date">
+                  2026-04-06
+                  </p>
+                  <h2 id="memorize-poems-with-anki"><a
+                  href="blog/anki-cloze.html">Memorize poems with
                   Anki</a></h2>
                   <p>A tool to automatically create cloze tests for
                   memorizing poems.</p>
-                  <p><span class="post-date">2026-04-06</span></p>
-                  </section>
+                  </div>
+                  <p class="feed-link">
+                  <a href="feed.xml">Subscribe via Atom</a>
+                  </p>
     </article>
     <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 

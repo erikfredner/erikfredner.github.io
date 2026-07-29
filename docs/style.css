@@ -89,6 +89,10 @@
   --border-strong: #8b919c; /* 3.2:1 */
   --target-bg: #fff3c4; /* footnote :target highlight */
   --code-bg: #f5f5f5;
+  --select-bg: #cfe9f0;      /* --text on it: 13.7:1 */
+  --link-visited: #6b4a86;   /* 7.1:1 — hue shift, not just a dimmer teal, so
+                                followed cross-links read at a glance */
+  --scroll-shadow: rgba(26, 26, 26, 0.25); /* edge hint on scrollable tables */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -101,6 +105,9 @@
     --border-strong: #606770; /* 3.3:1 */
     --target-bg: #3b3620;
     --code-bg: #1e1e1e;
+    --select-bg: #1f3a42;    /* --text on it: 9.3:1 */
+    --link-visited: #b8a3d4; /* 8.2:1 */
+    --scroll-shadow: rgba(0, 0, 0, 0.55);
   }
 }
 
@@ -155,11 +162,36 @@ main {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   font-family: var(--font-sans);
   font-weight: 600;
   line-height: 1.2;
   margin-block: 1.75em 0.5em;
+}
+
+/* `balance` on short blocks keeps a heading from dropping one word onto a
+   second line; `pretty` on prose keeps a paragraph from ending in a lone word.
+   Both are progressive enhancements — unsupporting browsers drop the
+   declaration and render exactly as before. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p.subtitle,
+figcaption,
+table caption {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd,
+blockquote {
+  text-wrap: pretty;
 }
 
 h1.title {
@@ -200,14 +232,80 @@ h4 {
   font-size: 1em;
 }
 
+/* One h5 exists (104z-syllabus); h6 is unused. Without these they fall out of
+   the group above and revert to the UA's serif bold, breaking the sans ramp. */
+h5,
+h6 {
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
 p {
   margin-block: 1em;
+}
+
+/* Several syllabi print bare URLs in body copy (policy.oregonstate.edu,
+   language.stanford.edu). An unbreakable token wider than the column pushes
+   the whole document sideways on a phone — #footnotes already guarded against
+   this for citations; body copy needs it too. `break-word` rather than
+   `anywhere` so only genuinely over-wide words break. */
+p,
+li,
+dd,
+th,
+td,
+figcaption,
+blockquote {
+  overflow-wrap: break-word;
+}
+
+/* Prose lists. The UA's 40px indent doesn't line up with anything else in the
+   65ch column, and cv.html is ~150 list items. Scoped to `article` so the nav
+   is untouched; .toc-box and #footnotes rules outrank these on specificity and
+   keep their own values. */
+article ul {
+  padding-inline-start: 1.25rem;
+}
+
+article ol {
+  padding-inline-start: 1.75rem; /* room for two-digit numbers on cv.html */
+}
+
+article li {
+  margin-block: 0.35em;
+}
+
+article li > ul,
+article li > ol {
+  margin-block: 0.35em;
 }
 
 a {
   color: var(--link);
   text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+::selection {
+  background: var(--select-bg);
+}
+
+/* Deliberately no `color` here: --text shows through, which keeps the
+   selection legible in both themes without a second pair of tokens. */
+
+/* pandoc emits this class; nothing acted on it. The subsets carry no `smcp`
+   feature, so this synthesizes — still better than rendering as plain text. */
+.smallcaps {
+  font-variant: small-caps;
 }
 
 :focus-visible {
@@ -275,6 +373,22 @@ header > nav a:hover {
   color: var(--link);
   text-decoration: underline;
   text-underline-offset: 0.15em;
+}
+
+header > nav a:visited {
+  color: inherit; /* the nav is chrome, not content; visited state is noise here */
+}
+
+/* The wordmark should outweigh the section links. */
+.site-title {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* aria-current is set by the template from the Makefile's --metadata nav-$*.
+   It carries the semantics for screen readers; this gives it a visual form. */
+header > nav a[aria-current="page"] {
+  color: var(--text);
 }
 
 .nav-toggle {
@@ -346,6 +460,11 @@ header > nav a:hover {
   pointer-events: auto;
 }
 
+.back-to-top:hover {
+  border-color: var(--link);
+  color: var(--link);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .back-to-top {
     transition: none;
@@ -356,6 +475,26 @@ header > nav a:hover {
 
 .toc-box {
   margin: 1.5rem 0 2rem;
+}
+
+/* the-ends-of-reading stacks a List of Figures under the TOC; tighten the gap
+   so the two disclosures read as one block rather than unrelated widgets. */
+.toc-box + .toc-box {
+  margin-top: -1rem;
+}
+
+/* A long TOC inherits the global underlined accent, which turns ~25 rows into
+   a wall of teal rules. Match the nav treatment instead. */
+.toc-box a,
+.toc-box a:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.toc-box a:hover {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .toc-label {
@@ -381,7 +520,7 @@ header > nav a:hover {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-right: 0.75rem;
+  margin-inline-end: 0.75rem;
   vertical-align: 0.05em;
   border-block: 0.32em solid transparent;
   border-inline-start: 0.42em solid currentColor;
@@ -404,12 +543,12 @@ header > nav a:hover {
 }
 
 .toc-box ul {
-  padding-left: 1rem;
+  padding-inline-start: 1rem;
   list-style: none;
 }
 
 .toc-box ol {
-  padding-left: 2rem;
+  padding-inline-start: 2rem;
 }
 
 .toc-box li {
@@ -422,6 +561,11 @@ header > nav a:hover {
   margin-bottom: 1.5rem;
 }
 
+.post-card + .post-card {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
 .post-card h2 {
   margin-block: 0 0.3em;
   font-size: 1.4em;
@@ -431,9 +575,17 @@ header > nav a:hover {
   margin-bottom: 0;
 }
 
+/* The date leads the card, so it needs a small gap before the title. */
 .post-card .post-date {
+  font-family: var(--font-sans);
   font-size: 0.85em;
-  margin-block: 0;
+  margin-block: 0 0.2em;
+}
+
+.feed-link {
+  font-family: var(--font-sans);
+  font-size: 0.9em;
+  margin-top: 2.5rem;
 }
 
 /* ---------- Content elements ---------- */
@@ -447,6 +599,11 @@ figure {
   margin: 2rem 0;
 }
 
+figure img {
+  display: block;
+  margin-inline: auto;
+}
+
 figcaption,
 table caption {
   font-family: var(--font-sans);
@@ -454,6 +611,32 @@ table caption {
   color: var(--muted);
   margin-top: 0.5rem;
   text-align: left;
+}
+
+/* The syllabus tables run 8-9 columns, which is wider than the 65ch column.
+   Without this wrapper (added by filters/wrap-tables.lua) the overflow falls
+   through to the document and the whole page scrolls sideways on a phone.
+   role + tabindex + label is what makes the box scrollable by keyboard; an
+   overflow container without them is mouse-only. */
+/* Edge shadows, so a clipped table announces that it scrolls. The two `local`
+   cover layers scroll with the content and sit on top of the two fixed shadow
+   layers, which means the shadow is hidden at each end and appears only on the
+   side that actually has more table. A table that fits shows nothing.
+   Linear rather than the usual radial shadow: these tables are far taller than
+   they are wide, and a radial gradient only reaches full strength at the
+   container's vertical midpoint, which is off-screen while reading. */
+.table-scroll {
+  overflow-x: auto;
+  margin-block: 1.5rem;
+  background:
+    linear-gradient(to right, var(--bg) 70%, transparent) left center / 2rem 100% no-repeat local,
+    linear-gradient(to left, var(--bg) 70%, transparent) right center / 2rem 100% no-repeat local,
+    linear-gradient(to right, var(--scroll-shadow), transparent) left center / 0.7rem 100% no-repeat,
+    linear-gradient(to left, var(--scroll-shadow), transparent) right center / 0.7rem 100% no-repeat;
+}
+
+.table-scroll table {
+  min-width: 100%;
 }
 
 table {
@@ -480,16 +663,17 @@ tbody tr {
 
 blockquote {
   margin-inline: 0;
-  padding-left: 1rem;
-  border-left: 3px solid var(--border);
+  padding-inline-start: 1rem;
+  border-inline-start: 3px solid var(--border);
 }
 
+/* Forward-looking: no page currently contains a <dl>. */
 dt {
   font-weight: 600;
 }
 
 dd {
-  margin-left: 1.5rem;
+  margin-inline-start: 1.5rem;
   margin-bottom: 0.5em;
 }
 
@@ -501,6 +685,7 @@ code {
   border-radius: 3px;
 }
 
+/* Forward-looking: mono is inline-only today — no page contains a <pre>. */
 pre {
   font-family: var(--font-mono);
   background: var(--code-bg);
@@ -538,7 +723,7 @@ a.footnote-ref {
 }
 
 #footnotes ol {
-  padding-left: 1.5rem;
+  padding-inline-start: 1.5rem;
 }
 
 #footnotes li {
@@ -549,28 +734,43 @@ a.footnote-ref {
   margin-block: 0.25em;
 }
 
+/* The negative margin cancels the padding so the highlight reads as a band
+   around the text without shifting anything on the line. */
 #footnotes li:target,
 [id^="fnref"]:target {
   background: var(--target-bg);
+  padding: 0.15em 0.3em;
+  margin: -0.15em -0.3em;
 }
 
 .footnote-back {
   text-decoration: none;
-  margin-left: 0.25em;
+  margin-inline-start: 0.25em;
 }
 
-/* Long bare URLs in citations shouldn't force horizontal scroll */
-#footnotes,
-#refs {
+/* Long bare URLs in citations shouldn't force horizontal scroll. chicago-notes
+   emits no bibliography, so #refs never appears in a built page. */
+#footnotes {
   overflow-wrap: anywhere;
 }
 
 /* ---------- Print ---------- */
 
+/* Nine of the thirty pages are syllabi, which are printed in practice. */
+
 @media print {
+  @page {
+    margin: 2cm;
+  }
+
   header > nav,
   .back-to-top,
   .skip-link {
+    display: none;
+  }
+
+  /* A collapsed <details> prints as a bare label, so omit it entirely. */
+  .toc-box {
     display: none;
   }
 
@@ -581,5 +781,36 @@ a.footnote-ref {
 
   a {
     color: inherit;
+  }
+
+  /* Printing every link's href was tried and reverted. The citation apparatus
+     doesn't need it — chicago-notes emits URLs in footnotes as plain text, not
+     as <a>, so they already print. The only pages it changed were the syllabi,
+     which carry up to 33 external links of up to 174 characters (Canvas,
+     Outlook booking, OSU policy), and expanding those made the printed page
+     markedly worse. */
+
+  /* The screen wrapper would clip a wide table at the paper's edge. */
+  .table-scroll {
+    overflow: visible;
+  }
+
+  figure,
+  table,
+  tr,
+  .table-scroll {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+  }
+
+  p,
+  li {
+    orphans: 2;
+    widows: 2;
   }
 }

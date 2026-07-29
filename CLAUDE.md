@@ -27,10 +27,12 @@ pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/b
   --metadata email="erik.fredner@oregonstate.edu" \
   --metadata site-url="https://fredner.org" \
   --metadata link-citations=false \
+  --metadata nav-PAGE=true \
   --lua-filter=filters/og-image.lua \
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
+  --lua-filter=filters/wrap-tables.lua \
   --citeproc --bibliography=references.bib --csl=vendor/csl/chicago-notes.csl \
   -o docs/PAGE.html src/PAGE.md
 ```
@@ -44,10 +46,12 @@ pandoc --standalone --template=templates/base.html \
   --metadata site-url="https://fredner.org" \
   --metadata pathprefix="../" \
   --metadata link-citations=false \
+  --metadata nav-blog=true \
   --lua-filter=filters/og-image.lua \
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
+  --lua-filter=filters/wrap-tables.lua \
   --citeproc --bibliography=references.bib --csl=vendor/csl/chicago-notes.csl \
   -o docs/blog/POST.html src/blog/POST.md
 ```
@@ -69,6 +73,8 @@ This is a static academic website built with **Pandoc** and a single local style
 - `--metadata link-citations=false` — chicago-notes is a notes-only style with no bibliography section, so the default citeproc behavior of wrapping each citation in `<a href="#ref-...">` produces dead links and also swallows DOIs / JSTOR URLs that would otherwise render as clickable external links. Setting `link-citations` to `false` suppresses the wrapper entirely, leaving bare URLs in the citation content to be rendered as ordinary external links.
 - **Figures** are pandoc's default `<figure><img><figcaption>` output, numbered by `pandoc-crossref` (`![caption](src){#fig:foo}`). Captions render below the image, styled by `style.css`.
 - `filters/og-image.lua` — runs right after `filters/webp.lua` so it sees the `.webp`-rewritten src. Captures the first `Image` element on the page, resolves it against the `site-url` metadata (set in the Makefile to `https://fredner.org`), and exposes the absolute URL as `og-image` metadata. The template renders `<meta property="og:image">` (plus `twitter:card` / `twitter:image`) when that value is set, so iMessage / Slack / Twitter link previews show the page's first image. Pages with no images emit no `og:image` tag.
+- `filters/wrap-tables.lua` — runs last, after `pandoc-crossref` and `filters/wrap-lists.lua` (so both still see real `Table` elements). Wraps every table in `<div class="table-scroll" role="region" tabindex="0" aria-label="...">`, labelled from the table's own caption when it has one. Without the wrapper a table wider than the 65ch column pushes the whole document sideways on a phone; `tabindex` + `role` + a name are what make the resulting scroll box reachable by keyboard. `style.css` draws CSS-only edge shadows on it that appear only when the table actually overflows.
+- **Nav wayfinding:** the Makefile passes `--metadata nav-$*=true` (the source file's stem) on every page rule, and `--metadata nav-blog=true` explicitly for the blog index and posts. `templates/base.html` turns `nav-index` / `nav-blog` / `nav-cv` / `nav-research` into `aria-current="page"` on the matching nav link; stems that match no nav item just set a variable nobody reads. Adding a nav item means adding both the link and its `$if(nav-…)$` guard.
 - `--metadata email=...` is passed by every Makefile pandoc rule but the template no longer references `$email$`; it is vestigial. Contact addresses live in page content (`src/index.md`), not in the chrome.
 - `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages.
 - **Syntax highlighting:** no page currently contains fenced code blocks, so pandoc emits no `highlighting-css`. If highlighted code is ever added, pass `--highlight-style=monochrome` (weight/italic-based) rather than writing per-token color overrides — pandoc's default token colors are not tuned for the dark theme.
@@ -96,3 +102,12 @@ This is a static academic website built with **Pandoc** and a single local style
 **Slides:** `slides/*.html` is copied verbatim to `docs/slides/` (no pandoc processing).
 
 **GitHub Pages config:** `CNAME` (custom domain) and `.nojekyll` (disables Jekyll) are recreated in `docs/` by `make`, so they survive `make clean`.
+
+**Favicon:** `favicon.svg` is an asterisk on a transparent ground, set in the site's own Source Serif 4 at weight 600 (the heading/wordmark weight). It lives at the repo root, not in `src/images/` — `make prune-images` deletes anything under `src/images/` that no `.md` references, and the file needs to land at the site root rather than under `/images/`. `make` copies it to `docs/favicon.svg`.
+
+Two things about it are load-bearing:
+
+- **The glyph is a baked path, not a `<text>` element.** A favicon renders outside the page's font context, so `<text>` would fall back to whatever serif the viewer's system has, and the asterisk's shape varies a lot between faces. The outline was extracted from `fonts/source-serif-4-roman.woff2` with fontTools — `instancer.instantiateVariableFont` to pin the `wght` axis, then `SVGPathPen` — and the transform's negative y scale converts the font's y-up coordinates to SVG's y-down. Regenerate it that way rather than hand-editing the path data.
+- **An XML comment may not contain a double hyphen.** The comment inside the file therefore spells the CSS custom properties without their leading dashes. Writing `--text` there makes the file fail to parse, and browsers render a broken-image icon instead of the favicon.
+
+Light/dark is handled by a `prefers-color-scheme` block *inside* the SVG, using the site's own text colors, so the mark stays legible against both a light and a dark tab strip.

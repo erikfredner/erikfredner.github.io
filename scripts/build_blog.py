@@ -56,17 +56,23 @@ def build_blog(src_dir, build_dir, site_url):
             link = f"blog/{post['slug']}.html"
             lines.append('<div class="post-card">')
             lines.append("")
+            # The date reads as a label above the title rather than a trailing
+            # footnote. Emitted as its own <p> (not a <span> inside one) so the
+            # .post-date margin rule in style.css applies to the block itself.
+            lines.append(f'<p class="post-date">{post["date"]}</p>')
+            lines.append("")
             lines.append(f"## [{post['title']}]({link})")
             lines.append("")
             if post.get("description"):
                 lines.append(post["description"])
                 lines.append("")
-            lines.append(f'<span class="post-date">{post["date"]}</span>')
-            lines.append("")
             lines.append("</div>")
             lines.append("")
     else:
         lines.append("No posts yet.")
+    lines.append("")
+    # The feed is otherwise discoverable only via <link rel="alternate">.
+    lines.append('<p class="feed-link"><a href="feed.xml">Subscribe via Atom</a></p>')
     lines.append("")
 
     (build_path / "blog-index.md").write_text("\n".join(lines), encoding="utf-8")

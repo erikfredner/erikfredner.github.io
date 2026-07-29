@@ -8,6 +8,7 @@ LUA_FILTER := filters/webp.lua
 OG_IMAGE_FILTER := filters/og-image.lua
 LISTS_FILTER := filters/inject-lists.lua
 WRAP_LISTS_FILTER := filters/wrap-lists.lua
+WRAP_TABLES_FILTER := filters/wrap-tables.lua
 EMAIL := erik.fredner@oregonstate.edu
 
 SRC_MD := $(wildcard $(SRC_DIR)/*.md)
@@ -79,7 +80,13 @@ CNAME_SRC := CNAME
 CNAME_OUT := $(OUT_DIR)/CNAME
 NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 
-all: csl-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) blog
+# Favicon. Lives at the repo root rather than src/images/ so that `prune-images`
+# (which deletes anything no .md references) leaves it alone and it lands at the
+# site root instead of under /images/.
+FAVICON_SRC := favicon.svg
+FAVICON_OUT := $(OUT_DIR)/favicon.svg
+
+all: csl-autoupdate $(HTML_OUT) $(IMAGES_OUT) $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) blog
 
 # Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
@@ -92,7 +99,7 @@ csl-autoupdate:
 	  else echo "warning: CSL auto-update failed (offline?); using existing vendored copy."; fi; \
 	fi
 
-$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) | $(OUT_DIR)
+$(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(WRAP_TABLES_FILTER) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	$(PANDOC) --standalone $$TOC_ARG --defaults=defaults/toc-defaults.yaml --template=$(TEMPLATE) \
 	  --section-divs \
@@ -100,10 +107,12 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILT
 	  --metadata email="$(EMAIL)" \
 	  --metadata site-url="$(SITE_URL)" \
 	  --metadata link-citations=false \
+	  --metadata nav-$*=true \
 	  --lua-filter=$(OG_IMAGE_FILTER) \
 	  --lua-filter=$(LISTS_FILTER) \
 	  --filter pandoc-crossref \
 	  --lua-filter=$(WRAP_LISTS_FILTER) \
+	  --lua-filter=$(WRAP_TABLES_FILTER) \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  -o $@ $<
 
@@ -169,6 +178,10 @@ $(CNAME_OUT): $(CNAME_SRC) | $(OUT_DIR)
 $(NOJEKYLL_OUT): | $(OUT_DIR)
 	touch $@
 
+# Copy the favicon to the site root
+$(FAVICON_OUT): $(FAVICON_SRC) | $(OUT_DIR)
+	cp $< $@
+
 # Delete images in src/images/ that are not referenced in any src/*.md
 prune-images:
 	@for img in $(IMG_SRC_DIR)/*.jpg $(IMG_SRC_DIR)/*.jpeg $(IMG_SRC_DIR)/*.png $(IMG_SRC_DIR)/*.webp $(IMG_SRC_DIR)/*.svg; do \
@@ -191,6 +204,7 @@ $(BLOG_INDEX_HTML): $(BLOG_INDEX_MD) $(TEMPLATE) $(LUA_FILTER) | $(OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
 	  --lua-filter=$(LUA_FILTER) \
 	  --metadata email="$(EMAIL)" \
+	  --metadata nav-blog=true \
 	  -o $@ $<
 
 $(FEED_OUT): $(BLOG_INDEX_MD) | $(OUT_DIR)
@@ -200,7 +214,7 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 	mkdir -p $(BLOG_OUT_DIR)
 
 # Static pattern rule: explicit targets prevent ambiguity with the generic docs/%.html rule
-$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) | $(BLOG_OUT_DIR)
+$(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(OG_IMAGE_FILTER) $(LISTS_FILTER) $(WRAP_LISTS_FILTER) $(WRAP_TABLES_FILTER) | $(BLOG_OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
 	  --section-divs \
 	  --lua-filter=$(LUA_FILTER) \
@@ -208,10 +222,12 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(TEMPLATE) $(BIB
 	  --metadata site-url="$(SITE_URL)" \
 	  --metadata pathprefix="../" \
 	  --metadata link-citations=false \
+	  --metadata nav-blog=true \
 	  --lua-filter=$(OG_IMAGE_FILTER) \
 	  --lua-filter=$(LISTS_FILTER) \
 	  --filter pandoc-crossref \
 	  --lua-filter=$(WRAP_LISTS_FILTER) \
+	  --lua-filter=$(WRAP_TABLES_FILTER) \
 	  --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL) \
 	  -o $@ $<
 
