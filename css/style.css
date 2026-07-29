@@ -313,6 +313,15 @@ a:visited {
   outline-offset: 2px;
 }
 
+/* <main> is only focusable because the skip link targets it (tabindex="-1" in
+   the template); it is not a control. Ringing the entire content column in
+   teal the moment someone skips to it is noise, and the jump is already
+   evident from the scroll. Interactive elements keep their indicator. */
+main:focus,
+main:focus-visible {
+  outline: none;
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--border);
@@ -403,16 +412,21 @@ header > nav a[aria-current="page"] {
   line-height: 1;
 }
 
+/* The narrow-screen collapse is gated on `js-nav`, which the template's script
+   adds only after it has bound the toggle. The links are therefore visible by
+   default and hide only once something can show them again; if the script is
+   blocked or fails, the nav degrades to a wrapped row rather than to three
+   pages unreachable from a phone. */
 @media (max-width: 500px) {
-  .nav-toggle {
-    display: block;
-  }
-
   header > nav {
     flex-wrap: wrap;
   }
 
-  .nav-links {
+  header > nav.js-nav .nav-toggle {
+    display: block;
+  }
+
+  header > nav.js-nav .nav-links {
     display: none;
     width: 100%;
     flex-direction: column;
@@ -421,7 +435,7 @@ header > nav a[aria-current="page"] {
     border-top: 1px solid var(--border);
   }
 
-  header > nav.open .nav-links {
+  header > nav.js-nav.open .nav-links {
     display: flex;
   }
 }
@@ -613,11 +627,14 @@ table caption {
   text-align: left;
 }
 
-/* The syllabus tables run 8-9 columns, which is wider than the 65ch column.
-   Without this wrapper (added by filters/wrap-tables.lua) the overflow falls
-   through to the document and the whole page scrolls sideways on a phone.
-   role + tabindex + label is what makes the box scrollable by keyboard; an
-   overflow container without them is mouse-only. */
+/* Every table gets this wrapper (added by filters/wrap-tables.lua); without it
+   a table wider than the 65ch column lets its overflow fall through to the
+   document and the whole page scrolls sideways on a phone.
+   The filter adds role + tabindex + label -- what makes the box scrollable by
+   keyboard, since an overflow container without them is mouse-only -- to the
+   two tables that can actually overflow, and to no others: a tab stop on a box
+   with nothing to scroll is a dead stop, and a named region that leads
+   nowhere is noise in the landmark list. */
 /* Edge shadows, so a clipped table announces that it scrolls. The two `local`
    cover layers scroll with the content and sit on top of the two fixed shadow
    layers, which means the shadow is hidden at each end and appears only on the

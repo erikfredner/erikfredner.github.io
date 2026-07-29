@@ -37,15 +37,19 @@ Fiction&mdash;Erik Fredner">
       <ul>
         <li><a href="index.html" class="site-title">Erik Fredner</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-      <ul class="nav-links">
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav-links"
+        aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="blog.html">Blog</a></li>
         <li><a href="cv.html">CV</a></li>
         <li><a href="research.html">Research</a></li>
       </ul>
     </nav>
   </header>
-  <main id="main-content">
+  <!-- tabindex="-1" so the skip link actually moves focus here. Without it the
+       page scrolls to <main> but focus stays on the link, and the next Tab
+       resumes from the top of the nav rather than from the content. -->
+  <main id="main-content" tabindex="-1">
     <article>
             <header>
         <h1 class="title">ENG 104Z: Introduction to Fiction</h1>
@@ -409,8 +413,7 @@ Fiction&mdash;Erik Fredner">
             <section id="points" class="level3">
             <h3>Points</h3>
             <p>Students can earn up to 1000 points in this course.</p>
-            <div class="table-scroll" role="region" tabindex="0"
-            aria-label="Assignments and point values">
+            <div class="table-scroll">
             <table>
             <caption>Assignments and point values</caption>
             <colgroup>
@@ -482,8 +485,7 @@ Fiction&mdash;Erik Fredner">
             </section>
             <section id="scale" class="level3">
             <h3>Scale</h3>
-            <div class="table-scroll" role="region" tabindex="0"
-            aria-label="Grading scale">
+            <div class="table-scroll">
             <table>
             <caption>Grading scale</caption>
             <thead>
@@ -1132,6 +1134,10 @@ Fiction&mdash;Erik Fredner">
         var toggle = document.querySelector('.nav-toggle');
         var nav = toggle && toggle.closest('nav');
         if (!toggle || !nav) return;
+        // Only now, with the button known to be wired up, does the stylesheet
+        // get permission to collapse the links behind it. See the `js-nav`
+        // rules in style.css.
+        nav.classList.add('js-nav');
         toggle.addEventListener('click', function () {
           var open = nav.classList.toggle('open');
           toggle.setAttribute('aria-expanded', String(open));

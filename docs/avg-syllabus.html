@@ -38,15 +38,19 @@ English&mdash;Erik Fredner</title>
       <ul>
         <li><a href="index.html" class="site-title">Erik Fredner</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-      <ul class="nav-links">
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav-links"
+        aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="blog.html">Blog</a></li>
         <li><a href="cv.html">CV</a></li>
         <li><a href="research.html">Research</a></li>
       </ul>
     </nav>
   </header>
-  <main id="main-content">
+  <!-- tabindex="-1" so the skip link actually moves focus here. Without it the
+       page scrolls to <main> but focus stays on the link, and the next Tab
+       resumes from the top of the nav rather than from the content. -->
+  <main id="main-content" tabindex="-1">
     <article>
             <header>
         <h1 class="title">Writing Intensive Seminar in English</h1>
@@ -140,8 +144,7 @@ English&mdash;Erik Fredner</title>
             <h2>Calendar</h2>
             <p>We meet for two 110 minute class sessions per week. Read
             the following for each class:</p>
-            <div class="table-scroll" role="region" tabindex="0"
-            aria-label="Table">
+            <div class="table-scroll">
             <table>
             <colgroup>
             <col style="width: 31%" />
@@ -329,8 +332,7 @@ English&mdash;Erik Fredner</title>
             <section id="course-policies" class="level2">
             <h2>Course Policies</h2>
             <p><strong>Grading</strong></p>
-            <div class="table-scroll" role="region" tabindex="0"
-            aria-label="Table">
+            <div class="table-scroll">
             <table>
             <thead>
             <tr>
@@ -362,8 +364,7 @@ English&mdash;Erik Fredner</title>
             </tbody>
             </table>
             </div>
-            <div class="table-scroll" role="region" tabindex="0"
-            aria-label="Table">
+            <div class="table-scroll">
             <table>
             <thead>
             <tr>
@@ -573,6 +574,10 @@ English&mdash;Erik Fredner</title>
         var toggle = document.querySelector('.nav-toggle');
         var nav = toggle && toggle.closest('nav');
         if (!toggle || !nav) return;
+        // Only now, with the button known to be wired up, does the stylesheet
+        // get permission to collapse the links behind it. See the `js-nav`
+        // rules in style.css.
+        nav.classList.add('js-nav');
         toggle.addEventListener('click', function () {
           var open = nav.classList.toggle('open');
           toggle.setAttribute('aria-expanded', String(open));
