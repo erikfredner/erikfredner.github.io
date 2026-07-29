@@ -1,8 +1,5 @@
 ---
 title: The Ends of Reading
-author: Erik Fredner
-date: 2026-06-06
-lang: en-US
 lof: true
 toc: true
 ---

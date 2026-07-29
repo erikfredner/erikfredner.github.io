@@ -161,6 +161,24 @@ h1.title {
   margin-top: 1.5rem;
 }
 
+/* A `subtitle` in the frontmatter renders under the h1. It reads as a
+   continuation of the title, not a heading: same sans family, but lighter,
+   smaller, and muted so the h1 keeps the visual weight. */
+p.subtitle {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1.25em;
+  line-height: 1.3;
+  color: var(--muted);
+  margin-block: 0.3rem 1.5rem;
+}
+
+/* h1's 0.5em bottom margin (~0.95rem here) would collapse against the
+   subtitle's small top margin and win, breaking the two apart. */
+h1.title:has(+ .subtitle) {
+  margin-bottom: 0;
+}
+
 h2 {
   font-size: 1.5em;
 }

@@ -1,5 +1,6 @@
 ---
-title: "Leaving New York: Publishing Twentieth-Century US Literature Elsewhere"
+title: "Leaving New York"
+subtitle: "The Dispersion of Twentieth-Century US Literary Publishing"
 ---
 
 Co-authored with [Luca Messarra](https://english.stanford.edu/people/luca-messarra).
