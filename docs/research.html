@@ -8,12 +8,19 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Erik Fredner">
       <meta name="color-scheme" content="light dark">
-  <!-- Preload only the two faces every page uses: body prose and the sans that
-       sets the nav and the h1. Italic and mono are left to normal CSS discovery
-       so they don't compete for bandwidth. `crossorigin` is required even
-       same-origin — fonts are fetched in CORS mode, and omitting it makes the
-       preload a separate cache entry, i.e. a silent double download. -->
+  <!-- Preload the three faces that set running prose: the serif roman, its
+       italic, and the sans behind the nav and h1. The italic belongs here even
+       though it covers less text — style.css uses `font-display: optional`, and
+       under `optional` each face that misses its block period is dropped for
+       the whole pageview on its own. Leaving the italic to normal CSS discovery
+       let the roman win and the italic lose, so a sentence with a book title in
+       it rendered half in Source Serif and half in Georgia. Mono stays
+       undeclared: it is inline-only and appears on few pages.
+       `crossorigin` is required even same-origin — fonts are fetched in CORS
+       mode, and omitting it makes the preload a separate cache entry, i.e. a
+       silent double download. -->
   <link rel="preload" href="fonts/source-serif-4-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/source-serif-4-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/source-sans-3-upright.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">

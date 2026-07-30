@@ -11,12 +11,27 @@
    weight the site uses. Paths are relative to this stylesheet, which sits at
    the site root, so they resolve for blog pages under /blog/ too. */
 
+/* `optional`, not `swap`. `swap` repaints in the webfont whenever it lands,
+   and Source Serif is ~15% narrower than the generic serifs these pages fall
+   back to, so every paragraph on the page rewrapped mid-load — 0.46 CLS on
+   PageSpeed. `optional` gives the font a short block period and no swap
+   period: if it is not ready at first paint the fallback is kept for that
+   pageview, which makes the shift structurally impossible rather than merely
+   small. The cost is that a cold first visit over a slow link renders in the
+   fallback; the preloads in templates/base.html are what keep that rare, and
+   the font is used from cache on every subsequent navigation.
+
+   Consequence worth remembering: with `optional` a face that misses the block
+   period is dropped for the whole pageview *individually*. Preload every face
+   that shares a run of text, or the roman can land while the italic does not
+   and one paragraph renders in two different families. */
+
 @font-face {
   font-family: "Source Serif 4";
   src: url("fonts/source-serif-4-roman.woff2") format("woff2");
   font-weight: 200 900;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -24,7 +39,7 @@
   src: url("fonts/source-serif-4-italic.woff2") format("woff2");
   font-weight: 200 900;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -32,7 +47,7 @@
   src: url("fonts/source-sans-3-upright.woff2") format("woff2");
   font-weight: 200 900;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -40,19 +55,32 @@
   src: url("fonts/source-code-pro-upright.woff2") format("woff2");
   font-weight: 200 900;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
-/* Metric-matched fallbacks. `font-display: swap` paints text immediately in a
-   system font and swaps when the webfont lands; without these overrides that
-   swap reflows the page. The numbers are derived from the OS/2 and hhea tables
-   of the subsets and of the system fonts (size-adjust is the x-height ratio,
-   the others are the webfont's own metrics divided by it) — recompute them if
-   `make fonts` pulls an upstream release with different metrics. */
+/* Metric-matched fallbacks, so the face a visitor sees before (or, under
+   `optional`, instead of) the webfont is sized like the webfont rather than
+   like whatever the platform calls "serif". The numbers come from the OS/2 and
+   hhea tables of the subsets and of the system fonts (size-adjust is the
+   x-height ratio, the others are the webfont's own metrics divided by it) —
+   recompute them if `make fonts` pulls an upstream release with different
+   metrics.
+
+   ONE FACE PER SET OF SYSTEM METRICS, and never more than one `local()` family
+   per face unless they are metric-compatible by design. A face whose every
+   `src` fails to resolve is unusable, and the stack falls through it silently:
+   a single face listing `local("Georgia"), local("Times New Roman")` looks
+   correct on macOS and does nothing at all on a machine that has neither,
+   which is the case on most Linux boxes, PageSpeed's own runner, and Android.
+   That is the bug this arrangement replaces. Georgia and Times are a third of
+   an x-height apart, so they could not have shared overrides anyway.
+
+   Liberation Serif / Tinos / Nimbus Roman are metric clones of Times New
+   Roman, and Liberation Sans / Arimo of Arial, so those do share a face. */
 
 @font-face {
-  font-family: "Source Serif Fallback";
-  src: local("Georgia"), local("Times New Roman");
+  font-family: "Source Serif Fallback Georgia";
+  src: local("Georgia");
   size-adjust: 98.66%;
   ascent-override: 105.01%;
   descent-override: 33.95%;
@@ -60,11 +88,31 @@
 }
 
 @font-face {
-  font-family: "Source Sans Fallback";
-  src: local("Helvetica Neue"), local("Arial");
-  size-adjust: 92.4%;
-  ascent-override: 108.2%;
-  descent-override: 35.3%;
+  font-family: "Source Serif Fallback Times";
+  src: local("Times New Roman"), local("Liberation Serif"), local("Tinos"),
+    local("Nimbus Roman");
+  size-adjust: 106.2%;
+  ascent-override: 97.55%;
+  descent-override: 31.54%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Source Sans Fallback Helvetica";
+  src: local("Helvetica Neue");
+  size-adjust: 92.46%;
+  ascent-override: 108.16%;
+  descent-override: 35.26%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Source Sans Fallback Arial";
+  src: local("Arial"), local("Liberation Sans"), local("Arimo"),
+    local("Helvetica");
+  size-adjust: 92.18%;
+  ascent-override: 108.48%;
+  descent-override: 35.37%;
   line-gap-override: 0%;
 }
 
@@ -73,8 +121,10 @@
 :root {
   color-scheme: light dark;
 
-  --font-serif: "Source Serif 4", "Source Serif Fallback", Georgia, "Times New Roman", serif;
-  --font-sans: "Source Sans 3", "Source Sans Fallback", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Source Serif 4", "Source Serif Fallback Georgia",
+    "Source Serif Fallback Times", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", "Source Sans Fallback Helvetica",
+    "Source Sans Fallback Arial", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --bg: #ffffff;
@@ -145,9 +195,17 @@ body {
 
 /* ---------- Centered reading column ---------- */
 
+/* 36.5625rem is exactly 65ch of Source Serif 4 at the body's 1.125rem
+   (its `0` advance is 0.5em), but stated in rem so it does not move.
+   `ch` resolves against the element's own computed font, which made this
+   declaration mean two different widths: `header > nav` sets --font-sans
+   below, whose `0` is 0.497em, so the nav measured 0.6% narrower than main
+   and their edges never quite lined up. It also meant the column itself
+   resized when a fallback font stood in — the generic serifs are up to 27%
+   wider at `0`, which rewrapped every line on the page. */
 header > nav,
 main {
-  max-width: 65ch;
+  max-width: 36.5625rem;
   margin-inline: auto;
   padding-inline: 1rem;
 }
