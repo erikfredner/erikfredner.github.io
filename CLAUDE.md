@@ -19,7 +19,16 @@ This refresh also runs **automatically** as part of `make`, but at most once eve
 
 External tools required: `pandoc`, `pandoc-crossref` (`brew install pandoc-crossref`), `cwebp` (`brew install webp`), `uv` (for the blog and font scripts), and `entr` (only for `make serve`).
 
-To rebuild a single non-blog page:
+## Verifying changes
+
+There is no test suite, no linter, and no CI (`.github/` does not exist — GitHub Pages serves the committed `docs/` directly from `main`). **`make` is the only check**, so run it after any edit and read the output; then inspect the regenerated `docs/` HTML for what you actually changed.
+
+- **A full rebuild takes ~7 seconds.** When in doubt, `touch src/*.md src/blog/*.md templates/base.html css/style.css && make` (or `make clean && make`) — it is cheap enough that there is never a reason to reason about stale targets.
+- **The build is byte-reproducible except for `docs/feed.xml`.** Its top-level `<updated>` element is stamped with the wall-clock build time (`scripts/build_blog.py:81`), so *every* build dirties that one file even when nothing else changed. A lone `M docs/feed.xml` in `git status` after a rebuild is expected — commit it or `git checkout` it, but do not go looking for a nondeterminism bug. Correspondingly, a clean `git status` after `make` means the committed `docs/` genuinely matches the sources.
+- **`make serve` watches only `src/`, `css/`, `templates/`, and `filters/`.** Edits to `scripts/*.py`, `references.bib`, `defaults/`, or `favicon.svg` will not trigger a rebuild; touch a watched file or re-run `make` by hand.
+- **Hand-running pandoc on a single page skips things `make` does for you.** The recipes below omit `--toc`, which the Makefile adds by grepping the source for `^toc: true` — 13 of the pages in `src/` set it (all the syllabi, `cv.md`, `reading-lms.md`, `the-ends-of-reading.md`, `ur-reading.md`), and rebuilding one of those by hand without `--toc` silently drops its table of contents. Likewise, rebuilding a single blog post does **not** regenerate `docs/blog.html` or `docs/feed.xml`; run `make blog` for those. Prefer plain `make`.
+
+To rebuild a single non-blog page (add `--toc` if the source has `toc: true`):
 ```bash
 pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/base.html \
   --section-divs \
