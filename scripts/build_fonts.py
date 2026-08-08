@@ -46,6 +46,15 @@ LICENSES = ["source-serif", "source-sans", "source-code-pro"]
 # template and stylesheet inject, plus headroom in the two Latin blocks.
 # Latin Extended-A matters: Č č ļ Š appear in references.bib author names and
 # fall outside the usual "latin" webfont subset.
+#
+# Requesting a codepoint no upstream face contains is harmless — the subsetter
+# skips it — but it is not the same as covering it. ☰ U+2630 is the live case:
+# the nav toggle emits it and .nav-toggle sets --font-sans, yet no Source face
+# ships the glyph, so it renders from a system font today. The range is kept
+# because the site genuinely uses the character and would want it the moment
+# Adobe adds it; the `report()` glyph counts are what to check afterward.
+# The slide decks under slides/ are self-contained and link none of these
+# fonts, so their character coverage is not a constraint here.
 TEXT_RANGES = [
     (0x0000, 0x00FF),  # Basic Latin + Latin-1 Supplement (NBSP, á ä é ë í)
     (0x0100, 0x017F),  # Latin Extended-A (Č č ļ Š)
@@ -55,9 +64,13 @@ TEXT_RANGES = [
     (0x2026, 0x2026),  # ellipsis
     (0x202F, 0x202F),  # narrow no-break space
     (0x2191, 0x2191),  # ↑ back-to-top button
-    (0x25B8, 0x25B8),  # ▸ TOC disclosure, closed
-    (0x25BE, 0x25BE),  # ▾ TOC disclosure, open
-    (0x2630, 0x2630),  # ☰ mobile nav toggle
+    # No ▸ U+25B8 / ▾ U+25BE: the TOC disclosure triangle is drawn with CSS
+    # borders, not a glyph in `content`, because NVDA and VoiceOver announce
+    # generated text and read the marker out as part of the label. Only Source
+    # Sans ever carried these two — the serif faces do not contain them — so
+    # dropping them shrinks the sans subset alone. Do not restore them without
+    # first re-reading the .toc-label::before rule in css/style.css.
+    (0x2630, 0x2630),  # ☰ mobile nav toggle — see note below
     (0xFB01, 0xFB02),  # fi/fl ligatures
 ]
 
