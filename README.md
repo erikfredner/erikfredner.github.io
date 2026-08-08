@@ -21,7 +21,7 @@ make clean        # Remove the entire docs/ directory
 make blog         # Just the blog: posts, index, feed, timestamps
 make tags         # Just the tag pages
 make sitemap      # Just docs/sitemap.xml
-make prune-images # Delete images in src/images/ not referenced by any post or page
+make prune-images # Delete images in src/images/ not referenced by any post or page, plus their built copies
 make update-csl   # Re-pull the vendored CSL from upstream (review with git diff)
 make fonts        # Re-download and re-subset the Source webfonts (review with git diff)
 ```
@@ -31,10 +31,9 @@ make fonts        # Re-download and re-subset the Source webfonts (review with g
 To rebuild a single page:
 
 ```bash
-pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/base.html \
+pandoc --standalone --toc-depth=2 --template=templates/base.html \
   --section-divs \
   --lua-filter=filters/webp.lua \
-  --metadata email="erik.fredner@oregonstate.edu" \
   --metadata site-url="https://fredner.org" \
   --metadata link-citations=false \
   --metadata nav-PAGE=true \
@@ -47,7 +46,7 @@ pandoc --standalone --defaults=defaults/toc-defaults.yaml --template=templates/b
   -o docs/PAGE.html src/PAGE.md
 ```
 
-Blog posts use the same command minus the `--defaults` flag, with `--metadata nav-blog=true` and `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`.
+Blog posts use the same command minus `--toc-depth`, with `--metadata nav-blog=true` and `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`.
 
 Filter order matters: `webp.lua` runs before `og-image.lua` (so the OG tag points at the converted asset), and the two wrappers run after `pandoc-crossref` (so it still sees real list and `Table` elements).
 
@@ -64,7 +63,6 @@ Filter order matters: `webp.lua` runs before `og-image.lua` (so the OG tag point
 | `css/style.css` | The site's single stylesheet: minimalist centered column, the Source type system, light + dark themes — copied to `docs/style.css` by `make` |
 | `fonts/*.woff2` | Self-hosted subset webfonts (Source Serif 4, Source Sans 3, Source Code Pro), built by `make fonts` and copied to `docs/fonts/` |
 | `scripts/build_fonts.py` | Downloads the Adobe variable fonts and subsets them (run via `uv run`, invoked by `make fonts`) |
-| `defaults/toc-defaults.yaml` | Pandoc defaults for non-blog pages (`toc-depth: 2`) |
 | `filters/webp.lua` | Rewrites image `src` attributes to `.webp` so HTML matches converted assets |
 | `filters/og-image.lua` | Captures each page's first image as an absolute `og:image` URL for link previews |
 | `filters/inject-lists.lua` | Prepends list-of-figures/tables blocks for pages with `lof: true` / `lot: true` |

@@ -207,20 +207,33 @@ def post_card(post, post_prefix, tag_prefix):
     return lines
 
 
+def write_page(path, title, body):
+    """Write a generated markdown page: YAML frontmatter carrying `title`, then
+    `body` lines.
+
+    The title goes through json.dumps rather than being interpolated into a
+    quoted literal. A JSON string is also a valid YAML double-quoted scalar, so
+    this costs nothing and closes an injection hole: tag names come from post
+    frontmatter, and one containing a double quote would otherwise produce a
+    file pandoc cannot parse.
+    """
+    write_if_changed(path, "\n".join(["---", f"title: {json.dumps(title)}", "---", ""] + body))
+
+
 def write_index(build_path, posts, has_tags):
-    lines = ["---", 'title: "Blog"', "---", ""]
+    body = []
     if posts:
         for post in posts:
-            lines += post_card(post, "blog/", "tags/")
+            body += post_card(post, "blog/", "tags/")
     else:
-        lines.append("No posts yet.")
-    lines.append("")
+        body.append("No posts yet.")
+    body.append("")
     # The feed is otherwise discoverable only via <link rel="alternate">.
     subscribe = '<a href="feed.xml">Subscribe via Atom</a>'
     browse = ' &middot; <a href="tags.html">Browse by tag</a>' if has_tags else ""
-    lines.append(f'<p class="feed-link">{subscribe}{browse}</p>')
-    lines.append("")
-    write_if_changed(build_path / "blog-index.md", "\n".join(lines))
+    body.append(f'<p class="feed-link">{subscribe}{browse}</p>')
+    body.append("")
+    write_page(build_path / "blog-index.md", "Blog", body)
 
 
 def write_meta(build_path, posts, site_url):
@@ -281,23 +294,21 @@ def write_tag_pages(build_path, tags):
 
     tags_dir.mkdir(parents=True, exist_ok=True)
     for slug, bucket in tags.items():
-        lines = ["---", f'title: "Tagged: {bucket["name"]}"', "---", ""]
+        body = []
         for post in bucket["posts"]:
-            lines += post_card(post, "../blog/", "")
-        lines.append("")
-        lines.append('<p class="feed-link"><a href="../blog.html">All posts</a></p>')
-        lines.append("")
-        write_if_changed(tags_dir / f"{slug}.md", "\n".join(lines))
+            body += post_card(post, "../blog/", "")
+        body += ["", '<p class="feed-link"><a href="../blog.html">All posts</a></p>', ""]
+        write_page(tags_dir / f"{slug}.md", f"Tagged: {bucket['name']}", body)
 
-    lines = ["---", 'title: "Tags"', "---", "", '<ul class="tag-index">']
+    body = ['<ul class="tag-index">']
     for slug, bucket in tags.items():
         count = len(bucket["posts"])
-        lines.append(
+        body.append(
             f'<li><a href="tags/{slug}.html">{escape(bucket["name"])}</a> '
             f'<span class="tag-count">{count}</span></li>'
         )
-    lines += ["</ul>", "", '<p class="feed-link"><a href="blog.html">All posts</a></p>', ""]
-    write_if_changed(build_path / "tags-index.md", "\n".join(lines))
+    body += ["</ul>", "", '<p class="feed-link"><a href="blog.html">All posts</a></p>', ""]
+    write_page(build_path / "tags-index.md", "Tags", body)
 
 
 def stage_meta(src_path, build_path, manifest_path, site_url):

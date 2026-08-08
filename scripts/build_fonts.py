@@ -76,8 +76,18 @@ def expand(ranges):
 
 
 def pin_optical_size(src, dest):
-    """Freeze the opsz axis at PIN_OPSZ, leaving wght variable. No-op if absent."""
-    with TTFont(src) as font:
+    """Freeze the opsz axis at PIN_OPSZ, leaving wght variable. No-op if absent.
+
+    recalcTimestamp=False keeps upstream's `head.modified` instead of stamping
+    the build time, which is what makes this script reproducible. fontTools
+    restamps on save by default, and the subsetter downstream preserves whatever
+    it is handed — so without this, the two Source Serif faces (the only ones
+    with an opsz axis, hence the only ones saved here) came out with different
+    bytes on every run while Source Sans and Code Pro stayed identical. That
+    made `git diff fonts/` noise rather than signal, and defeated the point of
+    reviewing it. Upstream's own date still moves when Adobe cuts a release.
+    """
+    with TTFont(src, recalcTimestamp=False) as font:
         tags = {a.axisTag for a in font["fvar"].axes}
         if PIN_OPSZ is None or "opsz" not in tags:
             return src

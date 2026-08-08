@@ -890,6 +890,10 @@ a.footnote-ref {
   margin-top: 3rem;
   padding-top: 1rem;
   font-size: 0.9em;
+  /* Long bare URLs in citations shouldn't force horizontal scroll. Inherited
+     by the notes, whose own `p`/`li` keep the gentler `break-word` from the
+     rule above. chicago-notes emits no bibliography, so #refs never appears. */
+  overflow-wrap: anywhere;
 }
 
 #footnotes hr {
@@ -920,12 +924,6 @@ a.footnote-ref {
 .footnote-back {
   text-decoration: none;
   margin-inline-start: 0.25em;
-}
-
-/* Long bare URLs in citations shouldn't force horizontal scroll. chicago-notes
-   emits no bibliography, so #refs never appears in a built page. */
-#footnotes {
-  overflow-wrap: anywhere;
 }
 
 /* ---------- Print ---------- */

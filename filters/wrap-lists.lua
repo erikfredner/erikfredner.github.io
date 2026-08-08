@@ -8,8 +8,20 @@
 --    details/summary chrome matches the TOC; each entry links to its
 --    corresponding figure/table id.
 
-local figures = {}
-local tables = {}
+-- The figure and table paths are identical apart from the id prefix pandoc-crossref
+-- uses ("fig:"/"tbl:"), the class it marks its placeholder Div with, and the
+-- stylesheet hook on the resulting box. Keeping the three in one table means a
+-- new kind of list is one entry rather than a fourth copy of the same code.
+local KINDS = {
+  {prefix = "fig:", placeholder = "list-of-fig", box = "list-of-figures-box"},
+  {prefix = "tbl:", placeholder = "list-of-tbl", box = "list-of-tables-box"},
+}
+
+-- Collected captions, in document order, keyed by placeholder class.
+local collected = {}
+for _, kind in ipairs(KINDS) do
+  collected[kind.placeholder] = {}
+end
 
 local function strip_caption_prefix(inlines)
   local i, n = 1, #inlines
@@ -40,23 +52,21 @@ local function caption_inlines(caption)
   return first.content
 end
 
-function Figure(fig)
-  if fig.identifier and fig.identifier:sub(1, 4) == "fig:" then
-    table.insert(figures, {
-      id = fig.identifier,
-      caption = strip_caption_prefix(caption_inlines(fig.caption)),
+-- One collector for both element types: crossref numbers Figures and Tables the
+-- same way, and only the id prefix distinguishes one it numbered from one the
+-- author gave an unrelated id.
+local function collect(el, kind)
+  if el.identifier and el.identifier:sub(1, #kind.prefix) == kind.prefix then
+    table.insert(collected[kind.placeholder], {
+      id = el.identifier,
+      caption = strip_caption_prefix(caption_inlines(el.caption)),
     })
   end
 end
 
-function Table(tbl)
-  if tbl.identifier and tbl.identifier:sub(1, 4) == "tbl:" then
-    table.insert(tables, {
-      id = tbl.identifier,
-      caption = strip_caption_prefix(caption_inlines(tbl.caption)),
-    })
-  end
-end
+function Figure(fig) collect(fig, KINDS[1]) end
+
+function Table(tbl) collect(tbl, KINDS[2]) end
 
 local function build_details(items, label_text, extra_class)
   local list_items = {}
@@ -73,30 +83,34 @@ local function build_details(items, label_text, extra_class)
   }
 end
 
+-- crossref renders each requested list as a Header followed by an empty Div
+-- carrying the placeholder class. Return the matching KIND for such a pair.
+local function placeholder_kind(block, next_block)
+  if block.t ~= "Header" or not next_block or next_block.t ~= "Div" then
+    return nil
+  end
+  for _, kind in ipairs(KINDS) do
+    if next_block.classes:includes(kind.placeholder) then
+      return kind
+    end
+  end
+  return nil
+end
+
 local function transform(blocks)
   local out = {}
   local i = 1
   while i <= #blocks do
-    local b, nxt = blocks[i], blocks[i + 1]
-    local replaced = false
-    if b.t == "Header" and nxt and nxt.t == "Div" then
-      local label = pandoc.utils.stringify(b.content)
-      if nxt.classes:includes("list-of-fig") then
-        for _, blk in ipairs(build_details(figures, label, "list-of-figures-box")) do
-          table.insert(out, blk)
-        end
-        i = i + 2
-        replaced = true
-      elseif nxt.classes:includes("list-of-tbl") then
-        for _, blk in ipairs(build_details(tables, label, "list-of-tables-box")) do
-          table.insert(out, blk)
-        end
-        i = i + 2
-        replaced = true
+    local kind = placeholder_kind(blocks[i], blocks[i + 1])
+    if kind then
+      -- The Header supplies the label, so it is consumed along with the Div.
+      local label = pandoc.utils.stringify(blocks[i].content)
+      for _, blk in ipairs(build_details(collected[kind.placeholder], label, kind.box)) do
+        table.insert(out, blk)
       end
-    end
-    if not replaced then
-      table.insert(out, b)
+      i = i + 2
+    else
+      table.insert(out, blocks[i])
       i = i + 1
     end
   end

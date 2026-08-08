@@ -4,7 +4,7 @@
   <link href="https://fredner.org/feed.xml" rel="self"/>
   <link href="https://fredner.org/"/>
   <id>https://fredner.org/feed.xml</id>
-  <updated>2026-08-08T08:21:09-04:00</updated>
+  <updated>2026-06-19T00:00:00-04:00</updated>
   <author>
     <name>Erik Fredner</name>
   </author>
@@ -13,7 +13,7 @@
     <link href="https://fredner.org/blog/darmstadt.html"/>
     <id>https://fredner.org/blog/darmstadt.html</id>
     <published>2026-06-19T00:00:00-04:00</published>
-    <updated>2026-08-08T08:20:32-04:00</updated>
+    <updated>2026-06-19T00:00:00-04:00</updated>
     <category term="talks"/>
     <category term="research"/>
     <summary>Presenting new research on canons within canons.</summary>
@@ -30,7 +30,7 @@ href="https://fredner.org/mapping-canon"&gt;view my slides here&lt;/a&gt;.&lt;/p
     <link href="https://fredner.org/blog/anki-cloze.html"/>
     <id>https://fredner.org/blog/anki-cloze.html</id>
     <published>2026-04-06T12:46:40-04:00</published>
-    <updated>2026-08-08T08:21:09-04:00</updated>
+    <updated>2026-06-01T15:26:08-04:00</updated>
     <category term="teaching"/>
     <category term="tools"/>
     <summary>A tool to automatically create cloze tests for memorizing poems.</summary>
