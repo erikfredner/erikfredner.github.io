@@ -1,13 +1,12 @@
 ---
 title: "Chronicling America Word Frequencies"
-date: 2026-04-21
 description: "Estimating nineteenth-century American English word distributions."
 draft: true
 ---
 
 Computational literary studies often analyzes word frequencies over time. Consistent increases or decreases in word frequencies suggest that interesting changes may be happening. But one of the correct and difficult objections that observations of such trends raises is, "Change relative to what?"
 
-"The past" is the implicit rejoinder. It is one thing to observe differences in word frequencies between the Henry James of the 1870s and the Henry James of the 1900s and claim a change within the same author. It is another to observe differences in novels published in the 1870s and novels published in the 1900s because there are so many possible explanations for the observed differences: Different authors, changes in the form and function of the novel, changes in language, etc.
+"The past" is the implicit rejoinder. It is one thing to observe differences in word frequencies between the Henry James of the 1870s and the Henry James of the 1900s and claim a change within an author's style. It is another to observe differences in novels published in the 1870s and novels published in the 1900s because there are so many possible explanations for the observed differences: Different authors, changes in the form and function of the novel, changes in language, etc.
 
 For literatures in English, some have compared American and British word frequencies in the same period, which reveals obvious differences (*color* vs. *colour*), as well as interpretively tantalizing differences of uncertain statistical significance (e.g., American authors appear to be much more likely to use the word *black*, though not always in the context of race). Within a national tradition, comparing the present to the recent past is another common technique that is freighted with difficult assumptions depending on the research question. [Like Scottish soldiers' chest sizes](https://www.jstor.org/stable/48593834), there is no particular reason to think that an unusually high prevalence of *vampire* in 1897 predicts a comparable distribution in 1898 and beyond. These remain hard problems, and I am not aware of anyone who thinks they have finally solved them.
 

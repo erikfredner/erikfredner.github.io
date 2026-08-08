@@ -1,7 +1,7 @@
 ---
 title: "Memorize poems with Anki"
-date: 2026-04-06
 description: "A tool to automatically create cloze tests for memorizing poems."
+tags: [teaching, tools]
 ---
 
 I often challenge my students to memorize poems. And I have long found [Anki](https://apps.ankiweb.net/) to be the most effective tool for memorizing information. However, using Anki to memorize poetry is tricky because it is time-consuming to make good flashcards by hand.

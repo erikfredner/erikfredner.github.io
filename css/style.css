@@ -643,8 +643,14 @@ header > nav a[aria-current="page"] {
   font-size: 1.4em;
 }
 
-.post-card p:last-child {
+/* Scoped to the description rather than :last-child — a tag list may now follow
+   it, which would otherwise silently hand this rule to the tags instead. */
+.post-card > p:not(.post-date):not(.tag-list) {
   margin-bottom: 0;
+}
+
+.post-card .tag-list {
+  margin-block: 0.6rem 0;
 }
 
 /* The date leads the card, so it needs a small gap before the title. */
@@ -658,6 +664,99 @@ header > nav a[aria-current="page"] {
   font-family: var(--font-sans);
   font-size: 0.9em;
   margin-top: 2.5rem;
+}
+
+/* ---------- Tags ---------- */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.8em;
+}
+
+.tag-list a {
+  border: 1px solid var(--border);
+  border-radius: 0.9em;
+  padding: 0.15em 0.7em;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.tag-list a:hover,
+.tag-list a:focus {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+article > header .tag-list {
+  margin-block: 0 1.5rem;
+}
+
+.tag-index {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  font-family: var(--font-sans);
+}
+
+.tag-index li {
+  margin: 0;
+}
+
+.tag-count {
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+/* ---------- Prev/next post navigation ---------- */
+
+.post-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95em;
+}
+
+/* Each link is a two-line block: a muted "Newer"/"Older" label above the title.
+   flex-basis keeps a long title from crowding its sibling off the row. */
+.post-nav a {
+  display: block;
+  flex: 1 1 12rem;
+  text-decoration: none;
+}
+
+.post-nav a:hover,
+.post-nav a:focus {
+  text-decoration: underline;
+}
+
+.post-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8em;
+  margin-bottom: 0.15em;
+}
+
+.post-nav-prev {
+  text-align: right;
+}
+
+.post-nav:has(.post-nav-prev:only-child) .post-nav-prev {
+  text-align: left;
+}
+
+.post-updated::before {
+  content: "\00b7";
+  margin-inline: 0.4em;
 }
 
 /* ---------- Content elements ---------- */

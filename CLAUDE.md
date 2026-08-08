@@ -8,6 +8,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 make               # Build all pages into docs/
 make serve         # Build, serve at http://localhost:8000, rebuild on changes to src/, css/, templates/, filters/ (requires entr)
 make clean         # Remove the entire docs/ directory
+make blog          # Just the blog: posts, index, feed, and src/blog/timestamps.json
+make tags          # Just the tag pages (phony; wipes and regenerates docs/tags/)
+make sitemap       # Just docs/sitemap.xml (needs the rest of docs/ already built)
 make prune-images  # Remove src/images/ files not referenced by any .md
 make update-csl    # Re-pull the vendored chicago-notes.csl from upstream (review with git diff)
 make fonts         # Re-download and re-subset the Source webfonts into fonts/ (review with git diff)
@@ -24,9 +27,9 @@ External tools required: `pandoc`, `pandoc-crossref` (`brew install pandoc-cross
 There is no test suite, no linter, and no CI (`.github/` does not exist — GitHub Pages serves the committed `docs/` directly from `main`). **`make` is the only check**, so run it after any edit and read the output; then inspect the regenerated `docs/` HTML for what you actually changed.
 
 - **A full rebuild takes ~7 seconds.** When in doubt, `touch src/*.md src/blog/*.md templates/base.html css/style.css && make` (or `make clean && make`) — it is cheap enough that there is never a reason to reason about stale targets.
-- **The build is byte-reproducible except for `docs/feed.xml`.** Its top-level `<updated>` element is stamped with the wall-clock build time (`scripts/build_blog.py:81`), so *every* build dirties that one file even when nothing else changed. A lone `M docs/feed.xml` in `git status` after a rebuild is expected — commit it or `git checkout` it, but do not go looking for a nondeterminism bug. Correspondingly, a clean `git status` after `make` means the committed `docs/` genuinely matches the sources.
+- **The build is byte-reproducible, without exceptions.** Rebuilding unchanged sources — incrementally or after `make clean` — reproduces `docs/` byte for byte, `docs/feed.xml` included. **A clean `git status` after `make` is therefore a complete and trustworthy signal** that the committed `docs/` matches the sources, and *any* unexpected diff is a real change worth reading. (This was not always true: the feed's top-level `<updated>` used to carry the wall-clock build time and dirtied that one file on every build. It is now the newest entry's `updated`.) The one file outside `docs/` that a build may legitimately modify is `src/blog/timestamps.json` — see **Blog pipeline** below.
 - **`make serve` watches only `src/`, `css/`, `templates/`, and `filters/`.** Edits to `scripts/*.py`, `references.bib`, `defaults/`, or `favicon.svg` will not trigger a rebuild; touch a watched file or re-run `make` by hand.
-- **Hand-running pandoc on a single page skips things `make` does for you.** The recipes below omit `--toc`, which the Makefile adds by grepping the source for `^toc: true` — 13 of the pages in `src/` set it (all the syllabi, `cv.md`, `reading-lms.md`, `the-ends-of-reading.md`, `ur-reading.md`), and rebuilding one of those by hand without `--toc` silently drops its table of contents. Likewise, rebuilding a single blog post does **not** regenerate `docs/blog.html` or `docs/feed.xml`; run `make blog` for those. Prefer plain `make`.
+- **Hand-running pandoc on a single page skips things `make` does for you.** The recipes below omit `--toc`, which the Makefile adds by grepping the source for `^toc: true` — 13 of the pages in `src/` set it (all the syllabi, `cv.md`, `reading-lms.md`, `the-ends-of-reading.md`, `ur-reading.md`), and rebuilding one of those by hand without `--toc` silently drops its table of contents. Likewise, rebuilding a single blog post does **not** regenerate `docs/blog.html`, `docs/feed.xml`, `docs/tags/`, or `src/blog/timestamps.json`, and it needs a `--metadata-file` that only `make` knows about; run `make blog` for those. Prefer plain `make`.
 
 To rebuild a single non-blog page (add `--toc` if the source has `toc: true`):
 ```bash
@@ -56,6 +59,7 @@ pandoc --standalone --template=templates/base.html \
   --metadata pathprefix="../" \
   --metadata link-citations=false \
   --metadata nav-blog=true \
+  --metadata-file=build/meta/POST.yaml \
   --lua-filter=filters/og-image.lua \
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
@@ -92,14 +96,46 @@ This is a static academic website built with **Pandoc** and a single local style
 - `defaults/toc-defaults.yaml` — sets `toc-depth: 2`; always passed via `--defaults` by the Makefile for non-blog pages.
 - **Syntax highlighting:** no page currently contains fenced code blocks, so pandoc emits no `highlighting-css`. If highlighted code is ever added, pass `--highlight-style=monochrome` (weight/italic-based) rather than writing per-token color overrides — pandoc's default token colors are not tuned for the dark theme.
 
-**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. `subtitle` (optional) renders as a `<p class="subtitle">` directly under the `<h1>` — lighter, smaller, muted sans — and deliberately does *not* appear in `<title>` or `og:title`, which stay short. `description` (optional) becomes the `<meta name="description">` and `og:description`. `date` (optional; set on blog posts) renders a `<time>` byline under the title. Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<details class="toc-box list-of-figures-box">` styled to match the TOC).
+**Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. `subtitle` (optional) renders as a `<p class="subtitle">` directly under the `<h1>` — lighter, smaller, muted sans — and deliberately does *not* appear in `<title>` or `og:title`, which stay short. `description` (optional) becomes the `<meta name="description">` and `og:description`. Blog posts additionally render a `<time>` byline under the title, driven by `published` / `updated` metadata rather than a frontmatter `date` (see **Blog pipeline**). Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<details class="toc-box list-of-figures-box">` styled to match the TOC).
 
-**Blog pipeline:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html` + `docs/blog.html` index + `docs/feed.xml` Atom feed.
+**Blog pipeline:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html` + `docs/blog.html` index + `docs/tags/` + `docs/feed.xml` Atom feed.
 
-- `scripts/build_blog.py` — run via `uv run` (inline script metadata declares the `pyyaml` dependency); reads frontmatter, filters out drafts, generates `build/blog-index.md` and `build/feed.xml`.
-- The Makefile also filters drafts at the Make level (via a `grep '^draft: true'` shell loop) so `make` never builds an HTML page for a draft post. A post with no `date` is skipped with a warning by the script (so it vanishes from the index and feed) but the Makefile still builds its HTML page — always set `date`.
-- Required blog frontmatter: `title`, `date` (YYYY-MM-DD). Optional: `description`, `draft`.
-- `docs/blog.html` (the index) is built from the generated `build/blog-index.md` with a deliberately minimal pandoc call — no `--section-divs`, no crossref, no citeproc, no `site-url`. The index markup (`.post-card`, `.post-date`) is emitted as raw HTML by `build_blog.py`, so changing the index layout means editing that script, not a template.
+- Blog frontmatter: `title` is the only required field. Optional: `description`, `draft`, `tags`, and `date` (an *override* — see below).
+- `scripts/build_blog.py` runs via `uv run` (inline script metadata declares `pyyaml`) in **two stages**, because the feed embeds each post's rendered HTML and that HTML does not exist until pandoc has run:
+  - `--stage meta` writes `build/blog-index.md`, `build/meta/*.yaml`, `build/tags/*.md`, `build/tags-index.md`, `build/posts.json`, and the committed `src/blog/timestamps.json`.
+  - `--stage feed` reads `build/posts.json` plus the fragments pandoc produced from it and writes `build/feed.xml`.
+- The Makefile also filters drafts at the Make level (via a `grep '^draft: true'` shell loop) so `make` never builds an HTML page for a draft post.
+- `docs/blog.html` (the index) is built from the generated `build/blog-index.md` with a deliberately minimal pandoc call — no `--section-divs`, no crossref, no citeproc, no `site-url`. The index markup (`.post-card`, `.post-date`, `.tag-list`) is emitted as raw HTML by `build_blog.py`, so changing the index layout means editing that script, not a template. Tag pages reuse the same card emitter.
+
+**Post timestamps are automatic; `src/blog/timestamps.json` is the source of truth.** It is generated, **committed**, and keyed by slug:
+
+- A post is stamped `published` the first time it builds *without* `draft: true`, and `updated` whenever the SHA-256 of its source file changes. Nothing is re-stamped on an unchanged rebuild, which is what keeps the build byte-reproducible. Deleting the manifest re-stamps every post to "now".
+- **`date:` in frontmatter overrides `published`** and is the escape hatch for posts whose date is an editorial fact rather than a build artifact — `src/blog/darmstadt.md` is dated to the symposium it announces, three days after it was written.
+- **Do not try to replace this with `git log`.** It was evaluated and does not work: posts get committed days after they are written, event-dated posts are committed *before* their date, and two posts added in one commit collapse to a single timestamp, which destroys the sort key. Only 1 of the 4 posts present at the time matched its git creation date.
+- The byline shows `Updated <date>` only when `updated` falls on a later day than `published`.
+- **The hash covers the whole source file, so a metadata-only edit — adding `tags:`, fixing a typo in `description:` — bumps `updated` even though the prose did not change.** That is the deliberate simple rule, and the fix is to **edit `updated` in the manifest by hand and rebuild**; leave the `hash` alone and the value will stick. `$(BLOG_MANIFEST)` is a prerequisite of the `build/blog-index.md` rule precisely so such a correction is picked up.
+- **The `$(BLOG_INDEX_MD)` rule lists `$(BLOG_SRC_DIR)` as a prerequisite alongside the file wildcard.** Deleting a post changes only the directory's mtime — the wildcard simply stops naming the file, and `blog-index.md` still looks newer than every surviving source, so without the directory the deleted post's entry would survive in the manifest and the feed. Correspondingly, `build_blog.py` writes **only files whose content actually changed** (`write_if_changed`), so running on every build does not cascade a full pandoc rebuild.
+- `make` prunes `docs/blog/*.html` for posts that were deleted or turned into drafts (the `blog-prune` target). This used to require manual `rm`.
+
+**Per-post pandoc metadata:** posts are rendered by pandoc directly from their `.md` and never pass through `build_blog.py`, so timestamps, tags, prev/next links, and the canonical URL reach the template through `--metadata-file=build/meta/<slug>.yaml`.
+
+- **The keys are deliberately named `published` / `tag-links`, not `date` / `tags`.** Pandoc ranks document frontmatter above `--metadata-file`, so reusing the frontmatter's own key names would let a post shadow these computed values. Frontmatter stays pure *input* to `build_blog.py`.
+- `build/meta/*.yaml` are co-products of the `build/blog-index.md` rule, declared to Make with an empty recipe (`$(BLOG_META_OUT): $(BLOG_META_DIR)/%.yaml: $(BLOG_INDEX_MD) ;`).
+- Pandoc templates have no `or`, so `has-post-nav` is precomputed by the script rather than tested as `prev-url or next-url`.
+
+**Tags:** optional `tags: [foo, "Bar Baz"]` frontmatter generates `docs/tags/<slug>.html` per tag plus a `docs/tags.html` index, with no JavaScript. The `tags` Make target is **phony and wipes `docs/tags/` before regenerating** — the tag set is not knowable at Make parse time, and the wipe is what removes pages for tags no longer in use. Pandoc is deterministic, so unconditional regeneration still leaves `git status` clean. Tag pages pass `nav-blog=true` so "Blog" keeps `aria-current`; there is no Tags item in the main nav, only a link from the blog index.
+
+**Atom feed:** `<content type="html">` carries the full post. The fragments come from a separate template-less pandoc pass into `build/feed/*.html`, using `filters/absolutize.lua` and `--id-prefix="<slug>-"`.
+
+- A feed entry is read outside the page it came from, so relative links and images must be absolute. `filters/absolutize.lua` resolves them against `post-url`; `--id-prefix` keeps footnote ids from colliding between entries.
+- **Footnote anchors are not reachable from a Lua filter** — pandoc's HTML writer synthesizes `href="#fn1"` after every filter has run — so `build_blog.py` rewrites those with a regex in the feed stage. Both halves are needed.
+- All interpolated text is escaped (`xml.sax.saxutils`). It previously was not, and a single `&` in a post title would have made the feed unparseable for every subscriber.
+
+**SEO and error pages:** `docs/sitemap.xml` (`scripts/build_sitemap.py`, run last so it can enumerate the built HTML; `<lastmod>` only for blog posts, where the manifest gives an honest value), `robots.txt` at the repo root copied to `docs/`, and `docs/404.html`.
+
+- **`src/404.md` is excluded from the generic `docs/%.html` rule and has its own,** passing `--metadata pathprefix="/"`. GitHub Pages serves that one file for an unmatched path at *any* depth, where the relative asset and nav links every other top-level page uses would resolve against the wrong directory.
+- Every page gets `<link rel="canonical">` and `og:url` from a `canonical` metadata value set per Make rule (`index.html` maps to `https://fredner.org/`, not `/index.html`). The 404 page deliberately gets none.
+- Blog posts emit `og:type=article` plus `article:published_time` / `article:modified_time`; every other page stays `og:type=website`.
 
 **Fonts:** self-hosted subsets of three Adobe families (all SIL OFL 1.1) — **Source Serif 4** for body prose, **Source Sans 3** for headings and site chrome (nav, TOC label, back-to-top, skip link, figcaptions, table headers), **Source Code Pro** for `code`/`pre`.
 
