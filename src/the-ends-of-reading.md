@@ -8,7 +8,7 @@ toc: true
 
 The accepted article manuscript below will appear with invited responses as:
 
-Erik Fredner, "The Ends of Reading," in *American Literature* volume 99, issue 4 (December 2026). Copyright Duke University Press. All rights reserved. By permission of the publisher. <https://dukeupress.edu>
+Erik Fredner, "The Ends of Reading," in *American Literature* volume 99, issue 4 (December 2026). Copyright Duke University Press. All rights reserved. By permission of the publisher. <https://doi.org/10.1215/00029831-12720407>
 
 ## Abstract
 

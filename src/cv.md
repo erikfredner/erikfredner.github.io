@@ -3,6 +3,8 @@ title: CV
 toc: true
 ---
 
+*For my short CV as a PDF, please* [*click here.*](https://fredner.org/cv)
+
 ## Appointments
 
 1. Assistant Professor of Digital Humanities and Literature, Oregon State University, 2025--
