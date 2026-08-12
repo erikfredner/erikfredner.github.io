@@ -3,7 +3,7 @@ title: CV
 toc: true
 ---
 
-*For my short CV as a PDF, please* [*click here.*](https://fredner.org/cv)
+*This page contains my full CV. For my short CV as a PDF, please* [*click here.*](https://fredner.org/cv)
 
 ## Appointments
 
