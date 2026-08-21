@@ -2,6 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = [
 #   "pyyaml",
+#   "tzdata",
 # ]
 # ///
 """Generate the blog index, per-post pandoc metadata, tag pages, and the Atom feed.
@@ -35,6 +36,7 @@ import sys
 from datetime import date, datetime
 from pathlib import Path
 from xml.sax.saxutils import escape, quoteattr
+from zoneinfo import ZoneInfo
 
 import yaml
 
@@ -71,8 +73,17 @@ def slugify(value):
     return slug or "tag"
 
 
-def local_tz():
-    return datetime.now().astimezone().tzinfo
+# The site's timezone, pinned rather than taken from the build machine.
+#
+# Timestamps land in committed files (src/blog/timestamps.json, and through it
+# docs/feed.xml, docs/sitemap.xml, and each post's byline), so reading the
+# machine's zone made the build reproducible only per-machine: building from
+# Oregon rewrote a post stamped -04:00 on the East Coast to -07:00, dirtying
+# four files for no editorial change. This actually happened to the Darmstadt
+# post. A named zone keeps DST correct (-07:00 in summer, -08:00 in winter)
+# where a fixed offset would not, and `tzdata` is a declared dependency so it
+# resolves even on a host with no system tz database.
+SITE_TZ = ZoneInfo("America/Los_Angeles")
 
 
 def as_datetime(value, tz):
@@ -80,7 +91,7 @@ def as_datetime(value, tz):
 
     PyYAML already turns `2026-06-19` into a date and `2026-06-19T10:00:00` into
     a datetime; a quoted value arrives as a string. A bare date means midnight
-    local.
+    in SITE_TZ, not on whatever machine happens to be building.
     """
     if isinstance(value, datetime):
         return value if value.tzinfo else value.replace(tzinfo=tz)
@@ -312,7 +323,7 @@ def write_tag_pages(build_path, tags):
 
 
 def stage_meta(src_path, build_path, manifest_path, site_url):
-    tz = local_tz()
+    tz = SITE_TZ
     now = datetime.now(tz).replace(microsecond=0)
 
     manifest = load_manifest(manifest_path)
@@ -372,7 +383,7 @@ def stage_feed(build_path, site_url, author):
     # made docs/feed.xml dirty after every `make` even with no content change.
     updated = max((p["updated"] for p in posts), default=None)
     if updated is None:
-        updated = iso(datetime.now(local_tz()).replace(microsecond=0))
+        updated = iso(datetime.now(SITE_TZ).replace(microsecond=0))
 
     feed = (
         '<?xml version="1.0" encoding="utf-8"?>\n'
