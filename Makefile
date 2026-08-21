@@ -43,6 +43,8 @@ BLOG_TAGS_MD    := $(BUILD_DIR)/tags-index.md
 TAGS_OUT_DIR    := $(OUT_DIR)/tags
 TAGS_INDEX_HTML := $(OUT_DIR)/tags.html
 SITEMAP_SCRIPT  := scripts/build_sitemap.py
+SERVE_SCRIPT    := scripts/serve.py
+SERVE_PORT      := 8000
 SITEMAP_OUT     := $(OUT_DIR)/sitemap.xml
 ROBOTS_SRC      := robots.txt
 ROBOTS_OUT      := $(OUT_DIR)/robots.txt
@@ -430,8 +432,15 @@ update-csl:
 
 .PHONY: clean serve prune-images images-prune update-csl csl-autoupdate blog blog-prune tags sitemap fonts
 clean: ; rm -rf $(OUT_DIR)
+# The preview server is scripts/serve.py, not `python3 -m http.server`, because
+# the latter sends only Last-Modified: browsers then apply RFC 9111 heuristic
+# freshness (~10% of the response's age) and go on showing an asset that src/
+# has already replaced, no matter how many times you rebuild. serve.py sends
+# Cache-Control: no-store and withholds Last-Modified so that cannot happen.
+# Plain `python3` rather than `uv run` (the script is stdlib-only) keeps $$! the
+# server's own PID, so the trap below actually kills it and frees the port.
 serve: all
-	python3 -m http.server 8000 --bind localhost --directory $(OUT_DIR) & \
+	python3 $(SERVE_SCRIPT) --directory $(OUT_DIR) --port $(SERVE_PORT) --bind localhost & \
 	SERVER_PID=$$!; \
 	trap "kill $$SERVER_PID 2>/dev/null" EXIT INT TERM; \
 	{ find $(SRC_DIR) -name '*.md'; find css -name '*.css'; find templates/ -name '*.html'; find filters/ -name '*.lua'; } | entr $(MAKE) all; \
