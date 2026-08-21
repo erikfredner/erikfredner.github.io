@@ -4,7 +4,7 @@
   <link href="https://fredner.org/feed.xml" rel="self"/>
   <link href="https://fredner.org/"/>
   <id>https://fredner.org/feed.xml</id>
-  <updated>2026-06-19T00:00:00-04:00</updated>
+  <updated>2026-06-19T00:00:00-07:00</updated>
   <author>
     <name>Erik Fredner</name>
   </author>
@@ -12,8 +12,8 @@
     <title>Symposium: Mapping the Canon</title>
     <link href="https://fredner.org/blog/darmstadt.html"/>
     <id>https://fredner.org/blog/darmstadt.html</id>
-    <published>2026-06-19T00:00:00-04:00</published>
-    <updated>2026-06-19T00:00:00-04:00</updated>
+    <published>2026-06-19T00:00:00-07:00</published>
+    <updated>2026-06-19T00:00:00-07:00</updated>
     <category term="talks"/>
     <category term="research"/>
     <summary>Presenting new research on canons within canons.</summary>
