@@ -2,10 +2,10 @@
 title: The Implicit Canon Across Anthologies of African American Literature
 ---
 
-[Presentation](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing)
-
 Co-authored with [J. D. Porter](https://www.english.upenn.edu/people/j-d-porter) and [Arthur Knight](https://www.wm.edu/as/english/facultystaff/knight_a.php).
 
-This essay extends previous work on American literature anthologies[@frednerCountingNortonAnthology2024] to historical anthologies of African American Literature in collaboration with the [William & Mary Anthologies-Canons Lab](https://sites.google.com/email.wm.edu/wm-anthologies-canons-lab/home).
+*This essay is currently under review.*
 
-Using new data describing the authors and works selected for 25 comprehensive African American literature anthologies from Calverton[@calvertonAnthologyAmericanNegro1929] to the newest Norton[@gatesNortonAnthologyAfrican2025], we demonstrate how prior selection of authors and works for comprehensive African American literature anthologies predict future selections.
+## Abstract
+
+Editors of *The Norton Anthology of African American Literature* (*NAAAL*) referenced earlier anthologies of African American literature when selecting the authors and works for their table of contents. They argued that prior anthologies contained an “implicit” canon that *NAAAL* editors would extend and amend. We created a relational database that describes every author and work selected for 26 comprehensive anthologies of African American literature over the past century to make that implicit canon explicit. We show that anthologists are significantly more likely to agree about who one should read than what one should read to understand the African American literary tradition. Counterintuitively, any two of these anthologies usually share more authors than works. This discovery challenges theories of the literary canon that assume that the work, not the author, is canonized. Evidence from our database shows that the implicit canon is primarily a list of authors, not a list of works. After establishing this, we turn to interpretations motivated by our quantitative findings: A reading of the two most frequently anthologized texts across these anthologies, and a discussion of the exception that proves the rule of author consecration: Vernacular material central to the African American literary tradition, which is often represented in tables of contents without an author.
