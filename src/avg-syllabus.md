@@ -255,7 +255,7 @@ an Accommodation Letter for faculty dated in the current quarter in
 which the request is being made. Students should contact the OAE as soon
 as possible since timely notice is needed to coordinate accommodations.
 OAE can be reached at 563 Salvatierra Walk; 650-723-1066; and/or
-<http://studentaffairs.stanford.edu/oae>
+<https://oae.stanford.edu/>
 
 **Hume Center for Speaking and Writing**
 
@@ -280,7 +280,7 @@ OAE can be reached at 563 Salvatierra Walk; 650-723-1066; and/or
 
 **Academic Skills Coaching**
 
-<http://learningconnection.stanford.edu/academic-skills-coaching>
+<https://ctl.stanford.edu/students/academic-coaching>
 
 **Undergraduate Advising**
 

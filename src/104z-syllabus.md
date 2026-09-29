@@ -275,7 +275,7 @@ Oregon State University is committed to making learning experiences accessible t
 ### Accessibility of Course Materials
 
 All materials used in this course are accessible. If you require
-accommodations please contact [Disability Access Services (DAS)](http://ds.oregonstate.edu/home/).
+accommodations please contact [Disability Access Services (DAS)](https://ds.oregonstate.edu/).
 
 Additionally, Canvas, the learning management system through which this
 course is offered, provides a [vendor statement](https://www.canvaslms.com/accessibility)

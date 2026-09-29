@@ -831,6 +831,14 @@ th {
   border-bottom: 2px solid var(--text);
 }
 
+/* Row headers (`.row-headers` tables, via filters/wrap-tables.lua) label a row,
+   not a column, so they take the row's own rule rather than the heavy header
+   underline, and a lighter weight so the label doesn't outshout its value. */
+tbody th {
+  border-bottom: none;
+  font-weight: 500;
+}
+
 tbody tr {
   border-bottom: 1px solid var(--border);
 }

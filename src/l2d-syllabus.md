@@ -280,13 +280,13 @@ one for each Engagements quarter.
   attend an event there hosted by the Department of Astronomy.
 
 - A visit to the piece of the Berlin Wall by Alderman Library after
-  reading [this](https://news.virginia.edu/content/end-berlin-wall-no-simple-barrier-led-change-and-tumult) UVA
-  Today article. Reflect on what it means to transport this piece to
+  reading the UVA Today article ["The End of the Berlin Wall, No
+  Simple Barrier, Led to Change and Tumult"](https://news.virginia.edu/content/end-berlin-wall-no-simple-barrier-led-change-and-tumult). Reflect on what it means to transport this piece to
   another national context and a public university, in particular.
 
 - A visit to the former site of the George Rogers Clark monument.
-  Read [this](https://news.virginia.edu/content/uva-and-history-race-george-rogers-clark-statue-and-native-americans) UVA
-  Today about the statue's history and [this call for its
+  Read the UVA Today article ["UVA and the History of Race: The George
+  Rogers Clark Statue and Native Americans"](https://news.virginia.edu/content/uva-and-history-race-george-rogers-clark-statue-and-native-americans) about the statue's history and [this call for its
   removal](https://diy.rootsaction.org/petitions/remove-monument-to-genocide-that-welcomes-people-to-uva).
   What is this space like now?
 
@@ -355,10 +355,10 @@ can contact the University's Office for Equal Opportunity and Civil
 Rights at <UVAEOCR@virginia.edu> or 434-924-3200. Accommodations do not
 relieve you of the responsibility for completion of any part of the
 coursework you miss as the result of a religious observance. More
-information about religious accommodations is available
-[here](https://eocr.virginia.edu/religious-accommodations), and
-frequently asked questions are
-[here](https://eocr.virginia.edu/student-religious-accommodations).
+information is available on that office's [religious accommodations
+page](https://eocr.virginia.edu/religious-accommodations), and
+frequently asked questions are answered in its [student religious
+accommodations FAQ](https://eocr.virginia.edu/student-religious-accommodations).
 
 ## Campus Resources
 

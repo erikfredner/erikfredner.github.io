@@ -13,10 +13,20 @@
 -- costs twice: a dead tab stop on a box with nothing to scroll, and a landmark
 -- in the screen reader's region list that leads nowhere.
 
--- Width of the reading column, in characters, minus enough slack that a table
--- landing near the boundary is treated as wide. Under-marking is the worse
--- error: it leaves a genuinely scrollable box unreachable from the keyboard.
-local WIDE_MIN_CH = 55
+-- Width, in characters, of the column at the NARROWEST viewport the site
+-- supports, not at its desktop width. A 320px viewport — an older phone, or a
+-- 1280px desktop window at 400% zoom, which is the WCAG 1.4.10 reflow case —
+-- leaves a 288px column, and table text at 0.95 x 1.125rem with a 0.5em `0`
+-- advance is 8.55px per character: ~33.7ch. The threshold was once 55, sized
+-- to the 65ch desktop column, which left three tables that do scroll on a
+-- phone (ltm, satire, and 104z; estimates 42-55) unreachable from the keyboard.
+-- Measured at 320px, every table estimated at 42 or more overflows and every
+-- one at 32 or less fits.
+--
+-- The cost is that a table which scrolls only on narrow screens is also a tab
+-- stop on a desktop where it fits. Under-marking is the worse error: it leaves
+-- a genuinely scrollable box unreachable from the keyboard.
+local WIDE_MIN_CH = 33
 
 -- th/td carry `padding: 0.4em 0.6em`, so each column is ~2 characters wider
 -- than its text at the 0.95em table font size.
@@ -143,7 +153,26 @@ local function Header(header)
   return nil
 end
 
+-- Row headers. Pipe tables have no syntax for a header column, so a table
+-- whose first column labels its rows opts in with a class on its caption line,
+-- `: {.row-headers}` (reading-lms's Jeopardy clues: Category / Clue / Answer).
+-- `row_head_columns` makes pandoc emit those cells as <th>; `scope="row"` is
+-- set explicitly rather than left to the browser's inference for a table with
+-- no header row.
+local function mark_row_headers(tbl)
+  if not tbl.classes:includes("row-headers") then
+    return
+  end
+  for _, body in ipairs(tbl.bodies) do
+    body.row_head_columns = 1
+    for _, row in ipairs(body.body) do
+      row.cells[1].attributes.scope = "row"
+    end
+  end
+end
+
 local function Table(tbl)
+  mark_row_headers(tbl)
   local attrs = {}
   if overflows(tbl) then
     attrs = {

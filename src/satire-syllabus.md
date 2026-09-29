@@ -346,10 +346,10 @@ can contact the University's Office for Equal Opportunity and Civil
 Rights at <UVAEOCR@virginia.edu> or 434-924-3200. Accommodations do not
 relieve you of the responsibility for completion of any part of the
 coursework you miss as the result of a religious observance. More
-information about religious accommodations is available
-[here](https://eocr.virginia.edu/religious-accommodations), and
-frequently asked questions are
-[here](https://eocr.virginia.edu/student-religious-accommodations).
+information is available on that office's [religious accommodations
+page](https://eocr.virginia.edu/religious-accommodations), and
+frequently asked questions are answered in its [student religious
+accommodations FAQ](https://eocr.virginia.edu/student-religious-accommodations).
 
 ## Campus Resources
 

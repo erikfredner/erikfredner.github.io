@@ -174,7 +174,7 @@ English for Foreign Students \
 <https://language.stanford.edu/programs/efs/languages/english-foreign-students>
 
 Academic Skills Coaching \
-<http://learningconnection.stanford.edu/academic-skills-coaching>
+<https://ctl.stanford.edu/students/academic-coaching>
 
 Undergraduate Advising \
 <https://undergrad.stanford.edu/advising>

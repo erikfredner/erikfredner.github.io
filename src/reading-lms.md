@@ -139,9 +139,11 @@ In support of this research, the editor of the *Jeopardy* fan site J-Archive! sh
 
 |          |                |
 |----------|----------------|
-| *Category* | BEFORE & AFTER |
-| *Clue*     | San Antonio Spurs "Admiral" marooned by Daniel Defoe |
-| *Answer* | David Robinson Crusoe |
+| Category | BEFORE & AFTER |
+| Clue     | San Antonio Spurs "Admiral" marooned by Daniel Defoe |
+| Answer | David Robinson Crusoe |
+
+: {.row-headers}
 
 This clue requires contestants to combine knowledge of basketball (David Robinson) and the eighteenth-century novel (Robinson Crusoe) to produce the nonce answer "David Robinson Crusoe." LMs outperform other classification methods in gnomic cases like this because, in an LM's representation, words are embedded with other words that do not appear in the text. James Dobson and Scott Sanders have argued that counting words radically decontextualizes "the enclosed words in ways that foreclose many modes of critical analysis" [-@dobsonDistantApproachesPrinted2022 4]. For contemporary texts in languages well represented online, LMs do the opposite.
 
@@ -155,11 +157,11 @@ Despite such difficulties, GPT-5 matched the benchmark classification data about
 
 |          |                |
 |----------|----------------|
-| *Category* | FOR WHOM THE BELL TOLLS |
-| *Clue*     | Quasimodo would be relieved that Emmanuel, this structure's 13-ton bell, is now rung electronically |
-| *Answer* | Notre Dame |
+| Category | FOR WHOM THE BELL TOLLS |
+| Clue     | Quasimodo would be relieved that Emmanuel, this structure's 13-ton bell, is now rung electronically |
+| Answer | Notre Dame |
 
-: {tbl-colwidths="[10,90]"}
+: {.row-headers tbl-colwidths="[10,90]"}
 
 This clue minimally references Donne's *Devotions upon Emergent Occasions*, Hugo's *Notre-Dame de Paris*, and Hemingway's *For Whom the Bell Tolls*.^[Though Emmanuel might reasonably be construed as a reference to the Book of Isaiah (and Notre Dame to Mary), I exclude canonical sacred texts such as the Bible, the Quran, and the Vedas from this analysis.] The LM extrudes that information in a data structure that can be used to link recurring references to the same authors and works, as well as disambiguate works with the same title or authors with the same name.
 
@@ -169,11 +171,11 @@ Grading a representative sample of such extrusions, I found the ouputs to be abo
 
 |          |                |
 |----------|----------------|
-| *Category* | THE OLD TESTAMENT |
-| *Clue*     | In Genesis 21, Abraham banishes Hagar & this son of theirs to the desert; call him... |
-| *Answer* | Ishmael |
+| Category | THE OLD TESTAMENT |
+| Clue     | In Genesis 21, Abraham banishes Hagar & this son of theirs to the desert; call him... |
+| Answer | Ishmael |
 
-: {tbl-colwidths="[10,90]"}
+: {.row-headers tbl-colwidths="[10,90]"}
 
 LMs consistently identify the allusion to *Moby-Dick*'s first sentence at the end of this clue despite its brevity, modified syntax ("Call him" not "Call me Ishmael"), and the overriding biblical context.
 

@@ -5,6 +5,7 @@ TEMPLATE := templates/base.html
 BIBLIOGRAPHY := references.bib
 CSL := vendor/csl/chicago-notes.csl
 LUA_FILTER := filters/webp.lua
+IMAGE_SIZE_FILTER := filters/image-size.lua
 OG_IMAGE_FILTER := filters/og-image.lua
 LISTS_FILTER := filters/inject-lists.lua
 WRAP_LISTS_FILTER := filters/wrap-lists.lua
@@ -54,7 +55,8 @@ ROBOTS_OUT      := $(OUT_DIR)/robots.txt
 #
 # Five rules below call pandoc, and they used to restate the same flags each
 # time. FILTER ORDER IS LOAD-BEARING and documented in each filter's header:
-# webp before og-image (so og-image sees the rewritten src), inject-lists
+# image-size before webp (so it reads the file actually in src/images/), webp
+# before og-image (so og-image sees the rewritten src), inject-lists
 # before pandoc-crossref (which renders the placeholders), and wrap-lists
 # before wrap-tables (so wrap-lists' Table walker still sees real Tables).
 # Keeping that sequence in one place is the point of these variables — spelled
@@ -63,7 +65,7 @@ ROBOTS_OUT      := $(OUT_DIR)/robots.txt
 # Metadata order does not matter to pandoc (it is a map), so the --metadata
 # flags are grouped for readability rather than sequence.
 
-WEBP_FILTER_OPT  := --lua-filter=$(LUA_FILTER)
+IMAGE_FILTER_OPTS := --lua-filter=$(IMAGE_SIZE_FILTER) --lua-filter=$(LUA_FILTER)
 OG_FILTER_OPT    := --lua-filter=$(OG_IMAGE_FILTER)
 CONTENT_FILTERS  := --lua-filter=$(LISTS_FILTER) \
                     --filter pandoc-crossref \
@@ -77,7 +79,7 @@ COMMON_META      := --metadata site-url="$(SITE_URL)" \
 # touching one list rather than three. Deliberately split: the feed fragments
 # are rendered without $(TEMPLATE), and listing it there would rebuild every
 # fragment whenever the template changed, for no difference in output.
-CONTENT_DEPS := $(BIBLIOGRAPHY) $(CSL) $(LUA_FILTER) $(LISTS_FILTER) \
+CONTENT_DEPS := $(BIBLIOGRAPHY) $(CSL) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) $(LISTS_FILTER) \
                 $(WRAP_LISTS_FILTER) $(WRAP_TABLES_FILTER)
 PAGE_DEPS    := $(TEMPLATE) $(OG_IMAGE_FILTER) $(CONTENT_DEPS)
 
@@ -86,7 +88,7 @@ PAGE_DEPS    := $(TEMPLATE) $(OG_IMAGE_FILTER) $(CONTENT_DEPS)
 # is emitted as raw HTML by scripts/build_blog.py, so there is nothing for the
 # content filters to do. All of them live under the Blog nav item.
 PANDOC_GENERATED := $(PANDOC) --standalone --template=$(TEMPLATE) \
-                    $(WEBP_FILTER_OPT) \
+                    $(IMAGE_FILTER_OPTS) \
                     --metadata nav-blog=true
 
 BLOG_SRC_MD := $(wildcard $(BLOG_SRC_DIR)/*.md)
@@ -172,7 +174,7 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(PAGE_DEPS) | $(OUT_DIR)
 	TOC_ARG=$$(grep -m1 '^toc: true' $< > /dev/null 2>&1 && echo '--toc' || echo ''); \
 	$(PANDOC) --standalone $$TOC_ARG --toc-depth=2 --template=$(TEMPLATE) \
 	  --section-divs \
-	  $(WEBP_FILTER_OPT) \
+	  $(IMAGE_FILTER_OPTS) \
 	  $(COMMON_META) \
 	  --metadata nav-$*=true \
 	  --metadata canonical="$(SITE_URL)/$(if $(filter index,$*),,$*.html)" \
@@ -184,10 +186,10 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(PAGE_DEPS) | $(OUT_DIR)
 # The 404 page. `pathprefix=/` because GitHub Pages serves this file for an
 # unmatched path at any depth (/a/b/c), where relative asset and nav links would
 # resolve against /a/b/ and break. No canonical: it is not a real page.
-$(NOTFOUND_OUT): $(NOTFOUND_SRC) $(TEMPLATE) $(LUA_FILTER) | $(OUT_DIR)
+$(NOTFOUND_OUT): $(NOTFOUND_SRC) $(TEMPLATE) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
 	  --section-divs \
-	  $(WEBP_FILTER_OPT) \
+	  $(IMAGE_FILTER_OPTS) \
 	  --metadata site-url="$(SITE_URL)" \
 	  --metadata pathprefix="/" \
 	  -o $@ $<
@@ -337,7 +339,7 @@ $(BLOG_INDEX_MD): $(BLOG_SRC_MD) $(BLOG_SRC_DIR) $(BLOG_MANIFEST) $(BLOG_SCRIPT)
 $(BLOG_META_OUT): $(BLOG_META_DIR)/%.yaml: $(BLOG_INDEX_MD) ;
 $(BLOG_POSTS_JSON): $(BLOG_INDEX_MD) ;
 
-$(BLOG_INDEX_HTML): $(BLOG_INDEX_MD) $(TEMPLATE) $(LUA_FILTER) | $(OUT_DIR)
+$(BLOG_INDEX_HTML): $(BLOG_INDEX_MD) $(TEMPLATE) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
 	$(PANDOC_GENERATED) \
 	  --metadata canonical="$(SITE_URL)/blog.html" \
 	  -o $@ $<
@@ -368,7 +370,7 @@ $(BLOG_FRAG_DIR): | $(BUILD_DIR)
 # entry is read outside the page it came from.
 $(BLOG_FRAG_OUT): $(BLOG_FRAG_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(CONTENT_DEPS) $(ABSOLUTIZE_FILTER) | $(BLOG_FRAG_DIR)
 	$(PANDOC) --to html5 --id-prefix="$*-" \
-	  $(WEBP_FILTER_OPT) \
+	  $(IMAGE_FILTER_OPTS) \
 	  $(COMMON_META) \
 	  --metadata post-url="$(SITE_URL)/blog/$*.html" \
 	  $(CONTENT_FILTERS) \
@@ -383,7 +385,7 @@ $(BLOG_OUT_DIR): | $(OUT_DIR)
 $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(BLOG_META_DIR)/%.yaml $(PAGE_DEPS) | $(BLOG_OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
 	  --section-divs \
-	  $(WEBP_FILTER_OPT) \
+	  $(IMAGE_FILTER_OPTS) \
 	  $(COMMON_META) \
 	  --metadata pathprefix="../" \
 	  --metadata nav-blog=true \
@@ -397,7 +399,7 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(BLOG_META_DIR)/
 # and wipes docs/tags/ first — that is what removes pages for tags no longer in
 # use. Pandoc is deterministic, so unconditional regeneration still leaves
 # `git status` clean. Skipped entirely when no post carries a tag.
-tags: $(BLOG_INDEX_MD) $(TEMPLATE) $(LUA_FILTER) | $(OUT_DIR)
+tags: $(BLOG_INDEX_MD) $(TEMPLATE) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
 	@rm -rf $(TAGS_OUT_DIR) $(TAGS_INDEX_HTML)
 	@if [ -f $(BLOG_TAGS_MD) ]; then \
 	  mkdir -p $(TAGS_OUT_DIR); \
