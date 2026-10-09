@@ -105,7 +105,10 @@
      be seen, not identified) but not for .skip-link and .back-to-top, whose
      border is the only thing that delimits the control from the page. */
   --border-strong: #8b919c; /* 3.2:1 */
-  --target-bg: #fff3c4; /* footnote :target highlight */
+  /* Footnote :target highlight. A low-chroma parchment rather than a
+     highlighter yellow: the warm hue sits opposite the teal link and selection
+     colors without competing with them. --text on it: 15.0:1; --link: 4.6:1. */
+  --target-bg: #f3eee2;
   --code-bg: #f5f5f5;
   --select-bg: #cfe9f0;      /* --text on it: 13.7:1 */
   --link-visited: #6b4a86;   /* 7.1:1 — hue shift, not just a dimmer teal, so
@@ -121,7 +124,7 @@
     --link: #67c3dc;    /* ~8:1 */
     --border: #3a3f45;
     --border-strong: #606770; /* 3.3:1 */
-    --target-bg: #3b3620;
+    --target-bg: #2a2822; /* the same warm grey, dimmed; --text on it: 11.4:1 */
     --code-bg: #1e1e1e;
     --select-bg: #1f3a42;    /* --text on it: 9.3:1 */
     --link-visited: #b8a3d4; /* 8.2:1 */
