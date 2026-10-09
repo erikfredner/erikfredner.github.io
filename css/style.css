@@ -805,6 +805,17 @@ th {
   border-bottom: 2px solid var(--text);
 }
 
+/* Grid-table cells come out of pandoc as <p> (l2d and satire syllabi), and
+   the global `p` margin would pad every row by a full line top and bottom.
+   Keep a small gap only between stacked paragraphs in one cell. */
+:is(th, td) > p {
+  margin-block: 0;
+}
+
+:is(th, td) > p + p {
+  margin-top: 0.4em;
+}
+
 /* Row headers (`.row-headers` tables, via filters/wrap-tables.lua) label a row,
    not a column, so they take the row's own rule rather than the heavy header
    underline, and a lighter weight so the label doesn't outshout its value. */
