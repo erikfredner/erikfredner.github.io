@@ -93,14 +93,14 @@ This structure mimics the work of the Literary Lab, where lab members
 develop, present, and discuss their work with collaborators and guests,
 often presenting the same project many times as it develops.
 
-> **[Assignment one:]{.smallcaps}** Select an excerpt from *Babbitt* and
+> **Assignment one:** Select an excerpt from *Babbitt* and
 > explore its relation to one of the themes the novel engages (700
 > words, not including the text of the excerpt). Then, reflect on the
 > representativeness of the passage in relation to the novel or theme.
 > Describe the concept of representativeness used in the analysis (300
 > words).
 >
-> **[Assignment two:]{.smallcaps}** Select any concept within the realm
+> **Assignment two:** Select any concept within the realm
 > of this course. Then, explicate it by (1) describing its ideal type
 > and (2) identifying a manifestation of the concept in either novel on
 > the syllabus, noting the ways in which its appearance accords with or
@@ -109,7 +109,7 @@ often presenting the same project many times as it develops.
 > operationalized, and, if so, venture how it might be done (300 words).
 > Assignment two may be revised and integrated into the final paper.
 >
-> **[Assignment three:]{.smallcaps}** Students will make use of a
+> **Assignment three:** Students will make use of a
 > concept from this class (preferably but not necessarily the one from
 > assignment two) in order to study a novel and/or a corpus of novels
 > from the postbellum period in a research paper. Students will read
@@ -127,7 +127,7 @@ often presenting the same project many times as it develops.
 > corpus and method, and the relationship between the question and the
 > argument of the final paper.)
 >
-> **[At some point during the quarter:]{.smallcaps}** Students attend
+> **At some point during the quarter:** Students attend
 > one meeting of the Literary Lab. Students will be provided with the
 > schedule of events near the start of the quarter. (If a student's
 > academic schedule prevents them from attending, accommodations will be

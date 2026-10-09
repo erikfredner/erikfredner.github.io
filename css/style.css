@@ -330,12 +330,6 @@ a:visited {
 /* Deliberately no `color` here: --text shows through, which keeps the
    selection legible in both themes without a second pair of tokens. */
 
-/* pandoc emits this class; nothing acted on it. The subsets carry no `smcp`
-   feature, so this synthesizes — still better than rendering as plain text. */
-.smallcaps {
-  font-variant: small-caps;
-}
-
 :focus-visible {
   outline: 2px solid var(--link);
   outline-offset: 2px;

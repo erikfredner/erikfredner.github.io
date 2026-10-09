@@ -74,8 +74,9 @@ TEXT_RANGES = [
 # everything else the subsetter would otherwise retain. Two drops are
 # deliberate and worth knowing about:
 #   * `smcp`. EB Garamond has true small caps, but they cost 17 KB on the roman
-#     alone, on every page, for three phrases on avg-syllabus. `.smallcaps` is
-#     synthesized instead, as it always was.
+#     alone, on every page, and the site sets nothing in small caps (the
+#     stylesheet has no `.smallcaps` rule, so pandoc's `[text]{.smallcaps}`
+#     renders as plain text).
 #   * `lnum`/`tnum`/`onum`. Upstream's default figures are already lining,
 #     which is what the tables and dates want, so no figure feature is needed.
 LAYOUT_FEATURES = ["kern", "liga", "clig", "calt", "ccmp", "locl", "mark", "mkmk"]
