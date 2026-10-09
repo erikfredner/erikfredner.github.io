@@ -9,20 +9,18 @@ Satire&mdash;Erik Fredner">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Erik Fredner">
     <meta property="og:url" content="https://fredner.org/satire-syllabus.html">        <meta name="color-scheme" content="light dark">
-  <!-- Preload the three faces that set running prose: the serif roman, its
-       italic, and the sans behind the nav and h1. The italic belongs here even
-       though it covers less text — style.css uses `font-display: optional`, and
-       under `optional` each face that misses its block period is dropped for
-       the whole pageview on its own. Leaving the italic to normal CSS discovery
-       let the roman win and the italic lose, so a sentence with a book title in
-       it rendered half in Source Serif and half in Georgia. Mono stays
-       undeclared: it is inline-only and appears on few pages.
+  <!-- Preload both EB Garamond faces, the roman and its italic. The italic
+       belongs here even though it covers less text — style.css uses
+       `font-display: optional`, and under `optional` each face that misses its
+       block period is dropped for the whole pageview on its own. Leaving the
+       italic to normal CSS discovery let the roman win and the italic lose, so
+       a sentence with a book title in it rendered half in the webfont and half
+       in Georgia. Code uses system monospace, so there is nothing else to load.
        `crossorigin` is required even same-origin — fonts are fetched in CORS
        mode, and omitting it makes the preload a separate cache entry, i.e. a
        silent double download. -->
-  <link rel="preload" href="fonts/source-serif-4-roman.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/source-serif-4-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/source-sans-3-upright.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/eb-garamond-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/eb-garamond-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="canonical" href="https://fredner.org/satire-syllabus.html">  <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
@@ -204,7 +202,7 @@ Satire&mdash;Erik Fredner">
             <p>All readings and assignments are online.</p>
             <div class="table-scroll" role="region" tabindex="0"
             aria-label="Calendar">
-            <table style="width:99%;">
+            <table style="width:98%;">
             <colgroup>
             <col style="width: 4%" />
             <col style="width: 4%" />
@@ -213,131 +211,132 @@ Satire&mdash;Erik Fredner">
             </colgroup>
             <thead>
             <tr>
-            <th>Date</th>
-            <th>Mtg #</th>
-            <th>Reading due</th>
-            <th>Assignment due</th>
+            <th><p>Date</p></th>
+            <th><p>Mtg #</p></th>
+            <th><p>Reading due</p></th>
+            <th><p>Assignment due</p></th>
             </tr>
             </thead>
             <tbody>
             <tr>
-            <td>Oct 16</td>
-            <td>1</td>
-            <td>-</td>
-            <td>-</td>
+            <td><p>Oct 16</p></td>
+            <td><p>1</p></td>
+            <td><p>-</p></td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Oct 18</td>
-            <td>2</td>
+            <td><p>Oct 18</p></td>
+            <td><p>2</p></td>
             <td><p><em>The Sellout</em><a href="#fn1"
             class="footnote-ref" id="fnref1"
             role="doc-noteref"><sup>1</sup></a></p>
             <p>Optional: <a
             href="https://canvas.its.virginia.edu/courses/79094/pages/the-boondocks-the-return-of-the-king?module_item_id=801764">“The
             Return of the King”</a></p></td>
-            <td>Advocating for art</td>
+            <td><p>Advocating for art</p></td>
             </tr>
             <tr>
-            <td>Oct 23</td>
-            <td>3</td>
+            <td><p>Oct 23</p></td>
+            <td><p>3</p></td>
             <td><p><strong>PODCASTING LIBRARY TRIP</strong></p>
             <p><em>Black No More</em><a href="#fn2" class="footnote-ref"
             id="fnref2" role="doc-noteref"><sup>2</sup></a></p></td>
-            <td>Satirical headlines</td>
+            <td><p>Satirical headlines</p></td>
             </tr>
             <tr>
-            <td>Oct 25</td>
-            <td>4</td>
+            <td><p>Oct 25</p></td>
+            <td><p>4</p></td>
             <td><p>“Harrison Bergeron”<a href="#fn3"
             class="footnote-ref" id="fnref3"
             role="doc-noteref"><sup>3</sup></a></p>
             <p><em>Idiocracy</em><a href="#fn4" class="footnote-ref"
             id="fnref4" role="doc-noteref"><sup>4</sup></a></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Oct 30</td>
-            <td>5</td>
+            <td><p>Oct 30</p></td>
+            <td><p>5</p></td>
             <td><p>Selected <em>Devil’s Dictionary</em> definitions<a
             href="#fn5" class="footnote-ref" id="fnref5"
             role="doc-noteref"><sup>5</sup></a></p>
             <p>“What is satire?”<a href="#fn6" class="footnote-ref"
             id="fnref6" role="doc-noteref"><sup>6</sup></a></p></td>
-            <td>Podcast 1</td>
+            <td><p>Podcast 1</p></td>
             </tr>
             <tr>
-            <td>Nov 1</td>
-            <td>6</td>
-            <td><em>Gentlemen Prefer Blondes</em><a href="#fn7"
+            <td><p>Nov 1</p></td>
+            <td><p>6</p></td>
+            <td><p><em>Gentlemen Prefer Blondes</em><a href="#fn7"
             class="footnote-ref" id="fnref7"
-            role="doc-noteref"><sup>7</sup></a></td>
-            <td>-</td>
+            role="doc-noteref"><sup>7</sup></a></p></td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Nov 6</td>
-            <td>7</td>
+            <td><p>Nov 6</p></td>
+            <td><p>7</p></td>
             <td><p>“Xingu”<a href="#fn8" class="footnote-ref"
             id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
             <p>Selected Dorothy Parker poems<a href="#fn9"
             class="footnote-ref" id="fnref9"
             role="doc-noteref"><sup>9</sup></a></p></td>
-            <td><em>Dictionary</em> entries</td>
+            <td><p><em>Dictionary</em> entries</p></td>
             </tr>
             <tr>
-            <td>Nov 8</td>
-            <td>8</td>
-            <td><em>Severance</em><a href="#fn10" class="footnote-ref"
-            id="fnref10" role="doc-noteref"><sup>10</sup></a></td>
-            <td>-</td>
+            <td><p>Nov 8</p></td>
+            <td><p>8</p></td>
+            <td><p><em>Severance</em><a href="#fn10"
+            class="footnote-ref" id="fnref10"
+            role="doc-noteref"><sup>10</sup></a></p></td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Nov 13</td>
-            <td>9</td>
+            <td><p>Nov 13</p></td>
+            <td><p>9</p></td>
             <td><p>“The War Prayer”<a href="#fn11" class="footnote-ref"
             id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
             <p>2006 White House Correspondents’ Dinner<a href="#fn12"
             class="footnote-ref" id="fnref12"
             role="doc-noteref"><sup>12</sup></a></p></td>
-            <td>Podcast 2</td>
+            <td><p>Podcast 2</p></td>
             </tr>
             <tr>
-            <td>Nov 15</td>
-            <td>10</td>
+            <td><p>Nov 15</p></td>
+            <td><p>10</p></td>
             <td><p><em>Network</em><a href="#fn13" class="footnote-ref"
             id="fnref13" role="doc-noteref"><sup>13</sup></a></p>
             <p>Optional: <em>Amusing Ourselves to Death</em></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Nov 20</td>
-            <td>11</td>
+            <td><p>Nov 20</p></td>
+            <td><p>11</p></td>
             <td><p><strong>ZOOM CLASS</strong></p>
             <p><em>Babbitt</em><a href="#fn14" class="footnote-ref"
             id="fnref14" role="doc-noteref"><sup>14</sup></a></p>
             <p>“Homer’s Enemy”<a href="#fn15" class="footnote-ref"
             id="fnref15" role="doc-noteref"><sup>15</sup></a></p></td>
-            <td>Final project prospectus</td>
+            <td><p>Final project prospectus</p></td>
             </tr>
             <tr>
-            <td>Nov 27</td>
-            <td>12</td>
-            <td><em>Little Inferno</em><a href="#fn16"
+            <td><p>Nov 27</p></td>
+            <td><p>12</p></td>
+            <td><p><em>Little Inferno</em><a href="#fn16"
             class="footnote-ref" id="fnref16"
-            role="doc-noteref"><sup>16</sup></a></td>
-            <td>-</td>
+            role="doc-noteref"><sup>16</sup></a></p></td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Nov 29</td>
-            <td>13</td>
-            <td>“A Good Man is Hard to Find”<a href="#fn17"
+            <td><p>Nov 29</p></td>
+            <td><p>13</p></td>
+            <td><p>“A Good Man is Hard to Find”<a href="#fn17"
             class="footnote-ref" id="fnref17"
-            role="doc-noteref"><sup>17</sup></a></td>
-            <td>-</td>
+            role="doc-noteref"><sup>17</sup></a></p></td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Dec 4</td>
-            <td>14</td>
-            <td>-</td>
+            <td><p>Dec 4</p></td>
+            <td><p>14</p></td>
+            <td><p>-</p></td>
             <td><ul>
             <li><p>Final project</p></li>
             <li><p>Engagements Experience</p></li>

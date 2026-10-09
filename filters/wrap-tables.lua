@@ -3,7 +3,7 @@
 -- collected captions for the list-of-tables).
 --
 -- Wraps every Table in <div class="table-scroll">, which is what keeps a table
--- wider than the stylesheet's 65ch column from letting the overflow fall
+-- wider than the stylesheet's reading column from letting the overflow fall
 -- through to the document and scroll the entire page sideways on a phone.
 --
 -- role="region" + tabindex="0" + an accessible name is what makes such a box
@@ -16,12 +16,15 @@
 -- Width, in characters, of the column at the NARROWEST viewport the site
 -- supports, not at its desktop width. A 320px viewport — an older phone, or a
 -- 1280px desktop window at 400% zoom, which is the WCAG 1.4.10 reflow case —
--- leaves a 288px column, and table text at 0.95 x 1.125rem with a 0.5em `0`
--- advance is 8.55px per character: ~33.7ch. The threshold was once 55, sized
--- to the 65ch desktop column, which left three tables that do scroll on a
--- phone (ltm, satire, and 104z; estimates 42-55) unreachable from the keyboard.
--- Measured at 320px, every table estimated at 42 or more overflows and every
--- one at 32 or less fits.
+-- leaves a 288px column. Table text is 0.95 x 1.25rem of EB Garamond, whose
+-- non-space glyphs average 0.41em: ~7.8px per character, or ~37ch. The
+-- threshold was once 55, sized to the desktop column, which left three tables
+-- that do scroll on a phone (ltm, satire, and 104z; estimates 42-55)
+-- unreachable from the keyboard. Measured at 320px, every table estimated at
+-- 42 or more overflows and every one at 32 or less fits; 33 sits at the low
+-- end of that gap, which errs toward marking. (The figures above were first
+-- taken with Source Serif 4 at 1.125rem, ~8.55px per character, and re-checked
+-- after the switch to EB Garamond: the same five tables overflow.)
 --
 -- The cost is that a table which scrolls only on narrow screens is also a tab
 -- stop on a desktop where it fits. Under-marking is the worse error: it leaves

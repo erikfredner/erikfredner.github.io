@@ -9,20 +9,18 @@ Data&mdash;Erik Fredner">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Erik Fredner">
     <meta property="og:url" content="https://fredner.org/l2d-syllabus.html">        <meta name="color-scheme" content="light dark">
-  <!-- Preload the three faces that set running prose: the serif roman, its
-       italic, and the sans behind the nav and h1. The italic belongs here even
-       though it covers less text — style.css uses `font-display: optional`, and
-       under `optional` each face that misses its block period is dropped for
-       the whole pageview on its own. Leaving the italic to normal CSS discovery
-       let the roman win and the italic lose, so a sentence with a book title in
-       it rendered half in Source Serif and half in Georgia. Mono stays
-       undeclared: it is inline-only and appears on few pages.
+  <!-- Preload both EB Garamond faces, the roman and its italic. The italic
+       belongs here even though it covers less text — style.css uses
+       `font-display: optional`, and under `optional` each face that misses its
+       block period is dropped for the whole pageview on its own. Leaving the
+       italic to normal CSS discovery let the roman win and the italic lose, so
+       a sentence with a book title in it rendered half in the webfont and half
+       in Georgia. Code uses system monospace, so there is nothing else to load.
        `crossorigin` is required even same-origin — fonts are fetched in CORS
        mode, and omitting it makes the preload a separate cache entry, i.e. a
        silent double download. -->
-  <link rel="preload" href="fonts/source-serif-4-roman.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/source-serif-4-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/source-sans-3-upright.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/eb-garamond-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/eb-garamond-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="canonical" href="https://fredner.org/l2d-syllabus.html">  <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
@@ -190,49 +188,49 @@ Data&mdash;Erik Fredner">
             </colgroup>
             <thead>
             <tr>
-            <th><em>Date</em></th>
-            <th><em>Mtg.</em></th>
-            <th><em>Guiding question</em></th>
-            <th><em>Readings</em></th>
-            <th><em>Assignment due</em></th>
+            <th><p><em>Date</em></p></th>
+            <th><p><em>Mtg.</em></p></th>
+            <th><p><em>Guiding question</em></p></th>
+            <th><p><em>Readings</em></p></th>
+            <th><p><em>Assignment due</em></p></th>
             </tr>
             </thead>
             <tbody>
             <tr>
-            <td>Mar 15</td>
-            <td>1</td>
-            <td>Why transform language into data?</td>
-            <td>-</td>
-            <td>-</td>
+            <td><p>Mar 15</p></td>
+            <td><p>1</p></td>
+            <td><p>Why transform language into data?</p></td>
+            <td><p>-</p></td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Mar 20</td>
-            <td>2</td>
-            <td>Why not transform language into data?</td>
+            <td><p>Mar 20</p></td>
+            <td><p>2</p></td>
+            <td><p>Why not transform language into data?</p></td>
             <td><p>Chun<a href="#fn1" class="footnote-ref" id="fnref1"
             role="doc-noteref"><sup>1</sup></a></p>
             <p>Zuboff<a href="#fn2" class="footnote-ref" id="fnref2"
             role="doc-noteref"><sup>2</sup></a></p>
             <p>Haugen (22:00-33:50)<a href="#fn3" class="footnote-ref"
             id="fnref3" role="doc-noteref"><sup>3</sup></a></p></td>
-            <td>My data</td>
+            <td><p>My data</p></td>
             </tr>
             <tr>
-            <td>Mar 22</td>
-            <td>3</td>
-            <td>What is (big) data?</td>
+            <td><p>Mar 22</p></td>
+            <td><p>3</p></td>
+            <td><p>What is (big) data?</p></td>
             <td><p>Drucker<a href="#fn4" class="footnote-ref"
             id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
             <p>D’Ignazio and Klein<a href="#fn5" class="footnote-ref"
             id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
             <p>Borges<a href="#fn6" class="footnote-ref" id="fnref6"
             role="doc-noteref"><sup>6</sup></a></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Mar 27</td>
-            <td>4</td>
-            <td>What is metadata?</td>
+            <td><p>Mar 27</p></td>
+            <td><p>4</p></td>
+            <td><p>What is metadata?</p></td>
             <td><p>Pomerantz<a href="#fn7" class="footnote-ref"
             id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
             <p>Krause<a href="#fn8" class="footnote-ref" id="fnref8"
@@ -241,106 +239,107 @@ Data&mdash;Erik Fredner">
             role="doc-noteref"><sup>9</sup></a></p>
             <p>Perrigo<a href="#fn10" class="footnote-ref" id="fnref10"
             role="doc-noteref"><sup>10</sup></a></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Mar 29</td>
-            <td>5</td>
-            <td>CLASS CANCELLED</td>
-            <td>-</td>
-            <td>-</td>
+            <td><p>Mar 29</p></td>
+            <td><p>5</p></td>
+            <td><p>CLASS CANCELLED</p></td>
+            <td><p>-</p></td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Apr 3</td>
-            <td>6</td>
-            <td>What is a corpus?</td>
+            <td><p>Apr 3</p></td>
+            <td><p>6</p></td>
+            <td><p>What is a corpus?</p></td>
             <td><p>Algee-Hewitt and McGurl<a href="#fn11"
             class="footnote-ref" id="fnref11"
             role="doc-noteref"><sup>11</sup></a></p>
             <p>Risam<a href="#fn12" class="footnote-ref" id="fnref12"
             role="doc-noteref"><sup>12</sup></a></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Apr 5</td>
-            <td>7</td>
-            <td>How have people transformed language into data?</td>
+            <td><p>Apr 5</p></td>
+            <td><p>7</p></td>
+            <td><p>How have people transformed language into
+            data?</p></td>
             <td><p>Holmes and Kardos<a href="#fn13" class="footnote-ref"
             id="fnref13" role="doc-noteref"><sup>13</sup></a></p>
             <p>Mendenhall<a href="#fn14" class="footnote-ref"
             id="fnref14" role="doc-noteref"><sup>14</sup></a></p>
             <p>Weizenbaum<a href="#fn15" class="footnote-ref"
             id="fnref15" role="doc-noteref"><sup>15</sup></a></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Apr 10</td>
-            <td>8</td>
-            <td>What can counting types and tokens teach us?</td>
+            <td><p>Apr 10</p></td>
+            <td><p>8</p></td>
+            <td><p>What can counting types and tokens teach us?</p></td>
             <td><p>Archer<a href="#fn16" class="footnote-ref"
             id="fnref16" role="doc-noteref"><sup>16</sup></a></p>
             <p>Le et al.<a href="#fn17" class="footnote-ref"
             id="fnref17" role="doc-noteref"><sup>17</sup></a></p>
             <p>Bailey<a href="#fn18" class="footnote-ref" id="fnref18"
             role="doc-noteref"><sup>18</sup></a></p></td>
-            <td>My corpus</td>
+            <td><p>My corpus</p></td>
             </tr>
             <tr>
-            <td>Apr 12</td>
-            <td>9</td>
-            <td>What can counting (with) metadata teach us?</td>
+            <td><p>Apr 12</p></td>
+            <td><p>9</p></td>
+            <td><p>What can counting (with) metadata teach us?</p></td>
             <td><p>Porter<a href="#fn19" class="footnote-ref"
             id="fnref19" role="doc-noteref"><sup>19</sup></a></p>
             <p>Johnson<a href="#fn20" class="footnote-ref" id="fnref20"
             role="doc-noteref"><sup>20</sup></a></p>
             <p>Anderson and Daniels<a href="#fn21" class="footnote-ref"
             id="fnref21" role="doc-noteref"><sup>21</sup></a></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Apr 17</td>
-            <td>10</td>
-            <td>How should we think about change over time?</td>
+            <td><p>Apr 17</p></td>
+            <td><p>10</p></td>
+            <td><p>How should we think about change over time?</p></td>
             <td><p>Heuser and Le Khac<a href="#fn22"
             class="footnote-ref" id="fnref22"
             role="doc-noteref"><sup>22</sup></a></p>
             <p>Underwood et al.<a href="#fn23" class="footnote-ref"
             id="fnref23" role="doc-noteref"><sup>23</sup></a></p></td>
-            <td>My proposal</td>
+            <td><p>My proposal</p></td>
             </tr>
             <tr>
-            <td>Apr 19</td>
-            <td>11</td>
-            <td>What is a topic model?</td>
+            <td><p>Apr 19</p></td>
+            <td><p>11</p></td>
+            <td><p>What is a topic model?</p></td>
             <td><p>Blei<a href="#fn24" class="footnote-ref" id="fnref24"
             role="doc-noteref"><sup>24</sup></a></p>
             <p>Lucy et al.<a href="#fn25" class="footnote-ref"
             id="fnref25" role="doc-noteref"><sup>25</sup></a></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Apr 24</td>
-            <td>12</td>
-            <td>What are word embeddings?</td>
+            <td><p>Apr 24</p></td>
+            <td><p>12</p></td>
+            <td><p>What are word embeddings?</p></td>
             <td><p>Smith<a href="#fn26" class="footnote-ref"
             id="fnref26" role="doc-noteref"><sup>26</sup></a></p>
             <p>Gavin<a href="#fn27" class="footnote-ref" id="fnref27"
             role="doc-noteref"><sup>27</sup></a></p></td>
-            <td>-</td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>Apr 26</td>
-            <td>13</td>
-            <td>Final project preparation in class</td>
-            <td>-</td>
-            <td>-</td>
+            <td><p>Apr 26</p></td>
+            <td><p>13</p></td>
+            <td><p>Final project preparation in class</p></td>
+            <td><p>-</p></td>
+            <td><p>-</p></td>
             </tr>
             <tr>
-            <td>May 1</td>
-            <td>14</td>
-            <td>Final project presentations</td>
-            <td>-</td>
-            <td>Final presentations</td>
+            <td><p>May 1</p></td>
+            <td><p>14</p></td>
+            <td><p>Final project presentations</p></td>
+            <td><p>-</p></td>
+            <td><p>Final presentations</p></td>
             </tr>
             </tbody>
             </table>

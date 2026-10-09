@@ -133,9 +133,9 @@ STYLE_OUT := $(OUT_DIR)/style.css
 FONT_SCRIPT  := scripts/build_fonts.py
 FONT_SRC_DIR := fonts
 FONT_OUT_DIR := $(OUT_DIR)/fonts
-# The OFL requires the license to travel with the fonts, so the LICENSE-*.md
-# files that build_fonts.py pulls down are served alongside them.
-FONT_SRC     := $(wildcard $(FONT_SRC_DIR)/*.woff2) $(wildcard $(FONT_SRC_DIR)/*.md)
+# The OFL requires the license to travel with the fonts, so the LICENSE-*
+# file that build_fonts.py pulls down is served alongside them.
+FONT_SRC     := $(wildcard $(FONT_SRC_DIR)/*.woff2) $(wildcard $(FONT_SRC_DIR)/LICENSE-*)
 FONT_OUT     := $(patsubst $(FONT_SRC_DIR)/%,$(FONT_OUT_DIR)/%,$(FONT_SRC))
 
 # Vendored CSL from citation-style-language/styles (used by `make update-csl`).
@@ -155,7 +155,7 @@ NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 FAVICON_SRC := favicon.svg
 FAVICON_OUT := $(OUT_DIR)/favicon.svg
 
-all: csl-autoupdate $(HTML_OUT) $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) blog tags sitemap
+all: csl-autoupdate $(HTML_OUT) $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) blog tags sitemap
 
 # Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
@@ -240,7 +240,21 @@ $(FONT_OUT_DIR): | $(OUT_DIR)
 $(FONT_OUT_DIR)/%: $(FONT_SRC_DIR)/% | $(FONT_OUT_DIR)
 	cp $< $@
 
-# Re-download and re-subset the Source families from adobe-fonts/*.
+# Drop anything in docs/fonts/ that fonts/ no longer accounts for. Mirrors
+# images-prune: docs/ is the deploy target, so a face retired from fonts/ (the
+# Source families were replaced by EB Garamond this way) would otherwise stay
+# committed and served indefinitely.
+fonts-prune: | $(FONT_OUT_DIR)
+	@keep=" $(notdir $(FONT_OUT)) "; \
+	for f in $(FONT_OUT_DIR)/*; do \
+	  [ -e "$$f" ] || continue; \
+	  case "$$keep" in \
+	    *" $$(basename "$$f") "*) ;; \
+	    *) echo "Fonts: pruning stale $$f"; rm -f "$$f";; \
+	  esac; \
+	done
+
+# Re-download and re-subset EB Garamond from google/fonts.
 # Deliberately NOT a prerequisite of `all`: it needs network access and its
 # output is committed, so run it on purpose and review the diff. If the upstream
 # metrics change, re-derive the fallback overrides in css/style.css.
@@ -432,7 +446,7 @@ update-csl:
 	curl -fsSL $(CSL_UPSTREAM_URL) -o $(CSL_DIR)/chicago-notes.csl
 	@echo "CSL refreshed from upstream. Review with: git diff $(CSL_DIR)"
 
-.PHONY: clean serve prune-images images-prune update-csl csl-autoupdate blog blog-prune tags sitemap fonts
+.PHONY: clean serve prune-images images-prune fonts-prune update-csl csl-autoupdate blog blog-prune tags sitemap fonts
 clean: ; rm -rf $(OUT_DIR)
 # The preview server is scripts/serve.py, not `python3 -m http.server`, because
 # the latter sends only Last-Modified: browsers then apply RFC 9111 heuristic

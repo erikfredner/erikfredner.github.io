@@ -1,25 +1,26 @@
 /* fredner.org — single site stylesheet.
    Minimalist black-on-white (with prefers-color-scheme dark variant):
-   a centered ~65ch column of left-aligned text.
-   Source Serif 4 for prose, Source Sans 3 for headings and chrome,
-   Source Code Pro for code — self-hosted variable subsets from fonts/. */
+   a centered column of left-aligned text.
+   EB Garamond for everything — prose, headings, and chrome — self-hosted as
+   variable subsets from fonts/; code uses the platform's own monospace. */
 
 /* ---------- Webfonts ---------- */
 
 /* Subset variable WOFF2s built by `make fonts` (see scripts/build_fonts.py).
-   One file per face, weight axis 200-900, so a single request covers every
+   One file per face, weight axis 400-800, so a single request covers every
    weight the site uses. Paths are relative to this stylesheet, which sits at
    the site root, so they resolve for blog pages under /blog/ too. */
 
 /* `optional`, not `swap`. `swap` repaints in the webfont whenever it lands,
-   and Source Serif is ~15% narrower than the generic serifs these pages fall
-   back to, so every paragraph on the page rewrapped mid-load — 0.46 CLS on
-   PageSpeed. `optional` gives the font a short block period and no swap
-   period: if it is not ready at first paint the fallback is kept for that
-   pageview, which makes the shift structurally impossible rather than merely
-   small. The cost is that a cold first visit over a slow link renders in the
-   fallback; the preloads in templates/base.html are what keep that rare, and
-   the font is used from cache on every subsequent navigation.
+   and EB Garamond is ~14% narrower per character than Georgia, the most
+   common face these pages fall back to, so every paragraph on the page would
+   rewrap mid-load (the Source Serif this replaced measured 0.46 CLS on
+   PageSpeed under `swap`). `optional` gives the font a short block period and
+   no swap period: if it is not ready at first paint the fallback is kept for
+   that pageview, which makes the shift structurally impossible rather than
+   merely small. The cost is that a cold first visit over a slow link renders
+   in the fallback; the preloads in templates/base.html are what keep that
+   rare, and the font is used from cache on every subsequent navigation.
 
    Consequence worth remembering: with `optional` a face that misses the block
    period is dropped for the whole pageview *individually*. Preload every face
@@ -27,34 +28,18 @@
    and one paragraph renders in two different families. */
 
 @font-face {
-  font-family: "Source Serif 4";
-  src: url("fonts/source-serif-4-roman.woff2") format("woff2");
-  font-weight: 200 900;
+  font-family: "EB Garamond";
+  src: url("fonts/eb-garamond-roman.woff2") format("woff2");
+  font-weight: 400 800;
   font-style: normal;
   font-display: optional;
 }
 
 @font-face {
-  font-family: "Source Serif 4";
-  src: url("fonts/source-serif-4-italic.woff2") format("woff2");
-  font-weight: 200 900;
+  font-family: "EB Garamond";
+  src: url("fonts/eb-garamond-italic.woff2") format("woff2");
+  font-weight: 400 800;
   font-style: italic;
-  font-display: optional;
-}
-
-@font-face {
-  font-family: "Source Sans 3";
-  src: url("fonts/source-sans-3-upright.woff2") format("woff2");
-  font-weight: 200 900;
-  font-style: normal;
-  font-display: optional;
-}
-
-@font-face {
-  font-family: "Source Code Pro";
-  src: url("fonts/source-code-pro-upright.woff2") format("woff2");
-  font-weight: 200 900;
-  font-style: normal;
   font-display: optional;
 }
 
@@ -72,47 +57,28 @@
    a single face listing `local("Georgia"), local("Times New Roman")` looks
    correct on macOS and does nothing at all on a machine that has neither,
    which is the case on most Linux boxes, PageSpeed's own runner, and Android.
-   That is the bug this arrangement replaces. Georgia and Times are a third of
-   an x-height apart, so they could not have shared overrides anyway.
+   Georgia and Times are a tenth of an x-height apart, so they could not share
+   overrides anyway.
 
    Liberation Serif / Tinos / Nimbus Roman are metric clones of Times New
-   Roman, and Liberation Sans / Arimo of Arial, so those do share a face. */
+   Roman, so those do share a face. */
 
 @font-face {
-  font-family: "Source Serif Fallback Georgia";
+  font-family: "EB Garamond Fallback Georgia";
   src: local("Georgia");
-  size-adjust: 98.66%;
-  ascent-override: 105.01%;
-  descent-override: 33.95%;
+  size-adjust: 83.08%;
+  ascent-override: 121.2%;
+  descent-override: 35.87%;
   line-gap-override: 0%;
 }
 
 @font-face {
-  font-family: "Source Serif Fallback Times";
+  font-family: "EB Garamond Fallback Times";
   src: local("Times New Roman"), local("Liberation Serif"), local("Tinos"),
     local("Nimbus Roman");
-  size-adjust: 106.2%;
-  ascent-override: 97.55%;
-  descent-override: 31.54%;
-  line-gap-override: 0%;
-}
-
-@font-face {
-  font-family: "Source Sans Fallback Helvetica";
-  src: local("Helvetica Neue");
-  size-adjust: 92.46%;
-  ascent-override: 108.16%;
-  descent-override: 35.26%;
-  line-gap-override: 0%;
-}
-
-@font-face {
-  font-family: "Source Sans Fallback Arial";
-  src: local("Arial"), local("Liberation Sans"), local("Arimo"),
-    local("Helvetica");
-  size-adjust: 92.18%;
-  ascent-override: 108.48%;
-  descent-override: 35.37%;
+  size-adjust: 89.43%;
+  ascent-override: 112.6%;
+  descent-override: 33.32%;
   line-gap-override: 0%;
 }
 
@@ -121,11 +87,13 @@
 :root {
   color-scheme: light dark;
 
-  --font-serif: "Source Serif 4", "Source Serif Fallback Georgia",
-    "Source Serif Fallback Times", Georgia, "Times New Roman", serif;
-  --font-sans: "Source Sans 3", "Source Sans Fallback Helvetica",
-    "Source Sans Fallback Arial", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-serif: "EB Garamond", "EB Garamond Fallback Georgia",
+    "EB Garamond Fallback Times", Georgia, "Times New Roman", serif;
+  /* No webfont: whatever the platform ships. Listing named faces before the
+     generic also sidesteps the UA quirk that shrinks a bare `monospace` to
+     13px. */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
 
   --bg: #ffffff;
   --text: #1a1a1a;      /* 16.9:1 on --bg */
@@ -185,7 +153,9 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-serif);
-  font-size: 1.125rem;
+  /* 20px rather than the usual 18: EB Garamond's x-height is 0.40em against
+     ~0.48em for a typical text serif, so at 1.125rem it read a size small. */
+  font-size: 1.25rem;
   line-height: 1.55;
 }
 
@@ -195,14 +165,14 @@ body {
 
 /* ---------- Centered reading column ---------- */
 
-/* 36.5625rem is exactly 65ch of Source Serif 4 at the body's 1.125rem
-   (its `0` advance is 0.5em), but stated in rem so it does not move.
-   `ch` resolves against the element's own computed font, which made this
-   declaration mean two different widths: `header > nav` sets --font-sans
-   below, whose `0` is 0.497em, so the nav measured 0.6% narrower than main
-   and their edges never quite lined up. It also meant the column itself
-   resized when a fallback font stood in — the generic serifs are up to 27%
-   wider at `0`, which rewrapped every line on the page. */
+/* 36.5625rem leaves a 34.5625rem (553px) text measure inside the padding,
+   which holds ~73 characters of the site's prose in EB Garamond at the body's
+   1.25rem (its average advance, spaces included, is 0.377em). Stated in rem,
+   never `ch`: `ch` resolves against each element's own computed font, so it
+   made this shared rule mean different widths for the nav and for main when
+   they used different families, and it resized the whole column whenever a
+   fallback font stood in — the generic serifs are up to 28% wider at `0`
+   than EB Garamond, which rewrapped every line on the page. */
 header > nav,
 main {
   max-width: 36.5625rem;
@@ -223,7 +193,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-sans);
   font-weight: 600;
   line-height: 1.2;
   margin-block: 1.75em 0.5em;
@@ -258,18 +227,18 @@ h1.title {
 }
 
 /* A `subtitle` in the frontmatter renders under the h1. It reads as a
-   continuation of the title, not a heading: same sans family, but lighter,
-   smaller, and muted so the h1 keeps the visual weight. */
+   continuation of the title, not a heading: italic at regular weight, smaller,
+   and muted so the h1 keeps the visual weight. (EB Garamond's weight axis
+   starts at 400, so the lighter weight this once used is not available.) */
 p.subtitle {
-  font-family: var(--font-sans);
-  font-weight: 300;
+  font-style: italic;
   font-size: 1.25em;
   line-height: 1.3;
   color: var(--muted);
   margin-block: 0.3rem 1.5rem;
 }
 
-/* h1's 0.5em bottom margin (~0.95rem here) would collapse against the
+/* h1's 0.5em bottom margin (~1.2rem here) would collapse against the
    subtitle's small top margin and win, breaking the two apart. */
 h1.title:has(+ .subtitle) {
   margin-bottom: 0;
@@ -283,15 +252,16 @@ h3 {
   font-size: 1.2em;
 }
 
-/* No italic Source Sans is shipped (h4 appears on 3 pages), so the old
-   font-style: italic here would have been a synthesized oblique. The
-   sans/serif contrast against body text distinguishes it well enough. */
+/* h4 (3 pages) is body-sized, so weight alone barely separates it from a
+   bold run-in phrase; the italic does the rest. It is a real italic, from the
+   preloaded EB Garamond italic face, not a synthesized oblique. */
 h4 {
   font-size: 1em;
+  font-style: italic;
 }
 
 /* One h5 exists (104z-syllabus); h6 is unused. Without these they fall out of
-   the group above and revert to the UA's serif bold, breaking the sans ramp. */
+   the group above and revert to the UA's sizes, breaking the heading ramp. */
 h5,
 h6 {
   font-size: 0.9em;
@@ -318,7 +288,7 @@ blockquote {
 }
 
 /* Prose lists. The UA's 40px indent doesn't line up with anything else in the
-   65ch column, and cv.html is ~150 list items. Scoped to `article` so the nav
+   reading column, and cv.html is ~150 list items. Scoped to `article` so the nav
    is untouched; .toc-box and #footnotes rules outrank these on specificity and
    keep their own values. */
 article ul {
@@ -398,7 +368,6 @@ article > header .post-date {
 /* ---------- Site chrome ---------- */
 
 .skip-link {
-  font-family: var(--font-sans);
   position: absolute;
   top: -100%;
   left: 0;
@@ -414,7 +383,6 @@ article > header .post-date {
 }
 
 header > nav {
-  font-family: var(--font-sans);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -458,9 +426,15 @@ header > nav a[aria-current="page"] {
   color: var(--text);
 }
 
+/* 2.75rem (44px) square: the glyph alone was a ~26px target, too small to
+   hit reliably with a thumb. The negative block margin keeps the larger box
+   from making the nav bar taller than the wordmark beside it. */
 .nav-toggle {
-  font-family: var(--font-sans);
+  font-family: inherit;
   display: none;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  margin-block: -0.5rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -488,18 +462,29 @@ header > nav a[aria-current="page"] {
     display: none;
     width: 100%;
     flex-direction: column;
-    gap: 0.25rem 0;
-    padding-top: 0.5rem;
+    gap: 0;
+    padding-top: 0.25rem;
+    /* The shared `align-items: center` would shrink each row to its word;
+       stretch it full-width (keeping the centered text it has always had) so
+       the whole row is the tap target. */
+    align-items: stretch;
+    text-align: center;
     border-top: 1px solid var(--border);
   }
 
   header > nav.js-nav.open .nav-links {
     display: flex;
   }
+
+  /* Stacked, the links are thumb targets; give each a full-width row of
+     ~44px rather than a word-sized hit area. */
+  header > nav.js-nav .nav-links a {
+    display: block;
+    padding-block: 0.3rem;
+  }
 }
 
 .back-to-top {
-  font-family: var(--font-sans);
   position: fixed;
   right: 1rem;
   bottom: 1rem;
@@ -570,7 +555,6 @@ header > nav a[aria-current="page"] {
 }
 
 .toc-label {
-  font-family: var(--font-sans);
   font-size: 1.2em;
   cursor: pointer;
   list-style: none;
@@ -655,13 +639,11 @@ header > nav a[aria-current="page"] {
 
 /* The date leads the card, so it needs a small gap before the title. */
 .post-card .post-date {
-  font-family: var(--font-sans);
   font-size: 0.85em;
   margin-block: 0 0.2em;
 }
 
 .feed-link {
-  font-family: var(--font-sans);
   font-size: 0.9em;
   margin-top: 2.5rem;
 }
@@ -672,7 +654,6 @@ header > nav a[aria-current="page"] {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  font-family: var(--font-sans);
   font-size: 0.8em;
 }
 
@@ -700,7 +681,6 @@ article > header .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem 1.2rem;
-  font-family: var(--font-sans);
 }
 
 .tag-index li {
@@ -722,7 +702,6 @@ article > header .tag-list {
   border-top: 1px solid var(--border);
   margin-top: 3rem;
   padding-top: 1.5rem;
-  font-family: var(--font-sans);
   font-size: 0.95em;
 }
 
@@ -777,7 +756,6 @@ figure img {
 
 figcaption,
 table caption {
-  font-family: var(--font-sans);
   font-size: 0.9em;
   color: var(--muted);
   margin-top: 0.5rem;
@@ -785,7 +763,7 @@ table caption {
 }
 
 /* Every table gets this wrapper (added by filters/wrap-tables.lua); without it
-   a table wider than the 65ch column lets its overflow fall through to the
+   a table wider than the reading column lets its overflow fall through to the
    document and the whole page scrolls sideways on a phone.
    The filter adds role + tabindex + label -- what makes the box scrollable by
    keyboard, since an overflow container without them is mouse-only -- to the
@@ -827,7 +805,6 @@ td {
 }
 
 th {
-  font-family: var(--font-sans);
   border-bottom: 2px solid var(--text);
 }
 
@@ -859,9 +836,12 @@ dd {
   margin-bottom: 0.5em;
 }
 
+/* System monospace faces have x-heights of ~0.53em against EB Garamond's
+   0.40em, so at the usual 0.85em inline code towered over the text around it.
+   0.8em brings Menlo / SF Mono / Consolas within a few percent. */
 code {
   font-family: var(--font-mono);
-  font-size: 0.85em;
+  font-size: 0.8em;
   background: var(--code-bg);
   padding: 0.1em 0.3em;
   border-radius: 3px;
