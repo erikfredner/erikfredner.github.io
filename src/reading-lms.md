@@ -33,7 +33,7 @@ nocite: |
 
 ## Manuscript Information
 
-This essay is part of a proposed collection of essays for *Modern Fiction Studies* on the topic of Cultural AI edited by Richard Jean So and Aarthi Vadde.
+Copyright © 2027 Purdue University. This article will appear in *MFS Modern Fiction Studies*, Volume 73, Issue 1, 2027 as part of a special issue on the topic of Cultural AI edited by Richard Jean So and Aarthi Vadde. Published by Johns Hopkins University Press.
 
 ## Abstract
 
