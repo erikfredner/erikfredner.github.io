@@ -1170,6 +1170,51 @@ Fiction&mdash;Erik Fredner">
           }, { passive: true });
         }
       })();
+
+      // Tap a figure to see it full screen; tap anywhere (or Escape) to close.
+      // The image is wrapped in a button here rather than in a link by a pandoc
+      // filter: pandoc hides the duplicate <figcaption> from screen readers only
+      // while the figure's content is a bare image (see filters/figures.lua).
+      // The button's accessible name is the image's alt, so nothing is lost.
+      (function () {
+        var imgs = document.querySelectorAll('figure > img');
+        if (!imgs.length || typeof HTMLDialogElement !== 'function') return;
+
+        var dialog = document.createElement('dialog');
+        dialog.className = 'figure-lightbox';
+        dialog.setAttribute('aria-label', 'Enlarged figure');
+        dialog.innerHTML = '<button type="button" class="figure-lightbox-close"' +
+          ' aria-label="Close">&times;</button><img alt=""><p aria-hidden="true"></p>';
+        document.body.appendChild(dialog);
+        var big = dialog.querySelector('img');
+        var cap = dialog.querySelector('p');
+        var opener;
+
+        Array.prototype.forEach.call(imgs, function (img) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'figure-zoom';
+          btn.title = 'Enlarge figure';
+          btn.setAttribute('aria-haspopup', 'dialog');
+          img.parentNode.insertBefore(btn, img);
+          btn.appendChild(img);
+          btn.addEventListener('click', function () {
+            var fc = btn.parentNode.querySelector('figcaption');
+            opener = btn;
+            big.src = img.currentSrc || img.src;
+            big.alt = img.alt;
+            cap.innerHTML = fc ? fc.innerHTML : '';
+            dialog.showModal();
+          });
+        });
+
+        // The dialog fills the screen, so every click inside it, the close
+        // button included, means "done".
+        dialog.addEventListener('click', function () { dialog.close(); });
+        dialog.addEventListener('close', function () {
+          if (opener) opener.focus({ preventScroll: true });
+        });
+      })();
     </script>
   </main>
 </body>

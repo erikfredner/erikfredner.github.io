@@ -8,6 +8,7 @@ LUA_FILTER := filters/webp.lua
 IMAGE_SIZE_FILTER := filters/image-size.lua
 OG_IMAGE_FILTER := filters/og-image.lua
 LISTS_FILTER := filters/inject-lists.lua
+FIGURES_FILTER := filters/figures.lua
 WRAP_LISTS_FILTER := filters/wrap-lists.lua
 WRAP_TABLES_FILTER := filters/wrap-tables.lua
 ABSOLUTIZE_FILTER := filters/absolutize.lua
@@ -57,7 +58,9 @@ ROBOTS_OUT      := $(OUT_DIR)/robots.txt
 # time. FILTER ORDER IS LOAD-BEARING and documented in each filter's header:
 # image-size before webp (so it reads the file actually in src/images/), webp
 # before og-image (so og-image sees the rewritten src), inject-lists
-# before pandoc-crossref (which renders the placeholders), and wrap-lists
+# before pandoc-crossref (which renders the placeholders), wrap-lists
+# before figures (wrap-lists strips crossref's bare "Figure N:" prefix for the
+# list of figures, and figures then wraps that prefix in a span), and wrap-lists
 # before wrap-tables (so wrap-lists' Table walker still sees real Tables).
 # Keeping that sequence in one place is the point of these variables — spelled
 # out per rule, one copy inevitably drifted from the others.
@@ -70,6 +73,7 @@ OG_FILTER_OPT    := --lua-filter=$(OG_IMAGE_FILTER)
 CONTENT_FILTERS  := --lua-filter=$(LISTS_FILTER) \
                     --filter pandoc-crossref \
                     --lua-filter=$(WRAP_LISTS_FILTER) \
+                    --lua-filter=$(FIGURES_FILTER) \
                     --lua-filter=$(WRAP_TABLES_FILTER)
 CITEPROC_OPTS    := --citeproc --bibliography=$(BIBLIOGRAPHY) --csl=$(CSL)
 COMMON_META      := --metadata site-url="$(SITE_URL)" \
@@ -80,7 +84,7 @@ COMMON_META      := --metadata site-url="$(SITE_URL)" \
 # are rendered without $(TEMPLATE), and listing it there would rebuild every
 # fragment whenever the template changed, for no difference in output.
 CONTENT_DEPS := $(BIBLIOGRAPHY) $(CSL) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) $(LISTS_FILTER) \
-                $(WRAP_LISTS_FILTER) $(WRAP_TABLES_FILTER)
+                $(FIGURES_FILTER) $(WRAP_LISTS_FILTER) $(WRAP_TABLES_FILTER)
 PAGE_DEPS    := $(TEMPLATE) $(OG_IMAGE_FILTER) $(CONTENT_DEPS)
 
 # Pages built from markdown this repo *generates* (the blog index and the tag

@@ -45,6 +45,7 @@ pandoc --standalone --toc-depth=2 --template=templates/base.html \
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
+  --lua-filter=filters/figures.lua \
   --lua-filter=filters/wrap-tables.lua \
   --citeproc --bibliography=references.bib --csl=vendor/csl/chicago-notes.csl \
   -o docs/PAGE.html src/PAGE.md
@@ -65,6 +66,7 @@ pandoc --standalone --template=templates/base.html \
   --lua-filter=filters/inject-lists.lua \
   --filter pandoc-crossref \
   --lua-filter=filters/wrap-lists.lua \
+  --lua-filter=filters/figures.lua \
   --lua-filter=filters/wrap-tables.lua \
   --citeproc --bibliography=references.bib --csl=vendor/csl/chicago-notes.csl \
   -o docs/blog/POST.html src/blog/POST.md
@@ -85,7 +87,9 @@ This is a static academic website built with **Pandoc** and a single local style
 - `--section-divs` — wraps each heading section in `<section>`; kept for semantic structure and anchor targets.
 - `references.bib` — Zotero/Better BibTeX bibliography; all citations across the site draw from this file.
 - `--metadata link-citations=false` — chicago-notes is a notes-only style with no bibliography section, so the default citeproc behavior of wrapping each citation in `<a href="#ref-...">` produces dead links and also swallows DOIs / JSTOR URLs that would otherwise render as clickable external links. Setting `link-citations` to `false` suppresses the wrapper entirely, leaving bare URLs in the citation content to be rendered as ordinary external links.
-- **Figures** are pandoc's default `<figure><img><figcaption>` output, numbered by `pandoc-crossref` (`![caption](src){#fig:foo}`). Captions render below the image, styled by `style.css`.
+- **Figures** are pandoc's default `<figure><img><figcaption>` output, numbered by `pandoc-crossref` (`![caption](src){#fig:foo}`). Captions render below the image, styled by `style.css`, at the full measure (`text-wrap: pretty`, not `balance` — a balanced caption stopped well short of the right edge and read as set narrower than the prose); they are set apart by size, `--muted`, and the "Figure N:" label at weight 600.
+- `filters/figures.lua` — runs after `filters/wrap-lists.lua`, whose list of figures strips crossref's label by finding a bare `Str` ending in a colon; run it earlier and every List of Figures entry comes out empty. Wraps that label in `<span class="figure-label">`, in the caption **and** the image alt alike, because pandoc marks the `<figcaption>` `aria-hidden` only when caption and alt are identical.
+- **Tap-to-enlarge figures** are added by the template's script, not a filter: it wraps each `figure > img` in a `<button class="figure-zoom">` that opens a full-screen `<dialog class="figure-lightbox">` (click anywhere or Escape closes; focus returns to the button). It is not a link added in Lua because wrapping the image in anything in the AST defeats the same caption/alt match and un-hides the duplicate caption. Without the script the figure is exactly as before. On short viewports (`max-height: 30rem`, a phone turned sideways) the lightbox drops the caption so the figure gets the whole height.
 - `filters/image-size.lua` — runs first, before `filters/webp.lua`, so it reads the file that actually exists in `src/images/`. Gives every local image its intrinsic `width`/`height` (read from the PNG/JPEG/WebP header or the SVG's `width`/`height`/`viewBox`, with `pt` converted to px) so the box is reserved before the image loads — without them the-ends-of-reading shifted as each figure arrived and a jump to `#fig:…` landed a screen off. `max-width: 100%; height: auto` in `style.css` still governs the rendered size. Every image after the first also gets `loading="lazy"`; the first stays eager as the likely LCP element. Images whose size cannot be read, or that already set `width`/`height`, are left alone.
 - `filters/og-image.lua` — runs right after `filters/webp.lua` so it sees the `.webp`-rewritten src. Captures the first `Image` element on the page, resolves it against the `site-url` metadata (set in the Makefile to `https://fredner.org`), and exposes the absolute URL as `og-image` metadata. The template renders `<meta property="og:image">` (plus `twitter:card` / `twitter:image`) when that value is set, so iMessage / Slack / Twitter link previews show the page's first image. Pages with no images emit no `og:image` tag.
 - `filters/wrap-tables.lua` — runs last, after `pandoc-crossref` and `filters/wrap-lists.lua` (so both still see real `Table` elements). Wraps every table in `<div class="table-scroll">`, which is what keeps a table wider than the reading column from pushing the whole document sideways on a phone. `style.css` draws CSS-only edge shadows on it that appear only when the table actually overflows.
@@ -101,7 +105,7 @@ This is a static academic website built with **Pandoc** and a single local style
 
 **Shared pandoc options:** five rules call pandoc, and the flags they share live in Makefile variables (`IMAGE_FILTER_OPTS`, `OG_FILTER_OPT`, `CONTENT_FILTERS`, `CITEPROC_OPTS`, `COMMON_META`, and `PANDOC_GENERATED` for the pages built from generated markdown), with matching prerequisite lists (`CONTENT_DEPS`, `PAGE_DEPS`).
 
-- **This exists because filter order is load-bearing and was previously restated per rule.** image-size before webp, webp before og-image, inject-lists before pandoc-crossref, wrap-lists before wrap-tables. Add a filter by editing the variable and its prerequisite list, not five recipes.
+- **This exists because filter order is load-bearing and was previously restated per rule.** image-size before webp, webp before og-image, inject-lists before pandoc-crossref, wrap-lists before figures and before wrap-tables. Add a filter by editing the variable and its prerequisite list, not five recipes.
 - `CONTENT_DEPS` deliberately omits `$(TEMPLATE)`: the feed fragments are rendered template-less, and listing it there would rebuild every fragment on a template change for no difference in output. `PAGE_DEPS` adds the template and `og-image.lua`.
 
 **Source pages** (`src/`): Markdown with YAML frontmatter. The `title` field becomes both the `<title>` and `<h1>`. `subtitle` (optional) renders as a `<p class="subtitle">` directly under the `<h1>` — lighter, smaller, muted sans — and deliberately does *not* appear in `<title>` or `og:title`, which stay short. `description` (optional) becomes the `<meta name="description">` and `og:description`. Blog posts additionally render a `<time>` byline under the title, driven by `published` / `updated` metadata rather than a frontmatter `date` (see **Blog pipeline**). Add `toc: true` to frontmatter for pages that need a table of contents (the Makefile greps for this line and passes `--toc` to pandoc). Add `lof: true` / `lot: true` to generate a list of figures / list of tables (driven by `filters/inject-lists.lua`, which prepends a `\listoffigures` / `\listoftables` raw block; pandoc-crossref then renders the list, and `filters/wrap-lists.lua` wraps it in a `<details class="toc-box list-of-figures-box">` styled to match the TOC).

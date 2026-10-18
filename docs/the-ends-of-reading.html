@@ -637,7 +637,8 @@ Reading&mdash;Erik Fredner">
             <figure id="fig:sppa">
             <img src="images/fig1.svg" width="768" height="576"
             alt="Figure 1: Survey of Public Participation in the Arts reading rates within the past year by type of reading." />
-            <figcaption aria-hidden="true">Figure 1: Survey of Public
+            <figcaption aria-hidden="true"><span
+            class="figure-label">Figure 1:</span> Survey of Public
             Participation in the Arts reading rates within the past year
             by type of reading.</figcaption>
             </figure>
@@ -766,7 +767,8 @@ Reading&mdash;Erik Fredner">
             <img src="images/fig2.svg" loading="lazy" width="768"
             height="576"
             alt="Figure 2: American Time Use Survey odds ratios for participating in socializing, relaxing, and leisure activities relative to 2003 baseline." />
-            <figcaption aria-hidden="true">Figure 2: American Time Use
+            <figcaption aria-hidden="true"><span
+            class="figure-label">Figure 2:</span> American Time Use
             Survey odds ratios for participating in socializing,
             relaxing, and leisure activities relative to 2003
             baseline.</figcaption>
@@ -806,7 +808,8 @@ Reading&mdash;Erik Fredner">
             <img src="images/fig3.svg" loading="lazy" width="768"
             height="576"
             alt="Figure 3: American Time Use Survey percentage participating in reading for personal interest by education." />
-            <figcaption aria-hidden="true">Figure 3: American Time Use
+            <figcaption aria-hidden="true"><span
+            class="figure-label">Figure 3:</span> American Time Use
             Survey percentage participating in reading for personal
             interest by education.</figcaption>
             </figure>
@@ -814,7 +817,8 @@ Reading&mdash;Erik Fredner">
             <img src="images/fig4.svg" loading="lazy" width="768"
             height="576"
             alt="Figure 4: American Time Use Survey odds ratios for participating in reading for personal interest by education relative to 2004 baseline." />
-            <figcaption aria-hidden="true">Figure 4: American Time Use
+            <figcaption aria-hidden="true"><span
+            class="figure-label">Figure 4:</span> American Time Use
             Survey odds ratios for participating in reading for personal
             interest by education relative to 2004
             baseline.</figcaption>
@@ -861,9 +865,10 @@ Reading&mdash;Erik Fredner">
             <img src="images/fig5.svg" loading="lazy" width="768"
             height="576"
             alt="Figure 5: National Assessment of Educational Progress Long-Term Trend reading for fun weekly or more often by age." />
-            <figcaption aria-hidden="true">Figure 5: National Assessment
-            of Educational Progress Long-Term Trend reading for fun
-            weekly or more often by age.</figcaption>
+            <figcaption aria-hidden="true"><span
+            class="figure-label">Figure 5:</span> National Assessment of
+            Educational Progress Long-Term Trend reading for fun weekly
+            or more often by age.</figcaption>
             </figure>
             <p>As fig. 5 shows, most children reported reading for fun
             at least weekly until the 2000s. This is no longer the case
@@ -1872,6 +1877,51 @@ Reading&mdash;Erik Fredner">
             (window.scrollY || document.documentElement.scrollTop) > 400 ? show() : hide();
           }, { passive: true });
         }
+      })();
+
+      // Tap a figure to see it full screen; tap anywhere (or Escape) to close.
+      // The image is wrapped in a button here rather than in a link by a pandoc
+      // filter: pandoc hides the duplicate <figcaption> from screen readers only
+      // while the figure's content is a bare image (see filters/figures.lua).
+      // The button's accessible name is the image's alt, so nothing is lost.
+      (function () {
+        var imgs = document.querySelectorAll('figure > img');
+        if (!imgs.length || typeof HTMLDialogElement !== 'function') return;
+
+        var dialog = document.createElement('dialog');
+        dialog.className = 'figure-lightbox';
+        dialog.setAttribute('aria-label', 'Enlarged figure');
+        dialog.innerHTML = '<button type="button" class="figure-lightbox-close"' +
+          ' aria-label="Close">&times;</button><img alt=""><p aria-hidden="true"></p>';
+        document.body.appendChild(dialog);
+        var big = dialog.querySelector('img');
+        var cap = dialog.querySelector('p');
+        var opener;
+
+        Array.prototype.forEach.call(imgs, function (img) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'figure-zoom';
+          btn.title = 'Enlarge figure';
+          btn.setAttribute('aria-haspopup', 'dialog');
+          img.parentNode.insertBefore(btn, img);
+          btn.appendChild(img);
+          btn.addEventListener('click', function () {
+            var fc = btn.parentNode.querySelector('figcaption');
+            opener = btn;
+            big.src = img.currentSrc || img.src;
+            big.alt = img.alt;
+            cap.innerHTML = fc ? fc.innerHTML : '';
+            dialog.showModal();
+          });
+        });
+
+        // The dialog fills the screen, so every click inside it, the close
+        // button included, means "done".
+        dialog.addEventListener('click', function () { dialog.close(); });
+        dialog.addEventListener('close', function () {
+          if (opener) opener.focus({ preventScroll: true });
+        });
       })();
     </script>
   </main>
