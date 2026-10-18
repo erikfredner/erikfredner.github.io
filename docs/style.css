@@ -527,14 +527,33 @@ header > nav a[aria-current="page"] {
 
 /* Collapsible TOC and lists of figures/tables (template + filters/wrap-lists.lua) */
 
+/* Drawn as an accordion: a bordered panel whose full-width <summary> is the
+   header, with the chevron on the right. As bare muted text with a small
+   triangle it read as a stray heading, and readers did not realize the box
+   opened. The elements stay native <details>/<summary>, so this is a
+   keyboard-operable disclosure with no script; the change is presentation
+   only. The border uses --border-strong because it is what delimits the
+   control from the page (WCAG 1.4.11, as for .back-to-top). */
 .toc-box {
   margin: 1.5rem 0 2rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.75rem;
 }
 
-/* the-ends-of-reading stacks a List of Figures under the TOC; tighten the gap
-   so the two disclosures read as one block rather than unrelated widgets. */
+/* the-ends-of-reading stacks a List of Figures under the TOC. Adjacent boxes
+   join into one accordion group: shared rule between them, outer corners only
+   on the ends. */
+.toc-box:has(+ .toc-box) {
+  margin-bottom: 0;
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+
 .toc-box + .toc-box {
-  margin-top: -1rem;
+  margin-top: 0;
+  border-top: 0;
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
 }
 
 /* A long TOC inherits the global underlined accent, which turns ~25 rows into
@@ -551,41 +570,61 @@ header > nav a[aria-current="page"] {
   text-underline-offset: 0.15em;
 }
 
+/* `border-radius: inherit` keeps the focus ring inside the panel's corners;
+   the open state squares the bottom ones so the separator rule runs straight. */
 .toc-label {
-  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: inherit;
+  color: var(--text);
   cursor: pointer;
   list-style: none;
-  margin-bottom: 0.6rem;
-  color: var(--muted);
+  user-select: none;
+}
+
+.toc-label:hover {
+  color: var(--link);
+}
+
+.toc-label:focus-visible {
+  outline-offset: -3px;
+}
+
+.toc-box[open] > .toc-label {
+  border-bottom: 1px solid var(--border);
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
 }
 
 .toc-label::-webkit-details-marker {
   display: none;
 }
 
-/* Disclosure triangle, drawn with borders rather than a "\25B8" glyph in
-   `content`. NVDA and VoiceOver announce CSS generated text, so the glyph was
-   read out as part of the label — "▸ Contents" — duplicating the collapsed
-   state <summary> already exposes natively. A border triangle has no text to
-   announce. */
-.toc-label::before {
+/* Chevron, drawn with borders rather than a glyph in `content`. NVDA and
+   VoiceOver announce CSS generated text, so a glyph would be read out as part
+   of the label, duplicating the expanded/collapsed state <summary> already
+   exposes natively. Two borders of a rotated square have no text to announce.
+   The translate keeps the rotated shape optically centered on the label. */
+.toc-label::after {
   content: "";
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-inline-end: 0.75rem;
-  vertical-align: 0.05em;
-  border-block: 0.32em solid transparent;
-  border-inline-start: 0.42em solid currentColor;
+  flex: none;
+  width: 0.45em;
+  height: 0.45em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-25%) rotate(45deg);
   transition: transform 0.15s ease;
 }
 
-.toc-box[open] .toc-label::before {
-  transform: rotate(90deg);
+.toc-box[open] > .toc-label::after {
+  transform: translateY(25%) rotate(-135deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .toc-label::before {
+  .toc-label::after {
     transition: none;
   }
 }
@@ -595,13 +634,21 @@ header > nav a[aria-current="page"] {
   margin: 0;
 }
 
+/* The panel's own inset belongs to the top-level list only; nested TOC levels
+   keep a plain indent. */
+.toc-box > ul,
+.toc-box > ol {
+  padding-block: 0.75rem 1rem;
+  padding-inline-end: 1rem;
+}
+
 .toc-box ul {
   padding-inline-start: 1rem;
   list-style: none;
 }
 
 .toc-box ol {
-  padding-inline-start: 2rem;
+  padding-inline-start: 2.75rem; /* numerals hang left, near the label's inset */
 }
 
 .toc-box li {
