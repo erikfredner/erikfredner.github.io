@@ -1,31 +1,3 @@
-/* fredner.org — single site stylesheet.
-   Minimalist black-on-white (with prefers-color-scheme dark variant):
-   a centered column of left-aligned text.
-   EB Garamond for everything — prose, headings, and chrome — self-hosted as
-   variable subsets from fonts/; code uses the platform's own monospace. */
-
-/* ---------- Webfonts ---------- */
-
-/* Subset variable WOFF2s built by `make fonts` (see scripts/build_fonts.py).
-   One file per face, weight axis 400-800, so a single request covers every
-   weight the site uses. Paths are relative to this stylesheet, which sits at
-   the site root, so they resolve for blog pages under /blog/ too. */
-
-/* `optional`, not `swap`. `swap` repaints in the webfont whenever it lands,
-   and EB Garamond is ~14% narrower per character than Georgia, the most
-   common face these pages fall back to, so every paragraph on the page would
-   rewrap mid-load (the Source Serif this replaced measured 0.46 CLS on
-   PageSpeed under `swap`). `optional` gives the font a short block period and
-   no swap period: if it is not ready at first paint the fallback is kept for
-   that pageview, which makes the shift structurally impossible rather than
-   merely small. The cost is that a cold first visit over a slow link renders
-   in the fallback; the preloads in templates/base.html are what keep that
-   rare, and the font is used from cache on every subsequent navigation.
-
-   Consequence worth remembering: with `optional` a face that misses the block
-   period is dropped for the whole pageview *individually*. Preload every face
-   that shares a run of text, or the roman can land while the italic does not
-   and one paragraph renders in two different families. */
 
 @font-face {
   font-family: "EB Garamond";
@@ -34,7 +6,6 @@
   font-style: normal;
   font-display: optional;
 }
-
 @font-face {
   font-family: "EB Garamond";
   src: url("fonts/eb-garamond-italic.woff2") format("woff2");
@@ -42,27 +13,6 @@
   font-style: italic;
   font-display: optional;
 }
-
-/* Metric-matched fallbacks, so the face a visitor sees before (or, under
-   `optional`, instead of) the webfont is sized like the webfont rather than
-   like whatever the platform calls "serif". The numbers come from the OS/2 and
-   hhea tables of the subsets and of the system fonts (size-adjust is the
-   x-height ratio, the others are the webfont's own metrics divided by it) —
-   recompute them if `make fonts` pulls an upstream release with different
-   metrics.
-
-   ONE FACE PER SET OF SYSTEM METRICS, and never more than one `local()` family
-   per face unless they are metric-compatible by design. A face whose every
-   `src` fails to resolve is unusable, and the stack falls through it silently:
-   a single face listing `local("Georgia"), local("Times New Roman")` looks
-   correct on macOS and does nothing at all on a machine that has neither,
-   which is the case on most Linux boxes, PageSpeed's own runner, and Android.
-   Georgia and Times are a tenth of an x-height apart, so they could not share
-   overrides anyway.
-
-   Liberation Serif / Tinos / Nimbus Roman are metric clones of Times New
-   Roman, so those do share a face. */
-
 @font-face {
   font-family: "EB Garamond Fallback Georgia";
   src: local("Georgia");
@@ -71,7 +21,6 @@
   descent-override: 35.87%;
   line-gap-override: 0%;
 }
-
 @font-face {
   font-family: "EB Garamond Fallback Times";
   src: local("Times New Roman"), local("Liberation Serif"), local("Tinos"),
@@ -81,115 +30,73 @@
   descent-override: 33.32%;
   line-gap-override: 0%;
 }
-
-/* ---------- Theme ---------- */
-
 :root {
   color-scheme: light dark;
-
   --font-serif: "EB Garamond", "EB Garamond Fallback Georgia",
     "EB Garamond Fallback Times", Georgia, "Times New Roman", serif;
-  /* No webfont: whatever the platform ships. Listing named faces before the
-     generic also sidesteps the UA quirk that shrinks a bare `monospace` to
-     13px. */
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas,
     "Liberation Mono", monospace;
-
   --bg: #ffffff;
-  --text: #1a1a1a;      /* 16.9:1 on --bg */
-  --muted: #595959;     /* 7.0:1 — bylines, captions, footer */
-  --link: #0e7490;      /* 5.4:1 — teal accent carried over from the old design */
-  --border: #d1d5db;    /* 1.5:1 — rules and separators, decorative */
-  /* WCAG 1.4.11 wants 3:1 for the boundary of a UI component. --border is far
-     under that, which is fine for hr/table/blockquote rules (they only need to
-     be seen, not identified) but not for .skip-link and .back-to-top, whose
-     border is the only thing that delimits the control from the page. */
-  --border-strong: #8b919c; /* 3.2:1 */
-  /* Footnote :target highlight. A low-chroma parchment rather than a
-     highlighter yellow: the warm hue sits opposite the teal link and selection
-     colors without competing with them. --text on it: 15.0:1; --link: 4.6:1. */
+  --text: #1a1a1a;
+  --muted: #595959;
+  --link: #0e7490;
+  --border: #d1d5db;
+  --border-strong: #8b919c;
   --target-bg: #f3eee2;
   --code-bg: #f5f5f5;
-  --select-bg: #cfe9f0;      /* --text on it: 13.7:1 */
-  --link-visited: #6b4a86;   /* 7.1:1 — hue shift, not just a dimmer teal, so
-                                followed cross-links read at a glance */
-  --scroll-shadow: rgba(26, 26, 26, 0.25); /* edge hint on scrollable tables */
+  --select-bg: #cfe9f0;
+  --link-visited: #6b4a86;
+  --scroll-shadow: rgba(26, 26, 26, 0.25);
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #121212;
-    --text: #e4e2dd;    /* ~13:1, slightly warm */
-    --muted: #a3a3a3;   /* ~7:1 */
-    --link: #67c3dc;    /* ~8:1 */
+    --text: #e4e2dd;
+    --muted: #a3a3a3;
+    --link: #67c3dc;
     --border: #3a3f45;
-    --border-strong: #606770; /* 3.3:1 */
-    --target-bg: #2a2822; /* the same warm grey, dimmed; --text on it: 11.4:1 */
+    --border-strong: #606770;
+    --target-bg: #2a2822;
     --code-bg: #1e1e1e;
-    --select-bg: #1f3a42;    /* --text on it: 9.3:1 */
-    --link-visited: #b8a3d4; /* 8.2:1 */
+    --select-bg: #1f3a42;
+    --link-visited: #b8a3d4;
     --scroll-shadow: rgba(0, 0, 0, 0.55);
   }
 }
-
-/* ---------- Base ---------- */
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 html {
-  font-size: 100%; /* respect the user's browser default */
+  font-size: 100%;
   scroll-behavior: smooth;
 }
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 }
-
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-serif);
-  /* 20px rather than the usual 18: EB Garamond's x-height is 0.40em against
-     ~0.48em for a typical text serif, so at 1.125rem it read a size small. */
   font-size: 1.25rem;
   line-height: 1.55;
 }
-
 :target {
   scroll-margin-top: 1rem;
 }
-
-/* ---------- Centered reading column ---------- */
-
-/* 36.5625rem leaves a 34.5625rem (553px) text measure inside the padding,
-   which holds ~73 characters of the site's prose in EB Garamond at the body's
-   1.25rem (its average advance, spaces included, is 0.377em). Stated in rem,
-   never `ch`: `ch` resolves against each element's own computed font, so it
-   made this shared rule mean different widths for the nav and for main when
-   they used different families, and it resized the whole column whenever a
-   fallback font stood in — the generic serifs are up to 28% wider at `0`
-   than EB Garamond, which rewrapped every line on the page. */
 header > nav,
 main {
   max-width: 36.5625rem;
   margin-inline: auto;
   padding-inline: 1rem;
 }
-
-/* Breathing room at the end of the page now that there is no footer */
 main {
   padding-bottom: 3rem;
 }
-
-/* ---------- Typography ---------- */
-
 h1,
 h2,
 h3,
@@ -200,13 +107,6 @@ h6 {
   line-height: 1.2;
   margin-block: 1.75em 0.5em;
 }
-
-/* `balance` on short blocks keeps a heading from dropping one word onto a
-   second line; `pretty` on prose keeps a paragraph from ending in a lone word.
-   Both are progressive enhancements — unsupporting browsers drop the
-   declaration and render exactly as before. Captions take `pretty`, not
-   `balance`: a balanced two-line caption stops well short of the column's
-   right edge, which read as a caption set narrower than the body copy. */
 h1,
 h2,
 h3,
@@ -216,7 +116,6 @@ h6,
 p.subtitle {
   text-wrap: balance;
 }
-
 figcaption,
 table caption,
 p,
@@ -225,16 +124,10 @@ dd,
 blockquote {
   text-wrap: pretty;
 }
-
 h1.title {
   font-size: 1.9em;
   margin-top: 1.5rem;
 }
-
-/* A `subtitle` in the frontmatter renders under the h1. It reads as a
-   continuation of the title, not a heading: italic at regular weight, smaller,
-   and muted so the h1 keeps the visual weight. (EB Garamond's weight axis
-   starts at 400, so the lighter weight this once used is not available.) */
 p.subtitle {
   font-style: italic;
   font-size: 1.25em;
@@ -242,46 +135,27 @@ p.subtitle {
   color: var(--muted);
   margin-block: 0.3rem 1.5rem;
 }
-
-/* h1's 0.5em bottom margin (~1.2rem here) would collapse against the
-   subtitle's small top margin and win, breaking the two apart. */
 h1.title:has(+ .subtitle) {
   margin-bottom: 0;
 }
-
 h2 {
   font-size: 1.5em;
 }
-
 h3 {
   font-size: 1.2em;
 }
-
-/* h4 (3 pages) is body-sized, so weight alone barely separates it from a
-   bold run-in phrase; the italic does the rest. It is a real italic, from the
-   preloaded EB Garamond italic face, not a synthesized oblique. */
 h4 {
   font-size: 1em;
   font-style: italic;
 }
-
-/* One h5 exists (104z-syllabus); h6 is unused. Without these they fall out of
-   the group above and revert to the UA's sizes, breaking the heading ramp. */
 h5,
 h6 {
   font-size: 0.9em;
   color: var(--muted);
 }
-
 p {
   margin-block: 1em;
 }
-
-/* Several syllabi print bare URLs in body copy (policy.oregonstate.edu,
-   language.stanford.edu). An unbreakable token wider than the column pushes
-   the whole document sideways on a phone — #footnotes already guarded against
-   this for citations; body copy needs it too. `break-word` rather than
-   `anywhere` so only genuinely over-wide words break. */
 p,
 li,
 dd,
@@ -291,81 +165,54 @@ figcaption,
 blockquote {
   overflow-wrap: break-word;
 }
-
-/* Prose lists. The UA's 40px indent doesn't line up with anything else in the
-   reading column, and cv.html is ~150 list items. Scoped to `article` so the nav
-   is untouched; .toc-box and #footnotes rules outrank these on specificity and
-   keep their own values. */
 article ul {
   padding-inline-start: 1.25rem;
 }
-
 article ol {
-  padding-inline-start: 1.75rem; /* room for two-digit numbers on cv.html */
+  padding-inline-start: 1.75rem;
 }
-
 article li {
   margin-block: 0.35em;
 }
-
 article li > ul,
 article li > ol {
   margin-block: 0.35em;
 }
-
 a {
   color: var(--link);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
 }
-
 a:hover {
   text-decoration-thickness: 2px;
 }
-
 a:visited {
   color: var(--link-visited);
 }
-
 ::selection {
   background: var(--select-bg);
 }
-
-/* Deliberately no `color` here: --text shows through, which keeps the
-   selection legible in both themes without a second pair of tokens. */
-
 :focus-visible {
   outline: 2px solid var(--link);
   outline-offset: 2px;
 }
-
-/* <main> is only focusable because the skip link targets it (tabindex="-1" in
-   the template); it is not a control. Ringing the entire content column in
-   teal the moment someone skips to it is noise, and the jump is already
-   evident from the scroll. Interactive elements keep their indicator. */
 main:focus,
 main:focus-visible {
   outline: none;
 }
-
 hr {
   border: 0;
   border-top: 1px solid var(--border);
   margin-block: 2rem;
 }
-
 p.byline,
 .post-date {
   color: var(--muted);
 }
-
 article > header .post-date {
   margin-block: -0.5rem 1rem;
 }
-
-/* ---------- Site chrome ---------- */
-
 .skip-link {
   position: absolute;
   top: -100%;
@@ -376,18 +223,15 @@ article > header .post-date {
   border: 1px solid var(--border-strong);
   z-index: 10000;
 }
-
 .skip-link:focus {
   top: 0;
 }
-
 header > nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-block: 0.75rem;
 }
-
 header > nav ul {
   list-style: none;
   margin: 0;
@@ -397,37 +241,25 @@ header > nav ul {
   gap: 0.5rem 1rem;
   align-items: center;
 }
-
 header > nav a {
   color: var(--muted);
   text-decoration: none;
 }
-
 header > nav a:hover {
   color: var(--link);
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
-
 header > nav a:visited {
-  color: inherit; /* the nav is chrome, not content; visited state is noise here */
+  color: inherit;
 }
-
-/* The wordmark should outweigh the section links. */
 .site-title {
   color: var(--text);
   font-weight: 600;
 }
-
-/* aria-current is set by the template from the Makefile's --metadata nav-$*.
-   It carries the semantics for screen readers; this gives it a visual form. */
 header > nav a[aria-current="page"] {
   color: var(--text);
 }
-
-/* 2.75rem (44px) square: the glyph alone was a ~26px target, too small to
-   hit reliably with a thumb. The negative block margin keeps the larger box
-   from making the nav bar taller than the wordmark beside it. */
 .nav-toggle {
   font-family: inherit;
   display: none;
@@ -442,47 +274,31 @@ header > nav a[aria-current="page"] {
   padding: 0.2rem 0.4rem;
   line-height: 1;
 }
-
-/* The narrow-screen collapse is gated on `js-nav`, which the template's script
-   adds only after it has bound the toggle. The links are therefore visible by
-   default and hide only once something can show them again; if the script is
-   blocked or fails, the nav degrades to a wrapped row rather than to three
-   pages unreachable from a phone. */
 @media (max-width: 500px) {
   header > nav {
     flex-wrap: wrap;
   }
-
   header > nav.js-nav .nav-toggle {
     display: block;
   }
-
   header > nav.js-nav .nav-links {
     display: none;
     width: 100%;
     flex-direction: column;
     gap: 0;
     padding-top: 0.25rem;
-    /* The shared `align-items: center` would shrink each row to its word;
-       stretch it full-width (keeping the centered text it has always had) so
-       the whole row is the tap target. */
     align-items: stretch;
     text-align: center;
     border-top: 1px solid var(--border);
   }
-
   header > nav.js-nav.open .nav-links {
     display: flex;
   }
-
-  /* Stacked, the links are thumb targets; give each a full-width row of
-     ~44px rather than a word-sized hit area. */
   header > nav.js-nav .nav-links a {
     display: block;
     padding-block: 0.3rem;
   }
 }
-
 .back-to-top {
   position: fixed;
   right: 1rem;
@@ -497,83 +313,51 @@ header > nav a[aria-current="page"] {
   cursor: pointer;
   font-size: 1rem;
   text-decoration: none;
-
-  /* `opacity: 0` alone leaves the link in the tab order and the accessibility
-     tree, so at the top of every page a keyboard user's first Tab lands on an
-     invisible control and a screen reader announces a jump to content already
-     on screen. `visibility: hidden` removes it from both; it transitions
-     discretely, so it flips to visible immediately on the way in and only
-     after the fade on the way out. */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s;
 }
-
 .back-to-top.is-visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
-
 .back-to-top:hover {
   border-color: var(--link);
   color: var(--link);
 }
-
 @media (prefers-reduced-motion: reduce) {
   .back-to-top {
     transition: none;
   }
 }
-
-/* Collapsible TOC and lists of figures/tables (template + filters/wrap-lists.lua) */
-
-/* Drawn as an accordion: a bordered panel whose full-width <summary> is the
-   header, with the chevron on the right. As bare muted text with a small
-   triangle it read as a stray heading, and readers did not realize the box
-   opened. The elements stay native <details>/<summary>, so this is a
-   keyboard-operable disclosure with no script; the change is presentation
-   only. The border uses --border-strong because it is what delimits the
-   control from the page (WCAG 1.4.11, as for .back-to-top). */
 .toc-box {
   margin: 1.5rem 0 2rem;
   border: 1px solid var(--border-strong);
   border-radius: 0.75rem;
 }
-
-/* the-ends-of-reading stacks a List of Figures under the TOC. Adjacent boxes
-   join into one accordion group: shared rule between them, outer corners only
-   on the ends. */
 .toc-box:has(+ .toc-box) {
   margin-bottom: 0;
   border-end-start-radius: 0;
   border-end-end-radius: 0;
 }
-
 .toc-box + .toc-box {
   margin-top: 0;
   border-top: 0;
   border-start-start-radius: 0;
   border-start-end-radius: 0;
 }
-
-/* A long TOC inherits the global underlined accent, which turns ~25 rows into
-   a wall of teal rules. Match the nav treatment instead. */
 .toc-box a,
 .toc-box a:visited {
   color: var(--text);
   text-decoration: none;
 }
-
 .toc-box a:hover {
   color: var(--link);
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
-
-/* `border-radius: inherit` keeps the focus ring inside the panel's corners;
-   the open state squares the bottom ones so the separator rule runs straight. */
 .toc-label {
   display: flex;
   align-items: center;
@@ -586,30 +370,20 @@ header > nav a[aria-current="page"] {
   list-style: none;
   user-select: none;
 }
-
 .toc-label:hover {
   color: var(--link);
 }
-
 .toc-label:focus-visible {
   outline-offset: -3px;
 }
-
 .toc-box[open] > .toc-label {
   border-bottom: 1px solid var(--border);
   border-end-start-radius: 0;
   border-end-end-radius: 0;
 }
-
 .toc-label::-webkit-details-marker {
   display: none;
 }
-
-/* Chevron, drawn with borders rather than a glyph in `content`. NVDA and
-   VoiceOver announce CSS generated text, so a glyph would be read out as part
-   of the label, duplicating the expanded/collapsed state <summary> already
-   exposes natively. Two borders of a rotated square have no text to announce.
-   The translate keeps the rotated shape optically centered on the label. */
 .toc-label::after {
   content: "";
   flex: none;
@@ -620,89 +394,64 @@ header > nav a[aria-current="page"] {
   transform: translateY(-25%) rotate(45deg);
   transition: transform 0.15s ease;
 }
-
 .toc-box[open] > .toc-label::after {
   transform: translateY(25%) rotate(-135deg);
 }
-
 @media (prefers-reduced-motion: reduce) {
   .toc-label::after {
     transition: none;
   }
 }
-
 .toc-box ul,
 .toc-box ol {
   margin: 0;
 }
-
-/* The panel's own inset belongs to the top-level list only; nested TOC levels
-   keep a plain indent. */
 .toc-box > ul,
 .toc-box > ol {
   padding-block: 0.75rem 1rem;
   padding-inline-end: 1rem;
 }
-
 .toc-box ul {
   padding-inline-start: 1rem;
   list-style: none;
 }
-
 .toc-box ol {
-  padding-inline-start: 2.75rem; /* numerals hang left, near the label's inset */
+  padding-inline-start: 2.75rem;
 }
-
 .toc-box li {
   margin-block: 0.15rem;
 }
-
-/* Blog index cards (emitted by scripts/build_blog.py) */
-
 .post-card {
   margin-bottom: 1.5rem;
 }
-
 .post-card + .post-card {
   border-top: 1px solid var(--border);
   padding-top: 1.5rem;
 }
-
 .post-card h2 {
   margin-block: 0 0.3em;
   font-size: 1.4em;
 }
-
-/* Scoped to the description rather than :last-child — a tag list may now follow
-   it, which would otherwise silently hand this rule to the tags instead. */
 .post-card > p:not(.post-date):not(.tag-list) {
   margin-bottom: 0;
 }
-
 .post-card .tag-list {
   margin-block: 0.6rem 0;
 }
-
-/* The date leads the card, so it needs a small gap before the title. */
 .post-card .post-date {
   font-size: 0.85em;
   margin-block: 0 0.2em;
 }
-
 .feed-link {
   font-size: 0.9em;
   margin-top: 2.5rem;
 }
-
-/* ---------- Tags ---------- */
-
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   font-size: 0.8em;
 }
-
 .tag-list a {
   border: 1px solid var(--border);
   border-radius: 0.9em;
@@ -710,17 +459,14 @@ header > nav a[aria-current="page"] {
   color: var(--muted);
   text-decoration: none;
 }
-
 .tag-list a:hover,
 .tag-list a:focus {
   color: var(--text);
   border-color: var(--muted);
 }
-
 article > header .tag-list {
   margin-block: 0 1.5rem;
 }
-
 .tag-index {
   list-style: none;
   padding-left: 0;
@@ -728,18 +474,13 @@ article > header .tag-list {
   flex-wrap: wrap;
   gap: 0.6rem 1.2rem;
 }
-
 .tag-index li {
   margin: 0;
 }
-
 .tag-count {
   color: var(--muted);
   font-size: 0.85em;
 }
-
-/* ---------- Prev/next post navigation ---------- */
-
 .post-nav {
   display: flex;
   flex-wrap: wrap;
@@ -750,56 +491,42 @@ article > header .tag-list {
   padding-top: 1.5rem;
   font-size: 0.95em;
 }
-
-/* Each link is a two-line block: a muted "Newer"/"Older" label above the title.
-   flex-basis keeps a long title from crowding its sibling off the row. */
 .post-nav a {
   display: block;
   flex: 1 1 12rem;
   text-decoration: none;
 }
-
 .post-nav a:hover,
 .post-nav a:focus {
   text-decoration: underline;
 }
-
 .post-nav span {
   display: block;
   color: var(--muted);
   font-size: 0.8em;
   margin-bottom: 0.15em;
 }
-
 .post-nav-prev {
   text-align: right;
 }
-
 .post-nav:has(.post-nav-prev:only-child) .post-nav-prev {
   text-align: left;
 }
-
 .post-updated::before {
   content: "\00b7";
   margin-inline: 0.4em;
 }
-
-/* ---------- Content elements ---------- */
-
 img {
   max-width: 100%;
   height: auto;
 }
-
 figure {
   margin: 2rem 0;
 }
-
 figure img {
   display: block;
   margin-inline: auto;
 }
-
 figcaption,
 table caption {
   font-size: 0.9em;
@@ -807,18 +534,10 @@ table caption {
   margin-top: 0.5rem;
   text-align: left;
 }
-
-/* "Figure 1:" (wrapped by filters/figures.lua). Captions run the full measure,
-   like the prose, so what sets them apart is size, the muted color, and this
-   label in the text color at the heading weight. */
 .figure-label {
   color: var(--text);
   font-weight: 600;
 }
-
-/* Tap-to-enlarge. The script in templates/base.html wraps each figure's image
-   in this button, which opens .figure-lightbox. Without the script there is no
-   button and the figure is exactly as before. */
 .figure-zoom {
   display: block;
   max-width: 100%;
@@ -828,12 +547,6 @@ table caption {
   background: none;
   cursor: zoom-in;
 }
-
-/* Fills the viewport. The image is as wide as the screen allows and shrinks
-   (min-height: 0) when that would make it too tall, with object-fit keeping
-   its proportions, so it fills whichever dimension runs out first: width on a
-   phone held upright, height turned sideways or on a desktop. SVG figures
-   upscale crisply; pinch-zoom still works on top. */
 .figure-lightbox {
   box-sizing: border-box;
   width: 100%;
@@ -847,14 +560,12 @@ table caption {
   color: var(--text);
   cursor: zoom-out;
 }
-
 .figure-lightbox[open] {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.75rem;
 }
-
 .figure-lightbox img {
   flex: 0 1 auto;
   min-height: 0;
@@ -862,9 +573,6 @@ table caption {
   height: auto;
   object-fit: contain;
 }
-
-/* No side padding on the dialog, so the image runs edge to edge (a held-
-   upright phone is width-bound); the caption gets the column's own 1rem. */
 .figure-lightbox p {
   box-sizing: border-box;
   width: 100%;
@@ -875,18 +583,11 @@ table caption {
   color: var(--muted);
   text-wrap: pretty;
 }
-
-/* A phone turned sideways has no height to spare, and the caption is right
-   there on the page; give the figure the whole screen. */
 @media (max-height: 30rem) {
   .figure-lightbox p {
     display: none;
   }
 }
-
-/* Same treatment as .back-to-top: the border is what delimits the control
-   (WCAG 1.4.11). The corners it sits in are letterbox margin in every
-   orientation, so it does not cover the figure. */
 .figure-lightbox-close {
   position: absolute;
   top: 1rem;
@@ -901,27 +602,9 @@ table caption {
   line-height: 1;
   cursor: pointer;
 }
-
-/* A modal <dialog> does not stop the page behind it scrolling on iOS. */
 html:has(.figure-lightbox[open]) {
   overflow: hidden;
 }
-
-/* Every table gets this wrapper (added by filters/wrap-tables.lua); without it
-   a table wider than the reading column lets its overflow fall through to the
-   document and the whole page scrolls sideways on a phone.
-   The filter adds role + tabindex + label -- what makes the box scrollable by
-   keyboard, since an overflow container without them is mouse-only -- to the
-   two tables that can actually overflow, and to no others: a tab stop on a box
-   with nothing to scroll is a dead stop, and a named region that leads
-   nowhere is noise in the landmark list. */
-/* Edge shadows, so a clipped table announces that it scrolls. The two `local`
-   cover layers scroll with the content and sit on top of the two fixed shadow
-   layers, which means the shadow is hidden at each end and appears only on the
-   side that actually has more table. A table that fits shows nothing.
-   Linear rather than the usual radial shadow: these tables are far taller than
-   they are wide, and a radial gradient only reaches full strength at the
-   container's vertical midpoint, which is off-screen while reading. */
 .table-scroll {
   overflow-x: auto;
   margin-block: 1.5rem;
@@ -931,70 +614,48 @@ html:has(.figure-lightbox[open]) {
     linear-gradient(to right, var(--scroll-shadow), transparent) left center / 0.7rem 100% no-repeat,
     linear-gradient(to left, var(--scroll-shadow), transparent) right center / 0.7rem 100% no-repeat;
 }
-
 .table-scroll table {
   min-width: 100%;
 }
-
 table {
   border-collapse: collapse;
   font-size: 0.95em;
   caption-side: bottom;
 }
-
 th,
 td {
   padding: 0.4em 0.6em;
   text-align: left;
   vertical-align: top;
 }
-
 th {
   border-bottom: 2px solid var(--text);
 }
-
-/* Grid-table cells come out of pandoc as <p> (l2d and satire syllabi), and
-   the global `p` margin would pad every row by a full line top and bottom.
-   Keep a small gap only between stacked paragraphs in one cell. */
 :is(th, td) > p {
   margin-block: 0;
 }
-
 :is(th, td) > p + p {
   margin-top: 0.4em;
 }
-
-/* Row headers (`.row-headers` tables, via filters/wrap-tables.lua) label a row,
-   not a column, so they take the row's own rule rather than the heavy header
-   underline, and a lighter weight so the label doesn't outshout its value. */
 tbody th {
   border-bottom: none;
   font-weight: 500;
 }
-
 tbody tr {
   border-bottom: 1px solid var(--border);
 }
-
 blockquote {
   margin-inline: 0;
   padding-inline-start: 1rem;
   border-inline-start: 3px solid var(--border);
 }
-
-/* Forward-looking: no page currently contains a <dl>. */
 dt {
   font-weight: 600;
 }
-
 dd {
   margin-inline-start: 1.5rem;
   margin-bottom: 0.5em;
 }
-
-/* System monospace faces have x-heights of ~0.53em against EB Garamond's
-   0.40em, so at the usual 0.85em inline code towered over the text around it.
-   0.8em brings Menlo / SF Mono / Consolas within a few percent. */
 code {
   font-family: var(--font-mono);
   font-size: 0.8em;
@@ -1002,128 +663,87 @@ code {
   padding: 0.1em 0.3em;
   border-radius: 3px;
 }
-
-/* Forward-looking: mono is inline-only today — no page contains a <pre>. */
 pre {
   font-family: var(--font-mono);
   background: var(--code-bg);
   padding: 1rem;
   overflow-x: auto;
 }
-
 pre code {
   background: none;
   padding: 0;
 }
-
 sup,
 sub {
   line-height: 0;
 }
-
-/* ---------- Footnotes (pandoc's end-of-document notes section) ---------- */
-
 a.footnote-ref {
   text-decoration: none;
   font-weight: 600;
   padding: 0 0.15em;
 }
-
 #footnotes {
   border-top: 1px solid var(--border);
   margin-top: 3rem;
   padding-top: 1rem;
   font-size: 0.9em;
-  /* Long bare URLs in citations shouldn't force horizontal scroll. Inherited
-     by the notes, whose own `p`/`li` keep the gentler `break-word` from the
-     rule above. chicago-notes emits no bibliography, so #refs never appears. */
   overflow-wrap: anywhere;
 }
-
 #footnotes hr {
   display: none;
 }
-
 #footnotes ol {
   padding-inline-start: 1.5rem;
 }
-
 #footnotes li {
   margin-bottom: 0.6em;
 }
-
 #footnotes li p {
   margin-block: 0.25em;
 }
-
-/* The negative margin cancels the padding so the highlight reads as a band
-   around the text without shifting anything on the line. */
 #footnotes li:target,
 [id^="fnref"]:target {
   background: var(--target-bg);
   padding: 0.15em 0.3em;
   margin: -0.15em -0.3em;
 }
-
 .footnote-back {
   text-decoration: none;
   margin-inline-start: 0.25em;
 }
-
-/* ---------- Print ---------- */
-
-/* Nine of the thirty pages are syllabi, which are printed in practice. */
-
 @media print {
   @page {
     margin: 2cm;
   }
-
   header > nav,
   .back-to-top,
   .skip-link {
     display: none;
   }
-
-  /* A collapsed <details> prints as a bare label, so omit it entirely. */
   .toc-box {
     display: none;
   }
-
   body {
     background: #fff;
     color: #000;
   }
-
   a {
     color: inherit;
   }
-
-  /* Printing every link's href was tried and reverted. The citation apparatus
-     doesn't need it — chicago-notes emits URLs in footnotes as plain text, not
-     as <a>, so they already print. The only pages it changed were the syllabi,
-     which carry up to 33 external links of up to 174 characters (Canvas,
-     Outlook booking, OSU policy), and expanding those made the printed page
-     markedly worse. */
-
-  /* The screen wrapper would clip a wide table at the paper's edge. */
   .table-scroll {
     overflow: visible;
   }
-
   figure,
   table,
   tr,
   .table-scroll {
     break-inside: avoid;
   }
-
   h2,
   h3,
   h4 {
     break-after: avoid;
   }
-
   p,
   li {
     orphans: 2;

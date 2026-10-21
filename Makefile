@@ -232,9 +232,12 @@ $(SLIDES_OUT_DIR): | $(OUT_DIR)
 $(SLIDES_OUT_DIR)/%: $(SLIDES_SRC_DIR)/% | $(SLIDES_OUT_DIR)
 	cp $< $@
 
-# Copy the stylesheet
+# Copy the stylesheet with its comments stripped. They are two-thirds of the
+# file's gzipped weight (~10 KB down to ~3.4 KB) and it is render-blocking;
+# the source keeps them. No minifier — whitespace is left as is, since it
+# gzips to almost nothing.
 $(STYLE_OUT): $(STYLE_SRC) | $(OUT_DIR)
-	cp $< $@
+	perl -0777 -pe 's{/\*.*?\*/}{}gs; s/[ \t]+\n/\n/g; s/\n\s*\n+/\n/g' $< > $@
 
 # Font output dir
 $(FONT_OUT_DIR): | $(OUT_DIR)
