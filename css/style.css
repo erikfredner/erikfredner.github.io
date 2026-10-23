@@ -1021,6 +1021,21 @@ sub {
   line-height: 0;
 }
 
+/* ---------- Works cited (hand-written MLA lists, not citeproc) ---------- */
+
+/* A `::: {.works-cited}` div of one paragraph per entry, set with a hanging
+   indent so each entry's author stands out at the left edge. */
+.works-cited {
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+.works-cited p {
+  margin-block: 0.5em;
+  padding-inline-start: 2em;
+  text-indent: -2em;
+}
+
 /* ---------- Footnotes (pandoc's end-of-document notes section) ---------- */
 
 a.footnote-ref {
