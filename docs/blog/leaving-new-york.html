@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="New essay with Luca Messarra on
+the dispersion of twentieth-century US literary
+publishing.">  <meta property="og:title" content="Leaving New
+York&mdash;Erik Fredner">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Erik Fredner">
+    <meta property="og:url" content="https://fredner.org/blog/leaving-new-york.html">    <meta property="article:published_time" content="2026-10-23T07:50:40-07:00">
+  <meta property="article:modified_time" content="2026-10-23T07:50:40-07:00">    <meta property="og:description" content="New
+essay with Luca Messarra on the dispersion of twentieth-century US
+literary
+publishing.">    <meta name="color-scheme" content="light dark">
+  <!-- Preload both EB Garamond faces, the roman and its italic. The italic
+       belongs here even though it covers less text — style.css uses
+       `font-display: optional`, and under `optional` each face that misses its
+       block period is dropped for the whole pageview on its own. Leaving the
+       italic to normal CSS discovery let the roman win and the italic lose, so
+       a sentence with a book title in it rendered half in the webfont and half
+       in Georgia. Code uses system monospace, so there is nothing else to load.
+       `crossorigin` is required even same-origin — fonts are fetched in CORS
+       mode, and omitting it makes the preload a separate cache entry, i.e. a
+       silent double download. -->
+  <link rel="preload" href="../fonts/eb-garamond-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/eb-garamond-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://fredner.org/blog/leaving-new-york.html">  <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
+    <title>Leaving New York&mdash;Erik Fredner</title>
+  <!-- Goat Counter -->
+  <script data-goatcounter="https://erik.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="top"></div>
+  <header>
+    <!-- aria-current marks the section you are in. The nav-* variables are set
+         by the Makefile from each source file's stem, so a page whose stem
+         matches no nav item simply sets one that nobody reads. (Note for
+         editors: a literal dollar sign is template syntax even inside an HTML
+         comment, so the Makefile's metadata flag cannot be quoted here.) -->
+    <nav aria-label="Site navigation">
+      <ul>
+        <li><a href="../index.html" class="site-title">Erik Fredner</a></li>
+      </ul>
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav-links"
+        aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../blog.html" aria-current="page">Blog</a></li>
+        <li><a href="../cv.html">CV</a></li>
+        <li><a href="../research.html">Research</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- tabindex="-1" so the skip link actually moves focus here. Without it the
+       page scrolls to <main> but focus stays on the link, and the next Tab
+       resumes from the top of the nav rather than from the content. -->
+  <main id="main-content" tabindex="-1">
+    <article>
+            <header>
+        <h1 class="title">Leaving New York</h1>
+        
+        <p class="byline post-date"><time
+            datetime="2026-10-23T07:50:40-07:00">October 23,
+2026</time></p>
+        <p class="tag-list"><a
+            href="../tags/research.html">research</a></p>
+      </header>
+                  <p>My essay with <a
+                  href="https://english.stanford.edu/people/luca-messarra">Luca
+                  Messarra</a> is out in <em>American Literary
+                  History</em>:</p>
+                  <p>Erik Fredner and Luca Messarra. “Leaving New York:
+                  The Dispersion of Twentieth-Century US Literary
+                  Publishing.” <em>American Literary History</em> 38,
+                  no. 4 (2026): 386–413. <a
+                  href="https://doi.org/10.1093/alh/ajag058"
+                  class="uri">https://doi.org/10.1093/alh/ajag058</a></p>
+                  <p>Using Library of Congress records, we show that New
+                  York City was the place of publication for most US
+                  literature only between 1947 and 1963. After that,
+                  publishing grew faster everywhere else. We then
+                  discuss the material changes that made this
+                  happen.</p>
+                  <p>You can <a href="../leaving-nyc.html">read the
+                  accepted manuscript here</a>.</p>
+    </article>
+        <nav class="post-nav" aria-label="More posts">
+      
+      <a class="post-nav-prev" href="darmstadt.html"><span>Older</span>Symposium:
+Mapping the Canon</a>
+    </nav>
+        <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
+
+    <script>
+      // Mobile nav toggle
+      (function () {
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = toggle && toggle.closest('nav');
+        if (!toggle || !nav) return;
+        // Only now, with the button known to be wired up, does the stylesheet
+        // get permission to collapse the links behind it. See the `js-nav`
+        // rules in style.css.
+        nav.classList.add('js-nav');
+        toggle.addEventListener('click', function () {
+          var open = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+      })();
+
+      // Show when #top leaves viewport; hide when visible again.
+      (function () {
+        var btn = document.querySelector('.back-to-top');
+        var top = document.querySelector('#top');
+        if (!btn || !top) return;
+
+        function show() { btn.classList.add('is-visible'); }
+        function hide() { btn.classList.remove('is-visible'); }
+
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries) {
+            entries[0].isIntersecting ? hide() : show();
+          }).observe(top);
+        } else {
+          window.addEventListener('scroll', function () {
+            (window.scrollY || document.documentElement.scrollTop) > 400 ? show() : hide();
+          }, { passive: true });
+        }
+      })();
+
+      // Tap a figure to see it full screen; tap anywhere (or Escape) to close.
+      // The image is wrapped in a button here rather than in a link by a pandoc
+      // filter: pandoc hides the duplicate <figcaption> from screen readers only
+      // while the figure's content is a bare image (see filters/figures.lua).
+      // The button's accessible name is the image's alt, so nothing is lost.
+      (function () {
+        var imgs = document.querySelectorAll('figure > img');
+        if (!imgs.length || typeof HTMLDialogElement !== 'function') return;
+
+        var dialog = document.createElement('dialog');
+        dialog.className = 'figure-lightbox';
+        dialog.setAttribute('aria-label', 'Enlarged figure');
+        dialog.innerHTML = '<button type="button" class="figure-lightbox-close"' +
+          ' aria-label="Close">&times;</button><img alt=""><p aria-hidden="true"></p>';
+        document.body.appendChild(dialog);
+        var big = dialog.querySelector('img');
+        var cap = dialog.querySelector('p');
+        var opener;
+
+        Array.prototype.forEach.call(imgs, function (img) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'figure-zoom';
+          btn.title = 'Enlarge figure';
+          btn.setAttribute('aria-haspopup', 'dialog');
+          img.parentNode.insertBefore(btn, img);
+          btn.appendChild(img);
+          btn.addEventListener('click', function () {
+            var fc = btn.parentNode.querySelector('figcaption');
+            opener = btn;
+            big.src = img.currentSrc || img.src;
+            big.alt = img.alt;
+            cap.innerHTML = fc ? fc.innerHTML : '';
+            dialog.showModal();
+          });
+        });
+
+        // The dialog fills the screen, so every click inside it, the close
+        // button included, means "done".
+        dialog.addEventListener('click', function () { dialog.close(); });
+        dialog.addEventListener('close', function () {
+          if (opener) opener.focus({ preventScroll: true });
+        });
+      })();
+    </script>
+  </main>
+</body>
+
+</html>

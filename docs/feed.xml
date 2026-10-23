@@ -4,10 +4,33 @@
   <link href="https://fredner.org/feed.xml" rel="self"/>
   <link href="https://fredner.org/"/>
   <id>https://fredner.org/feed.xml</id>
-  <updated>2026-06-19T00:00:00-07:00</updated>
+  <updated>2026-10-23T07:50:40-07:00</updated>
   <author>
     <name>Erik Fredner</name>
   </author>
+  <entry>
+    <title>Leaving New York</title>
+    <link href="https://fredner.org/blog/leaving-new-york.html"/>
+    <id>https://fredner.org/blog/leaving-new-york.html</id>
+    <published>2026-10-23T07:50:40-07:00</published>
+    <updated>2026-10-23T07:50:40-07:00</updated>
+    <category term="research"/>
+    <summary>New essay with Luca Messarra on the dispersion of twentieth-century US literary publishing.</summary>
+    <content type="html">&lt;p&gt;My essay with &lt;a
+href="https://english.stanford.edu/people/luca-messarra"&gt;Luca
+Messarra&lt;/a&gt; is out in &lt;em&gt;American Literary History&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;Erik Fredner and Luca Messarra. “Leaving New York: The Dispersion of
+Twentieth-Century US Literary Publishing.” &lt;em&gt;American Literary
+History&lt;/em&gt; 38, no. 4 (2026): 386–413. &lt;a
+href="https://doi.org/10.1093/alh/ajag058"
+class="uri"&gt;https://doi.org/10.1093/alh/ajag058&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Using Library of Congress records, we show that New York City was the
+place of publication for most US literature only between 1947 and 1963.
+After that, publishing grew faster everywhere else. We then discuss the
+material changes that made this happen.&lt;/p&gt;
+&lt;p&gt;You can &lt;a href="https://fredner.org/leaving-nyc.html"&gt;read the
+accepted manuscript here&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Symposium: Mapping the Canon</title>
     <link href="https://fredner.org/blog/darmstadt.html"/>
