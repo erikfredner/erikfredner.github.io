@@ -178,6 +178,14 @@ article li > ul,
 article li > ol {
   margin-block: 0.35em;
 }
+article ul.hanging-list {
+  list-style: none;
+  padding-inline-start: 1.5em;
+}
+article ul.hanging-list > li {
+  text-indent: -1.5em;
+  margin-block: 0.6em;
+}
 a {
   color: var(--link);
   text-decoration: underline;

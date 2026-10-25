@@ -293,15 +293,15 @@ blockquote {
 }
 
 /* Prose lists. The UA's 40px indent doesn't line up with anything else in the
-   reading column, and cv.html is ~150 list items. Scoped to `article` so the nav
-   is untouched; .toc-box and #footnotes rules outrank these on specificity and
-   keep their own values. */
+   reading column. Scoped to `article` so the nav is untouched; .toc-box and
+   #footnotes rules outrank these on specificity and keep their own values.
+   cv.html's lists are hanging lists, styled below. */
 article ul {
   padding-inline-start: 1.25rem;
 }
 
 article ol {
-  padding-inline-start: 1.75rem; /* room for two-digit numbers on cv.html */
+  padding-inline-start: 1.75rem; /* room for two-digit numbers */
 }
 
 article li {
@@ -311,6 +311,22 @@ article li {
 article li > ul,
 article li > ol {
   margin-block: 0.35em;
+}
+
+/* Unmarked lists with a hanging indent, from filters/hanging-lists.lua on pages
+   that set `hanging-lists: true` (cv.html). The bibliography convention: the
+   outdented first line, not a marker, shows where one entry ends and the next
+   begins, so the gap between entries is a little wider than a prose list's.
+   The filter adds role="list", which keeps list semantics in Safari once
+   list-style is none. */
+article ul.hanging-list {
+  list-style: none;
+  padding-inline-start: 1.5em;
+}
+
+article ul.hanging-list > li {
+  text-indent: -1.5em;
+  margin-block: 0.6em;
 }
 
 a {
