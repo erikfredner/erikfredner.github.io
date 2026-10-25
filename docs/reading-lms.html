@@ -1317,8 +1317,8 @@ Models&mdash;Erik Fredner">
             data-cites="varoquauxHypeSustainabilityPrice2025">Gael
             Varoquaux, Sasha Luccioni, and Meredith Whittaker,
             <span>“Hype, <span>Sustainability</span>, and the
-            <span>Price</span> of the <span
-            class="nocase">Bigger-is-Better Paradigm</span> in
+            <span>Price</span> of the
+            <span>Bigger</span>-Is-<span>Better Paradigm</span> in
             <span>AI</span>,”</span> <em>Proceedings of the 2025
             <span>ACM Conference</span> on <span>Fairness</span>,
             <span>Accountability</span>, and
@@ -1806,9 +1806,9 @@ Models&mdash;Erik Fredner">
             <em>Bridging <span>Legal Knowledge</span> and
             <span>AI</span>: <span>Retrieval-Augmented Generation</span>
             with <span>Vector Stores</span>, <span>Knowledge
-            Graphs</span>, and <span class="nocase">Hierarchical
-            Non-negative Matrix Factorization</span></em>,
-            arXiv:2502.20364, arXiv, 2025, <a
+            Graphs</span>, and <span>Hierarchical Non</span>-Negative
+            <span>Matrix Factorization</span></em>, arXiv:2502.20364,
+            arXiv, 2025, <a
             href="https://doi.org/10.48550/arXiv.2502.20364">https://doi.org/10.48550/arXiv.2502.20364</a>.<a
             href="#fnref55" class="footnote-back"
             role="doc-backlink">↩︎</a></p></li>
@@ -1920,10 +1920,10 @@ Models&mdash;Erik Fredner">
             href="#fnref69" class="footnote-back"
             role="doc-backlink">↩︎</a></p></li>
             <li id="fn70"><p>Haitao Li, Qian Dong, Junjie Chen, et al.,
-            <em><span class="nocase">LLMs-as-Judges</span>: <span>A
-            Comprehensive Survey</span> on <span
-            class="nocase">LLM-based Evaluation Methods</span></em>,
-            arXiv:2412.05579, arXiv, 2024, <a
+            <em><span>LLMs</span>-as-<span>Judges</span>: <span>A
+            Comprehensive Survey</span> on <span>LLM</span>-Based
+            <span>Evaluation Methods</span></em>, arXiv:2412.05579,
+            arXiv, 2024, <a
             href="https://doi.org/10.48550/arXiv.2412.05579">https://doi.org/10.48550/arXiv.2412.05579</a>.<a
             href="#fnref70" class="footnote-back"
             role="doc-backlink">↩︎</a></p></li>
@@ -1976,6 +1976,16 @@ Models&mdash;Erik Fredner">
             (window.scrollY || document.documentElement.scrollTop) > 400 ? show() : hide();
           }, { passive: true });
         }
+      })();
+
+      // A video hero (filters/hero-video.lua) has no autoplay attribute; start
+      // it here unless the reader has asked for reduced motion. Either way its
+      // controls can pause or replay it.
+      (function () {
+        var video = document.querySelector('.hero video');
+        if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var p = video.play();
+        if (p) p.catch(function () {});
       })();
 
       // Tap a figure to see it full screen; tap anywhere (or Escape) to close.
