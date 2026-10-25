@@ -6,6 +6,8 @@ BIBLIOGRAPHY := references.bib
 CSL := vendor/csl/chicago-notes.csl
 LUA_FILTER := filters/webp.lua
 IMAGE_SIZE_FILTER := filters/image-size.lua
+HERO_FILTER := filters/hero.lua
+HERO_VIDEO_FILTER := filters/hero-video.lua
 OG_IMAGE_FILTER := filters/og-image.lua
 LISTS_FILTER := filters/inject-lists.lua
 FIGURES_FILTER := filters/figures.lua
@@ -56,8 +58,9 @@ ROBOTS_OUT      := $(OUT_DIR)/robots.txt
 #
 # Five rules below call pandoc, and they used to restate the same flags each
 # time. FILTER ORDER IS LOAD-BEARING and documented in each filter's header:
+# hero first (so the image it inserts gets every later image filter),
 # image-size before webp (so it reads the file actually in src/images/), webp
-# before og-image (so og-image sees the rewritten src), inject-lists
+# before og-image and hero-video (so both see the rewritten src), inject-lists
 # before pandoc-crossref (which renders the placeholders), wrap-lists
 # before figures (wrap-lists strips crossref's bare "Figure N:" prefix for the
 # list of figures, and figures then wraps that prefix in a span), and wrap-lists
@@ -68,8 +71,10 @@ ROBOTS_OUT      := $(OUT_DIR)/robots.txt
 # Metadata order does not matter to pandoc (it is a map), so the --metadata
 # flags are grouped for readability rather than sequence.
 
-IMAGE_FILTER_OPTS := --lua-filter=$(IMAGE_SIZE_FILTER) --lua-filter=$(LUA_FILTER)
-OG_FILTER_OPT    := --lua-filter=$(OG_IMAGE_FILTER)
+IMAGE_FILTER_OPTS := --lua-filter=$(HERO_FILTER) --lua-filter=$(IMAGE_SIZE_FILTER) --lua-filter=$(LUA_FILTER)
+# Site pages only, never the feed fragments: hero-video turns a video hero's
+# linked poster into a <video>, which feed readers mostly strip.
+PAGE_FILTER_OPTS := --lua-filter=$(OG_IMAGE_FILTER) --lua-filter=$(HERO_VIDEO_FILTER)
 CONTENT_FILTERS  := --lua-filter=$(LISTS_FILTER) \
                     --filter pandoc-crossref \
                     --lua-filter=$(WRAP_LISTS_FILTER) \
@@ -83,9 +88,9 @@ COMMON_META      := --metadata site-url="$(SITE_URL)" \
 # touching one list rather than three. Deliberately split: the feed fragments
 # are rendered without $(TEMPLATE), and listing it there would rebuild every
 # fragment whenever the template changed, for no difference in output.
-CONTENT_DEPS := $(BIBLIOGRAPHY) $(CSL) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) $(LISTS_FILTER) \
+CONTENT_DEPS := $(BIBLIOGRAPHY) $(CSL) $(HERO_FILTER) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) $(LISTS_FILTER) \
                 $(FIGURES_FILTER) $(WRAP_LISTS_FILTER) $(WRAP_TABLES_FILTER)
-PAGE_DEPS    := $(TEMPLATE) $(OG_IMAGE_FILTER) $(CONTENT_DEPS)
+PAGE_DEPS    := $(TEMPLATE) $(OG_IMAGE_FILTER) $(HERO_VIDEO_FILTER) $(CONTENT_DEPS)
 
 # Pages built from markdown this repo *generates* (the blog index and the tag
 # pages): no --section-divs, no crossref, no citeproc, no site-url. The markup
@@ -109,10 +114,11 @@ IMG_SRC_DIR := $(SRC_DIR)/images
 IMG_OUT_DIR := $(OUT_DIR)/images
 
 # Raster sources are converted to WebP (one rule per extension below, since a
-# pattern rule matches only one suffix); .webp and .svg are copied through.
+# pattern rule matches only one suffix); .webp, .svg, and .mp4 (video heroes,
+# see filters/hero.lua) are copied through.
 # IMG_EXTS is the union, and is also what `prune-images` walks.
 IMG_RASTER_EXTS := jpg jpeg png
-IMG_COPY_EXTS   := webp svg
+IMG_COPY_EXTS   := webp svg mp4
 IMG_EXTS        := $(IMG_RASTER_EXTS) $(IMG_COPY_EXTS)
 
 IMG_RASTER_SRC := $(foreach e,$(IMG_RASTER_EXTS),$(wildcard $(IMG_SRC_DIR)/*.$(e)))
@@ -182,7 +188,7 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(PAGE_DEPS) | $(OUT_DIR)
 	  $(COMMON_META) \
 	  --metadata nav-$*=true \
 	  --metadata canonical="$(SITE_URL)/$(if $(filter index,$*),,$*.html)" \
-	  $(OG_FILTER_OPT) \
+	  $(PAGE_FILTER_OPTS) \
 	  $(CONTENT_FILTERS) \
 	  $(CITEPROC_OPTS) \
 	  -o $@ $<
@@ -190,7 +196,7 @@ $(OUT_DIR)/%.html: $(SRC_DIR)/%.md $(PAGE_DEPS) | $(OUT_DIR)
 # The 404 page. `pathprefix=/` because GitHub Pages serves this file for an
 # unmatched path at any depth (/a/b/c), where relative asset and nav links would
 # resolve against /a/b/ and break. No canonical: it is not a real page.
-$(NOTFOUND_OUT): $(NOTFOUND_SRC) $(TEMPLATE) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
+$(NOTFOUND_OUT): $(NOTFOUND_SRC) $(TEMPLATE) $(HERO_FILTER) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
 	$(PANDOC) --standalone --template=$(TEMPLATE) \
 	  --section-divs \
 	  $(IMAGE_FILTER_OPTS) \
@@ -222,6 +228,10 @@ $(IMG_OUT_DIR)/%.webp: $(IMG_SRC_DIR)/%.webp | $(IMG_OUT_DIR)
 
 # Copy SVG files unchanged
 $(IMG_OUT_DIR)/%.svg: $(IMG_SRC_DIR)/%.svg | $(IMG_OUT_DIR)
+	cp $< $@
+
+# Copy MP4 files unchanged
+$(IMG_OUT_DIR)/%.mp4: $(IMG_SRC_DIR)/%.mp4 | $(IMG_OUT_DIR)
 	cp $< $@
 
 # Slide output dir
@@ -360,7 +370,7 @@ $(BLOG_INDEX_MD): $(BLOG_SRC_MD) $(BLOG_SRC_DIR) $(BLOG_MANIFEST) $(BLOG_SCRIPT)
 $(BLOG_META_OUT): $(BLOG_META_DIR)/%.yaml: $(BLOG_INDEX_MD) ;
 $(BLOG_POSTS_JSON): $(BLOG_INDEX_MD) ;
 
-$(BLOG_INDEX_HTML): $(BLOG_INDEX_MD) $(TEMPLATE) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
+$(BLOG_INDEX_HTML): $(BLOG_INDEX_MD) $(TEMPLATE) $(HERO_FILTER) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
 	$(PANDOC_GENERATED) \
 	  --metadata canonical="$(SITE_URL)/blog.html" \
 	  -o $@ $<
@@ -411,7 +421,7 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(BLOG_META_DIR)/
 	  --metadata pathprefix="../" \
 	  --metadata nav-blog=true \
 	  --metadata-file=$(BLOG_META_DIR)/$*.yaml \
-	  $(OG_FILTER_OPT) \
+	  $(PAGE_FILTER_OPTS) \
 	  $(CONTENT_FILTERS) \
 	  $(CITEPROC_OPTS) \
 	  -o $@ $<
@@ -420,7 +430,7 @@ $(BLOG_HTML_OUT): $(BLOG_OUT_DIR)/%.html: $(BLOG_SRC_DIR)/%.md $(BLOG_META_DIR)/
 # and wipes docs/tags/ first — that is what removes pages for tags no longer in
 # use. Pandoc is deterministic, so unconditional regeneration still leaves
 # `git status` clean. Skipped entirely when no post carries a tag.
-tags: $(BLOG_INDEX_MD) $(TEMPLATE) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
+tags: $(BLOG_INDEX_MD) $(TEMPLATE) $(HERO_FILTER) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) | $(OUT_DIR)
 	@rm -rf $(TAGS_OUT_DIR) $(TAGS_INDEX_HTML)
 	@if [ -f $(BLOG_TAGS_MD) ]; then \
 	  mkdir -p $(TAGS_OUT_DIR); \

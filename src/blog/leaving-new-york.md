@@ -2,6 +2,9 @@
 title: "Leaving New York"
 description: "New essay with Luca Messarra on the dispersion of twentieth-century US literary publishing."
 tags: [research]
+hero: ../images/nyc_map_animation.mp4
+hero-poster: ../images/nyc_map_animation-poster.png
+hero-alt: "Animated map, “Where US literature was published, 1900–2010”: dots accumulate on a map of the continental US for each place of publication in the Library of Congress’s American literature records. Early dots cluster around New York City; by 2010, 227,623 records cover the country."
 ---
 
 My essay with [Luca Messarra](https://english.stanford.edu/people/luca-messarra) is out in *American Literary History*:

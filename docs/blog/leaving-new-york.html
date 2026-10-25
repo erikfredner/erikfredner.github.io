@@ -14,7 +14,9 @@ York&mdash;Erik Fredner">
   <meta property="article:modified_time" content="2026-10-23T07:50:40-07:00">    <meta property="og:description" content="New
 essay with Luca Messarra on the dispersion of twentieth-century US
 literary
-publishing.">    <meta name="color-scheme" content="light dark">
+publishing.">    <meta property="og:image" content="https://fredner.org/images/nyc_map_animation-poster.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://fredner.org/images/nyc_map_animation-poster.webp">  <meta name="color-scheme" content="light dark">
   <!-- Preload both EB Garamond faces, the roman and its italic. The italic
        belongs here even though it covers less text — style.css uses
        `font-display: optional`, and under `optional` each face that misses its
@@ -71,6 +73,9 @@ publishing.">    <meta name="color-scheme" content="light dark">
         <p class="tag-list"><a
             href="../tags/research.html">research</a></p>
       </header>
+                  <div class="hero">
+                  <video src="../images/nyc_map_animation.mp4" poster="../images/nyc_map_animation-poster.webp" width="1080" height="1080" aria-label="Animated map, “Where US literature was published, 1900–2010”: dots accumulate on a map of the continental US for each place of publication in the Library of Congress’s American literature records. Early dots cluster around New York City; by 2010, 227,623 records cover the country." controls muted playsinline preload="metadata"></video>
+                  </div>
                   <p>My essay with <a
                   href="https://english.stanford.edu/people/luca-messarra">Luca
                   Messarra</a> is out in <em>American Literary
@@ -131,6 +136,16 @@ Mapping the Canon</a>
             (window.scrollY || document.documentElement.scrollTop) > 400 ? show() : hide();
           }, { passive: true });
         }
+      })();
+
+      // A video hero (filters/hero-video.lua) has no autoplay attribute; start
+      // it here unless the reader has asked for reduced motion. Either way its
+      // controls can pause or replay it.
+      (function () {
+        var video = document.querySelector('.hero video');
+        if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var p = video.play();
+        if (p) p.catch(function () {});
       })();
 
       // Tap a figure to see it full screen; tap anywhere (or Escape) to close.

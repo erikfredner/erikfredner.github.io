@@ -795,6 +795,19 @@ figure {
   margin: 2rem 0;
 }
 
+/* `hero:` frontmatter, inserted at the top of the body by filters/hero.lua.
+   Full column width, directly under the post header. */
+.hero {
+  margin-block: 0 2rem;
+}
+
+.hero img,
+.hero video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 figure img {
   display: block;
   margin-inline: auto;

@@ -135,6 +135,16 @@ International Bibliography</i></h1>
         }
       })();
 
+      // A video hero (filters/hero-video.lua) has no autoplay attribute; start
+      // it here unless the reader has asked for reduced motion. Either way its
+      // controls can pause or replay it.
+      (function () {
+        var video = document.querySelector('.hero video');
+        if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var p = video.play();
+        if (p) p.catch(function () {});
+      })();
+
       // Tap a figure to see it full screen; tap anywhere (or Escape) to close.
       // The image is wrapped in a button here rather than in a link by a pandoc
       // filter: pandoc hides the duplicate <figcaption> from screen readers only
