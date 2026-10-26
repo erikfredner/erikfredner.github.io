@@ -4,6 +4,9 @@ subtitle: "The Dispersion of Twentieth-Century US Literary Publishing"
 description: "Library of Congress records reveal the rise and unexpected fall of New York City in twentieth-century US literary publishing."
 toc: true
 lof: true
+hero: ../images/nyc_map_animation.mp4
+hero-poster: ../images/nyc_map_animation-poster.png
+hero-alt: "Animated map, “Where US literature was published, 1900–2010”: dots accumulate on a map of the continental US for each place of publication in the Library of Congress’s American literature records. Early dots cluster around New York City; by 2010, 227,623 records cover the country."
 ---
 
 Co-authored with [Luca Messarra](https://english.stanford.edu/people/luca-messarra).
