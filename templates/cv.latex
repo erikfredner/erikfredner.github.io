@@ -1,0 +1,104 @@
+% Pandoc template for the PDF CVs (docs/cv/cv.pdf, docs/cv/cv-full.pdf), built
+% from src/cv.md through filters/cv-pdf.lua. The preamble is the one from the
+% former standalone erikfredner/cv repo's cv.tex; the body is pandoc's.
+%
+% Tagged PDF/UA-2: headings, lists, links, and reading order are exposed to
+% screen readers, and the document language is declared. Must precede
+% \documentclass.
+%
+% The fixed random seed is for byte-reproducibility: tagpdf names its
+% structure namespace with a random UUID, which otherwise differs on every
+% build even with SOURCE_DATE_EPOCH set.
+\pdfsetrandomseed 1
+\DocumentMetadata{
+    lang=en-US,
+    pdfversion=2.0,
+    pdfstandard=ua-2,
+    tagging=on
+}
+\documentclass[12pt, letterpaper]{article}
+
+%--- FONTS ---
+% pdfLaTeX + ebgaramond, so every dependency ships with TeX Live and the
+% document builds anywhere. Don't switch to fontspec/system fonts.
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
+
+%--- LAYOUT ---
+\usepackage[margin=0.75in]{geometry}
+\usepackage{xcolor} % the header gray
+% tracking=smallcaps letterspaces small caps (the section headings) only.
+% microtype is on the LaTeX tagging project's compatible list.
+\usepackage[tracking=smallcaps]{microtype}
+\SetTracking{encoding=*, shape=sc}{60}
+
+% Section headings: lowercase small caps in the body face, no rule. Space above
+% (12pt) separates sections; the small 2pt below keeps the heading with its
+% entries, so a heading reads as a label for the block under it rather than a
+% divider between blocks. Built on the kernel's \@startsection rather than
+% titlesec, which breaks heading tags. The positive afterskip makes it a
+% display (not run-in) heading.
+%
+% \subsection (full CV only: the subheadings of Public Humanities) is plain
+% italic, closer to its entries still.
+\makeatletter
+\renewcommand{\section}[1]{%
+    \@startsection{section}{1}{0pt}{12pt plus 2pt minus 1pt}{2pt}%
+        {\normalfont\scshape}*{\MakeLowercase{#1}}%
+}
+\renewcommand{\subsection}[1]{%
+    \@startsection{subsection}{2}{0pt}{4pt plus 1pt}{1pt}{\normalfont\itshape}*{#1}%
+}
+\makeatother
+
+% Ragged right: no justified text (WCAG 1.4.8), and long titles and URLs
+% wrap at word and slash boundaries instead of overfilling the line.
+% \frenchspacing: the entries are bibliography-style, full of "Fredner, Erik."
+% and "J. D.", where a sentence-width space after every period reads as a gap.
+\setlength{\parindent}{0pt}
+\raggedright
+\frenchspacing
+
+%--- LINKS ---
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    pdfauthor={Erik Fredner},
+    pdftitle={$pdf-title$},
+    pdfsubject={Curriculum vitae},
+    pdfdisplaydoctitle=true
+}
+% Give each link annotation its URL as alt text (/Contents). PDF/UA-2 doesn't
+% require it, but PDF/UA-1 checkers (Acrobat, PAC) flag links without it.
+\AssignSocketPlug{hyp/link/URI/Contents}{default}
+% URLs set in the body font, not monospace. Side effect: oldstyle figures in
+% DOIs, and \url kerning gaps around 'f'. \urlstyle{tt} reverts both.
+\urlstyle{same}
+
+%--- MACROS ---
+% Every section is one list of entries (tagged as a list, so screen readers
+% announce the item count). Wrapped lines hang-indent 1.5em. The optional
+% argument is the space between entries: 2pt for prose sections, whose
+% entries run to several lines; 0pt for one-line sections. cv-pdf.lua picks
+% one per list.
+\newenvironment{entries}[1][2pt]{%
+    \list{}{\leftmargin=1.5em \itemindent=-1.5em
+        \labelwidth=0pt \labelsep=0pt
+        \itemsep=#1 \parsep=0pt \topsep=0pt \partopsep=0pt}%
+}{\endlist}
+
+\begin{document}
+
+%--- HEADER ---
+% \textperiodcentered{} rather than $$\cdot$$: math mode would set the dot in
+% Computer Modern. The {} keeps the following space. The header gray is dark
+% enough (7:1) to pass WCAG AA contrast at this size. \today is pinned by
+% SOURCE_DATE_EPOCH, which the Makefile takes from src/cv-stamp.json.
+\begin{center}
+    {\Large Erik Fredner\par}
+    {\footnotesize\color{black!65} \href{https://fredner.org}{fredner.org} \textperiodcentered{} \href{mailto:erik.fredner@oregonstate.edu}{erik.fredner@oregonstate.edu} \textperiodcentered{} \today\par}
+\end{center}
+
+$body$
+
+\end{document}

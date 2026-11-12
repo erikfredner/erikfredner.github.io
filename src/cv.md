@@ -6,67 +6,77 @@ hanging-lists: true
 
 ## Appointments
 
-- Assistant Professor of Digital Humanities and Literature, Oregon State University, 2025--
-- Visiting Assistant Professor of Data Science and Statistics, University of Richmond, 2024--25
-- Postdoctoral Research Associate and Lecturer, University of Virginia, 2021--24
+- []{.short} Assistant Professor of Digital Humanities and Literature, Oregon State University, 2025--
+- []{.short} Visiting Assistant Professor of Data Science and Statistics, University of Richmond, 2024--25
+- []{.short} Postdoctoral Research Associate and Lecturer, University of Virginia, 2021--24
 
 ## Education
 
-- PhD, English; Graduate Certificate in Digital Humanities, Stanford University, 2021
-- AB, English, magna cum laude, Harvard University, 2012
-- Undergraduate Teacher Education Program, Harvard Graduate School of Education, 2012
-- Visiting Student of English, St Peter's College, University of Oxford, 2011
+- []{.short} PhD, English; Graduate Certificate in Digital Humanities, Stanford University, 2021
+- []{.short} AB, English, magna cum laude, Harvard University, 2012
+- []{.short} Undergraduate Teacher Education Program, Harvard Graduate School of Education, 2012
+- []{.short} Visiting Student of English, St Peter's College, University of Oxford, 2011
 
-## Publications
+## Publications {.pdf-urls pdf-short="Selected Publications"}
 
-- Fredner, Erik. ["Reading with Language Models."](reading-lms.html) In "Cultural AI," special issue, *MFS Modern Fiction Studies* 73, no. 1 (forthcoming).
-- Fredner, Erik. ["The Ends of Reading."](the-ends-of-reading.html) *American Literature* 99, no. 4 (forthcoming).
-- Fredner, Erik, and Luca Messarra. ["Leaving New York: The Dispersion of Twentieth-Century US Literary Publishing."](leaving-nyc.html) *American Literary History* 38, no. 4 (2026): 386--413.
-- Fredner, Erik. ["Moving the Capital of US Literature from Boston to New York: Evidence from 11 Million Library of Congress Catalog Records."](https://c19datacollective.com/data/capital-us-literature/) In *The Nineteenth-Century Data Collective*, edited by Meredith Martin and Megan Ward. Princeton University Libraries, 2025.
-- Fredner, Erik, and J. D. Porter. ["Counting on *The Norton Anthology of American Literature*."](https://doi.org/10.1632/S0030812923001189) *PMLA* 139, no. 1 (2024): 50--65.
-- Fredner, Erik. ["A Meaning Apart from Its Indistinguishable Words."](https://doi.org/10.5325/nathhawtrevi.48.1.0082) *Nathaniel Hawthorne Review* 48, no. 1 (2022): 82--98.
-- Fredner, Erik. ["Hamlin Garland's 'Problem of Individual Life.'"](https://doi.org/10.1525/ncl.2021.76.3.354) *Nineteenth-Century Literature* 76, no. 3 (2021): 354--83.
-- Fredner, Erik. ["Averaging Americans: Literature, Statistics, and Inequality."](https://purl.stanford.edu/rp802rv5947) PhD diss., Stanford University, 2021. Committee: Gavin Jones, Mark Algee-Hewitt, Mark McGurl, and Paula Moya.
+- []{.short} Fredner, Erik. ["Reading with Language Models."](reading-lms.html) In "Cultural AI," special issue, *MFS Modern Fiction Studies* 73, no. 1 (forthcoming).
+- []{.short} Fredner, Erik. ["The Ends of Reading."](the-ends-of-reading.html) *American Literature* 99, no. 4 (forthcoming).
+- []{.short} Fredner, Erik, and Luca Messarra. ["Leaving New York: The Dispersion of Twentieth-Century US Literary Publishing."](leaving-nyc.html) *American Literary History* 38, no. 4 (2026): 386--413.
+- []{.short} Fredner, Erik. ["Moving the Capital of US Literature from Boston to New York: Evidence from 11 Million Library of Congress Catalog Records."](https://c19datacollective.com/data/capital-us-literature/) In *The Nineteenth-Century Data Collective*, edited by Meredith Martin and Megan Ward. Princeton University Libraries, 2025.
+- []{.short} Fredner, Erik, and J. D. Porter. ["Counting on *The Norton Anthology of American Literature*."](https://doi.org/10.1632/S0030812923001189) *PMLA* 139, no. 1 (2024): 50--65.
+- []{.short} Fredner, Erik. ["A Meaning Apart from Its Indistinguishable Words."](https://doi.org/10.5325/nathhawtrevi.48.1.0082) *Nathaniel Hawthorne Review* 48, no. 1 (2022): 82--98.
+- []{.short} Fredner, Erik. ["Hamlin Garland's 'Problem of Individual Life.'"](https://doi.org/10.1525/ncl.2021.76.3.354) *Nineteenth-Century Literature* 76, no. 3 (2021): 354--83.
+- []{.short} Fredner, Erik. ["Averaging Americans: Literature, Statistics, and Inequality."](https://purl.stanford.edu/rp802rv5947) PhD diss., Stanford University, 2021. Committee: Gavin Jones, Mark Algee-Hewitt, Mark McGurl, and Paula Moya.
 - Fredner, Erik. [Review of *Enumerations: Data and Literary Study*, by Andrew Piper.](https://doi.org/10.1353/sdn.2020.0026) *Studies in the Novel* 52, no. 2 (2020): 220--22.
-- Algee-Hewitt, Mark, Erik Fredner, and Hannah Walser. ["The Novel as Data."](https://doi.org/10.1017/9781316659694.013) In *The Cambridge Companion to the Novel*, edited by Eric Bulson, 189--216. Cambridge University Press, 2018.
-- McClure, David, Mark Algee-Hewitt, Steele Douris, Erik Fredner, and Hannah Walser. ["Organizing Corpora at the Stanford Literary Lab: Balancing Simplicity and Flexibility in Metadata Management."](https://ids-pub.bsz-bw.de/frontdoor/index/index/docId/6261) *Proceedings of the Workshop on Challenges in the Management of Large Corpora* (2017): 25--29.
+- []{.short} Algee-Hewitt, Mark, Erik Fredner, and Hannah Walser. ["The Novel as Data."](https://doi.org/10.1017/9781316659694.013) In *The Cambridge Companion to the Novel*, edited by Eric Bulson, 189--216. Cambridge University Press, 2018.
+- []{.short} McClure, David, Mark Algee-Hewitt, Steele Douris, Erik Fredner, and Hannah Walser. ["Organizing Corpora at the Stanford Literary Lab: Balancing Simplicity and Flexibility in Metadata Management."](https://ids-pub.bsz-bw.de/frontdoor/index/index/docId/6261) *Proceedings of the Workshop on Challenges in the Management of Large Corpora* (2017): 25--29.
 
 ## Works in Progress
 
+::: web-only
 Please see my [research page](research.html).
+:::
 
-## Awards
+::: pdf-only
+- []{.short} Fredner, Erik. *Averaging Americans: Why US Literature Started Thinking Statistically.* Book manuscript.
+- []{.short} Fredner, Erik, J. D. Porter, and Arthur Knight. "The Implicit Canon across Anthologies of African American Literature." Under review.
+- []{.short} Fredner, Erik. "The Literary Canon on *Jeopardy!*"
+- []{.short} Fredner, Erik, and J. D. Porter. "Anthologies at Scale: Reading, Fast and Slow." For *Cultures of Scale*, Debates in the Digital Humanities series.
+- []{.short} Fredner, Erik, and Mark Algee-Hewitt. "Literary Studies According to *The MLA International Bibliography*."
+:::
 
-- Center for the Humanities Faculty Research Fellowship, Oregon State University, 2026--27
-- Critical AI Literacy Summer Teaching Fellowship, Oregon State University, 2026
-- College Fellows Development Grant (literature on *Jeopardy!*), University of Virginia, 2024
-- College Fellows Development Grant (*The MLA International Bibliography*), University of Virginia, 2022
-- Mellon Foundation Dissertation Fellowship, Stanford Humanities Center, 2020--21
-- City University of New York--Stanford Exchange Fellow, The City College of New York, 2018--19
+## Awards {pdf-short="Selected Awards"}
+
+- []{.short} Center for the Humanities Faculty Research Fellowship, Oregon State University, 2026--27
+- []{.short} Critical AI Literacy Summer Teaching Fellowship, Oregon State University, 2026
+- []{.short} College Fellows Development Grant (literature on *Jeopardy!*), University of Virginia, 2024
+- []{.short} College Fellows Development Grant (*The MLA International Bibliography*), University of Virginia, 2022
+- []{.short} Mellon Foundation Dissertation Fellowship, Stanford Humanities Center, 2020--21
+- []{.short} City University of New York--Stanford Exchange Fellow, The City College of New York, 2018--19
 - G. J. Pigott Scholar, Stanford University, 2017--18
 - Excellence in Teaching Award, Department of English, Stanford University, 2017
 
-## Presentations
+## Presentations {pdf-short="Recent Presentations"}
 
 ### 2026 {#presentations-2026}
 
-- ["Canons within Canons? Anthology Selections of US Literature across Series."](https://fredner.org/mapping-canon) Mapping the Canon: Quantitative Approaches to Literary History, Technische Universität Darmstadt.
+- []{.short} ["Canons within Canons? Anthology Selections of US Literature across Series."](https://fredner.org/mapping-canon) Mapping the Canon: Quantitative Approaches to Literary History, Technische Universität Darmstadt.
 
 ### 2025 {#presentations-2025}
 
-- ["The Literary Canon on *Jeopardy!*, 1984--2024."](slides/2025-07_dh.html) Alliance of Digital Humanities Organizations, Universidade NOVA de Lisboa.
-- ["The 'Already Implicit' Canon: Data from Anthologies of African American Literature."](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing) Digital Americanists Panel, American Literature Association, Boston, Massachusetts.
-- ["Leaving New York? Imprint Geographies of US Literature since 1945."](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing) Stanford Literary Lab.
+- []{.short} ["The Literary Canon on *Jeopardy!*, 1984--2024."](slides/2025-07_dh.html) Alliance of Digital Humanities Organizations, Universidade NOVA de Lisboa.
+- []{.short} ["The 'Already Implicit' Canon: Data from Anthologies of African American Literature."](https://docs.google.com/presentation/d/1c1X7_zyKkjxVqbuqmaMsGpWm5r97p9xdhqk0EVOzB-o/edit?usp=sharing) Digital Americanists Panel, American Literature Association, Boston, Massachusetts.
+- []{.short} ["Leaving New York? Imprint Geographies of US Literature since 1945."](https://docs.google.com/presentation/d/15yNejLLfCzIx5XXUeD_KRjnP8dYNx1J4Snds-yeDd_k/edit?usp=sharing) Stanford Literary Lab.
 
 ### 2024 {#presentations-2024}
 
-- ["The Ends of Reading."](reading.html) Faculty and Staff Symposium, University of Richmond.
-- ["*The MLA International Bibliography*'s History of English-Language Literary Studies."](https://docs.google.com/presentation/d/1l9RF4TAfG1vhc70sQD6SnQdnvPGKdysiGc0saopwz_U/edit?slide=id.p#slide=id.p) Alliance of Digital Humanities Organizations, George Mason University.
-- ["Anthologies as Databases."](https://docs.google.com/presentation/d/1kxUCWK4iz4En_G63ZDqExkxh6nzd3Qp0PB6DmuwebyU/edit?usp=sharing) Digital Americanists Panel, American Literature Association, Chicago, Illinois.
-- "The Ends of Reading: Reading Statistics and the Overestimation of Literary Studies' Aim." Reader Studies in the Digital Age Symposium, Price Lab for Digital Humanities, University of Pennsylvania.
+- []{.short} ["The Ends of Reading."](reading.html) Faculty and Staff Symposium, University of Richmond.
+- []{.short} ["*The MLA International Bibliography*'s History of English-Language Literary Studies."](https://docs.google.com/presentation/d/1l9RF4TAfG1vhc70sQD6SnQdnvPGKdysiGc0saopwz_U/edit?slide=id.p#slide=id.p) Alliance of Digital Humanities Organizations, George Mason University.
+- []{.short} ["Anthologies as Databases."](https://docs.google.com/presentation/d/1kxUCWK4iz4En_G63ZDqExkxh6nzd3Qp0PB6DmuwebyU/edit?usp=sharing) Digital Americanists Panel, American Literature Association, Chicago, Illinois.
+- []{.short} "The Ends of Reading: Reading Statistics and the Overestimation of Literary Studies' Aim." Reader Studies in the Digital Age Symposium, Price Lab for Digital Humanities, University of Pennsylvania.
 - "How Much Is Literary Knowledge Worth on *Jeopardy?*" Stanford Literary Lab.
 - "How to Publish (Computational) Literary Studies Research." Department of English, Stanford University.
-- "Challenging Nineteenth-Century Data Legacies." Mellon Sawyer Seminar, Stanford Center for Spatial and Textual Analysis.
+- []{.short} "Challenging Nineteenth-Century Data Legacies." Mellon Sawyer Seminar, Stanford Center for Spatial and Textual Analysis.
 - "Mining *The MLA International Bibliography*." Stanford Literary Lab.
 - "Mining *The MLA International Bibliography*." Modern Language Association, Philadelphia, Pennsylvania.
 - "Du Bois, Statistical Thinking, and Irony." Modern Language Association, Philadelphia, Pennsylvania.
@@ -152,14 +162,14 @@ Please see my [research page](research.html).
 - ["Security,"](security.html) with Mark Algee-Hewitt, Whitney McIntosh, and Stephen Stedman, 2015
 - ["Suspense,"](suspense.html) with Mark Algee-Hewitt, Abigail Droge, Tasha Eccles, Morgan Day Frank, J. D. Porter, Andrew Shephard, and Hannah Walser, 2014
 
-## Teaching
+## Teaching {pdf-short="Recent Teaching"}
 
-- [Introduction to Science Fiction and Fantasy](https://fredner.org/eng108/), Oregon State University, 2026--27
-- [Introduction to Fiction](104z-syllabus.html), Oregon State University, 2025--26
-- [Advanced Data Science](389-syllabus.html), University of Richmond, 2024--25
+- []{.short} [Introduction to Science Fiction and Fantasy](https://fredner.org/eng108/), Oregon State University, 2026--27
+- []{.short} [Introduction to Fiction](104z-syllabus.html), Oregon State University, 2025--26
+- []{.short} [Advanced Data Science](389-syllabus.html), University of Richmond, 2024--25
 - [Introduction to Data Science](289-syllabus.html), University of Richmond, 2024--25
 - [Text Classification with Large Language Models](tapi-syllabus.html), The Text Analysis Pedagogy Institute, 2024
-- [From Language to Data](l2d-syllabus.html), University of Virginia, 2021--24
+- []{.short} [From Language to Data](l2d-syllabus.html), University of Virginia, 2021--24
 - [Punching Up: US Satire](satire-syllabus.html), University of Virginia, 2021--24
 - Summer Research Program, Stanford Center for Spatial and Textual Analysis, 2020
 - [Literary Text Mining](ltm-syllabus.html), Stanford University, 2018--19

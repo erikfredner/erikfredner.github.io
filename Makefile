@@ -15,6 +15,8 @@ WRAP_LISTS_FILTER := filters/wrap-lists.lua
 WRAP_TABLES_FILTER := filters/wrap-tables.lua
 HANGING_LISTS_FILTER := filters/hanging-lists.lua
 ABSOLUTIZE_FILTER := filters/absolutize.lua
+CV_WEB_FILTER := filters/cv-web.lua
+CV_PDF_FILTER := filters/cv-pdf.lua
 AUTHOR := Erik Fredner
 
 # 404.md is excluded from the generic rule: GitHub Pages serves docs/404.html in
@@ -66,6 +68,8 @@ ROBOTS_OUT      := $(OUT_DIR)/robots.txt
 # before figures (wrap-lists strips crossref's bare "Figure N:" prefix for the
 # list of figures, and figures then wraps that prefix in a span), and wrap-lists
 # before wrap-tables (so wrap-lists' Table walker still sees real Tables), and
+# cv-web first among the content filters (it strips the PDF-only markup in
+# src/cv.md before anything else sees it), and
 # hanging-lists last (it turns bullet lists into raw <ul>/<li> tags, which no
 # earlier filter should have to look through).
 # Keeping that sequence in one place is the point of these variables — spelled
@@ -78,7 +82,8 @@ IMAGE_FILTER_OPTS := --lua-filter=$(HERO_FILTER) --lua-filter=$(IMAGE_SIZE_FILTE
 # Site pages only, never the feed fragments: hero-video turns a video hero's
 # linked poster into a <video>, which feed readers mostly strip.
 PAGE_FILTER_OPTS := --lua-filter=$(OG_IMAGE_FILTER) --lua-filter=$(HERO_VIDEO_FILTER)
-CONTENT_FILTERS  := --lua-filter=$(LISTS_FILTER) \
+CONTENT_FILTERS  := --lua-filter=$(CV_WEB_FILTER) \
+                    --lua-filter=$(LISTS_FILTER) \
                     --filter pandoc-crossref \
                     --lua-filter=$(WRAP_LISTS_FILTER) \
                     --lua-filter=$(FIGURES_FILTER) \
@@ -92,7 +97,7 @@ COMMON_META      := --metadata site-url="$(SITE_URL)" \
 # touching one list rather than three. Deliberately split: the feed fragments
 # are rendered without $(TEMPLATE), and listing it there would rebuild every
 # fragment whenever the template changed, for no difference in output.
-CONTENT_DEPS := $(BIBLIOGRAPHY) $(CSL) $(HERO_FILTER) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) $(LISTS_FILTER) \
+CONTENT_DEPS := $(BIBLIOGRAPHY) $(CSL) $(CV_WEB_FILTER) $(HERO_FILTER) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) $(LISTS_FILTER) \
                 $(FIGURES_FILTER) $(WRAP_LISTS_FILTER) $(WRAP_TABLES_FILTER) $(HANGING_LISTS_FILTER)
 PAGE_DEPS    := $(TEMPLATE) $(OG_IMAGE_FILTER) $(HERO_VIDEO_FILTER) $(CONTENT_DEPS)
 
@@ -169,7 +174,24 @@ NOJEKYLL_OUT := $(OUT_DIR)/.nojekyll
 FAVICON_SRC := favicon.svg
 FAVICON_OUT := $(OUT_DIR)/favicon.svg
 
-all: csl-autoupdate $(HTML_OUT) $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) blog tags sitemap
+# PDF CVs. src/cv.md is the single source: it builds docs/cv.html through the
+# ordinary page rule, and both PDFs through templates/cv.latex and
+# filters/cv-pdf.lua. The short PDF keeps the URL the standalone LaTeX CV had
+# (fredner.org/cv/cv.pdf); src/cv/index.html redirects /cv/ to it.
+CV_SRC          := $(SRC_DIR)/cv.md
+CV_LATEX        := templates/cv.latex
+CV_STAMP_SCRIPT := scripts/cv_stamp.py
+# Committed date stamp for the PDFs' header (see scripts/cv_stamp.py).
+CV_STAMP        := $(SRC_DIR)/cv/stamp.json
+CV_BUILD_DIR    := $(BUILD_DIR)/cv
+CV_OUT_DIR      := $(OUT_DIR)/cv
+CV_SHORT_PDF    := $(CV_OUT_DIR)/cv.pdf
+CV_FULL_PDF     := $(CV_OUT_DIR)/cv-full.pdf
+CV_INDEX_SRC    := $(SRC_DIR)/cv/index.html
+CV_INDEX_OUT    := $(CV_OUT_DIR)/index.html
+CV_DEPS         := $(CV_SRC) $(CV_STAMP) $(CV_LATEX) $(CV_PDF_FILTER)
+
+all: csl-autoupdate $(HTML_OUT) $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) cv blog tags sitemap
 
 # Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
@@ -293,6 +315,44 @@ $(NOJEKYLL_OUT): | $(OUT_DIR)
 
 # Copy the favicon to the site root
 $(FAVICON_OUT): $(FAVICON_SRC) | $(OUT_DIR)
+	cp $< $@
+
+# PDF CVs: `make cv`, and part of `make`.
+.PHONY: cv
+cv: $(CV_SHORT_PDF) $(CV_FULL_PDF) $(CV_INDEX_OUT)
+
+# Re-dates the PDFs only when src/cv.md's content changes; the script touches
+# an unchanged stamp so this rule does not rerun on every build.
+$(CV_STAMP): $(CV_SRC) $(CV_STAMP_SCRIPT)
+	uv run --quiet $(CV_STAMP_SCRIPT) $(CV_SRC) $@
+
+$(CV_BUILD_DIR) $(CV_OUT_DIR): | $(OUT_DIR)
+	mkdir -p $@
+
+# One rule per variant (short -> cv.pdf, full -> cv-full.pdf). SOURCE_DATE_EPOCH
+# with FORCE_SOURCE_DATE=1 pins \today and every date pdfTeX writes, so the
+# PDFs are byte-reproducible like the rest of docs/. latexmk runs pdflatex until
+# hyperref anchors and the tag structure settle; its log stays in build/cv/.
+define CV_PDF_RULE
+$(2): $$(CV_DEPS) | $$(CV_BUILD_DIR) $$(CV_OUT_DIR)
+	$$(PANDOC) $$(CV_SRC) --to latex --standalone --template=$$(CV_LATEX) \
+	  --metadata site-url="$$(SITE_URL)" \
+	  --metadata cv-variant=$(1) \
+	  --lua-filter=$$(CV_PDF_FILTER) \
+	  -o $$(CV_BUILD_DIR)/cv-$(1).tex
+	cd $$(CV_BUILD_DIR) && \
+	  SOURCE_DATE_EPOCH=$$$$(uv run --quiet $$(CURDIR)/$$(CV_STAMP_SCRIPT) $$(CURDIR)/$$(CV_SRC) $$(CURDIR)/$$(CV_STAMP) --epoch) \
+	  FORCE_SOURCE_DATE=1 \
+	  latexmk -pdf -quiet -interaction=nonstopmode -halt-on-error cv-$(1).tex > /dev/null
+	cp $$(CV_BUILD_DIR)/cv-$(1).pdf $$@
+	@printf '%s: %s pages, %s over/underfull boxes\n' $$@ \
+	  "$$$$(grep -oE 'Output written.*\(([0-9]+) pages?' $$(CV_BUILD_DIR)/cv-$(1).log | grep -oE '[0-9]+ pages?' | tr -dc 0-9)" \
+	  "$$$$(grep -cE 'Overfull|Underfull' $$(CV_BUILD_DIR)/cv-$(1).log || true)"
+endef
+$(eval $(call CV_PDF_RULE,short,$(CV_SHORT_PDF)))
+$(eval $(call CV_PDF_RULE,full,$(CV_FULL_PDF)))
+
+$(CV_INDEX_OUT): $(CV_INDEX_SRC) | $(CV_OUT_DIR)
 	cp $< $@
 
 # Delete images in src/images/ that are not referenced in any .md, then drop the
@@ -480,5 +540,5 @@ serve: all
 	python3 $(SERVE_SCRIPT) --directory $(OUT_DIR) --port $(SERVE_PORT) --bind localhost & \
 	SERVER_PID=$$!; \
 	trap "kill $$SERVER_PID 2>/dev/null" EXIT INT TERM; \
-	{ find $(SRC_DIR) -name '*.md'; find css -name '*.css'; find templates/ -name '*.html'; find filters/ -name '*.lua'; } | entr $(MAKE) all; \
+	{ find $(SRC_DIR) -name '*.md'; find css -name '*.css'; find templates/ -name '*.html' -o -name '*.latex'; find filters/ -name '*.lua'; } | entr $(MAKE) all; \
 	kill $$SERVER_PID 2>/dev/null
