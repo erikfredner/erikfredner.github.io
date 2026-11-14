@@ -1,5 +1,6 @@
 ---
 title: CV
+subtitle: "As a PDF: [short CV](cv/cv.pdf) · [full CV](cv/cv-full.pdf)"
 toc: true
 hanging-lists: true
 ---
@@ -217,6 +218,7 @@ Please see my [research page](research.html).
 
 ## Service
 
+- Reviewer, *PLOS One*, 2026--
 - Reviewer, *The Journal of Cultural Analytics*, 2026--
 - Reviewer, *Humanities*, 2025--
 - Reviewer, *Post45 Data Collective*, 2025--

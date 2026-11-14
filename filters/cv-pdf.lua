@@ -10,14 +10,14 @@
 -- there), so this filter also adapts it to the conventions of the former
 -- standalone LaTeX CV:
 --
---   - Every section is one `entries` list. Year subheadings (`### 2025`, as in
---     Presentations) are folded into their entries, which then end
---     "..., Institution, 2025." Other subheadings (Public Humanities) become
---     italic \subsection headings in the full CV and are dropped from the
---     short one, along with every non-list block.
---   - One-line entries, which on the web end without punctuation ("Oregon
---     State University, 2025--"), get a closing period, and their list is set
---     with no space between items. A list with any entry already ending in a
+--   - Entry text, punctuation included, is exactly the web's: one-line
+--     entries end without a period ("Oregon State University, 2025--") in both.
+--   - Every run of entries is one `entries` list. `###` subheadings (the years
+--     under Presentations, the parts of Public Humanities) become italic
+--     \subsection headings. The short CV keeps a subheading only when an entry
+--     under it is kept, and drops every other non-list block.
+--   - A list whose entries all end without punctuation is a one-line list,
+--     set with no space between items; a list with any entry ending in a
 --     period, question mark, or exclamation point is a prose list and gets the
 --     template's default 2pt.
 --   - Under a heading with the `.pdf-urls` class (Publications), each entry's
@@ -83,16 +83,6 @@ local function ends_in_punctuation(inlines)
   return text:match("[%.%?!]$") ~= nil
 end
 
-local function append_year(inlines, year)
-  local last = inlines[#inlines]
-  if last and last.t == "Str" and last.text:match("%.$") then
-    inlines[#inlines] = pandoc.Str(last.text:sub(1, -2) .. ",")
-    inlines:extend({ pandoc.Space(), pandoc.Str(year .. ".") })
-  else
-    inlines:extend({ pandoc.Str(","), pandoc.Space(), pandoc.Str(year .. ".") })
-  end
-end
-
 local function first_link(inlines)
   local found
   pandoc.Inlines(inlines):walk({
@@ -114,22 +104,15 @@ end
 -- subheadings, and other blocks.
 local function sections_of(blocks)
   local sections = {}
-  local cur, year
+  local cur
   for _, b in ipairs(blocks) do
     if b.t == "Header" and b.level <= 2 then
       cur = { header = b, parts = {} }
-      year = nil
       table.insert(sections, cur)
     elseif cur == nil then
       -- Nothing precedes the first heading in cv.md; ignore it if it ever does.
     elseif b.t == "Header" then
-      local text = pandoc.utils.stringify(b.content)
-      if text:match("^%d%d%d%d$") then
-        year = text
-      else
-        year = nil
-        table.insert(cur.parts, { kind = "sub", header = b })
-      end
+      table.insert(cur.parts, { kind = "sub", header = b })
     elseif b.t == "BulletList" then
       local last = cur.parts[#cur.parts]
       if not (last and last.kind == "list") then
@@ -138,7 +121,7 @@ local function sections_of(blocks)
       end
       for _, item in ipairs(b.content) do
         local inlines, short = entry_inlines(item)
-        table.insert(last.items, { inlines = inlines, short = short, year = year })
+        table.insert(last.items, { inlines = inlines, short = short })
       end
     else
       table.insert(cur.parts, { kind = "block", block = b })
@@ -150,18 +133,13 @@ end
 local function render_list(items, pdf_urls)
   local prose = false
   for _, it in ipairs(items) do
-    if it.year or ends_in_punctuation(it.inlines) then prose = true end
+    if ends_in_punctuation(it.inlines) then prose = true end
   end
   local out = pandoc.Blocks({
     pandoc.RawBlock("latex", prose and "\\begin{entries}" or "\\begin{entries}[0pt]"),
   })
   for _, it in ipairs(items) do
     local inlines = it.inlines
-    if it.year then
-      append_year(inlines, it.year)
-    elseif not ends_in_punctuation(inlines) then
-      inlines:insert(pandoc.Str("."))
-    end
     if pdf_urls then
       local url = first_link(inlines)
       -- Links into this site are left as hyperlinked titles only: the URL of
@@ -190,8 +168,15 @@ local function render(sections)
           if variant == "full" or it.short then table.insert(items, it) end
         end
         if #items > 0 then table.insert(parts, { kind = "list", items = items }) end
-      elseif variant == "full" then
+      elseif variant == "full" or p.kind == "sub" then
         table.insert(parts, p)
+      end
+    end
+    -- A subheading survives only if entries follow it (in the short CV, the
+    -- years with no marked presentations go).
+    for i = #parts, 1, -1 do
+      if parts[i].kind == "sub" and not (parts[i + 1] and parts[i + 1].kind == "list") then
+        table.remove(parts, i)
       end
     end
     if #parts > 0 then
