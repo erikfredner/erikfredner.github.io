@@ -51,6 +51,7 @@ TAGS_OUT_DIR    := $(OUT_DIR)/tags
 TAGS_INDEX_HTML := $(OUT_DIR)/tags.html
 SITEMAP_SCRIPT  := scripts/build_sitemap.py
 SERVE_SCRIPT    := scripts/serve.py
+CHECK_SCRIPT    := scripts/check_site.py
 SERVE_PORT      := 8000
 SITEMAP_OUT     := $(OUT_DIR)/sitemap.xml
 ROBOTS_SRC      := robots.txt
@@ -191,7 +192,7 @@ CV_INDEX_SRC    := $(SRC_DIR)/cv/index.html
 CV_INDEX_OUT    := $(CV_OUT_DIR)/index.html
 CV_DEPS         := $(CV_SRC) $(CV_STAMP) $(CV_LATEX) $(CV_PDF_FILTER)
 
-all: csl-autoupdate $(HTML_OUT) $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) cv blog tags sitemap
+all: csl-autoupdate $(HTML_OUT) pages-prune $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) cv blog tags sitemap
 
 # Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
@@ -229,6 +230,21 @@ $(NOTFOUND_OUT): $(NOTFOUND_SRC) $(TEMPLATE) $(HERO_FILTER) $(IMAGE_SIZE_FILTER)
 	  --metadata site-url="$(SITE_URL)" \
 	  --metadata pathprefix="/" \
 	  -o $@ $<
+
+# Delete top-level docs/*.html pages whose src/*.md is gone. Mirrors blog-prune:
+# docs/ is the deploy target, so without this a deleted page stays committed,
+# stays served, and stays in sitemap.xml (which enumerates docs/*.html). The
+# keep list adds the pages not built from src/*.md: 404, the blog index, and the
+# tag index.
+pages-prune: | $(OUT_DIR)
+	@keep=" $(notdir $(HTML_OUT) $(NOTFOUND_OUT) $(BLOG_INDEX_HTML) $(TAGS_INDEX_HTML)) "; \
+	for f in $(OUT_DIR)/*.html; do \
+	  [ -e "$$f" ] || continue; \
+	  case "$$keep" in \
+	    *" $$(basename "$$f") "*) ;; \
+	    *) echo "Pages: pruning stale $$f"; rm -f "$$f";; \
+	  esac; \
+	done
 
 # Ensure base output dir exists
 $(OUT_DIR):
@@ -515,6 +531,14 @@ tags: $(BLOG_INDEX_MD) $(TEMPLATE) $(HERO_FILTER) $(IMAGE_SIZE_FILTER) $(LUA_FIL
 sitemap: $(HTML_OUT) $(NOTFOUND_OUT) $(SITEMAP_SCRIPT) blog tags | $(OUT_DIR)
 	@uv run $(SITEMAP_SCRIPT) --out-dir $(OUT_DIR) --site-url $(SITE_URL) --manifest $(BLOG_MANIFEST)
 
+# Check the built site for broken local links and #fragments, duplicate ids,
+# images without alt or reserved dimensions, skipped heading levels, leftover
+# "??" cross-references and "(key?)" citations, and an unparseable feed or
+# sitemap. Offline: external links are not fetched. Not part of `all`, so a
+# problem it finds never blocks a build; run it before committing.
+check: all
+	@uv run --quiet $(CHECK_SCRIPT) --out-dir $(OUT_DIR)
+
 $(ROBOTS_OUT): $(ROBOTS_SRC) | $(OUT_DIR)
 	cp $< $@
 
@@ -527,7 +551,7 @@ update-csl:
 	curl -fsSL $(CSL_UPSTREAM_URL) -o $(CSL_DIR)/chicago-notes.csl
 	@echo "CSL refreshed from upstream. Review with: git diff $(CSL_DIR)"
 
-.PHONY: clean serve prune-images images-prune fonts-prune update-csl csl-autoupdate blog blog-prune tags sitemap fonts
+.PHONY: clean check serve prune-images images-prune pages-prune fonts-prune update-csl csl-autoupdate blog blog-prune tags sitemap fonts
 clean: ; rm -rf $(OUT_DIR)
 # The preview server is scripts/serve.py, not `python3 -m http.server`, because
 # the latter sends only Last-Modified: browsers then apply RFC 9111 heuristic

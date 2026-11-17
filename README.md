@@ -8,7 +8,8 @@ Source for [fredner.org](https://fredner.org) — a static academic website buil
 - [Pandoc](https://pandoc.org)
 - [`pandoc-crossref`](https://github.com/lierdakil/pandoc-crossref) — `brew install pandoc-crossref` (figure/table numbering and cross-references)
 - [`cwebp`](https://developers.google.com/speed/webp/docs/cwebp) — `brew install webp` (for image conversion)
-- [`uv`](https://docs.astral.sh/uv/) (for the blog and font build scripts)
+- [`uv`](https://docs.astral.sh/uv/) (for the blog, font, CV-stamp, and check scripts)
+- A TeX Live with `latexmk` and `pdflatex` (for the PDF CVs)
 - [`entr`](https://eradman.com/entrproject/) — `brew install entr` (only required by `make serve` for live reload)
 - [Zotero](https://www.zotero.org) + [Better BibTeX](https://retorque.re/zotero-better-bibtex/) (for `references.bib`)
 
@@ -23,32 +24,16 @@ make tags         # Just the tag pages
 make sitemap      # Just docs/sitemap.xml
 make prune-images # Delete images in src/images/ not referenced by any post or page, plus their built copies
 make update-csl   # Re-pull the vendored CSL from upstream (review with git diff)
-make fonts        # Re-download and re-subset the Source webfonts (review with git diff)
+make fonts        # Re-download and re-subset EB Garamond (review with git diff)
+make cv           # Just the PDF CVs (docs/cv/cv.pdf, docs/cv/cv-full.pdf)
+make check        # Build, then check docs/ for broken links and anchors, duplicate ids, missing alt/dimensions, and more
 ```
 
 `make` also refreshes the vendored CSL from upstream automatically, at most once every 30 days (tracked by a gitignored stamp file, `vendor/csl/.csl-updated`). The refresh is non-fatal if offline. After a build that prints the refresh message, review with `git diff vendor/csl`.
 
-To rebuild a single page:
+Prefer plain `make` (a full rebuild takes seconds) over running pandoc by hand: the Makefile adds `--toc` per page, keeps the filter order in one place, and regenerates the blog index, feed, and tag pages that a single-page run would leave stale. `CLAUDE.md` documents the full per-page invocation and why the filter order matters.
 
-```bash
-pandoc --standalone --toc-depth=2 --template=templates/base.html \
-  --section-divs \
-  --lua-filter=filters/webp.lua \
-  --metadata site-url="https://fredner.org" \
-  --metadata link-citations=false \
-  --metadata nav-PAGE=true \
-  --lua-filter=filters/og-image.lua \
-  --lua-filter=filters/inject-lists.lua \
-  --filter pandoc-crossref \
-  --lua-filter=filters/wrap-lists.lua \
-  --lua-filter=filters/wrap-tables.lua \
-  --citeproc --bibliography=references.bib --csl=vendor/csl/chicago-notes.csl \
-  -o docs/PAGE.html src/PAGE.md
-```
-
-Blog posts use the same command minus `--toc-depth`, with `--metadata nav-blog=true` and `--metadata pathprefix="../"` so relative asset paths resolve from `docs/blog/`.
-
-Filter order matters: `webp.lua` runs before `og-image.lua` (so the OG tag points at the converted asset), and the two wrappers run after `pandoc-crossref` (so it still sees real list and `Table` elements).
+**Checking:** there is no test suite; `make check` is the regression net. It runs `scripts/check_site.py` over the built site and exits non-zero on anything a reader would hit: a local link, image, or `#fragment` that resolves to nothing, a duplicate id, an image without `alt` or reserved dimensions, a skipped heading level, a dangling `aria-*` reference, a leftover `??` cross-reference or `(key?)` citation, or a feed or sitemap that does not parse. It is offline and does not fetch external links.
 
 ## Architecture
 
@@ -59,10 +44,11 @@ Filter order matters: `webp.lua` runs before `og-image.lua` (so the OG tag point
 | `src/*.md` | Source pages (Markdown + YAML frontmatter) |
 | `src/blog/*.md` | Blog posts (built by the blog pipeline below) |
 | `templates/base.html` | Single HTML template for all pages (nav, skip-link, back-to-top, GoatCounter analytics) |
-| `favicon.svg` | Asterisk mark, set in the site's own Source Serif as a baked path; copied to the site root by `make` |
-| `css/style.css` | The site's single stylesheet: minimalist centered column, the Source type system, light + dark themes — copied to `docs/style.css` by `make` |
-| `fonts/*.woff2` | Self-hosted subset webfonts (Source Serif 4, Source Sans 3, Source Code Pro), built by `make fonts` and copied to `docs/fonts/` |
-| `scripts/build_fonts.py` | Downloads the Adobe variable fonts and subsets them (run via `uv run`, invoked by `make fonts`) |
+| `favicon.svg` | Asterisk mark, set in the site's own EB Garamond as a baked path; copied to the site root by `make` |
+| `css/style.css` | The site's single stylesheet: minimalist centered column, EB Garamond, light + dark themes — copied to `docs/style.css`, comments stripped, by `make` |
+| `fonts/*.woff2` | Self-hosted subset webfonts (EB Garamond roman and italic), built by `make fonts` and copied to `docs/fonts/` |
+| `scripts/build_fonts.py` | Downloads the EB Garamond variable fonts from google/fonts and subsets them (run via `uv run`, invoked by `make fonts`) |
+| `scripts/check_site.py` | Checks the built site for broken links, anchors, ids, images, headings, and markers (`make check`) |
 | `filters/webp.lua` | Rewrites image `src` attributes to `.webp` so HTML matches converted assets |
 | `filters/og-image.lua` | Captures each page's first image as an absolute `og:image` URL for link previews |
 | `filters/inject-lists.lua` | Prepends list-of-figures/tables blocks for pages with `lof: true` / `lot: true` |
@@ -87,9 +73,11 @@ Filter order matters: `webp.lua` runs before `og-image.lua` (so the OG tag point
 
 **Citations:** all citations draw from `references.bib` and render as end-of-document footnotes via `--citeproc` and the Chicago notes style. The build passes `--metadata link-citations=false`: notes-only styles have no bibliography to link to, so citeproc's default anchors would be dead links and would swallow the DOIs and JSTOR URLs that should render as ordinary external links.
 
-**Fonts:** the site sets [Source Serif 4](https://github.com/adobe-fonts/source-serif) for prose, [Source Sans 3](https://github.com/adobe-fonts/source-sans) for headings and chrome, and [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) for code — all SIL OFL 1.1, all self-hosted rather than loaded from a font CDN. Browsers have partitioned the HTTP cache by site since 2020, so a third-party font host buys no cache sharing while costing two extra origin connections on the critical path; serving the fonts from `fonts/` puts them on the already-warm connection and lets them be preloaded.
+**Fonts:** the site sets [EB Garamond](https://github.com/google/fonts/tree/main/ofl/ebgaramond) (SIL OFL 1.1) for everything, self-hosted rather than loaded from a font CDN, and the platform's own monospace for code. Browsers have partitioned the HTTP cache by site since 2020, so a third-party font host buys no cache sharing while costing extra origin connections on the critical path; serving the fonts from `fonts/` puts them on the already-warm connection and lets them be preloaded.
 
-`make fonts` downloads the upstream variable fonts and subsets them to the codepoints the site actually uses (~141 KB for all four faces, down from ~1 MB unsubsetted). It is not part of `make` — run it deliberately and review the diff. See `scripts/build_fonts.py` for the ranges, and note that the site's bibliography needs Latin Extended-A, which the usual "latin" webfont subset omits.
+`make fonts` downloads the upstream variable fonts and subsets them to the codepoints the site actually uses (~82 KB for both faces). It is not part of `make` — run it deliberately and review the diff. See `scripts/build_fonts.py` for the ranges, and note that the site's bibliography needs Latin Extended-A, which the usual "latin" webfont subset omits.
+
+**Footnotes:** citations and notes render as pandoc's end-of-document notes. On browsers with the Popover API, the template's script opens a note in place when its marker is clicked or tapped, with a link on to the notes section; elsewhere, and without the script, the marker is an ordinary in-page link.
 
 **Blog:** `src/blog/*.md` → `scripts/build_blog.py` → `build/` intermediary → `docs/blog/*.html`, plus the `docs/blog.html` index, the `docs/tags/` pages, and the `docs/feed.xml` Atom feed. `title` is the only required frontmatter; `description`, `draft`, `tags`, and `date` are optional. Posts marked `draft: true` are excluded from the index, the feed, and the build. The index layout is emitted as raw HTML by `build_blog.py` rather than by a template, so changing it means editing that script.
 
