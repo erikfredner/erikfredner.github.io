@@ -1,0 +1,19 @@
+% Added to pandoc's own LaTeX template for the article PDFs (make articles).
+%
+% Ragged right, as on the web and in the CV: no justified text (WCAG 1.4.8),
+% and long URLs in the notes wrap at slashes instead of overfilling lines.
+% LaTeX's own \raggedright rather than ragged2e: ragged2e's finite rightskip
+% raised ~200 underfull-box warnings per article on lines ending in a long URL.
+% \raggedright zeroes \parindent, so the first-line indent is set after it;
+% indents rather than pandoc's default space between paragraphs, as in a
+% printed article.
+\AtBeginDocument{\raggedright\setlength{\parindent}{1.5em}}
+\setlength{\parskip}{0pt}
+% microtype's font expansion (on in pandoc's template) only serves justified
+% text; with ragged right it just pushed lines a fraction of a point over.
+\microtypesetup{expansion=false}
+% Long URLs in the notes may break at any character, not only at slashes.
+\usepackage{xurl}
+% URLs and DOIs in the body face, not monospace. Deferred because pandoc's
+% template loads url (via hyperref) after the header includes.
+\AtBeginDocument{\urlstyle{same}}

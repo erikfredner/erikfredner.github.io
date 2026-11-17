@@ -694,6 +694,84 @@ sup,
 sub {
   line-height: 0;
 }
+.article-byline {
+  margin-block: 0.25rem 1.5rem;
+}
+h1.title:has(+ .article-byline) {
+  margin-bottom: 0;
+}
+.article-info {
+  font-size: 0.9em;
+  border-block: 1px solid var(--border);
+  padding-block: 0.75rem;
+  margin-block: 1.5rem;
+  overflow-wrap: anywhere;
+}
+.article-info p {
+  margin-block: 0 0.5em;
+}
+.article-status,
+.article-notice {
+  color: var(--muted);
+}
+.article-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.25rem;
+}
+.article-info .article-links {
+  margin-bottom: 0;
+}
+.copy-citation {
+  font: inherit;
+  color: var(--link);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+.copy-citation:hover {
+  text-decoration-thickness: 2px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.heading-link {
+  margin-inline-start: 0.35em;
+  color: var(--muted);
+  font-weight: 400;
+  text-decoration: none;
+}
+.heading-link:visited {
+  color: var(--muted);
+}
+.heading-link:hover,
+.heading-link:focus-visible {
+  color: var(--link);
+}
+@media (hover: hover) {
+  .heading-link {
+    opacity: 0;
+  }
+  :is(h2, h3, h4):hover > .heading-link,
+  .heading-link:focus-visible {
+    opacity: 1;
+  }
+}
+@media (hover: none) {
+  .heading-link {
+    opacity: 0.5;
+  }
+}
 .works-cited {
   font-size: 0.9em;
   overflow-wrap: anywhere;
@@ -783,6 +861,8 @@ a.footnote-ref {
   .back-to-top,
   .skip-link,
   .note-preview,
+  .heading-link,
+  .copy-citation,
   .figure-lightbox {
     display: none;
   }

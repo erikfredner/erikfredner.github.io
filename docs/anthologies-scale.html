@@ -4,11 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Anthologies at Scale: Reading,
-Fast and Slow&mdash;Erik Fredner">
+    <meta property="og:title" content="Anthologies at Scale: Reading, Fast and Slow&mdash;Erik Fredner">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Erik Fredner">
-    <meta property="og:url" content="https://fredner.org/anthologies-scale.html">        <meta name="color-scheme" content="light dark">
+    <meta property="og:url" content="https://fredner.org/anthologies-scale.html">        
+  
+    <meta name="color-scheme" content="light dark">
   <!-- Preload both EB Garamond faces, the roman and its italic. The italic
        belongs here even though it covers less text — style.css uses
        `font-display: optional`, and under `optional` each face that misses its
@@ -24,8 +25,11 @@ Fast and Slow&mdash;Erik Fredner">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="canonical" href="https://fredner.org/anthologies-scale.html">  <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
-    <title>Anthologies at Scale: Reading, Fast and
-Slow&mdash;Erik Fredner</title>
+  <link rel="me" href="https://orcid.org/0000-0002-2993-4961">
+    <!-- pagetitle, not title: pandoc sets it to the title with formatting
+       stripped. The title variable is HTML, so a title with italics (Averaging Americans,
+       the MLAIB page) showed its literal <i> tags in the tab and link previews. -->
+  <title>Anthologies at Scale: Reading, Fast and Slow&mdash;Erik Fredner</title>
   <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -63,42 +67,55 @@ Slow</h1>
         
         
         
+        
       </header>
-                  <p>Co-authored with <a
-                  href="https://www.english.upenn.edu/people/j-d-porter">J.
-                  D. Porter</a>.</p>
-                  <p>Digital systems are associated with the fast and
-                  easy transfer of data. However, the creation of that
-                  data is often slow and difficult.</p>
-                  <p>In this essay, we argue for the intellectual and
-                  cultural benefits of reading slowly during the
-                  production of data, observations we made through
-                  methodology we adapted to create the database that
-                  underwrites our research on <em>The Norton Anthology
-                  of American Literature</em>.<span class="citation"
-                  data-cites="frednerCountingNortonAnthology2024"><a
-                  href="#fn1" class="footnote-ref" id="fnref1"
-                  role="doc-noteref"><sup>1</sup></a></span> At the same
-                  time, we also point to the benefits of that slow but
-                  confident data production process to use as validation
-                  data for automation. Here again, slow is a
-                  precondition for fast.</p>
-                  <section id="footnotes"
-                  class="footnotes footnotes-end-of-document"
-                  role="doc-endnotes">
-                  <hr />
-                  <ol>
-                  <li id="fn1"><p>Erik Fredner and J. D. Porter,
-                  <span>“Counting on <span><em>The Norton
-                  Anthology</em></span><span> <em>of</em>
-                  </span><span><em>American
-                  Literature</em></span>,”</span> <em>PMLA</em> 139, no.
-                  1 (2024): 50–65, <a
-                  href="https://doi.org/10.1632/S0030812923001189">https://doi.org/10.1632/S0030812923001189</a>.<a
-                  href="#fnref1" class="footnote-back"
-                  role="doc-backlink">↩︎</a></p></li>
-                  </ol>
-                  </section>
+                                    <p>Co-authored with <a
+                                    href="https://www.english.upenn.edu/people/j-d-porter">J.
+                                    D. Porter</a>.</p>
+                                    <p>Digital systems are associated
+                                    with the fast and easy transfer of
+                                    data. However, the creation of that
+                                    data is often slow and
+                                    difficult.</p>
+                                    <p>In this essay, we argue for the
+                                    intellectual and cultural benefits
+                                    of reading slowly during the
+                                    production of data, observations we
+                                    made through methodology we adapted
+                                    to create the database that
+                                    underwrites our research on <em>The
+                                    Norton Anthology of American
+                                    Literature</em>.<span
+                                    class="citation"
+                                    data-cites="frednerCountingNortonAnthology2024"><a
+                                    href="#fn1" class="footnote-ref"
+                                    id="fnref1"
+                                    role="doc-noteref"><sup>1</sup></a></span>
+                                    At the same time, we also point to
+                                    the benefits of that slow but
+                                    confident data production process to
+                                    use as validation data for
+                                    automation. Here again, slow is a
+                                    precondition for fast.</p>
+                                    <section id="footnotes"
+                                    class="footnotes footnotes-end-of-document"
+                                    role="doc-endnotes">
+                                    <hr />
+                                    <ol>
+                                    <li id="fn1"><p>Erik Fredner and J.
+                                    D. Porter, <span>“Counting on
+                                    <span><em>The Norton
+                                    Anthology</em></span><span>
+                                    <em>of</em>
+                                    </span><span><em>American
+                                    Literature</em></span>,”</span>
+                                    <em>PMLA</em> 139, no. 1 (2024):
+                                    50–65, <a
+                                    href="https://doi.org/10.1632/S0030812923001189">https://doi.org/10.1632/S0030812923001189</a>.<a
+                                    href="#fnref1" class="footnote-back"
+                                    role="doc-backlink">↩︎</a></p></li>
+                                    </ol>
+                                    </section>
     </article>
         <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 
@@ -278,6 +295,52 @@ Slow</h1>
         });
         window.addEventListener('resize', function () {
           if (pop.matches(':popover-open')) pop.hidePopover();
+        });
+      })();
+
+      // Section links: a "#" after each h2-h4 that heads a section with an id
+      // (--section-divs puts the id on the <section>, not the heading), so a
+      // reader can cite or share one part of a 10,000-word essay without
+      // digging the id out of the Contents box. Added here rather than in a
+      // filter because pandoc builds the table of contents from heading
+      // content, and a link inside every heading would land in it too.
+      (function () {
+        var hs = document.querySelectorAll(
+          'article section[id] > h2, article section[id] > h3, article section[id] > h4');
+        Array.prototype.forEach.call(hs, function (h) {
+          var a = document.createElement('a');
+          a.className = 'heading-link';
+          a.href = '#' + h.parentNode.id;
+          a.setAttribute('aria-label', 'Link to this section');
+          a.textContent = '#';
+          h.appendChild(a);
+        });
+      })();
+
+      // "Copy citation" beside an article's PDF/BibTeX/RIS links.
+      (function () {
+        var cite = document.querySelector('.article-citation');
+        var links = document.querySelector('.article-links');
+        if (!cite || !links || !navigator.clipboard) return;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy-citation';
+        btn.textContent = 'Copy citation';
+        var status = document.createElement('span');
+        status.className = 'visually-hidden';
+        status.setAttribute('role', 'status');
+        links.appendChild(btn);
+        links.appendChild(status);
+        btn.addEventListener('click', function () {
+          var text = cite.textContent.replace(/\s+/g, ' ').trim();
+          navigator.clipboard.writeText(text).then(function () {
+            btn.textContent = 'Copied';
+            status.textContent = 'Citation copied';
+            setTimeout(function () {
+              btn.textContent = 'Copy citation';
+              status.textContent = '';
+            }, 2000);
+          }, function () {});
         });
       })();
     </script>

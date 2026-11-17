@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="That page does not
-exist.">  <meta property="og:title" content="Page not
-found&mdash;Erik Fredner">
+exist.">  <meta property="og:title" content="Page not found&mdash;Erik Fredner">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Erik Fredner">
         <meta property="og:description" content="That page does not
-exist.">    <meta name="color-scheme" content="light dark">
+exist.">    
+  
+    <meta name="color-scheme" content="light dark">
   <!-- Preload both EB Garamond faces, the roman and its italic. The italic
        belongs here even though it covers less text — style.css uses
        `font-display: optional`, and under `optional` each face that misses its
@@ -26,7 +27,11 @@ exist.">    <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
-    <title>Page not found&mdash;Erik Fredner</title>
+  <link rel="me" href="https://orcid.org/0000-0002-2993-4961">
+    <!-- pagetitle, not title: pandoc sets it to the title with formatting
+       stripped. The title variable is HTML, so a title with italics (Averaging Americans,
+       the MLAIB page) showed its literal <i> tags in the tab and link previews. -->
+  <title>Page not found&mdash;Erik Fredner</title>
   <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -63,13 +68,18 @@ exist.">    <meta name="color-scheme" content="light dark">
         
         
         
+        
       </header>
-                  <p>There is nothing at this address. The page may have
-                  moved, or the link that brought you here may be
-                  wrong.</p>
-                  <p>Try the <a href="/index.html">home page</a>, the <a
-                  href="/blog.html">blog</a>, or the <a
-                  href="/research.html">research</a> index.</p>
+                                    <p>There is nothing at this address.
+                                    The page may have moved, or the link
+                                    that brought you here may be
+                                    wrong.</p>
+                                    <p>Try the <a
+                                    href="/index.html">home page</a>,
+                                    the <a href="/blog.html">blog</a>,
+                                    or the <a
+                                    href="/research.html">research</a>
+                                    index.</p>
     </article>
         <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 
@@ -249,6 +259,52 @@ exist.">    <meta name="color-scheme" content="light dark">
         });
         window.addEventListener('resize', function () {
           if (pop.matches(':popover-open')) pop.hidePopover();
+        });
+      })();
+
+      // Section links: a "#" after each h2-h4 that heads a section with an id
+      // (--section-divs puts the id on the <section>, not the heading), so a
+      // reader can cite or share one part of a 10,000-word essay without
+      // digging the id out of the Contents box. Added here rather than in a
+      // filter because pandoc builds the table of contents from heading
+      // content, and a link inside every heading would land in it too.
+      (function () {
+        var hs = document.querySelectorAll(
+          'article section[id] > h2, article section[id] > h3, article section[id] > h4');
+        Array.prototype.forEach.call(hs, function (h) {
+          var a = document.createElement('a');
+          a.className = 'heading-link';
+          a.href = '#' + h.parentNode.id;
+          a.setAttribute('aria-label', 'Link to this section');
+          a.textContent = '#';
+          h.appendChild(a);
+        });
+      })();
+
+      // "Copy citation" beside an article's PDF/BibTeX/RIS links.
+      (function () {
+        var cite = document.querySelector('.article-citation');
+        var links = document.querySelector('.article-links');
+        if (!cite || !links || !navigator.clipboard) return;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy-citation';
+        btn.textContent = 'Copy citation';
+        var status = document.createElement('span');
+        status.className = 'visually-hidden';
+        status.setAttribute('role', 'status');
+        links.appendChild(btn);
+        links.appendChild(status);
+        btn.addEventListener('click', function () {
+          var text = cite.textContent.replace(/\s+/g, ' ').trim();
+          navigator.clipboard.writeText(text).then(function () {
+            btn.textContent = 'Copied';
+            status.textContent = 'Citation copied';
+            setTimeout(function () {
+              btn.textContent = 'Copy citation';
+              status.textContent = '';
+            }, 2000);
+          }, function () {});
         });
       })();
     </script>

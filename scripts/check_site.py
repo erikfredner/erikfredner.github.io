@@ -76,6 +76,9 @@ class Page(HTMLParser):
         # Pre-HTML5 named anchors still work as fragment targets.
         if tag == "a" and a.get("name"):
             self.ids.setdefault(a["name"], self.getpos()[0])
+        # The Scholar tags point at the page and its PDF (filters/article.lua).
+        if tag == "meta" and a.get("name") in ("citation_pdf_url", "citation_fulltext_html_url"):
+            self.links.append((tag, a["name"], a.get("content") or "", self.getpos()[0]))
         for attr in ("href", "src", "poster"):
             if a.get(attr):
                 self.links.append((tag, attr, a[attr], self.getpos()[0]))

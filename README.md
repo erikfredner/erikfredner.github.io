@@ -9,7 +9,8 @@ Source for [fredner.org](https://fredner.org) — a static academic website buil
 - [`pandoc-crossref`](https://github.com/lierdakil/pandoc-crossref) — `brew install pandoc-crossref` (figure/table numbering and cross-references)
 - [`cwebp`](https://developers.google.com/speed/webp/docs/cwebp) — `brew install webp` (for image conversion)
 - [`uv`](https://docs.astral.sh/uv/) (for the blog, font, CV-stamp, and check scripts)
-- A TeX Live with `latexmk` and `pdflatex` (for the PDF CVs)
+- A TeX Live with `latexmk` and `pdflatex` (for the PDF CVs and article PDFs)
+- [cairo](https://www.cairographics.org) — `brew install cairo` (SVG figures are converted to PDF for the article PDFs)
 - [`entr`](https://eradman.com/entrproject/) — `brew install entr` (only required by `make serve` for live reload)
 - [Zotero](https://www.zotero.org) + [Better BibTeX](https://retorque.re/zotero-better-bibtex/) (for `references.bib`)
 
@@ -26,6 +27,7 @@ make prune-images # Delete images in src/images/ not referenced by any post or p
 make update-csl   # Re-pull the vendored CSL from upstream (review with git diff)
 make fonts        # Re-download and re-subset EB Garamond (review with git diff)
 make cv           # Just the PDF CVs (docs/cv/cv.pdf, docs/cv/cv-full.pdf)
+make articles     # Just the article PDFs, BibTeX, and RIS files
 make check        # Build, then check docs/ for broken links and anchors, duplicate ids, missing alt/dimensions, and more
 ```
 
@@ -76,6 +78,8 @@ Prefer plain `make` (a full rebuild takes seconds) over running pandoc by hand: 
 **Fonts:** the site sets [EB Garamond](https://github.com/google/fonts/tree/main/ofl/ebgaramond) (SIL OFL 1.1) for everything, self-hosted rather than loaded from a font CDN, and the platform's own monospace for code. Browsers have partitioned the HTTP cache by site since 2020, so a third-party font host buys no cache sharing while costing extra origin connections on the critical path; serving the fonts from `fonts/` puts them on the already-warm connection and lets them be preloaded.
 
 `make fonts` downloads the upstream variable fonts and subsets them to the codepoints the site actually uses (~82 KB for both faces). It is not part of `make` — run it deliberately and review the diff. See `scripts/build_fonts.py` for the ranges, and note that the site's bibliography needs Latin Extended-A, which the usual "latin" webfont subset omits.
+
+**Articles:** a page's frontmatter can carry an `abstract:` (shown under the title and used as the page description) and an `article:` block describing the published or forthcoming article (authors, journal, volume, issue, pages, DOI, publisher notice; see `filters/article.lua`). From that the build produces a citation box with PDF, BibTeX, and RIS downloads, Google Scholar/Zotero `citation_*` meta tags on pages holding the full text, and a tagged PDF of the manuscript. Section headings get a `#` link for citing or sharing a section.
 
 **Footnotes:** citations and notes render as pandoc's end-of-document notes. On browsers with the Popover API, the template's script opens a note in place when its marker is clicked or tapped, with a link on to the notes section; elsewhere, and without the script, the marker is an ordinary in-page link.
 

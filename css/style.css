@@ -1050,6 +1050,112 @@ sub {
   line-height: 0;
 }
 
+/* ---------- Article apparatus (filters/article.lua) ---------- */
+
+/* Co-authors under the title, in the subtitle's voice but body-sized. */
+.article-byline {
+  margin-block: 0.25rem 1.5rem;
+}
+
+h1.title:has(+ .article-byline) {
+  margin-bottom: 0;
+}
+
+/* Status, citation, notice, and downloads: reference matter, so set at the
+   notes' size and delimited by a rule rather than a panel, which would
+   compete with the Contents accordion below it. */
+.article-info {
+  font-size: 0.9em;
+  border-block: 1px solid var(--border);
+  padding-block: 0.75rem;
+  margin-block: 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.article-info p {
+  margin-block: 0 0.5em;
+}
+
+.article-status,
+.article-notice {
+  color: var(--muted);
+}
+
+.article-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.25rem;
+}
+
+.article-info .article-links {
+  margin-bottom: 0;
+}
+
+/* Styled as a link, since it sits in a row of them; a real <button> because
+   it acts rather than navigates. */
+.copy-citation {
+  font: inherit;
+  color: var(--link);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.copy-citation:hover {
+  text-decoration-thickness: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Section links (templates/base.html). Muted, and on a pointer device shown
+   only while the heading is hovered or the link focused, so 20-odd "#"
+   marks don't line the essay. Touch screens have no hover: there they stay,
+   faint. */
+.heading-link {
+  margin-inline-start: 0.35em;
+  color: var(--muted);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.heading-link:visited {
+  color: var(--muted);
+}
+
+.heading-link:hover,
+.heading-link:focus-visible {
+  color: var(--link);
+}
+
+@media (hover: hover) {
+  .heading-link {
+    opacity: 0;
+  }
+
+  :is(h2, h3, h4):hover > .heading-link,
+  .heading-link:focus-visible {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .heading-link {
+    opacity: 0.5;
+  }
+}
+
 /* ---------- Works cited (hand-written MLA lists, not citeproc) ---------- */
 
 /* A `::: {.works-cited}` div of one paragraph per entry, set with a hanging
@@ -1181,6 +1287,8 @@ a.footnote-ref {
   .back-to-top,
   .skip-link,
   .note-preview,
+  .heading-link,
+  .copy-citation,
   .figure-lightbox {
     display: none;
   }

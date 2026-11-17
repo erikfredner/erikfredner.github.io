@@ -4,11 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="<i>Averaging
-Americans</i>&mdash;Erik Fredner">
+    <meta property="og:title" content="Averaging Americans&mdash;Erik Fredner">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Erik Fredner">
-    <meta property="og:url" content="https://fredner.org/averaging-americans.html">        <meta name="color-scheme" content="light dark">
+    <meta property="og:url" content="https://fredner.org/averaging-americans.html">        
+  
+    <meta name="color-scheme" content="light dark">
   <!-- Preload both EB Garamond faces, the roman and its italic. The italic
        belongs here even though it covers less text — style.css uses
        `font-display: optional`, and under `optional` each face that misses its
@@ -24,7 +25,11 @@ Americans</i>&mdash;Erik Fredner">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="canonical" href="https://fredner.org/averaging-americans.html">  <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Erik Fredner">
-    <title><i>Averaging Americans</i>&mdash;Erik Fredner</title>
+  <link rel="me" href="https://orcid.org/0000-0002-2993-4961">
+    <!-- pagetitle, not title: pandoc sets it to the title with formatting
+       stripped. The title variable is HTML, so a title with italics (Averaging Americans,
+       the MLAIB page) showed its literal <i> tags in the tab and link previews. -->
+  <title>Averaging Americans&mdash;Erik Fredner</title>
   <!-- Goat Counter -->
   <script data-goatcounter="https://erik.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -61,29 +66,43 @@ Americans</i>&mdash;Erik Fredner">
         
         
         
+        
       </header>
-                  <p><em>Averaging Americans: Why US Literature Started
-                  Thinking Statistically</em> discovers a significant
-                  trend in US literary history by computationally
-                  analyzing more than 18,000 works of US fiction across
-                  the long nineteenth century. American authors
-                  increasingly make generalizations about individuals
-                  and groups of people using statistical reasoning, and
-                  become increasingly confident in asserting fixed
-                  characteristics as central tendencies of groups.</p>
-                  <p>I argue that this trend reflects an increasing
-                  awareness of and anxiety about questions of
-                  population, polity, and representativeness, one that
-                  manifests in the attempt to shore up qualitative
-                  judgments through quantification. Statistical
-                  reasoning is central to issues of race, class, and
-                  power that have preoccupied scholars of the US for
-                  decades, yet its influence on American literature has
-                  too rarely been studied. This is not because writers
-                  of the period were unacquainted with the power of
-                  statistics to (mis)represent the world; Mark Twain
-                  famously warned his readers about “three kinds of
-                  lies: lies, damned lies, and statistics.”</p>
+                                    <p><em>Averaging Americans: Why US
+                                    Literature Started Thinking
+                                    Statistically</em> discovers a
+                                    significant trend in US literary
+                                    history by computationally analyzing
+                                    more than 18,000 works of US fiction
+                                    across the long nineteenth century.
+                                    American authors increasingly make
+                                    generalizations about individuals
+                                    and groups of people using
+                                    statistical reasoning, and become
+                                    increasingly confident in asserting
+                                    fixed characteristics as central
+                                    tendencies of groups.</p>
+                                    <p>I argue that this trend reflects
+                                    an increasing awareness of and
+                                    anxiety about questions of
+                                    population, polity, and
+                                    representativeness, one that
+                                    manifests in the attempt to shore up
+                                    qualitative judgments through
+                                    quantification. Statistical
+                                    reasoning is central to issues of
+                                    race, class, and power that have
+                                    preoccupied scholars of the US for
+                                    decades, yet its influence on
+                                    American literature has too rarely
+                                    been studied. This is not because
+                                    writers of the period were
+                                    unacquainted with the power of
+                                    statistics to (mis)represent the
+                                    world; Mark Twain famously warned
+                                    his readers about “three kinds of
+                                    lies: lies, damned lies, and
+                                    statistics.”</p>
     </article>
         <a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
 
@@ -263,6 +282,52 @@ Americans</i>&mdash;Erik Fredner">
         });
         window.addEventListener('resize', function () {
           if (pop.matches(':popover-open')) pop.hidePopover();
+        });
+      })();
+
+      // Section links: a "#" after each h2-h4 that heads a section with an id
+      // (--section-divs puts the id on the <section>, not the heading), so a
+      // reader can cite or share one part of a 10,000-word essay without
+      // digging the id out of the Contents box. Added here rather than in a
+      // filter because pandoc builds the table of contents from heading
+      // content, and a link inside every heading would land in it too.
+      (function () {
+        var hs = document.querySelectorAll(
+          'article section[id] > h2, article section[id] > h3, article section[id] > h4');
+        Array.prototype.forEach.call(hs, function (h) {
+          var a = document.createElement('a');
+          a.className = 'heading-link';
+          a.href = '#' + h.parentNode.id;
+          a.setAttribute('aria-label', 'Link to this section');
+          a.textContent = '#';
+          h.appendChild(a);
+        });
+      })();
+
+      // "Copy citation" beside an article's PDF/BibTeX/RIS links.
+      (function () {
+        var cite = document.querySelector('.article-citation');
+        var links = document.querySelector('.article-links');
+        if (!cite || !links || !navigator.clipboard) return;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy-citation';
+        btn.textContent = 'Copy citation';
+        var status = document.createElement('span');
+        status.className = 'visually-hidden';
+        status.setAttribute('role', 'status');
+        links.appendChild(btn);
+        links.appendChild(status);
+        btn.addEventListener('click', function () {
+          var text = cite.textContent.replace(/\s+/g, ' ').trim();
+          navigator.clipboard.writeText(text).then(function () {
+            btn.textContent = 'Copied';
+            status.textContent = 'Citation copied';
+            setTimeout(function () {
+              btn.textContent = 'Copy citation';
+              status.textContent = '';
+            }, 2000);
+          }, function () {});
         });
       })();
     </script>

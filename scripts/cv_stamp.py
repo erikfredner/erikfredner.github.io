@@ -39,7 +39,7 @@ def main() -> None:
         data = {"date": datetime.now(SITE_TZ).date().isoformat(), "hash": digest}
         stamp.parent.mkdir(parents=True, exist_ok=True)
         stamp.write_text(json.dumps(data, indent=2) + "\n")
-        print(f"cv_stamp: {source} changed; PDF CV dated {data['date']}", file=sys.stderr)
+        print(f"cv_stamp: {source} changed; PDF dated {data['date']}", file=sys.stderr)
     else:
         # Unchanged content, but mark the stamp up to date for Make.
         stamp.touch()

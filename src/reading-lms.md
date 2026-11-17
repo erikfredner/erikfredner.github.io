@@ -9,6 +9,17 @@ link-bibliography: true
 link-citations: true
 strip-comments: true
 toc: true
+article:
+  authors:
+    - name: Erik Fredner
+      orcid: "0000-0002-2993-4961"
+  journal: MFS Modern Fiction Studies
+  volume: 73
+  issue: 1
+  year: 2027
+  status: forthcoming
+  special-issue: Cultural AI
+  notice: "Copyright © 2027 Purdue University. This article will appear in *MFS Modern Fiction Studies*, Volume 73, Issue 1, 2027 as part of a special issue on the topic of Cultural AI edited by Richard Jean So and Aarthi Vadde. Published by Johns Hopkins University Press."
 nocite: |
   @bayardHowTalkBooks2007
   @brooksHeresyParaphrase1947
@@ -30,14 +41,6 @@ nocite: |
   @wolochOneVsMany2003
   @yehStoryRibbonsReimagining2026
 ---
-
-## Manuscript Information
-
-Copyright © 2027 Purdue University. This article will appear in *MFS Modern Fiction Studies*, Volume 73, Issue 1, 2027 as part of a special issue on the topic of Cultural AI edited by Richard Jean So and Aarthi Vadde. Published by Johns Hopkins University Press.
-
-## Abstract
-
-Literary scholars' justified opposition to their students' use of language models (LMs) to avoid the reading, writing, and thinking crucial to the teaching of literature has obscured how LMs can advance literary scholarship. I argue that literary scholars using LMs have already begun to construct an implicit norm that gives greater license to read with LMs when they adopt what Louise Rosenblatt terms the efferent stance toward literary texts, but less license when they adopt what she terms the aesthetic stance. Rosenblatt’s distinction may help mediate the conflict between literary scholars who strongly oppose LMs and those who are curious to know what value they may have for literary studies by demarcating limits to LMs’ use within the discipline’s core practices of reading.
 
 ## Introduction
 

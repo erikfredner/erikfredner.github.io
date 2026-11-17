@@ -17,6 +17,7 @@ HANGING_LISTS_FILTER := filters/hanging-lists.lua
 ABSOLUTIZE_FILTER := filters/absolutize.lua
 CV_WEB_FILTER := filters/cv-web.lua
 CV_PDF_FILTER := filters/cv-pdf.lua
+ARTICLE_FILTER := filters/article.lua
 AUTHOR := Erik Fredner
 
 # 404.md is excluded from the generic rule: GitHub Pages serves docs/404.html in
@@ -82,7 +83,9 @@ ROBOTS_OUT      := $(OUT_DIR)/robots.txt
 IMAGE_FILTER_OPTS := --lua-filter=$(HERO_FILTER) --lua-filter=$(IMAGE_SIZE_FILTER) --lua-filter=$(LUA_FILTER)
 # Site pages only, never the feed fragments: hero-video turns a video hero's
 # linked poster into a <video>, which feed readers mostly strip.
-PAGE_FILTER_OPTS := --lua-filter=$(OG_IMAGE_FILTER) --lua-filter=$(HERO_VIDEO_FILTER)
+# article.lua builds the article box, the abstract-derived description, and the
+# Scholar tags (see the filter's header).
+PAGE_FILTER_OPTS := --lua-filter=$(OG_IMAGE_FILTER) --lua-filter=$(HERO_VIDEO_FILTER) --lua-filter=$(ARTICLE_FILTER)
 CONTENT_FILTERS  := --lua-filter=$(CV_WEB_FILTER) \
                     --lua-filter=$(LISTS_FILTER) \
                     --filter pandoc-crossref \
@@ -100,7 +103,7 @@ COMMON_META      := --metadata site-url="$(SITE_URL)" \
 # fragment whenever the template changed, for no difference in output.
 CONTENT_DEPS := $(BIBLIOGRAPHY) $(CSL) $(CV_WEB_FILTER) $(HERO_FILTER) $(IMAGE_SIZE_FILTER) $(LUA_FILTER) $(LISTS_FILTER) \
                 $(FIGURES_FILTER) $(WRAP_LISTS_FILTER) $(WRAP_TABLES_FILTER) $(HANGING_LISTS_FILTER)
-PAGE_DEPS    := $(TEMPLATE) $(OG_IMAGE_FILTER) $(HERO_VIDEO_FILTER) $(CONTENT_DEPS)
+PAGE_DEPS    := $(TEMPLATE) $(OG_IMAGE_FILTER) $(HERO_VIDEO_FILTER) $(ARTICLE_FILTER) $(CONTENT_DEPS)
 
 # Pages built from markdown this repo *generates* (the blog index and the tag
 # pages): no --section-divs, no crossref, no citeproc, no site-url. The markup
@@ -192,7 +195,36 @@ CV_INDEX_SRC    := $(SRC_DIR)/cv/index.html
 CV_INDEX_OUT    := $(CV_OUT_DIR)/index.html
 CV_DEPS         := $(CV_SRC) $(CV_STAMP) $(CV_LATEX) $(CV_PDF_FILTER)
 
-all: csl-autoupdate $(HTML_OUT) pages-prune $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) cv blog tags sitemap
+# Articles: pages whose frontmatter has `article:` (see filters/article.lua).
+# Each gets docs/<stem>.bib and .ris; each that holds its full text (no
+# `full-text: false`) also gets docs/<stem>.pdf, built with pandoc's own LaTeX
+# template (tagged PDF/UA-2) through pdfLaTeX. SVG figures are converted to PDF
+# first, since pdfLaTeX cannot read SVG. Like the CV, each PDF's internal date
+# comes from a committed stamp re-dated only when the source changes, so the
+# PDFs are byte-reproducible.
+CITE_SCRIPT       := scripts/build_citations.py
+SVG2PDF_SCRIPT    := scripts/svg2pdf.py
+ARTICLE_SRC       := $(shell grep -l '^article:' $(SRC_MD))
+MANUSCRIPT_SRC    := $(shell for f in $(ARTICLE_SRC); do grep -q '^  full-text: false' "$$f" || echo "$$f"; done)
+ARTICLE_CITE_OUT  := $(patsubst $(SRC_DIR)/%.md,$(OUT_DIR)/%.bib,$(ARTICLE_SRC)) \
+                     $(patsubst $(SRC_DIR)/%.md,$(OUT_DIR)/%.ris,$(ARTICLE_SRC))
+ARTICLE_PDF_OUT   := $(patsubst $(SRC_DIR)/%.md,$(OUT_DIR)/%.pdf,$(MANUSCRIPT_SRC))
+ARTICLE_BUILD_DIR := $(BUILD_DIR)/article
+ARTICLE_STAMP_DIR := $(SRC_DIR)/article-stamps
+ARTICLE_PDF_HEADER := templates/article-pdf.tex
+ARTICLE_FIGS      := $(patsubst $(IMG_SRC_DIR)/%.svg,$(ARTICLE_BUILD_DIR)/figs/%.pdf,$(wildcard $(IMG_SRC_DIR)/*.svg))
+# Homebrew's lib dir, where cairosvg finds libcairo on macOS.
+HOMEBREW_LIB      := $(shell brew --prefix 2>/dev/null)/lib
+ARTICLE_PDF_OPTS  := --variable documentclass=article \
+                     --variable fontsize=12pt \
+                     --variable papersize=letter \
+                     --variable geometry=margin=1in \
+                     --variable fontfamily=ebgaramond \
+                     --variable lang=en-US \
+                     --variable pdfstandard=ua-2 \
+                     --include-in-header=$(ARTICLE_PDF_HEADER)
+
+all: csl-autoupdate $(HTML_OUT) articles pages-prune $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) cv blog tags sitemap
 
 # Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
@@ -231,14 +263,55 @@ $(NOTFOUND_OUT): $(NOTFOUND_SRC) $(TEMPLATE) $(HERO_FILTER) $(IMAGE_SIZE_FILTER)
 	  --metadata pathprefix="/" \
 	  -o $@ $<
 
+# Article citation files and PDFs (`make articles`, and part of `make`).
+.PHONY: articles
+articles: $(ARTICLE_CITE_OUT) $(ARTICLE_PDF_OUT)
+
+# One run writes both files; a multi-target pattern rule tells Make so.
+$(OUT_DIR)/%.bib $(OUT_DIR)/%.ris: $(SRC_DIR)/%.md $(CITE_SCRIPT) | $(OUT_DIR)
+	uv run --quiet $(CITE_SCRIPT) $< $(OUT_DIR)
+
+$(ARTICLE_BUILD_DIR)/figs: | $(BUILD_DIR)
+	mkdir -p $@
+
+$(ARTICLE_FIGS): $(ARTICLE_BUILD_DIR)/figs/%.pdf: $(IMG_SRC_DIR)/%.svg $(SVG2PDF_SCRIPT) | $(ARTICLE_BUILD_DIR)/figs
+	DYLD_FALLBACK_LIBRARY_PATH=$(HOMEBREW_LIB) uv run --quiet $(SVG2PDF_SCRIPT) $< $@
+
+# Re-dated only when the source's content changes (scripts/cv_stamp.py).
+$(ARTICLE_STAMP_DIR)/%.json: $(SRC_DIR)/%.md $(CV_STAMP_SCRIPT)
+	uv run --quiet $(CV_STAMP_SCRIPT) $< $@
+
+# article.lua runs after citeproc here, so it can turn the plain-text URLs
+# citeproc emits into breakable \url links (see the filter).
+# latexmk runs in build/article/, where article.lua points SVG figures at
+# figs/ and other images back at src/images/. -usepretex pins the UUID tagpdf
+# gives its structure namespace (see templates/cv.latex), since pandoc's
+# template offers no hook before \DocumentMetadata.
+$(ARTICLE_PDF_OUT): $(OUT_DIR)/%.pdf: $(SRC_DIR)/%.md $(ARTICLE_STAMP_DIR)/%.json $(ARTICLE_FIGS) \
+                    $(ARTICLE_FILTER) $(ARTICLE_PDF_HEADER) $(BIBLIOGRAPHY) $(CSL) | $(ARTICLE_BUILD_DIR)/figs
+	$(PANDOC) $< --to latex --standalone $(ARTICLE_PDF_OPTS) \
+	  $(COMMON_META) \
+	  --filter pandoc-crossref \
+	  $(CITEPROC_OPTS) \
+	  --lua-filter=$(ARTICLE_FILTER) \
+	  -o $(ARTICLE_BUILD_DIR)/$*.tex
+	cd $(ARTICLE_BUILD_DIR) && \
+	  SOURCE_DATE_EPOCH=$$(uv run --quiet $(CURDIR)/$(CV_STAMP_SCRIPT) $(CURDIR)/$< $(CURDIR)/$(ARTICLE_STAMP_DIR)/$*.json --epoch) \
+	  FORCE_SOURCE_DATE=1 \
+	  latexmk -pdf -quiet -interaction=nonstopmode -halt-on-error -usepretex='\pdfsetrandomseed 1' $*.tex > /dev/null
+	cp $(ARTICLE_BUILD_DIR)/$*.pdf $@
+	@printf '%s: %s pages, %s over/underfull boxes\n' $@ \
+	  "$$(grep -oE 'Output written.*\(([0-9]+) pages?' $(ARTICLE_BUILD_DIR)/$*.log | grep -oE '[0-9]+ pages?' | tr -dc 0-9)" \
+	  "$$(grep -cE 'Overfull|Underfull' $(ARTICLE_BUILD_DIR)/$*.log || true)"
+
 # Delete top-level docs/*.html pages whose src/*.md is gone. Mirrors blog-prune:
 # docs/ is the deploy target, so without this a deleted page stays committed,
 # stays served, and stays in sitemap.xml (which enumerates docs/*.html). The
 # keep list adds the pages not built from src/*.md: 404, the blog index, and the
 # tag index.
 pages-prune: | $(OUT_DIR)
-	@keep=" $(notdir $(HTML_OUT) $(NOTFOUND_OUT) $(BLOG_INDEX_HTML) $(TAGS_INDEX_HTML)) "; \
-	for f in $(OUT_DIR)/*.html; do \
+	@keep=" $(notdir $(HTML_OUT) $(NOTFOUND_OUT) $(BLOG_INDEX_HTML) $(TAGS_INDEX_HTML) $(ARTICLE_CITE_OUT) $(ARTICLE_PDF_OUT)) "; \
+	for f in $(OUT_DIR)/*.html $(OUT_DIR)/*.pdf $(OUT_DIR)/*.bib $(OUT_DIR)/*.ris; do \
 	  [ -e "$$f" ] || continue; \
 	  case "$$keep" in \
 	    *" $$(basename "$$f") "*) ;; \
@@ -551,7 +624,7 @@ update-csl:
 	curl -fsSL $(CSL_UPSTREAM_URL) -o $(CSL_DIR)/chicago-notes.csl
 	@echo "CSL refreshed from upstream. Review with: git diff $(CSL_DIR)"
 
-.PHONY: clean check serve prune-images images-prune pages-prune fonts-prune update-csl csl-autoupdate blog blog-prune tags sitemap fonts
+.PHONY: clean check serve prune-images images-prune pages-prune articles fonts-prune update-csl csl-autoupdate blog blog-prune tags sitemap fonts
 clean: ; rm -rf $(OUT_DIR)
 # The preview server is scripts/serve.py, not `python3 -m http.server`, because
 # the latter sends only Last-Modified: browsers then apply RFC 9111 heuristic

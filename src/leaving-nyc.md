@@ -1,27 +1,29 @@
 ---
 title: "Leaving New York"
 subtitle: "The Dispersion of Twentieth-Century US Literary Publishing"
-description: "Library of Congress records reveal the rise and unexpected fall of New York City in twentieth-century US literary publishing."
 toc: true
+abstract: |
+  Who doesn’t believe that most US literature is published in New York City? Our analysis of 303,563 Library of Congress records reveals the expected rise followed by the unexpected fall of NYC in twentieth-century US literary publishing. NYC was only the place of publication for most works of US literature cataloged by the LC between 1947 and 1963, peaking in 1956 and declining sharply thereafter. That decline does not reflect decreased publishing in NYC, but increased publishing elsewhere. These findings nuance conventional narratives of conglomeration since consolidation of capital and proliferation of publishers happened simultaneously. Material approaches to literary history best explain these trends. As newer technologies displaced letterpress, older presses became available for cheap, allowing publishers outside NYC to flourish. New cataloging standards, NEA funding, and the rise of third-party distributors empowered the geographical expansion of US literary publishing. We demonstrate how this material approach enriches literary interpretation by reading Thomas Pynchon’s *Crying of Lot 49*. Recent US literary historiography has been undermined by the assumption that NYC’s qualitative dominance of US literary publishing entails its quantitative dominance. US literary histories benefit from attending to the supply-side of literary production, which reveals that the periphery is not peripheral.
+article:
+  authors:
+    - name: Erik Fredner
+      orcid: "0000-0002-2993-4961"
+    - name: Luca Messarra
+      url: https://english.stanford.edu/people/luca-messarra
+  journal: American Literary History
+  volume: 38
+  issue: 4
+  pages: 386–413
+  year: 2026
+  status: published
+  doi: 10.1093/alh/ajag058
 lof: true
 hero: images/nyc_map_animation.mp4
 hero-poster: images/nyc_map_animation-poster.png
 hero-alt: "Animated map, “Where US literature was published, 1900–2010”: dots accumulate on a map of the continental US for each place of publication in the Library of Congress’s American literature records. Early dots cluster around New York City; by 2010, 227,623 records cover the country."
 ---
 
-Co-authored with [Luca Messarra](https://english.stanford.edu/people/luca-messarra).
-
 This project extends [previous work on nineteenth-century imprints](https://c19datacollective.com/data/capital-us-literature/).
-
-## Accepted Manuscript
-
-Below is the accepted manuscript of the article that appeared as:
-
-Erik Fredner and Luca Messarra. “Leaving New York: The Dispersion of Twentieth-Century US Literary Publishing.” *American Literary History* 38, no. 4 (2026): 386–413. <https://doi.org/10.1093/alh/ajag058>
-
-## Abstract
-
-Who doesn’t believe that most US literature is published in New York City? Our analysis of 303,563 Library of Congress records reveals the expected rise followed by the unexpected fall of NYC in twentieth-century US literary publishing. NYC was only the place of publication for most works of US literature cataloged by the LC between 1947 and 1963, peaking in 1956 and declining sharply thereafter. That decline does not reflect decreased publishing in NYC, but increased publishing elsewhere. These findings nuance conventional narratives of conglomeration since consolidation of capital and proliferation of publishers happened simultaneously. Material approaches to literary history best explain these trends. As newer technologies displaced letterpress, older presses became available for cheap, allowing publishers outside NYC to flourish. New cataloging standards, NEA funding, and the rise of third-party distributors empowered the geographical expansion of US literary publishing. We demonstrate how this material approach enriches literary interpretation by reading Thomas Pynchon’s *Crying of Lot 49*. Recent US literary historiography has been undermined by the assumption that NYC’s qualitative dominance of US literary publishing entails its quantitative dominance. US literary histories benefit from attending to the supply-side of literary production, which reveals that the periphery is not peripheral.
 
 ## Introduction
 
