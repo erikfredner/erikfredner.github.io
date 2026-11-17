@@ -72,7 +72,10 @@ def bibtex(stem, meta, a):
         f"{fam}, {giv}" if giv else fam for giv, fam in map(split_name, (x["name"] for x in a["authors"]))
     )
     first_family = split_name(a["authors"][0]["name"])[1].lower()
-    key = re.sub(r"\W", "", first_family + re.sub(r"\W", "", plain(meta["title"]).split()[0]).title() + str(a["year"]))
+    # Better BibTeX style: author, first significant title word, year
+    # (frednerEnds2026, not frednerThe2026).
+    words = [w for w in re.findall(r"\w+", plain(meta["title"])) if w.lower() not in ("a", "an", "the")]
+    key = re.sub(r"\W", "", first_family + words[0].title() + str(a["year"]))
     fields = [
         ("author", authors),
         ("title", bib_title(full_title(meta))),

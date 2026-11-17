@@ -217,12 +217,10 @@ local function latex_meta(meta, a, aus)
   meta.date = date
   if a.notice then meta.thanks = inl(a.notice) end
   meta.toc, meta.lof, meta.lot = nil, nil, nil
-  meta["pdf-title"] = stringify(full_title(meta))
-  meta["pdf-author"] = table.concat((function()
-    local t = {}
-    for _, au in ipairs(aus) do t[#t + 1] = au.name end
-    return t
-  end)(), ", ")
+  -- pandoc's template fills the PDF's Title from title-meta, which defaults
+  -- to the title alone; Leaving New York's PDF was titled without its
+  -- subtitle.
+  meta["title-meta"] = stringify(full_title(meta))
 end
 
 local function Meta(meta)

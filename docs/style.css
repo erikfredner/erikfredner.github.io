@@ -698,7 +698,10 @@ sub {
   margin-block: 0.25rem 1.5rem;
 }
 h1.title:has(+ .article-byline) {
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+.subtitle + .article-byline {
+  margin-top: -0.75rem;
 }
 .article-info {
   font-size: 0.9em;
@@ -770,6 +773,18 @@ h1.title:has(+ .article-byline) {
 @media (hover: none) {
   .heading-link {
     opacity: 0.5;
+  }
+}
+@media (pointer: coarse) {
+  .heading-link,
+  a.footnote-ref {
+    position: relative;
+  }
+  .heading-link::after,
+  a.footnote-ref::after {
+    content: "";
+    position: absolute;
+    inset: -0.25rem -0.6rem;
   }
 }
 .works-cited {

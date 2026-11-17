@@ -1058,7 +1058,12 @@ sub {
 }
 
 h1.title:has(+ .article-byline) {
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Under a subtitle, which already ends the title block, keep it close. */
+.subtitle + .article-byline {
+  margin-top: -0.75rem;
 }
 
 /* Status, citation, notice, and downloads: reference matter, so set at the
@@ -1153,6 +1158,25 @@ h1.title:has(+ .article-byline) {
 @media (hover: none) {
   .heading-link {
     opacity: 0.5;
+  }
+}
+
+/* Thumb-sized hit areas for the two tiny inline targets, the "#" and the
+   footnote markers (~15px wide as drawn). An invisible ::after extends each
+   one's tappable box without moving a pixel of text; the extension stays
+   short of the line above and below. Coarse pointers only: a mouse doesn't
+   need it, and the larger box would steal clicks from neighbouring words. */
+@media (pointer: coarse) {
+  .heading-link,
+  a.footnote-ref {
+    position: relative;
+  }
+
+  .heading-link::after,
+  a.footnote-ref::after {
+    content: "";
+    position: absolute;
+    inset: -0.25rem -0.6rem;
   }
 }
 

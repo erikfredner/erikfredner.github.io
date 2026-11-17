@@ -320,11 +320,32 @@ computational methods.">
         });
       })();
 
-      // "Copy citation" beside an article's PDF/BibTeX/RIS links.
+      // "Copy citation" beside an article's PDF/BibTeX/RIS links. Where the
+      // clipboard API is missing or refuses (no permission, an older phone
+      // browser), it selects the citation instead and says so, rather than
+      // doing nothing visible.
       (function () {
         var cite = document.querySelector('.article-citation');
         var links = document.querySelector('.article-links');
-        if (!cite || !links || !navigator.clipboard) return;
+        if (!cite || !links) return;
+        var timer;
+        function flash(label, message, ms) {
+          btn.textContent = label;
+          status.textContent = message;
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            btn.textContent = 'Copy citation';
+            status.textContent = '';
+          }, ms);
+        }
+        function selectCitation() {
+          var range = document.createRange();
+          range.selectNodeContents(cite);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          flash('Citation selected', 'Citation selected; copy it with your browser', 4000);
+        }
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'copy-citation';
@@ -336,14 +357,10 @@ computational methods.">
         links.appendChild(status);
         btn.addEventListener('click', function () {
           var text = cite.textContent.replace(/\s+/g, ' ').trim();
+          if (!navigator.clipboard || !navigator.clipboard.writeText) return selectCitation();
           navigator.clipboard.writeText(text).then(function () {
-            btn.textContent = 'Copied';
-            status.textContent = 'Citation copied';
-            setTimeout(function () {
-              btn.textContent = 'Copy citation';
-              status.textContent = '';
-            }, 2000);
-          }, function () {});
+            flash('Copied', 'Citation copied', 2000);
+          }, selectCitation);
         });
       })();
     </script>
