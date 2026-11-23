@@ -772,10 +772,15 @@ a.chip {
   font-size: 0.9em;
   font-style: normal;
   text-decoration: none;
-  /* One line: a shrink-to-fit chip would otherwise break the address
-     mid-word. At 0.9em it is ~230px with the arrow, inside the 288px
-     column of a 320px viewport. */
-  white-space: nowrap;
+  /* One line whenever it fits: at 0.9em the address is ~230px with the
+     arrow, inside the 288px column of a 320px viewport, and a shrink-to-fit
+     chip takes its max-content width when there is room for it. When there
+     is not (WCAG 1.4.12's letter and word spacing at 320px adds ~45px),
+     it wraps, mid-address if need be, rather than overflow the page.
+     `white-space: nowrap` used to hold it on one line unconditionally and
+     scrolled the home page sideways under that spacing. */
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 a.chip:visited {
@@ -1187,9 +1192,17 @@ h1.title:has(+ .article-byline) {
 
 /* Section links (templates/base.html). Muted, and on a pointer device shown
    only while the heading is hovered or the link focused, so 20-odd "#"
-   marks don't line the essay. Touch screens have no hover: there they stay,
-   faint. */
+   marks don't line the essay. Touch screens have no hover: there they stay
+   visible at full --muted. They used to be faded to opacity 0.5 there, which
+   put a working link at 2.3:1 (light) / 2.7:1 (dark), under WCAG 1.4.3's
+   4.5:1; it takes about 0.82 to pass, which is hardly fainter than none. */
+/* inline-block because the template appends the link with no space after
+   the heading text, so as an inline there is no break opportunity before
+   it: a heading whose last word fills the line ("Acknowledgments" at 320px
+   under WCAG 1.4.12 text spacing) pushed the "#" past the viewport. An
+   atomic inline can drop to the next line on its own. */
 .heading-link {
+  display: inline-block;
   margin-inline-start: 0.35em;
   color: var(--muted);
   font-weight: 400;
@@ -1213,12 +1226,6 @@ h1.title:has(+ .article-byline) {
   :is(h2, h3, h4):hover > .heading-link,
   .heading-link:focus-visible {
     opacity: 1;
-  }
-}
-
-@media (hover: none) {
-  .heading-link {
-    opacity: 0.5;
   }
 }
 

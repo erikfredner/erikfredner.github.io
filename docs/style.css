@@ -499,7 +499,8 @@ a.chip {
   font-size: 0.9em;
   font-style: normal;
   text-decoration: none;
-  white-space: nowrap;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 a.chip:visited {
   color: var(--link);
@@ -786,6 +787,7 @@ h1.title:has(+ .article-byline) {
   white-space: nowrap;
 }
 .heading-link {
+  display: inline-block;
   margin-inline-start: 0.35em;
   color: var(--muted);
   font-weight: 400;
@@ -805,11 +807,6 @@ h1.title:has(+ .article-byline) {
   :is(h2, h3, h4):hover > .heading-link,
   .heading-link:focus-visible {
     opacity: 1;
-  }
-}
-@media (hover: none) {
-  .heading-link {
-    opacity: 0.5;
   }
 }
 @media (pointer: coarse) {
