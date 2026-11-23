@@ -754,6 +754,67 @@ article > header .tag-list {
   font-size: 0.85em;
 }
 
+/* Link chips: the home page's email link and the CV's two PDF links
+   (`{.chip}` on a markdown link), drawn like the tags above but a little
+   larger, since each is a call to action. The border is
+   --border-strong because it is what delimits the control (WCAG 1.4.11, as
+   for .back-to-top). The out arrow is a CSS mask, not a glyph: EB Garamond's
+   subset carries no ↗, and a mask takes currentColor, so it follows the
+   link color in both themes and on hover. It is decorative; the address is
+   the link's accessible name. */
+a.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 0.25em 0.85em;
+  font-size: 0.9em;
+  font-style: normal;
+  text-decoration: none;
+  /* One line: a shrink-to-fit chip would otherwise break the address
+     mid-word. At 0.9em it is ~230px with the arrow, inside the 288px
+     column of a 320px viewport. */
+  white-space: nowrap;
+}
+
+a.chip:visited {
+  color: var(--link);
+}
+
+a.chip:hover,
+a.chip:focus-visible {
+  border-color: var(--link);
+}
+
+/* In the CV's subtitle, which is italic, muted, and 1.25em: set the chips at
+   the size they have in body text (0.9em of the body), and leave room for
+   the pair to wrap onto two lines on a narrow phone. */
+.subtitle a.chip {
+  font-size: 0.72em;
+  margin-block: 0.2em;
+  margin-inline-end: 0.4em;
+}
+
+/* `balance` would split a row of two chips onto two lines even where they
+   fit side by side; they still wrap when the column is too narrow. The extra
+   top margin sets the row off from the h1, which a line of italic text
+   doesn't need. */
+p.subtitle:has(a.chip) {
+  text-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+a.chip::after {
+  content: "";
+  flex: none;
+  width: 0.7em;
+  height: 0.7em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l5-5M4.5 3.5h4v4'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l5-5M4.5 3.5h4v4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
 /* ---------- Prev/next post navigation ---------- */
 
 .post-nav {

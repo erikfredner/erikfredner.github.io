@@ -1,6 +1,6 @@
 ---
 title: CV
-subtitle: "As a PDF: [short CV](cv/cv.pdf) · [full CV](cv/cv-full.pdf)"
+subtitle: "[Short CV (PDF)](cv/cv.pdf){.chip} [Full CV (PDF)](cv/cv-full.pdf){.chip}"
 toc: true
 hanging-lists: true
 ---
