@@ -34,17 +34,11 @@ hanging-lists: true
 
 ## Works in Progress
 
-::: web-only
-Please see my [research page](research.html).
-:::
-
-::: pdf-only
-- []{.short} Fredner, Erik. *Averaging Americans: Why US Literature Started Thinking Statistically.* Book manuscript.
-- []{.short} Fredner, Erik, J. D. Porter, and Arthur Knight. "The Implicit Canon across Anthologies of African American Literature." Under review.
-- []{.short} Fredner, Erik. "The Literary Canon on *Jeopardy!*"
-- []{.short} Fredner, Erik, and J. D. Porter. "Anthologies at Scale: Reading, Fast and Slow." For *Cultures of Scale*, Debates in the Digital Humanities series.
-- []{.short} Fredner, Erik, and Mark Algee-Hewitt. "Literary Studies According to *The MLA International Bibliography*."
-:::
+- []{.short} Fredner, Erik. [*Averaging Americans: Why US Literature Started Thinking Statistically.*](averaging-americans.html) Book manuscript.
+- []{.short} Fredner, Erik, J. D. Porter, and Arthur Knight. ["The Implicit Canon across Anthologies of African American Literature."](af-am-anthologies.html) Under review.
+- []{.short} Fredner, Erik. ["The Literary Canon on *Jeopardy!*"](jeopardy.html)
+- []{.short} Fredner, Erik, and J. D. Porter. ["Anthologies at Scale: Reading, Fast and Slow."](anthologies-scale.html) For *Cultures of Scale*, Debates in the Digital Humanities series.
+- []{.short} Fredner, Erik, and Mark Algee-Hewitt. ["Literary Studies According to *The MLA International Bibliography*."](literary-studies-according-to-the-mla-international-bibliography.html)
 
 ## Awards {pdf-short="Selected Awards"}
 

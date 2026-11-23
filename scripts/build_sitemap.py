@@ -20,11 +20,16 @@ from xml.sax.saxutils import escape
 EXCLUDE = {"404.html"}
 
 
+def is_redirect(path):
+    """A src/redirects/ stub (a bare meta-refresh to a page's new home)."""
+    return 'http-equiv="refresh"' in path.read_text(encoding="utf-8")[:1000]
+
+
 def collect(out_dir, site_url, manifest):
     urls = []
 
     for path in sorted(out_dir.glob("*.html")):
-        if path.name in EXCLUDE:
+        if path.name in EXCLUDE or is_redirect(path):
             continue
         loc = f"{site_url}/" if path.name == "index.html" else f"{site_url}/{path.name}"
         urls.append((loc, None))

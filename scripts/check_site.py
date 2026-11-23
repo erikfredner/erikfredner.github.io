@@ -63,6 +63,7 @@ class Page(HTMLParser):
         self._skip_text = 0  # inside <script>/<style>
         self.lang = None
         self.canonical = None
+        self.refresh = None
         self.text = []
 
     def handle_starttag(self, tag, attrs):
@@ -82,6 +83,13 @@ class Page(HTMLParser):
         for attr in ("href", "src", "poster"):
             if a.get(attr):
                 self.links.append((tag, attr, a[attr], self.getpos()[0]))
+        # A redirect stub (src/redirects/, cv/index.html): check its target
+        # like a link, and skip the checks meant for real pages.
+        if tag == "meta" and (a.get("http-equiv") or "").lower() == "refresh":
+            target = (a.get("content") or "").partition("url=")[2].strip()
+            self.refresh = target
+            if target:
+                self.links.append((tag, "refresh", target, self.getpos()[0]))
         if tag == "link" and a.get("rel") == "canonical":
             self.canonical = a.get("href")
         if tag in ("img", "video"):
@@ -157,8 +165,8 @@ def main():
         problems.append(f"{path.relative_to(out_dir)}:{line}: {msg}")
 
     for path, page in parsed.items():
-        # The CV redirect stub is a bare meta-refresh, not a pandoc page.
-        is_stub = path.relative_to(out_dir).as_posix() == "cv/index.html"
+        # Redirect stubs are bare meta-refreshes, not pandoc pages.
+        is_stub = page.refresh is not None
 
         for i in sorted(page.dup_ids):
             report(path, page.ids[i], f"duplicate id {i!r}")

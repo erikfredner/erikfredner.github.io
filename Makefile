@@ -224,7 +224,14 @@ ARTICLE_PDF_OPTS  := --variable documentclass=article \
                      --variable pdfstandard=ua-2 \
                      --include-in-header=$(ARTICLE_PDF_HEADER)
 
-all: csl-autoupdate $(HTML_OUT) articles pages-prune $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) cv blog tags sitemap
+# Redirects for retired top-level pages: src/redirects/<name>.html is a bare
+# meta-refresh copied to docs/<name>.html, so an old URL keeps working after
+# its page is gone (research.html -> the CV's Works in Progress). Kept by
+# pages-prune, skipped by the sitemap and by check_site's page checks.
+REDIRECT_SRC := $(wildcard $(SRC_DIR)/redirects/*.html)
+REDIRECT_OUT := $(patsubst $(SRC_DIR)/redirects/%,$(OUT_DIR)/%,$(REDIRECT_SRC))
+
+all: csl-autoupdate $(HTML_OUT) $(REDIRECT_OUT) articles pages-prune $(NOTFOUND_OUT) $(IMAGES_OUT) images-prune $(SLIDES_OUT) $(STYLE_OUT) $(FONT_OUT) fonts-prune $(CNAME_OUT) $(NOJEKYLL_OUT) $(FAVICON_OUT) $(ROBOTS_OUT) cv blog tags sitemap
 
 # Refresh the vendored CSL from upstream if it hasn't been pulled in the
 # last 30 days. Runs automatically as part of `make`. Failures (e.g. offline)
@@ -262,6 +269,9 @@ $(NOTFOUND_OUT): $(NOTFOUND_SRC) $(TEMPLATE) $(HERO_FILTER) $(IMAGE_SIZE_FILTER)
 	  --metadata site-url="$(SITE_URL)" \
 	  --metadata pathprefix="/" \
 	  -o $@ $<
+
+$(REDIRECT_OUT): $(OUT_DIR)/%.html: $(SRC_DIR)/redirects/%.html | $(OUT_DIR)
+	cp $< $@
 
 # Article citation files and PDFs (`make articles`, and part of `make`).
 .PHONY: articles
@@ -310,7 +320,7 @@ $(ARTICLE_PDF_OUT): $(OUT_DIR)/%.pdf: $(SRC_DIR)/%.md $(ARTICLE_STAMP_DIR)/%.jso
 # keep list adds the pages not built from src/*.md: 404, the blog index, and the
 # tag index.
 pages-prune: | $(OUT_DIR)
-	@keep=" $(notdir $(HTML_OUT) $(NOTFOUND_OUT) $(BLOG_INDEX_HTML) $(TAGS_INDEX_HTML) $(ARTICLE_CITE_OUT) $(ARTICLE_PDF_OUT)) "; \
+	@keep=" $(notdir $(HTML_OUT) $(REDIRECT_OUT) $(NOTFOUND_OUT) $(BLOG_INDEX_HTML) $(TAGS_INDEX_HTML) $(ARTICLE_CITE_OUT) $(ARTICLE_PDF_OUT)) "; \
 	for f in $(OUT_DIR)/*.html $(OUT_DIR)/*.pdf $(OUT_DIR)/*.bib $(OUT_DIR)/*.ris; do \
 	  [ -e "$$f" ] || continue; \
 	  case "$$keep" in \
