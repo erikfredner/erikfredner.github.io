@@ -17,6 +17,7 @@ article:
   year: 2026
   status: published
   doi: 10.1093/alh/ajag058
+  data: https://doi.org/10.5281/zenodo.21245095
 lof: true
 hero: images/nyc_map_animation.mp4
 hero-poster: images/nyc_map_animation-poster.png
@@ -337,7 +338,7 @@ Zinn, Howard. “Secrecy, Archives, and the Public Interest.” *The Midwestern 
 
 [^1]: See Charvat; Tebbel; Casper; Gross and Kelley.
 
-[^2]: This essay does not discuss most technical details of the analysis. Interested readers can find them in the project repository, which contains code to reproduce our results: <https://doi.org/10.5281/zenodo.21245096>.
+[^2]: This essay does not discuss most technical details of the analysis. Interested readers can find them in the project repository, which contains code to reproduce our results: <https://doi.org/10.5281/zenodo.21245095>.
 
 [^3]: Readers may wonder what proportion of PS records are primary sources versus secondary sources. There is no perfect way to draw this distinction using MARC records alone. We created a set of rules documented in the repository to attempt this distinction using features like LC subjects and form codes. We find that 10.7% of PS records are likely secondary literature. Excluding them from the analysis does not change any of our core findings. For this reason, our findings report data from all available PS records.
 

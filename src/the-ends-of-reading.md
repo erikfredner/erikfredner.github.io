@@ -15,7 +15,7 @@ article:
   month: 12
   status: forthcoming
   doi: 10.1215/00029831-12720407
-  data: https://github.com/erikfredner/ends-of-reading
+  data: https://doi.org/10.5281/zenodo.18434695
   notice: "The accepted article manuscript below will appear with invited responses. Copyright Duke University Press. All rights reserved. By permission of the publisher."
 ---
 
@@ -27,7 +27,7 @@ Allow me to begin by citing a few statistics about reading in the United States 
 - 84% of US adults do not read anything for personal interest on an average day, including the news.
 - The odds of US adults reading anything for personal interest on an average day are 46% lower than they were in 2003.
 - The odds of US adults reading a novel, short story, poem, or play in the previous year are 49% lower than they were in 1982.
-- The odds of US thirteen-year-olds reading for fun weekly or more often are 76% lower than they were in 1984.^[Data and code to reproduce the values and figures here and throughout this essay are available in this repository: <https://github.com/erikfredner/ends-of-reading>. Repo to be preserved via Zenodo following proofs.]
+- The odds of US thirteen-year-olds reading for fun weekly or more often are 76% lower than they were in 1984.^[Data and code to reproduce the values and figures here and throughout this essay are available via Zenodo: <https://doi.org/10.5281/zenodo.18434695>.]
 
 I hope to persuade literature scholars in the US and beyond to care about these statistics regarding voluntary reading because they matter for literary studies. Even though many literary scholars are indifferent to or mistrustful of statistics, some numbers like enrollments, majors, and academic jobs already are meaningful to the profession. It is my contention that these statistics about reading ought to join that list. Broadly, these data sets show that voluntary reading in the US has been in consistent decline for at least forty years. None of these trends has plateaued, either. Subsequent surveys will likely find further decreases. I argue that this decline should register for literary studies because the discipline depends on the prevalence of voluntary reading to an extent largely unacknowledged within the profession.
 
