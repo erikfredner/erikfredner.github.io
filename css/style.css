@@ -760,7 +760,7 @@ article > header .tag-list {
    --border-strong because it is what delimits the control (WCAG 1.4.11, as
    for .back-to-top). The out arrow is a CSS mask, not a glyph: EB Garamond's
    subset carries no ↗, and a mask takes currentColor, so it follows the
-   link color in both themes and on hover. It is decorative; the address is
+   link color in both themes and on hover. It is decorative; the label is
    the link's accessible name. */
 a.chip {
   display: inline-flex;
@@ -772,13 +772,12 @@ a.chip {
   font-size: 0.9em;
   font-style: normal;
   text-decoration: none;
-  /* One line whenever it fits: at 0.9em the address is ~230px with the
-     arrow, inside the 288px column of a 320px viewport, and a shrink-to-fit
-     chip takes its max-content width when there is room for it. When there
-     is not (WCAG 1.4.12's letter and word spacing at 320px adds ~45px),
-     it wraps, mid-address if need be, rather than overflow the page.
-     `white-space: nowrap` used to hold it on one line unconditionally and
-     scrolled the home page sideways under that spacing. */
+  /* One line whenever it fits: a shrink-to-fit chip takes its max-content
+     width when there is room for it. When there is not (WCAG 1.4.12's
+     letter and word spacing at 320px), it wraps, mid-word if need be,
+     rather than overflow the page. `white-space: nowrap` used to hold it on
+     one line unconditionally and scrolled the home page (whose chip then
+     showed the full address) sideways under that spacing. */
   max-width: 100%;
   overflow-wrap: anywhere;
 }
@@ -792,9 +791,9 @@ a.chip:focus-visible {
   border-color: var(--link);
 }
 
-/* In the CV's subtitle, which is italic, muted, and 1.25em: set the chips at
+/* In a subtitle (the home page's and the CV's), which is italic, muted, and 1.25em: set the chips at
    the size they have in body text (0.9em of the body), and leave room for
-   the pair to wrap onto two lines on a narrow phone. */
+   a pair to wrap onto two lines on a narrow phone. */
 .subtitle a.chip {
   font-size: 0.72em;
   margin-block: 0.2em;
